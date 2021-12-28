@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-layui</artifactId>
+        <groupId>com.lquan</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>layui-web</artifactId>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>coupon-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>coupon-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.0.3.RELEASE</version>
+        </dependency>
+
+        <!--thymeleaf 前端框架-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--WebJars-->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>coupon-web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 资源根目录排除各环境的配置，防止在生成目录中多余其它目录 -->
+                <excludes>
+                    <!--<exclude>dev/*</exclude>-->
+                    <exclude>test/*</exclude>
+                    <exclude>online/*</exclude>
+                </excludes>
+                <!--开启filtering功能  -->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${package.env}</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+    <profiles>
+
+        <profile>
+            <!-- 本地开发环境f分库分表 -->
+            <id>devtest</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>devtest</package.env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+       <!-- <profile>
+            &lt;!&ndash; 本地开发环境f分库分表 &ndash;&gt;
+            <id>dev2d2t</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>dev2d2t</package.env>
+            </properties>
+            &lt;!&ndash;<activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>&ndash;&gt;
+        </profile>-->
+        <profile>
+            <!-- 本地开发环境 -->
+            <id>dev</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>dev</package.env>
+            </properties>
+            <!-- <activation>
+                 <activeByDefault>true</activeByDefault>
+             </activation>-->
+        </profile>
+        <!--<profile>
+            &lt;!&ndash; 测试环境 &ndash;&gt;
+            <id>test</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>test</package.env>
+            </properties>
+        </profile>
+        <profile>
+            &lt;!&ndash;上线环境 &ndash;&gt;
+            <id>online</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>online</package.env>
+            </properties>
+        </profile>
+        <profile>
+            &lt;!&ndash;灰度环境 &ndash;&gt;
+            <id>beta</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>beta</package.env>
+            </properties>
+        </profile>
+        <profile>
+            &lt;!&ndash;压测环境 &ndash;&gt;
+            <id>test-yc</id>
+            <properties>
+                <finalName>${project.artifactId}</finalName>
+                <package.env>test-yc</package.env>
+            </properties>
+        </profile>-->
+    </profiles>
+
+</project>
