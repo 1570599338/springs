@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaishun.study.dao.KfPatrolItemInfoDao">
+
+    <resultMap type="com.kaishun.study.entity.KfPatrolItemInfo" id="KfPatrolItemInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="busBusinessId" column="bus_business_id" jdbcType="INTEGER"/>
+        <result property="patrolSceneType" column="patrol_scene_type" jdbcType="INTEGER"/>
+        <result property="itemName" column="item_name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="rootDepth" column="root_depth" jdbcType="INTEGER"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="createUserUuid" column="create_user_uuid" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="modifyUserUuid" column="modify_user_uuid" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="KfPatrolItemInfoMap">
+        select id,
+               bus_business_id,
+               patrol_scene_type,
+               item_name,
+               parent_id,
+               root_depth,
+               delete_flag,
+               create_time,
+               create_user_uuid,
+               modify_time,
+               modify_user_uuid,
+               update_time
+        from kaishun.kf_patrol_item_info
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="KfPatrolItemInfoMap">
+        select id,
+               bus_business_id,
+               patrol_scene_type,
+               item_name,
+               parent_id,
+               root_depth,
+               delete_flag,
+               create_time,
+               create_user_uuid,
+               modify_time,
+               modify_user_uuid,
+               update_time
+        from kaishun.kf_patrol_item_info limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="KfPatrolItemInfoMap">
+        select
+        id, bus_business_id, patrol_scene_type, item_name, parent_id, root_depth, delete_flag, create_time,
+        create_user_uuid, modify_time, modify_user_uuid, update_time
+        from kaishun.kf_patrol_item_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="busBusinessId != null">
+                and bus_business_id = #{busBusinessId}
+            </if>
+            <if test="patrolSceneType != null">
+                and patrol_scene_type = #{patrolSceneType}
+            </if>
+            <if test="itemName != null and itemName != ''">
+                and item_name = #{itemName}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId}
+            </if>
+            <if test="rootDepth != null">
+                and root_depth = #{rootDepth}
+            </if>
+            <if test="deleteFlag != null">
+                and delete_flag = #{deleteFlag}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="createUserUuid != null and createUserUuid != ''">
+                and create_user_uuid = #{createUserUuid}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime}
+            </if>
+            <if test="modifyUserUuid != null and modifyUserUuid != ''">
+                and modify_user_uuid = #{modifyUserUuid}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+                                                delete_flag, create_time, create_user_uuid, modify_time,
+                                                modify_user_uuid, update_time)
+        values (#{busBusinessId}, #{patrolSceneType}, #{itemName}, #{parentId}, #{rootDepth}, #{deleteFlag},
+                #{createTime}, #{createUserUuid}, #{modifyTime}, #{modifyUserUuid}, #{updateTime});
+        INSERT
+        INTO kf_patrol_item_path (ancestor, descendant, depth)
+        SELECT n.ancestor, last_insert_id(), n.depth + 1
+        FROM kf_patrol_item_path n
+        WHERE n.descendant = #{parentId}
+        UNION ALL
+        SELECT last_insert_id(), last_insert_id(), 0;
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+        delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.busBusinessId}, #{entity.patrolSceneType}, #{entity.itemName}, #{entity.parentId},
+            #{entity.rootDepth}, #{entity.deleteFlag}, #{entity.createTime}, #{entity.createUserUuid},
+            #{entity.modifyTime}, #{entity.modifyUserUuid}, #{entity.updateTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+        delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.busBusinessId}, #{entity.patrolSceneType}, #{entity.itemName}, #{entity.parentId},
+            #{entity.rootDepth}, #{entity.deleteFlag}, #{entity.createTime}, #{entity.createUserUuid},
+            #{entity.modifyTime}, #{entity.modifyUserUuid}, #{entity.updateTime})
+        </foreach>
+        on duplicate key update
+        bus_business_id = values(bus_business_id) , patrol_scene_type = values(patrol_scene_type) , item_name =
+        values(item_name) , parent_id = values(parent_id) , root_depth = values(root_depth) , delete_flag =
+        values(delete_flag) , create_time = values(create_time) , create_user_uuid = values(create_user_uuid) ,
+        modify_time = values(modify_time) , modify_user_uuid = values(modify_user_uuid) , update_time =
+        values(update_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update kaishun.kf_patrol_item_info
+        <set>
+            <if test="busBusinessId != null">
+                bus_business_id = #{busBusinessId},
+            </if>
+            <if test="patrolSceneType != null">
+                patrol_scene_type = #{patrolSceneType},
+            </if>
+            <if test="itemName != null and itemName != ''">
+                item_name = #{itemName},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="rootDepth != null">
+                root_depth = #{rootDepth},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createUserUuid != null and createUserUuid != ''">
+                create_user_uuid = #{createUserUuid},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime},
+            </if>
+            <if test="modifyUserUuid != null and modifyUserUuid != ''">
+                modify_user_uuid = #{modifyUserUuid},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from kaishun.kf_patrol_item_info
+        where id = #{id}
+    </delete>
+
+</mapper>
+

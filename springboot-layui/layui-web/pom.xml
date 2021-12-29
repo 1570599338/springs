@@ -17,12 +17,12 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>coupon-core</artifactId>
+            <artifactId>layui-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>coupon-model</artifactId>
+            <artifactId>layui-model</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -112,17 +112,17 @@
                 <activeByDefault>true</activeByDefault>
             </activation>&ndash;&gt;
         </profile>-->
-        <profile>
-            <!-- 本地开发环境 -->
+       <!-- <profile>
+            &lt;!&ndash; 本地开发环境 &ndash;&gt;
             <id>dev</id>
             <properties>
                 <finalName>${project.artifactId}</finalName>
                 <package.env>dev</package.env>
             </properties>
-            <!-- <activation>
+            &lt;!&ndash; <activation>
                  <activeByDefault>true</activeByDefault>
-             </activation>-->
-        </profile>
+             </activation>&ndash;&gt;
+        </profile>-->
         <!--<profile>
             &lt;!&ndash; 测试环境 &ndash;&gt;
             <id>test</id>

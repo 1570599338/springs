@@ -1,7 +1,9 @@
 package com.lquan.layui.dao;
 
 import com.lquan.layui.domain.Course;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface CourseMapper {
     int deleteByPrimaryKey(Long id);
 

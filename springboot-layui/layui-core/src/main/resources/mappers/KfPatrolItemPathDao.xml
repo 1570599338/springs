@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaishun.study.dao.KfPatrolItemPathDao">
+
+    <resultMap type="com.kaishun.study.entity.KfPatrolItemPath" id="KfPatrolItemPathMap">
+        <result property="ancestor" column="ancestor" jdbcType="INTEGER"/>
+        <result property="descendant" column="descendant" jdbcType="INTEGER"/>
+        <result property="depth" column="depth" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="KfPatrolItemPathMap">
+        select ancestor,
+               descendant,
+               depth
+        from kaishun.kf_patrol_item_path
+        where ancestor = #{ancestor}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="KfPatrolItemPathMap">
+        select ancestor,
+               descendant,
+               depth
+        from kaishun.kf_patrol_item_path limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="KfPatrolItemPathMap">
+        select
+        ancestor, descendant, depth
+        from kaishun.kf_patrol_item_path
+        <where>
+            <if test="ancestor != null">
+                and ancestor = #{ancestor}
+            </if>
+            <if test="descendant != null">
+                and descendant = #{descendant}
+            </if>
+            <if test="depth != null">
+                and depth = #{depth}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="ancestor" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_path(depth)
+        values (#{depth})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="ancestor" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_path(depth)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.depth})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="ancestor" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_path(depth)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.depth})
+        </foreach>
+        on duplicate key update
+        depth = values(depth)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update kaishun.kf_patrol_item_path
+        <set>
+            <if test="depth != null">
+                depth = #{depth},
+            </if>
+        </set>
+        where ancestor = #{ancestor}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from kaishun.kf_patrol_item_path
+        where ancestor = #{ancestor}
+    </delete>
+
+</mapper>
+

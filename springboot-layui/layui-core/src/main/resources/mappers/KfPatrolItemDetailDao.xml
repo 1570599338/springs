@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaishun.study.dao.KfPatrolItemDetailDao">
+
+    <resultMap type="com.kaishun.study.entity.KfPatrolItemDetail" id="KfPatrolItemDetailMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="kfPatrolItemId" column="kf_patrol_item_id" jdbcType="INTEGER"/>
+        <result property="itemDescribe" column="item_describe" jdbcType="VARCHAR"/>
+        <result property="chekcMethod" column="chekc_method" jdbcType="INTEGER"/>
+        <result property="itemScore" column="item_score" jdbcType="INTEGER"/>
+        <result property="itemSort" column="item_sort" jdbcType="INTEGER"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="createUserUuid" column="create_user_uuid" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="modifyUserUuid" column="modify_user_uuid" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="KfPatrolItemDetailMap">
+        select id,
+               kf_patrol_item_id,
+               item_describe,
+               chekc_method,
+               item_score,
+               item_sort,
+               remarks,
+               delete_flag,
+               create_time,
+               create_user_uuid,
+               modify_time,
+               modify_user_uuid,
+               update_time
+        from kaishun.kf_patrol_item_detail
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="KfPatrolItemDetailMap">
+        select id,
+               kf_patrol_item_id,
+               item_describe,
+               chekc_method,
+               item_score,
+               item_sort,
+               remarks,
+               delete_flag,
+               create_time,
+               create_user_uuid,
+               modify_time,
+               modify_user_uuid,
+               update_time
+        from kaishun.kf_patrol_item_detail limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="KfPatrolItemDetailMap">
+        select
+        id, kf_patrol_item_id, item_describe, chekc_method, item_score, item_sort, remarks, delete_flag, create_time,
+        create_user_uuid, modify_time, modify_user_uuid, update_time
+        from kaishun.kf_patrol_item_detail
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="kfPatrolItemId != null">
+                and kf_patrol_item_id = #{kfPatrolItemId}
+            </if>
+            <if test="itemDescribe != null and itemDescribe != ''">
+                and item_describe = #{itemDescribe}
+            </if>
+            <if test="chekcMethod != null">
+                and chekc_method = #{chekcMethod}
+            </if>
+            <if test="itemScore != null">
+                and item_score = #{itemScore}
+            </if>
+            <if test="itemSort != null">
+                and item_sort = #{itemSort}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                and remarks = #{remarks}
+            </if>
+            <if test="deleteFlag != null">
+                and delete_flag = #{deleteFlag}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="createUserUuid != null and createUserUuid != ''">
+                and create_user_uuid = #{createUserUuid}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime}
+            </if>
+            <if test="modifyUserUuid != null and modifyUserUuid != ''">
+                and modify_user_uuid = #{modifyUserUuid}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_detail(kf_patrol_item_id, item_describe, chekc_method, item_score, item_sort,
+                                                  remarks, delete_flag, create_time, create_user_uuid, modify_time,
+                                                  modify_user_uuid, update_time)
+        values (#{kfPatrolItemId}, #{itemDescribe}, #{chekcMethod}, #{itemScore}, #{itemSort}, #{remarks},
+                #{deleteFlag}, #{createTime}, #{createUserUuid}, #{modifyTime}, #{modifyUserUuid}, #{updateTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_detail(kf_patrol_item_id, item_describe, chekc_method, item_score, item_sort,
+        remarks, delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.kfPatrolItemId}, #{entity.itemDescribe}, #{entity.chekcMethod}, #{entity.itemScore},
+            #{entity.itemSort}, #{entity.remarks}, #{entity.deleteFlag}, #{entity.createTime}, #{entity.createUserUuid},
+            #{entity.modifyTime}, #{entity.modifyUserUuid}, #{entity.updateTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into kaishun.kf_patrol_item_detail(kf_patrol_item_id, item_describe, chekc_method, item_score, item_sort,
+        remarks, delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.kfPatrolItemId}, #{entity.itemDescribe}, #{entity.chekcMethod}, #{entity.itemScore},
+            #{entity.itemSort}, #{entity.remarks}, #{entity.deleteFlag}, #{entity.createTime}, #{entity.createUserUuid},
+            #{entity.modifyTime}, #{entity.modifyUserUuid}, #{entity.updateTime})
+        </foreach>
+        on duplicate key update
+        kf_patrol_item_id = values(kf_patrol_item_id) , item_describe = values(item_describe) , chekc_method =
+        values(chekc_method) , item_score = values(item_score) , item_sort = values(item_sort) , remarks =
+        values(remarks) , delete_flag = values(delete_flag) , create_time = values(create_time) , create_user_uuid =
+        values(create_user_uuid) , modify_time = values(modify_time) , modify_user_uuid = values(modify_user_uuid) ,
+        update_time = values(update_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update kaishun.kf_patrol_item_detail
+        <set>
+            <if test="kfPatrolItemId != null">
+                kf_patrol_item_id = #{kfPatrolItemId},
+            </if>
+            <if test="itemDescribe != null and itemDescribe != ''">
+                item_describe = #{itemDescribe},
+            </if>
+            <if test="chekcMethod != null">
+                chekc_method = #{chekcMethod},
+            </if>
+            <if test="itemScore != null">
+                item_score = #{itemScore},
+            </if>
+            <if test="itemSort != null">
+                item_sort = #{itemSort},
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createUserUuid != null and createUserUuid != ''">
+                create_user_uuid = #{createUserUuid},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime},
+            </if>
+            <if test="modifyUserUuid != null and modifyUserUuid != ''">
+                modify_user_uuid = #{modifyUserUuid},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from kaishun.kf_patrol_item_detail
+        where id = #{id}
+    </delete>
+
+</mapper>
+
