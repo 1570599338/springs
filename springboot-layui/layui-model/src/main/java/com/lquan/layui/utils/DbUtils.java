@@ -21,8 +21,8 @@ import java.sql.DriverManager;
  * @CreateTime: 2021/9/24 15:55
  * @Description:
  */
-@Component
-@EnableScheduling
+//@Component
+//@EnableScheduling
 @Slf4j
 public class DbUtils {
 

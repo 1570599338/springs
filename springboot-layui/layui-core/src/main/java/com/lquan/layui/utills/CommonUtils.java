@@ -22,6 +22,7 @@ import java.util.UUID;
  * Datetime:    2020/2/14   13:57
  * Author:   zhoukaishun
  */
+@Component
 public class CommonUtils {
 
 
