@@ -1,7 +1,7 @@
 package com.lquan.layui.controller;
 
-import com.kaishun.study.entity.KfPatrolItemPath;
-import com.kaishun.study.service.KfPatrolItemPathService;
+import com.lquan.layui.domain.KfPatrolItemPath;
+import com.lquan.layui.service.KfPatrolItemPathService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,8 +12,8 @@ import javax.annotation.Resource;
  * @author easycode
  * @since 2021-12-09 09:56:14
  */
-@RestController
-@RequestMapping("kfPatrolItemPath")
+//@RestController
+//@RequestMapping("kfPatrolItemPath")
 public class KfPatrolItemPathController {
     /**
      * 服务对象

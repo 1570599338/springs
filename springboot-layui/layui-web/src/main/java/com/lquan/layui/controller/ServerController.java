@@ -1,8 +1,8 @@
 package com.lquan.layui.controller;
 
-import com.kaishun.study.server.Server;
-import com.kaishun.study.utils.ResultVO;
-import com.kaishun.study.utils.ResultVOUtil;
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.server.Server;
+import com.lquan.layui.utils.ResultVOUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,8 +1,8 @@
 package com.lquan.layui.exception;
 
-import com.kaishun.study.enums.ResultEnum;
-import com.kaishun.study.utils.ResultVO;
-import com.kaishun.study.utils.ResultVOUtil;
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.enums.ResultEnum;
+import com.lquan.layui.utils.ResultVOUtil;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

@@ -1,10 +1,10 @@
 package com.lquan.layui.controller;
 
-import com.kaishun.study.entity.TbRoleMenu;
-import com.kaishun.study.info.RoleMenuInfo;
-import com.kaishun.study.service.TbRoleMenuService;
-import com.kaishun.study.utils.ResultVO;
-import com.kaishun.study.utils.ResultVOUtil;
+import com.lquan.layui.bean.req.RoleMenuInfo;
+import com.lquan.layui.domain.TbRoleMenu;
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.service.TbRoleMenuService;
+import com.lquan.layui.utils.ResultVOUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

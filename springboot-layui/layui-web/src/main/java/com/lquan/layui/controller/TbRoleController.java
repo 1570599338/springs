@@ -1,16 +1,10 @@
 package com.lquan.layui.controller;
 
-import com.kaishun.study.Result.RoleMenuResult;
-import com.kaishun.study.entity.TbRole;
-import com.kaishun.study.entity.TbUser;
-import com.kaishun.study.info.RoleMenuInfo;
-import com.kaishun.study.service.RedisService;
-import com.kaishun.study.service.TbRoleService;
-import com.kaishun.study.service.TbUserService;
-import com.kaishun.study.utils.PageRequest;
-import com.kaishun.study.utils.PageResult;
-import com.kaishun.study.utils.ResultVO;
-import com.kaishun.study.utils.ResultVOUtil;
+
+import com.lquan.layui.domain.TbRole;
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.service.TbRoleService;
+import com.lquan.layui.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

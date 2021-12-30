@@ -41,10 +41,18 @@
         <artifactId>jjwt</artifactId>
         <version>0.9.0</version>
     </dependency>
+    <!--关于获取机器硬件信息-->
+       <dependency>
+           <groupId>com.github.oshi</groupId>
+           <artifactId>oshi-core</artifactId>
+           <version>3.9.1</version>
+       </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
 
 
 </project>

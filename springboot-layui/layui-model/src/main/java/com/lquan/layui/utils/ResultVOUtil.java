@@ -7,12 +7,8 @@ import com.lquan.layui.exception.CodeMessageException;
 
 /**
  * ClassName:    ResultVOUtil
- * Package:    com.kaishun.study.utils
  * Description:
- * Datetime:    2020/2/14   13:18
- * Author:   zhoukaishun
  */
-@SuppressWarnings("AlibabaClassMustHaveAuthor")
 public class ResultVOUtil {
 
     public static ResultVO loginSuccess(Object object) {
