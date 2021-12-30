@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@SuppressWarnings("AlibabaClassMustHaveAuthor")
 @Data
 public class User implements Serializable {
     private static final long serialVersionUID = 3384122292485592695L;

@@ -1,8 +1,8 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.dao.KfPatrolItemDetailDao;
-import com.kaishun.study.entity.KfPatrolItemDetail;
-import com.kaishun.study.service.KfPatrolItemDetailService;
+import com.lquan.layui.dao.KfPatrolItemDetailDao;
+import com.lquan.layui.domain.KfPatrolItemDetail;
+import com.lquan.layui.service.KfPatrolItemDetailService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,8 +11,6 @@ import java.util.List;
 /**
  * 检查点详情信息(KfPatrolItemDetail)表服务实现类
  *
- * @author easycode
- * @since 2021-12-08 18:07:13
  */
 @Service("kfPatrolItemDetailService")
 public class KfPatrolItemDetailServiceImpl implements KfPatrolItemDetailService {

@@ -1,8 +1,8 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.dao.KfPatrolItemPathDao;
-import com.kaishun.study.entity.KfPatrolItemPath;
-import com.kaishun.study.service.KfPatrolItemPathService;
+import com.lquan.layui.dao.KfPatrolItemPathDao;
+import com.lquan.layui.domain.KfPatrolItemPath;
+import com.lquan.layui.service.KfPatrolItemPathService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

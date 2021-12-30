@@ -1,10 +1,10 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.dao.TbRoleMenuDao;
-import com.kaishun.study.entity.TbRoleMenu;
-import com.kaishun.study.info.RoleMenuInfo;
-import com.kaishun.study.service.TbRoleMenuService;
-import com.kaishun.study.utils.CommonUtils;
+import com.lquan.layui.bean.req.RoleMenuInfo;
+import com.lquan.layui.dao.TbRoleMenuDao;
+import com.lquan.layui.domain.TbRoleMenu;
+import com.lquan.layui.service.TbRoleMenuService;
+import com.lquan.layui.utills.CommonUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,8 +1,8 @@
 package com.lquan.layui.utils;
 
-import com.kaishun.study.config.JWTConfig;
-import com.kaishun.study.enums.ResultEnum;
-import com.kaishun.study.exception.SystemException;
+import com.lquan.layui.constant.Constant;
+import com.lquan.layui.enums.ResultEnum;
+import com.lquan.layui.exception.SystemException;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +17,7 @@ import java.util.Date;
 
 /**
  * ClassName:    JwtTokenUtil
- * Package:    com.kaishun.study.utils
  * Description:
- * Datetime:    2020/4/24   14:00
- * Author:   kaishun.zhou
  */
 @SuppressWarnings("AlibabaClassMustHaveAuthor")
 public class JwtTokenUtil {
@@ -66,7 +63,7 @@ public class JwtTokenUtil {
             Date now = new Date(nowMillis);
 
             //生成签名密钥
-            byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(JWTConfig.base64Secret);
+            byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(Constant.base64Secret);
             Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
             //userId是重要信息，进行加密下
@@ -78,12 +75,12 @@ public class JwtTokenUtil {
                     .claim("role", role)
                     .claim("userId", encryId)
                     .setSubject(username)           // 代表这个JWT的主体，即它的所有人
-                    .setIssuer(JWTConfig.clientId)              // 代表这个JWT的签发主体；
+                    .setIssuer(Constant.clientId)              // 代表这个JWT的签发主体；
                     .setIssuedAt(new Date())        // 是一个时间戳，代表这个JWT的签发时间；
-                    .setAudience(JWTConfig.name)       // 代表这个JWT的接收对象；
+                    .setAudience(Constant.name)       // 代表这个JWT的接收对象；
                     .signWith(signatureAlgorithm, signingKey);
             //添加Token过期时间
-            int TTLMillis = JWTConfig.expiresSecond;
+            int TTLMillis = Constant.expiresSecond;
             if (TTLMillis >= 0) {
                 long expMillis = nowMillis + TTLMillis;
                 Date exp = new Date(expMillis);

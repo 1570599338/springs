@@ -1,9 +1,9 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.dao.TbUserRoleDao;
-import com.kaishun.study.entity.TbUserRole;
-import com.kaishun.study.service.TbUserRoleService;
-import com.kaishun.study.utils.CommonUtils;
+import com.lquan.layui.dao.TbUserRoleDao;
+import com.lquan.layui.domain.TbUserRole;
+import com.lquan.layui.service.TbUserRoleService;
+import com.lquan.layui.utills.CommonUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

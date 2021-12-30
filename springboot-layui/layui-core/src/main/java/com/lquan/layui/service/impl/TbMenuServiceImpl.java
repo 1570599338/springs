@@ -1,13 +1,14 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.Result.MenuTreeResult;
-import com.kaishun.study.config.JWTConfig;
-import com.kaishun.study.dao.TbMenuDao;
-import com.kaishun.study.entity.TbMenu;
-import com.kaishun.study.entity.TbRoleMenu;
-import com.kaishun.study.service.TbMenuService;
-import com.kaishun.study.service.TbRoleMenuService;
-import com.kaishun.study.utils.*;
+import com.lquan.layui.bean.resp.MenuTreeResult;
+import com.lquan.layui.constant.Constant;
+import com.lquan.layui.dao.TbMenuDao;
+import com.lquan.layui.domain.TbMenu;
+import com.lquan.layui.domain.TbRoleMenu;
+import com.lquan.layui.service.TbMenuService;
+import com.lquan.layui.service.TbRoleMenuService;
+import com.lquan.layui.utills.CommonUtils;
+import com.lquan.layui.utils.JwtTokenUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -103,7 +104,7 @@ public class TbMenuServiceImpl implements TbMenuService {
 
     @Override
     public List<TbMenu> getMenusByUserId() {
-        String userId = JwtTokenUtil.getUserId(JWTConfig.base64Secret);
+        String userId = JwtTokenUtil.getUserId(Constant.base64Secret);
         return tbMenuDao.getMenusByUserId(userId);
     }
 
@@ -131,7 +132,7 @@ public class TbMenuServiceImpl implements TbMenuService {
         List<TbRoleMenu> roleMenuList = tbRoleMenuService.findByMenuIdsAndRole(
                 childrenMenuList.stream().map(e->e.getId()).collect(Collectors.toList()),roleId);
 
-        Map<String,TbRoleMenu> checkedMap = roleMenuList.stream()
+        Map<String, TbRoleMenu> checkedMap = roleMenuList.stream()
                 .collect(Collectors.toMap(TbRoleMenu::getMenuId, Function.identity()));
 
         list.forEach(e->{

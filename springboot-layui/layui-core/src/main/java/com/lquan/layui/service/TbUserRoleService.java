@@ -1,6 +1,7 @@
 package com.lquan.layui.service;
 
-import com.kaishun.study.entity.TbUserRole;
+
+import com.lquan.layui.domain.TbUserRole;
 
 import java.util.List;
 

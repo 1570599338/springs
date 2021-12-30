@@ -1,32 +1,31 @@
 package com.lquan.layui.service.impl;
 
-import com.kaishun.study.entity.TbUser;
-import com.kaishun.study.service.RedisService;
-import com.kaishun.study.service.TbUserService;
-import com.kaishun.study.service.TokenUserService;
+import com.lquan.layui.domain.TbUser;
+import com.lquan.layui.service.RedisService;
+import com.lquan.layui.service.TbUserService;
+import com.lquan.layui.service.TokenUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 /**
  * ClassName:    TokenUserServiceImpl
- * Package:    com.kaishun.study.service.impl
  * Description:
- * Datetime:    2020/2/26   10:56
- * Author:   zhoukaishun
  */
-@SuppressWarnings("AlibabaClassMustHaveAuthor")
 @Service
 public class TokenUserServiceImpl implements TokenUserService {
 
+
     @Autowired
-    private RedisService redisService;
+    private StringRedisTemplate redisTemplate;
 
     @Autowired
     private TbUserService tbUserService;
 
     @Override
     public String findUserId(String token) {
-        return redisService.get(token);
+     //   return redisService.get(token);
+        return token == null ? null : (String)this.redisTemplate.opsForValue().get(token);
     }
 
     @Override

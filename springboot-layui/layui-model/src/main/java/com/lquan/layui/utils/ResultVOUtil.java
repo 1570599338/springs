@@ -1,8 +1,9 @@
 package com.lquan.layui.utils;
 
-import com.kaishun.study.enums.CodeEnum;
-import com.kaishun.study.enums.ResultEnum;
-import com.kaishun.study.exception.CodeMessageException;
+
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.enums.ResultEnum;
+import com.lquan.layui.exception.CodeMessageException;
 
 /**
  * ClassName:    ResultVOUtil
@@ -65,7 +66,7 @@ public class ResultVOUtil {
         return error(exception.getCode(),exception.getMessage());
     }
 
-    public static ResultVO error(CodeEnum codeEnum) {
+    public static ResultVO error(ResultEnum codeEnum) {
         return error(codeEnum.getCode(),codeEnum.getMessage());
     }
 

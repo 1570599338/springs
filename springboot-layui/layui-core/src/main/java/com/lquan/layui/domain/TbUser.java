@@ -1,6 +1,6 @@
 package com.lquan.layui.domain;
 
-import com.kaishun.study.validator.Phone;
+import com.lquan.layui.validator.Phone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

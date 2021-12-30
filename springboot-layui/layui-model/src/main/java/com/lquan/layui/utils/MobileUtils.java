@@ -1,6 +1,7 @@
 package com.lquan.layui.utils;
 
-import com.kaishun.study.enums.ResultEnum;
+import com.lquan.layui.dto.resp.ResultVO;
+import com.lquan.layui.enums.ResultEnum;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

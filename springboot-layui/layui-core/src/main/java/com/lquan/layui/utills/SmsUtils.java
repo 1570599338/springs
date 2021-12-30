@@ -1,4 +1,4 @@
-package com.lquan.layui.utils;
+package com.lquan.layui.utills;
 
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
@@ -8,11 +8,15 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
-import com.kaishun.study.config.SmsConfigure;
-import com.kaishun.study.service.RedisService;
+import com.lquan.layui.config.SmsConfigure;
+import com.lquan.layui.service.RedisService;
+import com.lquan.layui.utils.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * ClassName:    AliyunSms
@@ -21,15 +25,16 @@ import org.springframework.stereotype.Component;
  * Datetime:    2020/3/1   16:13
  * Author:   zhoukaishun
  */
-@SuppressWarnings("AlibabaClassMustHaveAuthor")
 @Component
 public class SmsUtils {
 
     @Autowired
     private SmsConfigure smsConfigure;
 
+
     @Autowired
-    private RedisService redisService;
+    private StringRedisTemplate redisTemplate;
+
 
     /**
      * @description 发送短信
@@ -57,7 +62,7 @@ public class SmsUtils {
         try {
             CommonResponse response = client.getCommonResponse(request);
             System.out.println(response.getData());
-            redisService.set(phoneNumber,templateParam,300);
+            redisTemplate.opsForValue().set(phoneNumber,templateParam,300, TimeUnit.SECONDS);
             return response.getData();
         } catch (ServerException e) {
             e.printStackTrace();
@@ -83,10 +88,11 @@ public class SmsUtils {
      */
     public boolean verification(String phoneNumber , String code){
         boolean flag = false;
-        String checkCode = redisService.get(phoneNumber);
+        String checkCode = phoneNumber == null ? null : (String)this.redisTemplate.opsForValue().get(phoneNumber);//redisService.get(phoneNumber);
         if(!StringUtils.isBlank(checkCode) && checkCode.equals(code)){
             flag = true;
-            redisService.delete(phoneNumber);
+           // redisService.delete(phoneNumber);
+            redisTemplate.delete(phoneNumber);
         }
         return flag;
 

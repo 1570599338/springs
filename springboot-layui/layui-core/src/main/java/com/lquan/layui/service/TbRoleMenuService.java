@@ -1,7 +1,8 @@
 package com.lquan.layui.service;
 
-import com.kaishun.study.entity.TbRoleMenu;
-import com.kaishun.study.info.RoleMenuInfo;
+
+import com.lquan.layui.bean.req.RoleMenuInfo;
+import com.lquan.layui.domain.TbRoleMenu;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

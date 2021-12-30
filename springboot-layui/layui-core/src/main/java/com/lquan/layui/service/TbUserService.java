@@ -1,17 +1,13 @@
 package com.lquan.layui.service;
 
+import com.lquan.layui.bean.resp.ForgetInfo;
 import com.lquan.layui.domain.TbUser;
+import com.lquan.layui.dto.resp.ResultVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- * (TbUser)表服务接口
- *
- * @author makejava
- * @since 2020-02-14 12:54:29
- */
 public interface TbUserService {
 
     /**

@@ -1,6 +1,6 @@
 package com.lquan.layui.service;
 
-import com.kaishun.study.entity.TbRole;
+import com.lquan.layui.domain.TbRole;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.lquan.layui.service;
 
-import com.kaishun.study.entity.KfPatrolItemInfo;
+import com.lquan.layui.domain.KfPatrolItemInfo;
 
 import java.util.List;
 

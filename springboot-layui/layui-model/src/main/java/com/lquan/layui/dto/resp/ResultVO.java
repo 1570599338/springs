@@ -1,4 +1,4 @@
-package com.lquan.layui.utils;
+package com.lquan.layui.dto.resp;
 
 import lombok.Data;
 

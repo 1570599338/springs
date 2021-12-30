@@ -1,9 +1,13 @@
-package com.lquan.layui.utils;
+package com.lquan.layui.utills;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.kaishun.study.config.JWTConfig;
-import com.kaishun.study.entity.TbUser;
+import com.lquan.layui.constant.Constant;
+import com.lquan.layui.domain.TbUser;
+import com.lquan.layui.utils.DateUtil;
+import com.lquan.layui.utils.JwtTokenUtil;
+import com.lquan.layui.utils.PageRequest;
+import com.lquan.layui.utils.StrToMd5;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,8 +22,6 @@ import java.util.UUID;
  * Datetime:    2020/2/14   13:57
  * Author:   zhoukaishun
  */
-@SuppressWarnings("AlibabaClassMustHaveAuthor")
-@Component
 public class CommonUtils {
 
 
@@ -43,10 +45,10 @@ public class CommonUtils {
             try {
                 if(isCreate){
                     setId.invoke(obj,getUUID32());
-                    setCreateTime.invoke(obj,DateUtil.get14Date());
+                    setCreateTime.invoke(obj, DateUtil.get14Date());
                 }
                 setUpdateTime.invoke(obj,DateUtil.get14Date());
-                setUpdateUser.invoke(obj,JwtTokenUtil.getUsername(JWTConfig.base64Secret));
+                setUpdateUser.invoke(obj, JwtTokenUtil.getUsername(Constant.base64Secret));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {

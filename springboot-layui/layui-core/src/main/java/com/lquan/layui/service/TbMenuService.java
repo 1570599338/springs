@@ -1,7 +1,8 @@
 package com.lquan.layui.service;
 
-import com.kaishun.study.Result.MenuTreeResult;
-import com.kaishun.study.entity.TbMenu;
+
+import com.lquan.layui.bean.resp.MenuTreeResult;
+import com.lquan.layui.domain.TbMenu;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

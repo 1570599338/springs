@@ -5,8 +5,6 @@ import java.io.Serializable;
 /**
  * (TbUserRole)实体类
  *
- * @author makejava
- * @since 2020-02-26 09:06:48
  */
 public class TbUserRole implements Serializable {
     private static final long serialVersionUID = 662798498526099853L;
