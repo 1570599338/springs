@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lquan.layui.dao.TbQuartzJobDao">
+<mapper namespace="com.lquan.layui.dao.TbQuartzJobMapper">
 
-    <resultMap type="com.lquan.layui.entity.TbQuartzJob" id="TbQuartzJobMap">
+    <resultMap type="com.lquan.layui.domain.TbQuartzJob" id="TbQuartzJobMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="jobName" column="job_name" jdbcType="VARCHAR"/>
         <result property="jobGroup" column="job_group" jdbcType="VARCHAR"/>
@@ -217,8 +217,8 @@
     </delete>
 
 
-    <!-- 查询定时任务列表 com.lquan.layui.entity.TbQuartzJob-->
-    <select id="queryQuartzJobList" parameterType="com.lquan.layui.entity.TbQuartzJob" resultMap="TbQuartzJobMap">
+    <!-- 查询定时任务列表 com.lquan.layui.domain.TbQuartzJob-->
+    <select id="queryQuartzJobList" parameterType="com.lquan.layui.domain.TbQuartzJob" resultMap="TbQuartzJobMap">
         select
         id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
         from tb_quartz_job where 1=1
@@ -247,7 +247,7 @@
 
 
     <!-- 根据bean查询定时任务详情  -->
-    <select id="selectByBean"  parameterType="com.lquan.layui.entity.TbQuartzJob" resultMap="TbQuartzJobMap">
+    <select id="selectByBean"  parameterType="com.lquan.layui.domain.TbQuartzJob" resultMap="TbQuartzJobMap">
         select
         id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
         from tb_quartz_job where 1=1
@@ -275,7 +275,7 @@
     </select>
 
     <!-- 更新定时任务信息 -->
-    <update id="updateByPrimaryKeySelective" parameterType="com.lquan.layui.entity.TbQuartzJob">
+    <update id="updateByPrimaryKeySelective" parameterType="com.lquan.layui.domain.TbQuartzJob">
         update tb_quartz_job
         <set>
             <if test="jobDescribe != null">

@@ -30,18 +30,24 @@
             <groupId>com.lquan</groupId>
             <artifactId>layui-core</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.lquan</groupId>
-            <artifactId>layui-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
-
-
     </dependencies>
 
+
+    <build>
+        <plugins>
+
+            <!--解决：编译时报错 Execution default of goal org.springframework.boot:spring-boot-maven-plugin:2.0.3.RELEASE:repackage failed: Unable to find main class -> [Help 1]-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
