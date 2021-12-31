@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * ClassName:    RoleMenuInfo
- * Package:    com.kaishun.study.info
+ * Package:    com. study.info
  * Description:
  * Datetime:    2020/4/15   15:50
  * Author:   zhoukaishun

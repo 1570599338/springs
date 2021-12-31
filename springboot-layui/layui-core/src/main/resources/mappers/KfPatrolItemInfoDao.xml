@@ -31,7 +31,7 @@
                modify_time,
                modify_user_uuid,
                update_time
-        from kaishun.kf_patrol_item_info
+        from  kf_patrol_item_info
         where id = #{id}
     </select>
 
@@ -49,7 +49,7 @@
                modify_time,
                modify_user_uuid,
                update_time
-        from kaishun.kf_patrol_item_info limit #{offset}, #{limit}
+        from  kf_patrol_item_info limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
@@ -57,7 +57,7 @@
         select
         id, bus_business_id, patrol_scene_type, item_name, parent_id, root_depth, delete_flag, create_time,
         create_user_uuid, modify_time, modify_user_uuid, update_time
-        from kaishun.kf_patrol_item_info
+        from  kf_patrol_item_info
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -100,7 +100,7 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+        insert into  kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
                                                 delete_flag, create_time, create_user_uuid, modify_time,
                                                 modify_user_uuid, update_time)
         values (#{busBusinessId}, #{patrolSceneType}, #{itemName}, #{parentId}, #{rootDepth}, #{deleteFlag},
@@ -115,7 +115,7 @@
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+        insert into  kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
         delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -126,7 +126,7 @@
     </insert>
 
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into kaishun.kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
+        insert into  kf_patrol_item_info(bus_business_id, patrol_scene_type, item_name, parent_id, root_depth,
         delete_flag, create_time, create_user_uuid, modify_time, modify_user_uuid, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -144,7 +144,7 @@
 
     <!--通过主键修改数据-->
     <update id="update">
-        update kaishun.kf_patrol_item_info
+        update  kf_patrol_item_info
         <set>
             <if test="busBusinessId != null">
                 bus_business_id = #{busBusinessId},
@@ -186,7 +186,7 @@
     <!--通过主键删除-->
     <delete id="deleteById">
         delete
-        from kaishun.kf_patrol_item_info
+        from  kf_patrol_item_info
         where id = #{id}
     </delete>
 

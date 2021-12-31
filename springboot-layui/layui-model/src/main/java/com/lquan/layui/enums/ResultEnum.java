@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * ClassName:    ResultEnum
- * Package:    com.kaishun.study.enums
+ * Package:    com. study.enums
  * Description:
  * Datetime:    2020/2/14   13:18
  * Author:   zhoukaishun

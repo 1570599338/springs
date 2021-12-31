@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * ClassName:    AliyunSms
- * Package:    com.kaishun.study.sms
+ * Package:    com. study.sms
  * Description:
  * Datetime:    2020/3/1   16:13
  * Author:   zhoukaishun

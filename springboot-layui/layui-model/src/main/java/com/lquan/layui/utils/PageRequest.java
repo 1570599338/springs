@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * ClassName:    PageRequest
- * Package:    com.kaishun.study.utils
+ * Package:    com. study.utils
  * Description:
  * Datetime:    2020/2/14   13:06
  * Author:   zhoukaishun

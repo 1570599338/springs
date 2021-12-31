@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 /**
  * ClassName:    ExceptionControllerAdvice
- * Package:    com.kaishun.study.exception
+ * Package:    com. study.exception
  * Description:
  * Datetime:    2020/4/10   9:30
  * Author:   zhoukaishun

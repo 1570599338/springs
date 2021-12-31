@@ -20,7 +20,7 @@ function getUserByName() {
     })
 }
 function changeImg() {
-    $("#img1").attr("src","common/images/kaishun.jpg");
+    $("#img1").attr("src","common/images/ jpg");
 }
 
 function initTableByData(obj){

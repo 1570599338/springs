@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * ClassName:    PageResult
- * Package:    com.kaishun.study.utils
+ * Package:    com. study.utils
  * Description:
  * Datetime:    2020/2/14   13:07
  * Author:   zhoukaishun

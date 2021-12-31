@@ -5,10 +5,10 @@ import java.util.Base64;
 
 /**
  * ClassName:    Base64Utils
- * Package:    com.kaishun.study.utils
+ * Package:    com. study.utils
  * Description:
  * Datetime:    2020/4/24   14:21
- * Author:   kaishun.zhou
+ * Author:    zhou
  */
 @SuppressWarnings("AlibabaClassMustHaveAuthor")
 public class Base64Util {

@@ -18,7 +18,7 @@
     <select id="queryById" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         where id = #{id}
     </select>
 
@@ -26,7 +26,7 @@
     <select id="queryAllByLimit" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         limit #{offset}, #{limit}
     </select>
 
@@ -34,7 +34,7 @@
     <select id="queryAll" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         <where>
             <if test="id != null and id != ''">
                 and id = #{id}
@@ -68,13 +68,13 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into kaishun.tb_menu(id,number, parent_number, name, remake, url, create_time, update_time, update_user)
+        insert into tb_menu(id,number, parent_number, name, remake, url, create_time, update_time, update_user)
         values (#{id},#{number}, #{parentNumber}, #{name}, #{remake}, #{url}, #{createTime}, #{updateTime}, #{updateUser})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update kaishun.tb_menu
+        update tb_menu
         <set>
             <if test="number != null and number != ''">
                 number = #{number},
@@ -106,35 +106,35 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from kaishun.tb_menu where id = #{id}
+        delete from tb_menu where id = #{id}
     </delete>
 
     <!--代码开始-->
     <select id="getMenus" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
     </select>
 
     <select id="getMenusByUserId" resultMap="TbMenuMap">
       select
           distinct tm.id, tm.number, tm.parent_number, tm.name, tm.remake, tm.url, tm.create_time, tm.update_time, tm.update_user
-        from kaishun.tb_menu tm
-        left join kaishun.tb_role_menu trm on trm.menu_id=tm.id
-        right join kaishun.tb_user_role tur on tur.role_id=trm.role_id
+        from tb_menu tm
+        left join tb_role_menu trm on trm.menu_id=tm.id
+        right join tb_user_role tur on tur.role_id=trm.role_id
         where tur.user_id=#{userId} order by tm.number
     </select>
 
     <select id="findAll" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
     </select>
 
     <select id="getMenuByName" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         where name like #{name}
 
     </select>
@@ -142,7 +142,7 @@
     <select id="getMenusByRoleId" resultMap="TbMenuMap">
         select
           tm.id, tm.number, tm.parent_number, tm.name, tm.remake, tm.url, tm.create_time, tm.update_time, tm.update_user
-        from kaishun.tb_menu tm,kaishun.tb_role_menu trm
+        from tb_menu tm,tb_role_menu trm
         where tm.id=trm.menu_id and trm.role_id=#{roleId}
 
     </select>
@@ -150,7 +150,7 @@
     <select id="findByParentNumber" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         where parent_number = #{parentNumber}
 
     </select>
@@ -158,7 +158,7 @@
     <select id="getMenusByParentNumbers" resultMap="TbMenuMap">
         select
           id, number, parent_number, name, remake, url, create_time, update_time, update_user
-        from kaishun.tb_menu
+        from tb_menu
         where parent_number in
         <foreach collection="parentNumbers" item="item" index="index" open="(" separator="," close=")">
             #{item}

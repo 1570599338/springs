@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 
 /**
  * ClassName:    Phone
- * Package:    com.kaishun.study.validator
+ * Package:    com. study.validator
  * Description:
  * Datetime:    2020/4/8   13:34
  * Author:   zhoukaishun

@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * ClassName:    StrToMd5
- * Package:    com.kaishun.study.utils
+ * Package:    com. study.utils
  * Description:
  * Datetime:    2020/3/13   16:11
  * Author:   zhoukaishun

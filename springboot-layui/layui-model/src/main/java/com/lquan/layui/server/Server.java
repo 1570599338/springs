@@ -18,10 +18,10 @@ import java.util.Properties;
 
 /**
  * @ClassName: Server
- * @Package: com.kaishun.study.config
+ * @Package: com. study.config
  * @Description:
  * @Datetime: 2020/11/20   14:53
- * @author: kaishun.zhou
+ * @author:  zhou
  */
 public class Server {
     private static final int OSHI_WAIT_SECOND = 1000;

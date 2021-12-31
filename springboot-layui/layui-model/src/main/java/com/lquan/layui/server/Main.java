@@ -2,10 +2,10 @@ package com.lquan.layui.server;
 
 /**
  * @ClassName: Main
- * @Package: com.kaishun.study.server
+ * @Package: com. study.server
  * @Description:
  * @Datetime: 2020/11/20   15:02
- * @author: kaishun.zhou
+ * @author:  zhou
  */
 public class Main {
     public static void main(String[] args)throws Exception {

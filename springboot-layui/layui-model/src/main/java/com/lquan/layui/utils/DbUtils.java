@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * @Package: com.kaishun.study.utils
+ * @Package: com. study.utils
  * @ClassName: DbUtils
  * @Author: zhoukaishun
  * @CreateTime: 2021/9/24 15:55
@@ -35,9 +35,9 @@ public class DbUtils {
     @Value("${spring.datasource.druid.password}")
     private String userPassword;
 
-    private static String dev_sql_Path = "C:\\Users\\admin\\Desktop\\zhoukaishun\\kaishun.sql";
+    private static String dev_sql_Path = "C:\\Users\\admin\\Desktop\\zhoukaishun\\ sql";
 
-    private static String prod_sql_path = "/usr/javaproject/study/sql/kaishun.sql";
+    private static String prod_sql_path = "/usr/javaproject/study/sql/ sql";
 
     @Scheduled(cron = "0 0 0 * * ? ")
     public void handleSql() {
@@ -52,7 +52,7 @@ public class DbUtils {
             // 绝对路径读取
             Reader read = new FileReader(path);
             // 从class目录下直接读取
-            //Reader read = Resources.getResourceAsReader("kaishun.sql");
+            //Reader read = Resources.getResourceAsReader(" sql");
             runner.runScript(read);
             runner.closeConnection();
             conn.close();

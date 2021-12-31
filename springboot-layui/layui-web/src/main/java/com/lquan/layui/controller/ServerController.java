@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @ClassName: ServerController
- * @Package: com.kaishun.study.controller
+ * @Package: com. study.controller
  * @Description:
  * @Datetime: 2020/11/20   15:19
- * @author: kaishun.zhou
+ * @author:  zhou
  */
 @RestController
 @RequestMapping("server")
