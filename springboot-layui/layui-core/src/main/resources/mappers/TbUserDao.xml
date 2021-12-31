@@ -24,7 +24,7 @@
     <select id="queryById" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         where id = #{id}
     </select>
 
@@ -32,7 +32,7 @@
     <select id="queryAllByLimit" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         limit #{offset}, #{limit}
     </select>
 
@@ -40,7 +40,7 @@
     <select id="queryAll" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         <where>
             <if test="id != null and id != ''">
                 and id = #{id}
@@ -74,13 +74,13 @@
 
     <!--新增所有列-->
     <insert id="insert">
-        insert into  tb_user(id, user_name, user_password, phone, sex, age, create_time, update_time, update_user)
+        insert into kaishun.tb_user(id, user_name, user_password, phone, sex, age, create_time, update_time, update_user)
         values (#{id}, #{userName}, #{userPassword}, #{phone}, #{sex}, #{age}, #{createTime}, #{updateTime}, #{updateUser})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update  tb_user
+        update kaishun.tb_user
         <set>
             <if test="userName != null and userName != ''">
                 user_name = #{userName},
@@ -112,38 +112,38 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from  tb_user where id = #{id}
+        delete from kaishun.tb_user where id = #{id}
     </delete>
     <!--获取所有用户-->
     <select id="findAll" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
     </select>
 
     <select id="login" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         where user_name = #{userName} and user_password = #{userPassword}
     </select>
 
     <select id="findTbUserByPhone" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         where phone = #{phone}
     </select>
 
     <update id="updatePasswordByPhone">
-        update  tb_user set user_password = #{password} where phone=#{phone}
+        update kaishun.tb_user set user_password = #{password} where phone=#{phone}
     </update>
 
 
     <select id="getUserByName" resultMap="TbUserMap">
         select
           id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         where user_name like #{name}
 
     </select>
@@ -152,7 +152,7 @@
 
         select
             id, user_name, user_password, phone, sex, age, create_time, update_time, update_user
-        from  tb_user
+        from kaishun.tb_user
         where user_name = #{name}
     </select>
     <select id="getCount" resultType="java.lang.Integer">

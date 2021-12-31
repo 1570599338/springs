@@ -34,7 +34,7 @@ public class QuartzJobController {
 
 //	@Autowired
 //	private ISysJobService sysJobService;
-
+	@Autowired
 	private TbQuartzJobService tbQuartzJobService;
 
 	/**
@@ -146,7 +146,7 @@ public class QuartzJobController {
 			return layuiData;*/
 			return ResultData.bulidSuccessResult(pageBean);
 		} catch (Exception e) {
-			throw new SystemException("查询任务列表异常：" + e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 

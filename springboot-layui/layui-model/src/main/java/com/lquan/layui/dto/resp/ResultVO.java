@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * ClassName:    ResultVO
- * Package:    com. study.utils
+ * Package:    com.kaishun.study.utils
  * Description:
  * Datetime:    2020/2/14   12:57
  * Author:   zhoukaishun

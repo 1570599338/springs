@@ -17,7 +17,7 @@ import java.util.UUID;
 
 /**
  * ClassName:    CommonUtils
- * Package:    com. study.utils
+ * Package:    com.kaishun.study.utils
  * Description:
  * Datetime:    2020/2/14   13:57
  * Author:   zhoukaishun

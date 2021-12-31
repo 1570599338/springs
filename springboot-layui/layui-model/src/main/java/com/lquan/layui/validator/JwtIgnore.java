@@ -7,10 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * ClassName:    JwtIgnore
- * Package:    com. study.validator
+ * Package:    com.kaishun.study.validator
  * Description:
  * Datetime:    2020/4/24   14:29
- * Author:    zhou
+ * Author:   kaishun.zhou
  */
 @SuppressWarnings("AlibabaClassMustHaveAuthor")
 @Target({ElementType.METHOD,ElementType.TYPE})

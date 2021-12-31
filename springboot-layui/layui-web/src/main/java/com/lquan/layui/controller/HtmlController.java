@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * ClassName:    HtmlController
- * Package:    com. study.controller
+ * Package:    com.kaishun.study.controller
  * Description:
  * Datetime:    2020/2/14   13:40
  * Author:   zhoukaishun

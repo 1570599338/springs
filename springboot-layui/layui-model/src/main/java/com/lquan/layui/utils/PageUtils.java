@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 
 /**
  * ClassName:    PageUtils
- * Package:    com. study.utils
+ * Package:    com.kaishun.study.utils
  * Description:
  * Datetime:    2020/2/14   13:10
  * Author:   zhoukaishun

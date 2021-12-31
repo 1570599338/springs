@@ -31,7 +31,7 @@ public class JwtTokenUtil {
 
     /**
      * @description 解析jwt
-     * @author  Zhou
+     * @author kaishun.Zhou
      * @date 2020/4/24 14:03
      */
     public static  Claims parseJWT(String jsonWebToken, String base64Security) {
@@ -51,7 +51,7 @@ public class JwtTokenUtil {
     
     /**
      * @description 构建jwt
-     * @author  Zhou
+     * @author kaishun.Zhou
      * @date 2020/4/24 14:08
      */
     public static  String createJWT(String userId, String username, String role) {
@@ -98,7 +98,7 @@ public class JwtTokenUtil {
 
     /**
      * @description 从token中获取用户名
-     * @author  Zhou
+     * @author kaishun.Zhou
      * @date 2020/4/24 14:09
      */
     public static String getUsername(String base64Security){
@@ -118,7 +118,7 @@ public class JwtTokenUtil {
     
     /**
      * @description 从token中获取用户ID
-     * @author  Zhou
+     * @author kaishun.Zhou
      * @date 2020/4/24 14:18
      */
     public static String getUserId(String base64Security){
@@ -136,7 +136,7 @@ public class JwtTokenUtil {
 
     /**
      * @description 是否已过期
-     * @author  Zhou
+     * @author kaishun.Zhou
      * @date 2020/4/24 14:18
      */
     public static boolean isExpiration(String token, String base64Security) {

@@ -3,8 +3,8 @@ package com.lquan.layui.controller;
 /*import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.read.listener.PageReadListener;
 import com.alibaba.fastjson.JSON;
-import com. study.excel.ExcelUtils;
-import com. study.excel.PatrolItemData;*/
+import com.kaishun.study.excel.ExcelUtils;
+import com.kaishun.study.excel.PatrolItemData;*/
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.io.File;
 
 /**
- * @Package: com. study.controller
+ * @Package: com.kaishun.study.controller
  * @ClassName: TestExcel
  * @Author: zhoukaishun
  * @CreateTime: 2021/12/8 18:18

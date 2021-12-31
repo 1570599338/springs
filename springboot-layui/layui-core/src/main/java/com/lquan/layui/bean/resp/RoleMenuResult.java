@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * ClassName:    RoleMenuResult
- * Package:    com. study.Result
+ * Package:    com.kaishun.study.Result
  * Description:
  */
 @SuppressWarnings("AlibabaClassMustHaveAuthor")

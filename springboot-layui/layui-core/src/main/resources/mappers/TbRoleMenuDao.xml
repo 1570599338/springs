@@ -23,7 +23,7 @@
     <select id="queryAllByLimit" resultMap="TbRoleMenuMap">
         select
           id, role_id, menu_id, create_time, update_time, update_user
-        from  tb_role_menu
+        from kaishun.tb_role_menu
         limit #{offset}, #{limit}
     </select>
 
@@ -62,7 +62,7 @@
 
     <!--通过主键修改数据-->
     <update id="update">
-        update  tb_role_menu
+        update kaishun.tb_role_menu
         <set>
             <if test="roleId != null and roleId != ''">
                 role_id = #{roleId},
@@ -102,7 +102,7 @@
     <select id="findByMenuIdAndRoleId" resultMap="TbRoleMenuMap">
         select
           id, role_id, menu_id, create_time, update_time, update_user
-        from  tb_role_menu
+        from kaishun.tb_role_menu
         where menu_id = #{menuId} and role_id = #{roleId}
 
     </select>

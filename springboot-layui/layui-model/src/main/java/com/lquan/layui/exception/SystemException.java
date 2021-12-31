@@ -5,7 +5,7 @@ import com.lquan.layui.enums.ResultEnum;
 
 /**
  * ClassName:    SystemException
- * Package:    com. study.exception
+ * Package:    com.kaishun.study.exception
  * Description:
  * Datetime:    2020/2/18   12:31
  * Author:   zhoukaishun
