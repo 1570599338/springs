@@ -1,7 +1,6 @@
 package com.lquan.layui.service.impl;
 
 import com.lquan.layui.domain.TbUser;
-import com.lquan.layui.service.RedisService;
 import com.lquan.layui.service.TbUserService;
 import com.lquan.layui.service.TokenUserService;
 import org.springframework.beans.factory.annotation.Autowired;

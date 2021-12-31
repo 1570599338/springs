@@ -9,7 +9,6 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.lquan.layui.config.SmsConfigure;
-import com.lquan.layui.service.RedisService;
 import com.lquan.layui.utils.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

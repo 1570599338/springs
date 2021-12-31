@@ -1,12 +1,12 @@
 package com.lquan.layui.service.impl;
 
-import com.lquan.layui.domain.TbCourse;
 import com.lquan.layui.dao.TbCourseMapper;
+import com.lquan.layui.domain.TbCourse;
 import com.lquan.layui.service.TbCourseService;
-import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
