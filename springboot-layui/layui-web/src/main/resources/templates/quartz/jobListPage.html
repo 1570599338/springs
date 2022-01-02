@@ -68,7 +68,18 @@
                         {field:'jobCron', width:120, title: '任务表达式',align: 'center'},
                         {field:'jobClassPath', width:320, title: '类路径',align: 'center'},
                         {field:'jobDescribe', width:200, title: '任务描述',align: 'center'},
-                        {field:'jobStatusStr' , minWidth:100, title:'任务状态', templet:'#switchTpl', unresize:true	},
+                        /*{field:'jobStatusStr' , minWidth:100, title:'任务状态', templet:'#switchTpl', unresize:true	},  */
+                        { field:'jobStatus' , minWidth:100, title:'任务状态', templet:function (d) {
+                            debugger;
+                                if(d.jobStatus == 1){
+                                    return"运行中"
+                                }if(d.jobStatus == 0) {
+                                    return "已停止"
+                                }else{
+                                    return "未知"
+                                }
+
+                            }, unresize:true	},
                         {field:'', title: '操作', align: 'center',width:255,toolbar:"#barDemo"}
                     ]
                 ]
