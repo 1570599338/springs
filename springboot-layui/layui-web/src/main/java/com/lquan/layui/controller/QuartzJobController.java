@@ -3,7 +3,9 @@ package com.lquan.layui.controller;
 import com.alibaba.fastjson.JSONObject;
 
 
-
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.lquan.layui.bean.req.ReqQuartzJobDto;
 import com.lquan.layui.domain.TbQuartzJob;
 import com.lquan.layui.dto.resp.ResultData;
 import com.lquan.layui.exception.BizException;
@@ -89,7 +91,7 @@ public class QuartzJobController {
 	 */
 	@RequestMapping(value = "/queryList", method = RequestMethod.GET)
 	@ResponseBody
-	public ResultData queryJobList(HttpServletRequest request, HttpServletResponse response) {
+	public ResultData<TbQuartzJob> queryJobList(HttpServletRequest request, HttpServletResponse response) {
 		String idStr = request.getParameter("id");
 		String jobName = request.getParameter("jobName");
 		String jobGroup = request.getParameter("jobGroup");
@@ -97,7 +99,7 @@ public class QuartzJobController {
 		String jobClassPath = request.getParameter("jobClassPath");
 		String jobDescribe = request.getParameter("jobDescribe");
 
-		TbQuartzJob tbQuartzJob = new TbQuartzJob();
+		ReqQuartzJobDto tbQuartzJob = new ReqQuartzJobDto();
 		HashMap<String, String> map = new HashMap<String, String>();
 		if (StringUtils.isNotBlank(idStr)) {
 			//map.put("id", idStr);
@@ -130,13 +132,17 @@ public class QuartzJobController {
 			page = (page-1)*limit;
 		}
 		//LayuiData layuiData = new LayuiData();
-
+		PageRequest pageRequest = new PageRequest(page,limit);
 		try {
 
 
-			Page<TbQuartzJob>  pageBean = this.tbQuartzJobService.queryByPage(tbQuartzJob, PageRequest.of(page,limit));
+		//	Page<TbQuartzJob>  pageBean = this.tbQuartzJobService.queryByPage(tbQuartzJob, PageRequest.of(page,limit));
 			//List<SysJob> jobList = sysJobService.querySysJobList(map);
+			PageHelper.startPage(page,limit);
 			List<TbQuartzJob> jobList= this.tbQuartzJobService.queryQuartzJobList(tbQuartzJob);
+			//生成分页信息对象
+			PageInfo<TbQuartzJob> pageInfo = new PageInfo<>(jobList);
+
 			//int count = sysJobService.getJobCount();
 			/*int count = this.tbQuartzJobService.
 			layuiData.setCode(0);
@@ -144,7 +150,7 @@ public class QuartzJobController {
 			layuiData.setMsg("数据请求成功");
 			layuiData.setData(jobList);
 			return layuiData;*/
-			return ResultData.bulidSuccessResult(pageBean);
+			return ResultData.bulidSuccessPageResult(pageInfo);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

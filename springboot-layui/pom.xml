@@ -277,6 +277,60 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.ttf</exclude>
+                    <exclude>**/*.woff</exclude>
+                </excludes>
+            </resource>
+           <!-- <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.ttf</include>
+                    <include>**/*.woff</include>
+                </includes>
+            </resource>-->
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 资源根目录排除各环境的配置，防止在生成目录中多余其它目录 -->
+                <excludes>
+                    <!--<exclude>dev/*</exclude>-->
+                    <exclude>test/*</exclude>
+                    <exclude>online/*</exclude>
+                </excludes>
+                <!--开启filtering功能  -->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${package.env}</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>static/fonts/**</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/fonts/**</include>
+                </includes>
+            </resource>
+
+        </resources>
     </build>
 
 

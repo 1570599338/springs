@@ -1,5 +1,6 @@
 package com.lquan.layui.dto.resp;
 
+import com.github.pagehelper.PageInfo;
 import com.lquan.layui.enums.ResultCodeEnum;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class ResultData<T> {
     private String code;
     private String message;
     private T data;
+    private Long count;
 
     private ResultData(){
 
@@ -50,6 +52,21 @@ public class ResultData<T> {
         resultData.setCode(ResultCodeEnum.SUCCESS.getCode());
         resultData.setMessage(ResultCodeEnum.SUCCESS.getDesc());
         resultData.setData(data);
+        return resultData;
+    }
+
+
+    /**
+     * 构建成功的返回数据
+     * @param data 返回数据
+     */
+    public static <T> ResultData bulidSuccessPageResult(PageInfo<T> data ){
+
+        ResultData resultData = new ResultData();
+        resultData.setCode(ResultCodeEnum.SUCCESS_PAGE.getCode());
+        resultData.setMessage(ResultCodeEnum.SUCCESS_PAGE.getDesc());
+        resultData.setData(data.getList());
+        resultData.setCount(data.getTotal());
         return resultData;
     }
 

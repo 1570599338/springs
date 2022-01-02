@@ -7,7 +7,9 @@ public enum ResultCodeEnum {
      */
     SUCCESS("2000","成功"),
     FAIL("5000", "失败"),
+    SUCCESS_PAGE("0","成功"),
     SYS_ERROR("5001","系统繁忙，请稍后重试");
+
 
 
 
