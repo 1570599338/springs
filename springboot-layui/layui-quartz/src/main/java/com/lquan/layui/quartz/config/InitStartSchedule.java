@@ -31,7 +31,7 @@ public class InitStartSchedule implements CommandLineRunner {
 	/*@Autowired
 	private ISysJobService sysJobService;
 */
-	@Autowired
+	@Resource
 	private TbQuartzJobMapper mapper;
 
 

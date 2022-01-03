@@ -132,7 +132,7 @@ public class QuartzJobController {
 			page = (page-1)*limit;
 		}
 		//LayuiData layuiData = new LayuiData();
-		PageRequest pageRequest = new PageRequest(page,limit);
+		//PageRequest pageRequest = new PageRequest(page,limit);
 		try {
 
 

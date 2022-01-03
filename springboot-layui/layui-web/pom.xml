@@ -74,14 +74,27 @@
     </dependencies>
 
     <build>
-        <finalName>coupon-web</finalName>
+        <finalName>layui-web</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
         </plugins>
         <resources>
+
+
             <resource>
                 <directory>src/main/resources</directory>
                 <!-- 资源根目录排除各环境的配置，防止在生成目录中多余其它目录 -->
@@ -100,6 +113,26 @@
                     <include>**/*.xml</include>
                 </includes>
             </resource>
+
+
+<!--处理字体异常的问题 start-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>static/fonts/**</exclude>
+                </excludes>
+            </resource>
+            <!-- fonts file cannot use filter as the data structure of byte file will be changed via filter -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/fonts/**</include>
+                </includes>
+            </resource>
+<!--END-->
+
         </resources>
     </build>
     <profiles>

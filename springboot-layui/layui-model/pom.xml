@@ -58,7 +58,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-<!--解决：编译时报错 Execution default of goal org.springframework.boot:spring-boot-maven-plugin:2.0.3.RELEASE:repackage failed: Unable to find main class -> [Help 1]-->
+<!--解决：编译时报错 Execution default of goal org.springframework.boot:spring-boot-maven-plugin:2.0.3.RELEASE:repackage failed: Unable to find main class -> [Help 1]
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -67,7 +67,7 @@
                         <phase>none</phase>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
