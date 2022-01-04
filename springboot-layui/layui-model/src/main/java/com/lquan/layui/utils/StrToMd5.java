@@ -14,6 +14,7 @@ import java.security.NoSuchAlgorithmException;
 public class StrToMd5 {
     public static String Md5(String sourceStr){
         String result = "";
+        sourceStr=sourceStr==null?"":sourceStr;
         try {
             // 创建具有指定算法名称的信息摘要
             MessageDigest md = MessageDigest.getInstance("MD5");

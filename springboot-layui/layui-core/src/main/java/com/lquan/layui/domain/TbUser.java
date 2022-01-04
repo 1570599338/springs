@@ -3,6 +3,7 @@ package com.lquan.layui.domain;
 import com.lquan.layui.validator.Phone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
  * @since 2020-03-13 16:45:24
  */
 @ApiModel
+@Data
 public class TbUser implements Serializable {
     private static final long serialVersionUID = -88598328571083439L;
     /**
@@ -55,6 +57,8 @@ public class TbUser implements Serializable {
     private String updateTime;
     
     private String updateUser;
+
+    private String imageUrl;
 
     @Override
     public String toString() {

@@ -27,6 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "/common/**"
                         ,"/layui/**"
                         ,"/static/**"
+                        ,"/user/**"
                         ,"**.ico");
     }
 
