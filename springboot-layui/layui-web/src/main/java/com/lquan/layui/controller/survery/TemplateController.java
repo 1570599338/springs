@@ -34,6 +34,22 @@ public class TemplateController {
     @Resource
     private TemplateService templateService;
 
+
+    /**
+     * 通过主键查询单条数据
+     *
+     * @param id 主键
+     * @return 单条数据
+     */
+    @RequestMapping("/get")
+    public ResultSurveryData queryById(@RequestParam(required = false,value = "id")  Integer id) {
+        Template template =this.templateService.queryById(id);
+        List list = new ArrayList();
+        list.add(template);
+        return ResultSurveryData.bulidSuccessPageResult(list);
+    }
+
+
     @JwtIgnore
     @RequestMapping("/search")
     public ResultSurveryData search(@RequestParam(required = false,value = "projectID") Integer projectID) {
@@ -79,16 +95,6 @@ public class TemplateController {
         return ResponseEntity.ok(this.templateService.queryByPage(template, pageRequest));
     }
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("{id}")
-    public ResponseEntity<Template> queryById(@PathVariable("id") Integer id) {
-        return ResponseEntity.ok(this.templateService.queryById(id));
-    }
 
     /**
      * 新增数据

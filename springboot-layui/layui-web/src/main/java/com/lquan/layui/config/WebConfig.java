@@ -30,6 +30,9 @@ public class WebConfig implements WebMvcConfigurer {
                         ,"/user/**"
                         ,"/project/**"
                         ,"/template/**"
+                        ,"/statement/**"
+                        ,"/question/**"
+                        ,"/queoption/**"
                         ,"**.ico");
     }
 

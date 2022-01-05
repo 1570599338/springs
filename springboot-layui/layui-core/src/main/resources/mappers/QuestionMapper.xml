@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.layui.dao.QuestionMapper">
+
+    <resultMap type="com.lquan.layui.domain.Question" id="QuestionMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="templateid" column="TemplateID" jdbcType="INTEGER"/>
+        <result property="type" column="Type" jdbcType="INTEGER"/>
+        <result property="subjecttype" column="SubjectType" jdbcType="INTEGER"/>
+        <result property="number" column="Number" jdbcType="VARCHAR"/>
+        <result property="snumber" column="SNumber" jdbcType="VARCHAR"/>
+        <result property="notation" column="Notation" jdbcType="VARCHAR"/>
+        <result property="title" column="Title" jdbcType="VARCHAR"/>
+        <result property="imageurl" column="ImageUrl" jdbcType="VARCHAR"/>
+        <result property="videourl" column="VideoUrl" jdbcType="VARCHAR"/>
+        <result property="optional" column="Optional" jdbcType="INTEGER"/>
+        <result property="help" column="Help" jdbcType="VARCHAR"/>
+        <result property="layout" column="Layout" jdbcType="INTEGER"/>
+        <result property="dispindex" column="DispIndex" jdbcType="INTEGER"/>
+        <result property="selectionmax" column="SelectionMax" jdbcType="INTEGER"/>
+        <result property="selectionmin" column="SelectionMin" jdbcType="INTEGER"/>
+        <result property="rowdisordered" column="RowDisordered" jdbcType="INTEGER"/>
+        <result property="matrixpivot" column="MatrixPivot" jdbcType="INTEGER"/>
+        <result property="rowlastfixed" column="RowLastFixed" jdbcType="INTEGER"/>
+        <result property="coldisordered" column="ColDisordered" jdbcType="INTEGER"/>
+        <result property="collastfixed" column="ColLastFixed" jdbcType="INTEGER"/>
+        <result property="columncount" column="ColumnCount" jdbcType="INTEGER"/>
+        <result property="businesstype" column="BusinessType" jdbcType="INTEGER"/>
+        <result property="scoretype" column="ScoreType" jdbcType="INTEGER"/>
+        <result property="rowreverse" column="RowReverse" jdbcType="INTEGER"/>
+        <result property="colreverse" column="ColReverse" jdbcType="INTEGER"/>
+        <result property="charttype" column="ChartType" jdbcType="INTEGER"/>
+        <result property="waitbeforenext" column="WaitBeforeNext" jdbcType="INTEGER"/>
+        <result property="refersourcetype" column="ReferSourceType" jdbcType="INTEGER"/>
+        <result property="referfieldname" column="ReferFieldName" jdbcType="VARCHAR"/>
+        <result property="referquestionid" column="ReferQuestionID" jdbcType="INTEGER"/>
+        <result property="active" column="Active" jdbcType="INTEGER"/>
+        <result property="createdat" column="CreatedAt" jdbcType="TIMESTAMP"/>
+        <result property="createdby" column="CreatedBy" jdbcType="VARCHAR"/>
+        <result property="updatedat" column="UpdatedAt" jdbcType="TIMESTAMP"/>
+        <result property="updatedby" column="UpdatedBy" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="QuestionMap">
+        select
+          ID, TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from question
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="QuestionMap">
+        select
+          ID, TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from question
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="templateid != null">
+                and TemplateID = #{templateid}
+            </if>
+            <if test="type != null">
+                and Type = #{type}
+            </if>
+            <if test="subjecttype != null">
+                and SubjectType = #{subjecttype}
+            </if>
+            <if test="number != null and number != ''">
+                and Number = #{number}
+            </if>
+            <if test="snumber != null and snumber != ''">
+                and SNumber = #{snumber}
+            </if>
+            <if test="notation != null and notation != ''">
+                and Notation = #{notation}
+            </if>
+            <if test="title != null and title != ''">
+                and Title = #{title}
+            </if>
+            <if test="imageurl != null and imageurl != ''">
+                and ImageUrl = #{imageurl}
+            </if>
+            <if test="videourl != null and videourl != ''">
+                and VideoUrl = #{videourl}
+            </if>
+            <if test="optional != null">
+                and Optional = #{optional}
+            </if>
+            <if test="help != null and help != ''">
+                and Help = #{help}
+            </if>
+            <if test="layout != null">
+                and Layout = #{layout}
+            </if>
+            <if test="dispindex != null">
+                and DispIndex = #{dispindex}
+            </if>
+            <if test="selectionmax != null">
+                and SelectionMax = #{selectionmax}
+            </if>
+            <if test="selectionmin != null">
+                and SelectionMin = #{selectionmin}
+            </if>
+            <if test="rowdisordered != null">
+                and RowDisordered = #{rowdisordered}
+            </if>
+            <if test="matrixpivot != null">
+                and MatrixPivot = #{matrixpivot}
+            </if>
+            <if test="rowlastfixed != null">
+                and RowLastFixed = #{rowlastfixed}
+            </if>
+            <if test="coldisordered != null">
+                and ColDisordered = #{coldisordered}
+            </if>
+            <if test="collastfixed != null">
+                and ColLastFixed = #{collastfixed}
+            </if>
+            <if test="columncount != null">
+                and ColumnCount = #{columncount}
+            </if>
+            <if test="businesstype != null">
+                and BusinessType = #{businesstype}
+            </if>
+            <if test="scoretype != null">
+                and ScoreType = #{scoretype}
+            </if>
+            <if test="rowreverse != null">
+                and RowReverse = #{rowreverse}
+            </if>
+            <if test="colreverse != null">
+                and ColReverse = #{colreverse}
+            </if>
+            <if test="charttype != null">
+                and ChartType = #{charttype}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="refersourcetype != null">
+                and ReferSourceType = #{refersourcetype}
+            </if>
+            <if test="referfieldname != null and referfieldname != ''">
+                and ReferFieldName = #{referfieldname}
+            </if>
+            <if test="referquestionid != null">
+                and ReferQuestionID = #{referquestionid}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from question
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="templateid != null">
+                and TemplateID = #{templateid}
+            </if>
+            <if test="type != null">
+                and Type = #{type}
+            </if>
+            <if test="subjecttype != null">
+                and SubjectType = #{subjecttype}
+            </if>
+            <if test="number != null and number != ''">
+                and Number = #{number}
+            </if>
+            <if test="snumber != null and snumber != ''">
+                and SNumber = #{snumber}
+            </if>
+            <if test="notation != null and notation != ''">
+                and Notation = #{notation}
+            </if>
+            <if test="title != null and title != ''">
+                and Title = #{title}
+            </if>
+            <if test="imageurl != null and imageurl != ''">
+                and ImageUrl = #{imageurl}
+            </if>
+            <if test="videourl != null and videourl != ''">
+                and VideoUrl = #{videourl}
+            </if>
+            <if test="optional != null">
+                and Optional = #{optional}
+            </if>
+            <if test="help != null and help != ''">
+                and Help = #{help}
+            </if>
+            <if test="layout != null">
+                and Layout = #{layout}
+            </if>
+            <if test="dispindex != null">
+                and DispIndex = #{dispindex}
+            </if>
+            <if test="selectionmax != null">
+                and SelectionMax = #{selectionmax}
+            </if>
+            <if test="selectionmin != null">
+                and SelectionMin = #{selectionmin}
+            </if>
+            <if test="rowdisordered != null">
+                and RowDisordered = #{rowdisordered}
+            </if>
+            <if test="matrixpivot != null">
+                and MatrixPivot = #{matrixpivot}
+            </if>
+            <if test="rowlastfixed != null">
+                and RowLastFixed = #{rowlastfixed}
+            </if>
+            <if test="coldisordered != null">
+                and ColDisordered = #{coldisordered}
+            </if>
+            <if test="collastfixed != null">
+                and ColLastFixed = #{collastfixed}
+            </if>
+            <if test="columncount != null">
+                and ColumnCount = #{columncount}
+            </if>
+            <if test="businesstype != null">
+                and BusinessType = #{businesstype}
+            </if>
+            <if test="scoretype != null">
+                and ScoreType = #{scoretype}
+            </if>
+            <if test="rowreverse != null">
+                and RowReverse = #{rowreverse}
+            </if>
+            <if test="colreverse != null">
+                and ColReverse = #{colreverse}
+            </if>
+            <if test="charttype != null">
+                and ChartType = #{charttype}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="refersourcetype != null">
+                and ReferSourceType = #{refersourcetype}
+            </if>
+            <if test="referfieldname != null and referfieldname != ''">
+                and ReferFieldName = #{referfieldname}
+            </if>
+            <if test="referquestionid != null">
+                and ReferQuestionID = #{referquestionid}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into question(TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values (#{templateid}, #{type}, #{subjecttype}, #{number}, #{snumber}, #{notation}, #{title}, #{imageurl}, #{videourl}, #{optional}, #{help}, #{layout}, #{dispindex}, #{selectionmax}, #{selectionmin}, #{rowdisordered}, #{matrixpivot}, #{rowlastfixed}, #{coldisordered}, #{collastfixed}, #{columncount}, #{businesstype}, #{scoretype}, #{rowreverse}, #{colreverse}, #{charttype}, #{waitbeforenext}, #{refersourcetype}, #{referfieldname}, #{referquestionid}, #{active}, #{createdat}, #{createdby}, #{updatedat}, #{updatedby})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into question
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                `ID`,
+            </if>
+                    <if test="templateid != null">
+                `TemplateID`,
+            </if>
+                    <if test="type != null">
+                `Type`,
+            </if>
+                    <if test="subjecttype != null">
+                `SubjectType`,
+            </if>
+                    <if test="number != null and number != ''">
+                `Number`,
+            </if>
+                    <if test="snumber != null and snumber != ''">
+                `SNumber`,
+            </if>
+                    <if test="notation != null and notation != ''">
+                `Notation`,
+            </if>
+                    <if test="title != null and title != ''">
+                `Title`,
+            </if>
+                    <if test="imageurl != null and imageurl != ''">
+                `ImageUrl`,
+            </if>
+                    <if test="videourl != null and videourl != ''">
+                `VideoUrl`,
+            </if>
+                    <if test="optional != null">
+                `Optional`,
+            </if>
+                    <if test="help != null and help != ''">
+                `Help`,
+            </if>
+                    <if test="layout != null">
+                `Layout`,
+            </if>
+                    <if test="dispindex != null">
+                `DispIndex`,
+            </if>
+                    <if test="selectionmax != null">
+                `SelectionMax`,
+            </if>
+                    <if test="selectionmin != null">
+                `SelectionMin`,
+            </if>
+                    <if test="rowdisordered != null">
+                `RowDisordered`,
+            </if>
+                    <if test="matrixpivot != null">
+                `MatrixPivot`,
+            </if>
+                    <if test="rowlastfixed != null">
+                `RowLastFixed`,
+            </if>
+                    <if test="coldisordered != null">
+                `ColDisordered`,
+            </if>
+                    <if test="collastfixed != null">
+                `ColLastFixed`,
+            </if>
+                    <if test="columncount != null">
+                `ColumnCount`,
+            </if>
+                    <if test="businesstype != null">
+                `BusinessType`,
+            </if>
+                    <if test="scoretype != null">
+                `ScoreType`,
+            </if>
+                    <if test="rowreverse != null">
+                `RowReverse`,
+            </if>
+                    <if test="colreverse != null">
+                `ColReverse`,
+            </if>
+                    <if test="charttype != null">
+                `ChartType`,
+            </if>
+                    <if test="waitbeforenext != null">
+                `WaitBeforeNext`,
+            </if>
+                    <if test="refersourcetype != null">
+                `ReferSourceType`,
+            </if>
+                    <if test="referfieldname != null and referfieldname != ''">
+                `ReferFieldName`,
+            </if>
+                    <if test="referquestionid != null">
+                `ReferQuestionID`,
+            </if>
+                    <if test="active != null">
+                `Active`,
+            </if>
+                    <if test="createdat != null">
+                `CreatedAt`,
+            </if>
+                    <if test="createdby != null and createdby != ''">
+                `CreatedBy`,
+            </if>
+                    <if test="updatedat != null">
+                `UpdatedAt`,
+            </if>
+                    <if test="updatedby != null and updatedby != ''">
+                `UpdatedBy`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+                    <if test="templateid != null">
+                #{templateid,jdbcType=INTEGER},
+            </if>
+                    <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+                    <if test="subjecttype != null">
+                #{subjecttype,jdbcType=INTEGER},
+            </if>
+                    <if test="number != null and number != ''">
+                #{number,jdbcType=VARCHAR},
+            </if>
+                    <if test="snumber != null and snumber != ''">
+                #{snumber,jdbcType=VARCHAR},
+            </if>
+                    <if test="notation != null and notation != ''">
+                #{notation,jdbcType=VARCHAR},
+            </if>
+                    <if test="title != null and title != ''">
+                #{title,jdbcType=VARCHAR},
+            </if>
+                    <if test="imageurl != null and imageurl != ''">
+                #{imageurl,jdbcType=VARCHAR},
+            </if>
+                    <if test="videourl != null and videourl != ''">
+                #{videourl,jdbcType=VARCHAR},
+            </if>
+                    <if test="optional != null">
+                #{optional,jdbcType=INTEGER},
+            </if>
+                    <if test="help != null and help != ''">
+                #{help,jdbcType=VARCHAR},
+            </if>
+                    <if test="layout != null">
+                #{layout,jdbcType=INTEGER},
+            </if>
+                    <if test="dispindex != null">
+                #{dispindex,jdbcType=INTEGER},
+            </if>
+                    <if test="selectionmax != null">
+                #{selectionmax,jdbcType=INTEGER},
+            </if>
+                    <if test="selectionmin != null">
+                #{selectionmin,jdbcType=INTEGER},
+            </if>
+                    <if test="rowdisordered != null">
+                #{rowdisordered,jdbcType=INTEGER},
+            </if>
+                    <if test="matrixpivot != null">
+                #{matrixpivot,jdbcType=INTEGER},
+            </if>
+                    <if test="rowlastfixed != null">
+                #{rowlastfixed,jdbcType=INTEGER},
+            </if>
+                    <if test="coldisordered != null">
+                #{coldisordered,jdbcType=INTEGER},
+            </if>
+                    <if test="collastfixed != null">
+                #{collastfixed,jdbcType=INTEGER},
+            </if>
+                    <if test="columncount != null">
+                #{columncount,jdbcType=INTEGER},
+            </if>
+                    <if test="businesstype != null">
+                #{businesstype,jdbcType=INTEGER},
+            </if>
+                    <if test="scoretype != null">
+                #{scoretype,jdbcType=INTEGER},
+            </if>
+                    <if test="rowreverse != null">
+                #{rowreverse,jdbcType=INTEGER},
+            </if>
+                    <if test="colreverse != null">
+                #{colreverse,jdbcType=INTEGER},
+            </if>
+                    <if test="charttype != null">
+                #{charttype,jdbcType=INTEGER},
+            </if>
+                    <if test="waitbeforenext != null">
+                #{waitbeforenext,jdbcType=INTEGER},
+            </if>
+                    <if test="refersourcetype != null">
+                #{refersourcetype,jdbcType=INTEGER},
+            </if>
+                    <if test="referfieldname != null and referfieldname != ''">
+                #{referfieldname,jdbcType=VARCHAR},
+            </if>
+                    <if test="referquestionid != null">
+                #{referquestionid,jdbcType=INTEGER},
+            </if>
+                    <if test="active != null">
+                #{active,jdbcType=INTEGER},
+            </if>
+                    <if test="createdat != null">
+                #{createdat,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="createdby != null and createdby != ''">
+                #{createdby,jdbcType=VARCHAR},
+            </if>
+                    <if test="updatedat != null">
+                #{updatedat,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="updatedby != null and updatedby != ''">
+                #{updatedby,jdbcType=VARCHAR},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into question(TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.templateid}, #{entity.type}, #{entity.subjecttype}, #{entity.number}, #{entity.snumber}, #{entity.notation}, #{entity.title}, #{entity.imageurl}, #{entity.videourl}, #{entity.optional}, #{entity.help}, #{entity.layout}, #{entity.dispindex}, #{entity.selectionmax}, #{entity.selectionmin}, #{entity.rowdisordered}, #{entity.matrixpivot}, #{entity.rowlastfixed}, #{entity.coldisordered}, #{entity.collastfixed}, #{entity.columncount}, #{entity.businesstype}, #{entity.scoretype}, #{entity.rowreverse}, #{entity.colreverse}, #{entity.charttype}, #{entity.waitbeforenext}, #{entity.refersourcetype}, #{entity.referfieldname}, #{entity.referquestionid}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into question(TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.templateid}, #{entity.type}, #{entity.subjecttype}, #{entity.number}, #{entity.snumber}, #{entity.notation}, #{entity.title}, #{entity.imageurl}, #{entity.videourl}, #{entity.optional}, #{entity.help}, #{entity.layout}, #{entity.dispindex}, #{entity.selectionmax}, #{entity.selectionmin}, #{entity.rowdisordered}, #{entity.matrixpivot}, #{entity.rowlastfixed}, #{entity.coldisordered}, #{entity.collastfixed}, #{entity.columncount}, #{entity.businesstype}, #{entity.scoretype}, #{entity.rowreverse}, #{entity.colreverse}, #{entity.charttype}, #{entity.waitbeforenext}, #{entity.refersourcetype}, #{entity.referfieldname}, #{entity.referquestionid}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+        </foreach>
+        on duplicate key update
+        TemplateID = values(TemplateID),
+        Type = values(Type),
+        SubjectType = values(SubjectType),
+        Number = values(Number),
+        SNumber = values(SNumber),
+        Notation = values(Notation),
+        Title = values(Title),
+        ImageUrl = values(ImageUrl),
+        VideoUrl = values(VideoUrl),
+        Optional = values(Optional),
+        Help = values(Help),
+        Layout = values(Layout),
+        DispIndex = values(DispIndex),
+        SelectionMax = values(SelectionMax),
+        SelectionMin = values(SelectionMin),
+        RowDisordered = values(RowDisordered),
+        MatrixPivot = values(MatrixPivot),
+        RowLastFixed = values(RowLastFixed),
+        ColDisordered = values(ColDisordered),
+        ColLastFixed = values(ColLastFixed),
+        ColumnCount = values(ColumnCount),
+        BusinessType = values(BusinessType),
+        ScoreType = values(ScoreType),
+        RowReverse = values(RowReverse),
+        ColReverse = values(ColReverse),
+        ChartType = values(ChartType),
+        WaitBeforeNext = values(WaitBeforeNext),
+        ReferSourceType = values(ReferSourceType),
+        ReferFieldName = values(ReferFieldName),
+        ReferQuestionID = values(ReferQuestionID),
+        Active = values(Active),
+        CreatedAt = values(CreatedAt),
+        CreatedBy = values(CreatedBy),
+        UpdatedAt = values(UpdatedAt),
+        UpdatedBy = values(UpdatedBy)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update question
+        <set>
+            <if test="templateid != null">
+                TemplateID = #{templateid},
+            </if>
+            <if test="type != null">
+                Type = #{type},
+            </if>
+            <if test="subjecttype != null">
+                SubjectType = #{subjecttype},
+            </if>
+            <if test="number != null and number != ''">
+                Number = #{number},
+            </if>
+            <if test="snumber != null and snumber != ''">
+                SNumber = #{snumber},
+            </if>
+            <if test="notation != null and notation != ''">
+                Notation = #{notation},
+            </if>
+            <if test="title != null and title != ''">
+                Title = #{title},
+            </if>
+            <if test="imageurl != null and imageurl != ''">
+                ImageUrl = #{imageurl},
+            </if>
+            <if test="videourl != null and videourl != ''">
+                VideoUrl = #{videourl},
+            </if>
+            <if test="optional != null">
+                Optional = #{optional},
+            </if>
+            <if test="help != null and help != ''">
+                Help = #{help},
+            </if>
+            <if test="layout != null">
+                Layout = #{layout},
+            </if>
+            <if test="dispindex != null">
+                DispIndex = #{dispindex},
+            </if>
+            <if test="selectionmax != null">
+                SelectionMax = #{selectionmax},
+            </if>
+            <if test="selectionmin != null">
+                SelectionMin = #{selectionmin},
+            </if>
+            <if test="rowdisordered != null">
+                RowDisordered = #{rowdisordered},
+            </if>
+            <if test="matrixpivot != null">
+                MatrixPivot = #{matrixpivot},
+            </if>
+            <if test="rowlastfixed != null">
+                RowLastFixed = #{rowlastfixed},
+            </if>
+            <if test="coldisordered != null">
+                ColDisordered = #{coldisordered},
+            </if>
+            <if test="collastfixed != null">
+                ColLastFixed = #{collastfixed},
+            </if>
+            <if test="columncount != null">
+                ColumnCount = #{columncount},
+            </if>
+            <if test="businesstype != null">
+                BusinessType = #{businesstype},
+            </if>
+            <if test="scoretype != null">
+                ScoreType = #{scoretype},
+            </if>
+            <if test="rowreverse != null">
+                RowReverse = #{rowreverse},
+            </if>
+            <if test="colreverse != null">
+                ColReverse = #{colreverse},
+            </if>
+            <if test="charttype != null">
+                ChartType = #{charttype},
+            </if>
+            <if test="waitbeforenext != null">
+                WaitBeforeNext = #{waitbeforenext},
+            </if>
+            <if test="refersourcetype != null">
+                ReferSourceType = #{refersourcetype},
+            </if>
+            <if test="referfieldname != null and referfieldname != ''">
+                ReferFieldName = #{referfieldname},
+            </if>
+            <if test="referquestionid != null">
+                ReferQuestionID = #{referquestionid},
+            </if>
+            <if test="active != null">
+                Active = #{active},
+            </if>
+            <if test="createdat != null">
+                CreatedAt = #{createdat},
+            </if>
+            <if test="createdby != null and createdby != ''">
+                CreatedBy = #{createdby},
+            </if>
+            <if test="updatedat != null">
+                UpdatedAt = #{updatedat},
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                UpdatedBy = #{updatedby},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from question where ID = #{id}
+    </delete>
+
+
+
+    <!--查询指定行数据-->
+    <select id="queryAllByBean" resultMap="QuestionMap">
+        select
+        ID, TemplateID, Type, SubjectType, Number, SNumber, Notation, Title, ImageUrl, VideoUrl, Optional, Help, Layout, DispIndex, SelectionMax, SelectionMin, RowDisordered, MatrixPivot, RowLastFixed, ColDisordered, ColLastFixed, ColumnCount, BusinessType, ScoreType, RowReverse, ColReverse, ChartType, WaitBeforeNext, ReferSourceType, ReferFieldName, ReferQuestionID, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from question
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="templateid != null">
+                and TemplateID = #{templateid}
+            </if>
+            <if test="type != null">
+                and Type = #{type}
+            </if>
+            <if test="subjecttype != null">
+                and SubjectType = #{subjecttype}
+            </if>
+            <if test="number != null and number != ''">
+                and Number = #{number}
+            </if>
+            <if test="snumber != null and snumber != ''">
+                and SNumber = #{snumber}
+            </if>
+            <if test="notation != null and notation != ''">
+                and Notation = #{notation}
+            </if>
+            <if test="title != null and title != ''">
+                and Title = #{title}
+            </if>
+            <if test="imageurl != null and imageurl != ''">
+                and ImageUrl = #{imageurl}
+            </if>
+            <if test="videourl != null and videourl != ''">
+                and VideoUrl = #{videourl}
+            </if>
+            <if test="optional != null">
+                and Optional = #{optional}
+            </if>
+            <if test="help != null and help != ''">
+                and Help = #{help}
+            </if>
+            <if test="layout != null">
+                and Layout = #{layout}
+            </if>
+            <if test="dispindex != null">
+                and DispIndex = #{dispindex}
+            </if>
+            <if test="selectionmax != null">
+                and SelectionMax = #{selectionmax}
+            </if>
+            <if test="selectionmin != null">
+                and SelectionMin = #{selectionmin}
+            </if>
+            <if test="rowdisordered != null">
+                and RowDisordered = #{rowdisordered}
+            </if>
+            <if test="matrixpivot != null">
+                and MatrixPivot = #{matrixpivot}
+            </if>
+            <if test="rowlastfixed != null">
+                and RowLastFixed = #{rowlastfixed}
+            </if>
+            <if test="coldisordered != null">
+                and ColDisordered = #{coldisordered}
+            </if>
+            <if test="collastfixed != null">
+                and ColLastFixed = #{collastfixed}
+            </if>
+            <if test="columncount != null">
+                and ColumnCount = #{columncount}
+            </if>
+            <if test="businesstype != null">
+                and BusinessType = #{businesstype}
+            </if>
+            <if test="scoretype != null">
+                and ScoreType = #{scoretype}
+            </if>
+            <if test="rowreverse != null">
+                and RowReverse = #{rowreverse}
+            </if>
+            <if test="colreverse != null">
+                and ColReverse = #{colreverse}
+            </if>
+            <if test="charttype != null">
+                and ChartType = #{charttype}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="refersourcetype != null">
+                and ReferSourceType = #{refersourcetype}
+            </if>
+            <if test="referfieldname != null and referfieldname != ''">
+                and ReferFieldName = #{referfieldname}
+            </if>
+            <if test="referquestionid != null">
+                and ReferQuestionID = #{referquestionid}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>
+
