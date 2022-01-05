@@ -36,10 +36,11 @@ public class ProjectController {
 
 
     @JwtIgnore
-    @PostMapping("/sysmngJsonreport")
+    @RequestMapping("/sysmngJsonreport")
     public ResultSurveryData loginx(HttpServletResponse response, ProjectPara para ) {
 
         Project project = new Project();
+        log.info("project:{},para:{}",project,para);
        // project.setActive(Integer.valueOf(para.getIsQuery()));
        List<Project> list =  projectService.queryAllByBean(project);
        return ResultSurveryData.bulidSuccessPageResult(list);

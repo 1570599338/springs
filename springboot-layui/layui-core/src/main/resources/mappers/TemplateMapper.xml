@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.layui.dao.TemplateMapper">
+
+    <resultMap type="com.lquan.layui.domain.Template" id="TemplateMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="projectid" column="ProjectID" jdbcType="INTEGER"/>
+        <result property="name" column="Name" jdbcType="VARCHAR"/>
+        <result property="alias" column="Alias" jdbcType="VARCHAR"/>
+        <result property="remark" column="Remark" jdbcType="VARCHAR"/>
+        <result property="state" column="State" jdbcType="INTEGER"/>
+        <result property="guide" column="Guide" jdbcType="VARCHAR"/>
+        <result property="signagreement" column="SignAgreement" jdbcType="INTEGER"/>
+        <result property="rank" column="Rank" jdbcType="INTEGER"/>
+        <result property="goback" column="GoBack" jdbcType="INTEGER"/>
+        <result property="participantmask" column="ParticipantMask" jdbcType="INTEGER"/>
+        <result property="waitbeforenext" column="WaitBeforeNext" jdbcType="INTEGER"/>
+        <result property="logourl1" column="LogoUrl1" jdbcType="VARCHAR"/>
+        <result property="logourl2" column="LogoUrl2" jdbcType="VARCHAR"/>
+        <result property="checked" column="Checked" jdbcType="INTEGER"/>
+        <result property="answercount" column="AnswerCount" jdbcType="INTEGER"/>
+        <result property="totalexp" column="TotalExp" jdbcType="VARCHAR"/>
+        <result property="offline" column="Offline" jdbcType="INTEGER"/>
+        <result property="idcard" column="IDcard" jdbcType="INTEGER"/>
+        <result property="idcardlocation" column="IDcardLocation" jdbcType="INTEGER"/>
+        <result property="active" column="Active" jdbcType="INTEGER"/>
+        <result property="createdat" column="CreatedAt" jdbcType="TIMESTAMP"/>
+        <result property="createdby" column="CreatedBy" jdbcType="VARCHAR"/>
+        <result property="updatedat" column="UpdatedAt" jdbcType="TIMESTAMP"/>
+        <result property="updatedby" column="UpdatedBy" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TemplateMap">
+        select
+          ID, ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from template
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TemplateMap">
+        select
+          ID, ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from template
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="projectid != null">
+                and ProjectID = #{projectid}
+            </if>
+            <if test="name != null and name != ''">
+                and Name = #{name}
+            </if>
+            <if test="alias != null and alias != ''">
+                and Alias = #{alias}
+            </if>
+            <if test="remark != null and remark != ''">
+                and Remark = #{remark}
+            </if>
+            <if test="state != null">
+                and State = #{state}
+            </if>
+            <if test="guide != null and guide != ''">
+                and Guide = #{guide}
+            </if>
+            <if test="signagreement != null">
+                and SignAgreement = #{signagreement}
+            </if>
+            <if test="rank != null">
+                and Rank = #{rank}
+            </if>
+            <if test="goback != null">
+                and GoBack = #{goback}
+            </if>
+            <if test="participantmask != null">
+                and ParticipantMask = #{participantmask}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="logourl1 != null and logourl1 != ''">
+                and LogoUrl1 = #{logourl1}
+            </if>
+            <if test="logourl2 != null and logourl2 != ''">
+                and LogoUrl2 = #{logourl2}
+            </if>
+            <if test="checked != null">
+                and Checked = #{checked}
+            </if>
+            <if test="answercount != null">
+                and AnswerCount = #{answercount}
+            </if>
+            <if test="totalexp != null and totalexp != ''">
+                and TotalExp = #{totalexp}
+            </if>
+            <if test="offline != null">
+                and Offline = #{offline}
+            </if>
+            <if test="idcard != null">
+                and IDcard = #{idcard}
+            </if>
+            <if test="idcardlocation != null">
+                and IDcardLocation = #{idcardlocation}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from template
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="projectid != null">
+                and ProjectID = #{projectid}
+            </if>
+            <if test="name != null and name != ''">
+                and Name = #{name}
+            </if>
+            <if test="alias != null and alias != ''">
+                and Alias = #{alias}
+            </if>
+            <if test="remark != null and remark != ''">
+                and Remark = #{remark}
+            </if>
+            <if test="state != null">
+                and State = #{state}
+            </if>
+            <if test="guide != null and guide != ''">
+                and Guide = #{guide}
+            </if>
+            <if test="signagreement != null">
+                and SignAgreement = #{signagreement}
+            </if>
+            <if test="rank != null">
+                and Rank = #{rank}
+            </if>
+            <if test="goback != null">
+                and GoBack = #{goback}
+            </if>
+            <if test="participantmask != null">
+                and ParticipantMask = #{participantmask}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="logourl1 != null and logourl1 != ''">
+                and LogoUrl1 = #{logourl1}
+            </if>
+            <if test="logourl2 != null and logourl2 != ''">
+                and LogoUrl2 = #{logourl2}
+            </if>
+            <if test="checked != null">
+                and Checked = #{checked}
+            </if>
+            <if test="answercount != null">
+                and AnswerCount = #{answercount}
+            </if>
+            <if test="totalexp != null and totalexp != ''">
+                and TotalExp = #{totalexp}
+            </if>
+            <if test="offline != null">
+                and Offline = #{offline}
+            </if>
+            <if test="idcard != null">
+                and IDcard = #{idcard}
+            </if>
+            <if test="idcardlocation != null">
+                and IDcardLocation = #{idcardlocation}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into template(ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values (#{projectid}, #{name}, #{alias}, #{remark}, #{state}, #{guide}, #{signagreement}, #{rank}, #{goback}, #{participantmask}, #{waitbeforenext}, #{logourl1}, #{logourl2}, #{checked}, #{answercount}, #{totalexp}, #{offline}, #{idcard}, #{idcardlocation}, #{active}, #{createdat}, #{createdby}, #{updatedat}, #{updatedby})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into template
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                `ID`,
+            </if>
+                    <if test="projectid != null">
+                `ProjectID`,
+            </if>
+                    <if test="name != null and name != ''">
+                `Name`,
+            </if>
+                    <if test="alias != null and alias != ''">
+                `Alias`,
+            </if>
+                    <if test="remark != null and remark != ''">
+                `Remark`,
+            </if>
+                    <if test="state != null">
+                `State`,
+            </if>
+                    <if test="guide != null and guide != ''">
+                `Guide`,
+            </if>
+                    <if test="signagreement != null">
+                `SignAgreement`,
+            </if>
+                    <if test="rank != null">
+                `Rank`,
+            </if>
+                    <if test="goback != null">
+                `GoBack`,
+            </if>
+                    <if test="participantmask != null">
+                `ParticipantMask`,
+            </if>
+                    <if test="waitbeforenext != null">
+                `WaitBeforeNext`,
+            </if>
+                    <if test="logourl1 != null and logourl1 != ''">
+                `LogoUrl1`,
+            </if>
+                    <if test="logourl2 != null and logourl2 != ''">
+                `LogoUrl2`,
+            </if>
+                    <if test="checked != null">
+                `Checked`,
+            </if>
+                    <if test="answercount != null">
+                `AnswerCount`,
+            </if>
+                    <if test="totalexp != null and totalexp != ''">
+                `TotalExp`,
+            </if>
+                    <if test="offline != null">
+                `Offline`,
+            </if>
+                    <if test="idcard != null">
+                `IDcard`,
+            </if>
+                    <if test="idcardlocation != null">
+                `IDcardLocation`,
+            </if>
+                    <if test="active != null">
+                `Active`,
+            </if>
+                    <if test="createdat != null">
+                `CreatedAt`,
+            </if>
+                    <if test="createdby != null and createdby != ''">
+                `CreatedBy`,
+            </if>
+                    <if test="updatedat != null">
+                `UpdatedAt`,
+            </if>
+                    <if test="updatedby != null and updatedby != ''">
+                `UpdatedBy`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+                    <if test="projectid != null">
+                #{projectid,jdbcType=INTEGER},
+            </if>
+                    <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+                    <if test="alias != null and alias != ''">
+                #{alias,jdbcType=VARCHAR},
+            </if>
+                    <if test="remark != null and remark != ''">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+                    <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+                    <if test="guide != null and guide != ''">
+                #{guide,jdbcType=VARCHAR},
+            </if>
+                    <if test="signagreement != null">
+                #{signagreement,jdbcType=INTEGER},
+            </if>
+                    <if test="rank != null">
+                #{rank,jdbcType=INTEGER},
+            </if>
+                    <if test="goback != null">
+                #{goback,jdbcType=INTEGER},
+            </if>
+                    <if test="participantmask != null">
+                #{participantmask,jdbcType=INTEGER},
+            </if>
+                    <if test="waitbeforenext != null">
+                #{waitbeforenext,jdbcType=INTEGER},
+            </if>
+                    <if test="logourl1 != null and logourl1 != ''">
+                #{logourl1,jdbcType=VARCHAR},
+            </if>
+                    <if test="logourl2 != null and logourl2 != ''">
+                #{logourl2,jdbcType=VARCHAR},
+            </if>
+                    <if test="checked != null">
+                #{checked,jdbcType=INTEGER},
+            </if>
+                    <if test="answercount != null">
+                #{answercount,jdbcType=INTEGER},
+            </if>
+                    <if test="totalexp != null and totalexp != ''">
+                #{totalexp,jdbcType=VARCHAR},
+            </if>
+                    <if test="offline != null">
+                #{offline,jdbcType=INTEGER},
+            </if>
+                    <if test="idcard != null">
+                #{idcard,jdbcType=INTEGER},
+            </if>
+                    <if test="idcardlocation != null">
+                #{idcardlocation,jdbcType=INTEGER},
+            </if>
+                    <if test="active != null">
+                #{active,jdbcType=INTEGER},
+            </if>
+                    <if test="createdat != null">
+                #{createdat,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="createdby != null and createdby != ''">
+                #{createdby,jdbcType=VARCHAR},
+            </if>
+                    <if test="updatedat != null">
+                #{updatedat,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="updatedby != null and updatedby != ''">
+                #{updatedby,jdbcType=VARCHAR},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into template(ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.projectid}, #{entity.name}, #{entity.alias}, #{entity.remark}, #{entity.state}, #{entity.guide}, #{entity.signagreement}, #{entity.rank}, #{entity.goback}, #{entity.participantmask}, #{entity.waitbeforenext}, #{entity.logourl1}, #{entity.logourl2}, #{entity.checked}, #{entity.answercount}, #{entity.totalexp}, #{entity.offline}, #{entity.idcard}, #{entity.idcardlocation}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into template(ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.projectid}, #{entity.name}, #{entity.alias}, #{entity.remark}, #{entity.state}, #{entity.guide}, #{entity.signagreement}, #{entity.rank}, #{entity.goback}, #{entity.participantmask}, #{entity.waitbeforenext}, #{entity.logourl1}, #{entity.logourl2}, #{entity.checked}, #{entity.answercount}, #{entity.totalexp}, #{entity.offline}, #{entity.idcard}, #{entity.idcardlocation}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+        </foreach>
+        on duplicate key update
+        ProjectID = values(ProjectID),
+        Name = values(Name),
+        Alias = values(Alias),
+        Remark = values(Remark),
+        State = values(State),
+        Guide = values(Guide),
+        SignAgreement = values(SignAgreement),
+        Rank = values(Rank),
+        GoBack = values(GoBack),
+        ParticipantMask = values(ParticipantMask),
+        WaitBeforeNext = values(WaitBeforeNext),
+        LogoUrl1 = values(LogoUrl1),
+        LogoUrl2 = values(LogoUrl2),
+        Checked = values(Checked),
+        AnswerCount = values(AnswerCount),
+        TotalExp = values(TotalExp),
+        Offline = values(Offline),
+        IDcard = values(IDcard),
+        IDcardLocation = values(IDcardLocation),
+        Active = values(Active),
+        CreatedAt = values(CreatedAt),
+        CreatedBy = values(CreatedBy),
+        UpdatedAt = values(UpdatedAt),
+        UpdatedBy = values(UpdatedBy)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update template
+        <set>
+            <if test="projectid != null">
+                ProjectID = #{projectid},
+            </if>
+            <if test="name != null and name != ''">
+                Name = #{name},
+            </if>
+            <if test="alias != null and alias != ''">
+                Alias = #{alias},
+            </if>
+            <if test="remark != null and remark != ''">
+                Remark = #{remark},
+            </if>
+            <if test="state != null">
+                State = #{state},
+            </if>
+            <if test="guide != null and guide != ''">
+                Guide = #{guide},
+            </if>
+            <if test="signagreement != null">
+                SignAgreement = #{signagreement},
+            </if>
+            <if test="rank != null">
+                Rank = #{rank},
+            </if>
+            <if test="goback != null">
+                GoBack = #{goback},
+            </if>
+            <if test="participantmask != null">
+                ParticipantMask = #{participantmask},
+            </if>
+            <if test="waitbeforenext != null">
+                WaitBeforeNext = #{waitbeforenext},
+            </if>
+            <if test="logourl1 != null and logourl1 != ''">
+                LogoUrl1 = #{logourl1},
+            </if>
+            <if test="logourl2 != null and logourl2 != ''">
+                LogoUrl2 = #{logourl2},
+            </if>
+            <if test="checked != null">
+                Checked = #{checked},
+            </if>
+            <if test="answercount != null">
+                AnswerCount = #{answercount},
+            </if>
+            <if test="totalexp != null and totalexp != ''">
+                TotalExp = #{totalexp},
+            </if>
+            <if test="offline != null">
+                Offline = #{offline},
+            </if>
+            <if test="idcard != null">
+                IDcard = #{idcard},
+            </if>
+            <if test="idcardlocation != null">
+                IDcardLocation = #{idcardlocation},
+            </if>
+            <if test="active != null">
+                Active = #{active},
+            </if>
+            <if test="createdat != null">
+                CreatedAt = #{createdat},
+            </if>
+            <if test="createdby != null and createdby != ''">
+                CreatedBy = #{createdby},
+            </if>
+            <if test="updatedat != null">
+                UpdatedAt = #{updatedat},
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                UpdatedBy = #{updatedby},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from template where ID = #{id}
+    </delete>
+
+
+
+    <!--查询指定行数据-->
+    <select id="queryAllByBean" resultMap="TemplateMap">
+        select
+        ID, ProjectID, Name, Alias, Remark, State, Guide, SignAgreement, Rank, GoBack, ParticipantMask, WaitBeforeNext, LogoUrl1, LogoUrl2, Checked, AnswerCount, TotalExp, Offline, IDcard, IDcardLocation, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+        from template
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="projectid != null">
+                and ProjectID = #{projectid}
+            </if>
+            <if test="name != null and name != ''">
+                and Name = #{name}
+            </if>
+            <if test="alias != null and alias != ''">
+                and Alias = #{alias}
+            </if>
+            <if test="remark != null and remark != ''">
+                and Remark = #{remark}
+            </if>
+            <if test="state != null">
+                and State = #{state}
+            </if>
+            <if test="guide != null and guide != ''">
+                and Guide = #{guide}
+            </if>
+            <if test="signagreement != null">
+                and SignAgreement = #{signagreement}
+            </if>
+            <if test="rank != null">
+                and Rank = #{rank}
+            </if>
+            <if test="goback != null">
+                and GoBack = #{goback}
+            </if>
+            <if test="participantmask != null">
+                and ParticipantMask = #{participantmask}
+            </if>
+            <if test="waitbeforenext != null">
+                and WaitBeforeNext = #{waitbeforenext}
+            </if>
+            <if test="logourl1 != null and logourl1 != ''">
+                and LogoUrl1 = #{logourl1}
+            </if>
+            <if test="logourl2 != null and logourl2 != ''">
+                and LogoUrl2 = #{logourl2}
+            </if>
+            <if test="checked != null">
+                and Checked = #{checked}
+            </if>
+            <if test="answercount != null">
+                and AnswerCount = #{answercount}
+            </if>
+            <if test="totalexp != null and totalexp != ''">
+                and TotalExp = #{totalexp}
+            </if>
+            <if test="offline != null">
+                and Offline = #{offline}
+            </if>
+            <if test="idcard != null">
+                and IDcard = #{idcard}
+            </if>
+            <if test="idcardlocation != null">
+                and IDcardLocation = #{idcardlocation}
+            </if>
+            <if test="active != null">
+                and Active = #{active}
+            </if>
+            <if test="createdat != null">
+                and CreatedAt = #{createdat}
+            </if>
+            <if test="createdby != null and createdby != ''">
+                and CreatedBy = #{createdby}
+            </if>
+            <if test="updatedat != null">
+                and UpdatedAt = #{updatedat}
+            </if>
+            <if test="updatedby != null and updatedby != ''">
+                and UpdatedBy = #{updatedby}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>
+

@@ -41,7 +41,7 @@ public class UserController {
 
 
     @JwtIgnore
-    @PostMapping("/login")
+    @RequestMapping("/login")
     public ResultSurveryData loginx(HttpServletResponse response, UserPara para ) {
         TbUser tbUser = new TbUser();
         tbUser.setUserName(para.getUserID());
@@ -60,7 +60,7 @@ public class UserController {
 
 
     @JwtIgnore
-    @PostMapping("/modNav1jsp")
+    @RequestMapping("/modNav1jsp")
     public ResultSurveryData modNav1jsp(HttpServletResponse response, UserPara para ) {
 
         Item item = new Item();
@@ -112,7 +112,7 @@ public class UserController {
 
 
     @JwtIgnore
-    @PostMapping("/sysmngInitTemplate")
+    @RequestMapping("/sysmngInitTemplate")
     public ResultSurveryData sysmngInitTemplate(HttpServletResponse response, @RequestParam(required = false,value = "userId") String userId,
                                                 @RequestParam(required = false,value = "subSys") String subSys,
                                                 @RequestParam(required = false,value = "tplID") String tplID,
