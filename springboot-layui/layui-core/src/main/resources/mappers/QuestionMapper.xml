@@ -41,6 +41,8 @@
         <result property="updatedby" column="UpdatedBy" jdbcType="VARCHAR"/>
     </resultMap>
 
+
+
     <!--查询单个-->
     <select id="queryById" resultMap="QuestionMap">
         select

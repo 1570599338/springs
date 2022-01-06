@@ -1,16 +1,22 @@
 package com.lquan.layui.controller.survery;
 
+import com.lquan.layui.bean.resp.QuestionResult;
+import com.lquan.layui.domain.Queoption;
 import com.lquan.layui.domain.Question;
 import com.lquan.layui.dto.resp.ResultSurveryData;
+import com.lquan.layui.service.QueoptionService;
 import com.lquan.layui.service.QuestionService;
 import com.lquan.layui.validator.JwtIgnore;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,19 +34,36 @@ public class QuestionController {
      */
     @Resource
     private QuestionService questionService;
-
+    /**
+     * 服务对象
+     */
+    @Resource
+    private QueoptionService queoptionService;
 
     @JwtIgnore
     @RequestMapping("/search")
-    public ResultSurveryData search(@RequestParam(required = false,value = "templateid") Integer templateid) {
+    public ResultSurveryData search(@RequestParam(required = false,value = "templateid") Integer templateid) throws InvocationTargetException, IllegalAccessException {
 
         Question question = new Question();
         log.info("template:{},projectID:{}",question,templateid);
         question.setTemplateid(templateid);
-
-        // project.setActive(Integer.valueOf(para.getIsQuery()));
         List<Question> list =  questionService.queryAllByBean(question);
-        return ResultSurveryData.bulidSuccessPageResult(list);
+        if(list==null || list.size()<=0){
+            return ResultSurveryData.bulidSuccessPageResult(list);
+        }
+        // project.setActive(Integer.valueOf(para.getIsQuery()));
+        List<QuestionResult> results = new ArrayList<>();
+
+        for(Question bean :list){
+            QuestionResult questionResult = new QuestionResult();
+            Queoption queoption = new Queoption();
+            queoption.setQuestionid(bean.getId());
+            List<Queoption> listopti = queoptionService.queryAllByBean(queoption);
+            BeanUtils.copyProperties(questionResult,bean);
+            questionResult.setOptions(listopti);
+            results.add(questionResult);
+        }
+        return ResultSurveryData.bulidSuccessPageResult(results);
 
 
     }
