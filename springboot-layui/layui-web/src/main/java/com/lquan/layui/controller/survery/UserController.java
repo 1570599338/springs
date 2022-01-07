@@ -64,14 +64,19 @@ public class UserController {
     public ResultSurveryData modNav1jsp(HttpServletResponse response, UserPara para ) {
 
         Item item = new Item();
-        item.setUrl("project1");
+        item.setUrl("reward");
        List listitem=  new ArrayList<Item>();
         listitem.add(item);
 
         Item item1 = new Item();
-        item1.setUrl("project2");
+        item1.setUrl("tab_sms");
         List listitem1=  new ArrayList<Item>();
         listitem1.add(item1);
+
+        Item item2 = new Item();
+        item2.setUrl("project");
+        List listitem2=  new ArrayList<Item>();
+        listitem2.add(item2);
 
 
         MenuItem menuItem0 = new MenuItem();
@@ -82,17 +87,26 @@ public class UserController {
         menuItem0.setTarget("workspace");
         menuItem0.setChildren(listitem);
         MenuItem menuItem = new MenuItem();
-        menuItem.setId(1);
+        menuItem.setId(2);
         menuItem.setText("问卷设计");
         menuItem.setIcon("fa-pencil-square-o");
         menuItem.setUrl("project/template.html");
         menuItem.setTarget("workspace");
         menuItem.setChildren(listitem1);
 
+        MenuItem menuItem2 = new MenuItem();
+        menuItem2.setId(3);
+        menuItem2.setText("项目管理");
+        menuItem2.setIcon("fa-cubes");
+        menuItem2.setUrl("system/project.html");
+        menuItem2.setTarget("workspace");
+        menuItem2.setChildren(listitem2);
+
 
         List<MenuItem> itemslist = new ArrayList<>();
         itemslist.add(menuItem0);
         itemslist.add(menuItem);
+        itemslist.add(menuItem2);
 
         Menu menu = new Menu();
         menu.setId(1);
