@@ -4,17 +4,20 @@ import com.lquan.layui.bean.req.survery.Item;
 import com.lquan.layui.bean.req.survery.Menu;
 import com.lquan.layui.bean.req.survery.MenuItem;
 import com.lquan.layui.bean.req.survery.UserPara;
+import com.lquan.layui.bean.resp.survery.MenuResult;
 import com.lquan.layui.dao.TbUserDao;
 import com.lquan.layui.domain.TbUser;
 import com.lquan.layui.dto.resp.ResultSurveryData;
 import com.lquan.layui.dto.resp.ResultVO;
 import com.lquan.layui.enums.ResultCodeEnum;
 import com.lquan.layui.enums.ResultEnum;
+import com.lquan.layui.service.MenuService;
 import com.lquan.layui.service.TbUserService;
 import com.lquan.layui.utils.ResultVOUtil;
 import com.lquan.layui.utils.StrToMd5;
 import com.lquan.layui.validator.JwtIgnore;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +40,9 @@ public class UserController {
 
     @Resource
     private TbUserDao tbUserDao;
+
+    @Autowired
+    private MenuService menuService;
 
 
 
@@ -63,7 +69,7 @@ public class UserController {
     @RequestMapping("/modNav1jsp")
     public ResultSurveryData modNav1jsp(HttpServletResponse response, UserPara para ) {
 
-        Item item = new Item();
+     /*   Item item = new Item();
         item.setUrl("reward");
        List listitem=  new ArrayList<Item>();
         listitem.add(item);
@@ -115,10 +121,10 @@ public class UserController {
         menu.setChildren(itemslist);
 
         List<Menu> menulist = new ArrayList<>();
-        menulist.add(menu);
+        menulist.add(menu);*/
 
 
-
+        List<MenuResult> menulist =menuService.queryAllmenu(57);
 
         return ResultSurveryData.bulidSuccessPageResult(menulist);
 

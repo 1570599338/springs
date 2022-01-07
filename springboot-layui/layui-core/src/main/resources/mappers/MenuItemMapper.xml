@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.layui.dao.MenuItemMapper">
+
+    <resultMap type="com.lquan.layui.domain.MenuItem" id="MenuItemMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="menuId" column="menu_id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="INTEGER"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="target" column="target" jdbcType="VARCHAR"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MenuItemMap">
+        select
+          id, menu_id, title, sort, url, target, is_delete, create_time, update_time
+        from menu_item
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MenuItemMap">
+        select
+          id, menu_id, title, sort, url, target, is_delete, create_time, update_time
+        from menu_item
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+            <if test="url != null and url != ''">
+                and url = #{url}
+            </if>
+            <if test="target != null and target != ''">
+                and target = #{target}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from menu_item
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+            <if test="url != null and url != ''">
+                and url = #{url}
+            </if>
+            <if test="target != null and target != ''">
+                and target = #{target}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into menu_item(menu_id, title, sort, url, target, is_delete, create_time, update_time)
+        values (#{menuId}, #{title}, #{sort}, #{url}, #{target}, #{isDelete}, #{createTime}, #{updateTime})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into menu_item
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                `id`,
+            </if>
+                    <if test="menuId != null">
+                `menu_id`,
+            </if>
+                    <if test="title != null and title != ''">
+                `title`,
+            </if>
+                    <if test="sort != null">
+                `sort`,
+            </if>
+                    <if test="url != null and url != ''">
+                `url`,
+            </if>
+                    <if test="target != null and target != ''">
+                `target`,
+            </if>
+                    <if test="isDelete != null">
+                `is_delete`,
+            </if>
+                    <if test="createTime != null">
+                `create_time`,
+            </if>
+                    <if test="updateTime != null">
+                `update_time`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+                    <if test="menuId != null">
+                #{menuId,jdbcType=INTEGER},
+            </if>
+                    <if test="title != null and title != ''">
+                #{title,jdbcType=VARCHAR},
+            </if>
+                    <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+                    <if test="url != null and url != ''">
+                #{url,jdbcType=VARCHAR},
+            </if>
+                    <if test="target != null and target != ''">
+                #{target,jdbcType=VARCHAR},
+            </if>
+                    <if test="isDelete != null">
+                #{isDelete,jdbcType=INTEGER},
+            </if>
+                    <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into menu_item(menu_id, title, sort, url, target, is_delete, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.menuId}, #{entity.title}, #{entity.sort}, #{entity.url}, #{entity.target}, #{entity.isDelete}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into menu_item(menu_id, title, sort, url, target, is_delete, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.menuId}, #{entity.title}, #{entity.sort}, #{entity.url}, #{entity.target}, #{entity.isDelete}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+        on duplicate key update
+        menu_id = values(menu_id),
+        title = values(title),
+        sort = values(sort),
+        url = values(url),
+        target = values(target),
+        is_delete = values(is_delete),
+        create_time = values(create_time),
+        update_time = values(update_time)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update menu_item
+        <set>
+            <if test="menuId != null">
+                menu_id = #{menuId},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="target != null and target != ''">
+                target = #{target},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from menu_item where id = #{id}
+    </delete>
+
+</mapper>
+
