@@ -304,7 +304,7 @@
 
     <select id="queryAllmenu" resultMap="MenuMapResult">
          select id, sup_id, title, sort, url, icon, target, is_delete, create_time, update_time
-          from menu where sup_id= #{id} ORDER BY sort
+          from menu where is_delete=0 and sup_id= #{id} ORDER BY sort
 
     </select>
 

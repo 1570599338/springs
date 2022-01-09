@@ -2,6 +2,7 @@ package com.lquan.layui.bean.req.survery;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 @Data
@@ -29,8 +30,9 @@ public class ProjectOptionPara {
 
     private Integer type;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date beginDate;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
     private String director;
@@ -48,5 +50,6 @@ public class ProjectOptionPara {
     private Integer state;
 
     private String typeName;
+    private Integer typeCode;
 
 }

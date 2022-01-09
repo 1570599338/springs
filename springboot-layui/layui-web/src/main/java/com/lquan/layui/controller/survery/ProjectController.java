@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,7 +39,7 @@ public class ProjectController {
     private ProjectService projectService;
 
     @RequestMapping("operate")
-    public ResultSurveryData<Project>  create(ProjectOptionPara projectOption, @PathVariable("operateState") Integer operateState) {
+    public ResultSurveryData<Project>  create(ProjectOptionPara projectOption, @RequestParam(required = false,value = "operateState")  Integer operateState) {
       log.info("create project:{};operateState:{}",projectOption,operateState);
       Project project = new Project();
       project.setId(projectOption.getId());
@@ -47,14 +48,22 @@ public class ProjectController {
         project.setRemark(projectOption.getRemark());
         project.setMebers(projectOption.getMebers());
         project.setName(projectOption.getName());
-        project.setType(projectOption.getType());
-      if(operateState==1)
-           projectService.insertSelective(project);
-       else if(operateState==2)
-            projectService.update(project);
-       else if(operateState==3)
-           projectService.deleteById(project.getId());
 
+        project.setBeginDate(projectOption.getBeginDate());
+        project.setEndDate(projectOption.getEndDate());
+        project.setNumber("1");
+        project.setActive(1);
+        project.setCreatedAt(new Date());
+        project.setCreatedBy("admin");
+      if(operateState==1) {
+
+          projectService.insertSelective(project);
+      }else if(operateState==2) {
+          project.setTypeCode(projectOption.getTypeCode());
+          projectService.update(project);
+      }else if(operateState==3) {
+          projectService.deleteById(project.getId());
+      }
         return ResultSurveryData.bulidSuccessPageResult(ResultCodeEnum.SUCCESS_PAGE.getDesc());
     }
 
@@ -75,7 +84,7 @@ public class ProjectController {
         log.info("2page:{},limit:{}",page,limit);
         PageHelper.startPage(page,limit);
        List<Project> list =  projectService.queryAllByBean(project);
-
+        log.info("*********************list:{}",list);
         PageInfo<Project> pageInfo = new PageInfo<>(list);
 
 

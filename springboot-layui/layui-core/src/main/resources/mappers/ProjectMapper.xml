@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.layui.dao.ProjectMapper">
 
-    <resultMap type="com.lquan.layui.domain.Project" id="ProjectMap">
+ <!--   <resultMap type="com.lquan.layui.domain.Project" id="ProjectMap">
         <result property="id" column="ID" jdbcType="INTEGER"/>
         <result property="number" column="Number" jdbcType="VARCHAR"/>
         <result property="name" column="Name" jdbcType="VARCHAR"/>
@@ -19,7 +19,7 @@
         <result property="createdby" column="CreatedBy" jdbcType="VARCHAR"/>
         <result property="updatedat" column="UpdatedAt" jdbcType="TIMESTAMP"/>
         <result property="updatedby" column="UpdatedBy" jdbcType="VARCHAR"/>
-    </resultMap>
+    </resultMap>-->
 
     <!--查询单个-->
     <select id="queryById" resultMap="ProjectMap">
@@ -44,14 +44,14 @@
             <if test="name != null and name != ''">
                 and Name = #{name}
             </if>
-            <if test="type != null">
-                and Type = #{type}
+            <if test="typeCode != null">
+                and Type = #{typeCode}
             </if>
-            <if test="begindate != null">
-                and BeginDate = #{begindate}
+            <if test="beginDate != null">
+                and BeginDate = #{beginDate}
             </if>
-            <if test="enddate != null">
-                and EndDate = #{enddate}
+            <if test="endDate != null">
+                and EndDate = #{endDate}
             </if>
             <if test="director != null and director != ''">
                 and Director = #{director}
@@ -59,8 +59,8 @@
             <if test="mebers != null and mebers != ''">
                 and Mebers = #{mebers}
             </if>
-            <if test="quotaservicestate != null">
-                and QuotaServiceState = #{quotaservicestate}
+            <if test="quotaServiceState != null">
+                and QuotaServiceState = #{quotaServiceState}
             </if>
             <if test="remark != null and remark != ''">
                 and Remark = #{remark}
@@ -71,17 +71,17 @@
             <if test="active != null">
                 and Active = #{active}
             </if>
-            <if test="createdat != null">
-                and CreatedAt = #{createdat}
+            <if test="createdAt != null">
+                and CreatedAt = #{createdAt}
             </if>
-            <if test="createdby != null and createdby != ''">
-                and CreatedBy = #{createdby}
+            <if test="createdBy != null and createdBy != ''">
+                and CreatedBy = #{createdBy}
             </if>
-            <if test="updatedat != null">
-                and UpdatedAt = #{updatedat}
+            <if test="updatedAt != null">
+                and UpdatedAt = #{updatedAt}
             </if>
-            <if test="updatedby != null and updatedby != ''">
-                and UpdatedBy = #{updatedby}
+            <if test="updatedBy != null and updatedBy != ''">
+                and UpdatedBy = #{updatedBy}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -101,14 +101,14 @@
             <if test="name != null and name != ''">
                 and Name = #{name}
             </if>
-            <if test="type != null">
-                and Type = #{type}
+            <if test="typeCode != null">
+                and Type = #{typeCode}
             </if>
-            <if test="begindate != null">
-                and BeginDate = #{begindate}
+            <if test="beginDate != null">
+                and BeginDate = #{beginDate}
             </if>
-            <if test="enddate != null">
-                and EndDate = #{enddate}
+            <if test="endDate != null">
+                and EndDate = #{endDate}
             </if>
             <if test="director != null and director != ''">
                 and Director = #{director}
@@ -116,8 +116,8 @@
             <if test="mebers != null and mebers != ''">
                 and Mebers = #{mebers}
             </if>
-            <if test="quotaservicestate != null">
-                and QuotaServiceState = #{quotaservicestate}
+            <if test="quotaServiceState != null">
+                and QuotaServiceState = #{quotaServiceState}
             </if>
             <if test="remark != null and remark != ''">
                 and Remark = #{remark}
@@ -128,17 +128,17 @@
             <if test="active != null">
                 and Active = #{active}
             </if>
-            <if test="createdat != null">
-                and CreatedAt = #{createdat}
+            <if test="createdAt != null">
+                and CreatedAt = #{createdAt}
             </if>
-            <if test="createdby != null and createdby != ''">
-                and CreatedBy = #{createdby}
+            <if test="createdBy != null and createdBy != ''">
+                and CreatedBy = #{createdBy}
             </if>
-            <if test="updatedat != null">
-                and UpdatedAt = #{updatedat}
+            <if test="updatedAt != null">
+                and UpdatedAt = #{updatedAt}
             </if>
-            <if test="updatedby != null and updatedby != ''">
-                and UpdatedBy = #{updatedby}
+            <if test="updatedBy != null and updatedBy != ''">
+                and UpdatedBy = #{updatedBy}
             </if>
         </where>
     </select>
@@ -146,7 +146,7 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into project(Number, Name, Type, BeginDate, EndDate, Director, Mebers, QuotaServiceState, Remark, State, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
-        values (#{number}, #{name}, #{type}, #{begindate}, #{enddate}, #{director}, #{mebers}, #{quotaservicestate}, #{remark}, #{state}, #{active}, #{createdat}, #{createdby}, #{updatedat}, #{updatedby})
+        values (#{number}, #{name}, #{typeCode}, #{beginDate}, #{endDate}, #{director}, #{mebers}, #{quotaServiceState}, #{remark}, #{state}, #{active}, #{createdAt}, #{createdBy}, #{updatedAt}, #{updatedBy})
     </insert>
     
     
@@ -163,13 +163,13 @@
                     <if test="name != null and name != ''">
                 `Name`,
             </if>
-                    <if test="type != null">
+                    <if test="typeCode != null">
                 `Type`,
             </if>
-                    <if test="begindate != null">
+                    <if test="beginDate != null">
                 `BeginDate`,
             </if>
-                    <if test="enddate != null">
+                    <if test="endDate != null">
                 `EndDate`,
             </if>
                     <if test="director != null and director != ''">
@@ -178,7 +178,7 @@
                     <if test="mebers != null and mebers != ''">
                 `Mebers`,
             </if>
-                    <if test="quotaservicestate != null">
+                    <if test="quotaServiceState != null">
                 `QuotaServiceState`,
             </if>
                     <if test="remark != null and remark != ''">
@@ -190,16 +190,16 @@
                     <if test="active != null">
                 `Active`,
             </if>
-                    <if test="createdat != null">
+                    <if test="createdAt != null">
                 `CreatedAt`,
             </if>
-                    <if test="createdby != null and createdby != ''">
+                    <if test="createdBy != null and createdBy != ''">
                 `CreatedBy`,
             </if>
-                    <if test="updatedat != null">
+                    <if test="updatedAt != null">
                 `UpdatedAt`,
             </if>
-                    <if test="updatedby != null and updatedby != ''">
+                    <if test="updatedBy != null and updatedBy != ''">
                 `UpdatedBy`,
             </if>
                 </trim>
@@ -213,14 +213,14 @@
                     <if test="name != null and name != ''">
                 #{name,jdbcType=VARCHAR},
             </if>
-                    <if test="type != null">
-                #{type,jdbcType=INTEGER},
+                    <if test="typeCode != null">
+                #{typeCode,jdbcType=INTEGER},
             </if>
-                    <if test="begindate != null">
-                #{begindate,jdbcType=TIMESTAMP},
+                    <if test="beginDate != null">
+                #{beginDate,jdbcType=TIMESTAMP},
             </if>
-                    <if test="enddate != null">
-                #{enddate,jdbcType=TIMESTAMP},
+                    <if test="endDate != null">
+                #{endDate,jdbcType=TIMESTAMP},
             </if>
                     <if test="director != null and director != ''">
                 #{director,jdbcType=VARCHAR},
@@ -228,8 +228,8 @@
                     <if test="mebers != null and mebers != ''">
                 #{mebers,jdbcType=VARCHAR},
             </if>
-                    <if test="quotaservicestate != null">
-                #{quotaservicestate,jdbcType=INTEGER},
+                    <if test="quotaServiceState != null">
+                #{quotaServiceState,jdbcType=INTEGER},
             </if>
                     <if test="remark != null and remark != ''">
                 #{remark,jdbcType=VARCHAR},
@@ -240,17 +240,17 @@
                     <if test="active != null">
                 #{active,jdbcType=INTEGER},
             </if>
-                    <if test="createdat != null">
-                #{createdat,jdbcType=TIMESTAMP},
+                    <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
             </if>
-                    <if test="createdby != null and createdby != ''">
-                #{createdby,jdbcType=VARCHAR},
+                    <if test="createdBy != null and createdBy != ''">
+                #{createdBy,jdbcType=VARCHAR},
             </if>
-                    <if test="updatedat != null">
-                #{updatedat,jdbcType=TIMESTAMP},
+                    <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
             </if>
-                    <if test="updatedby != null and updatedby != ''">
-                #{updatedby,jdbcType=VARCHAR},
+                    <if test="updatedBy != null and updatedBy != ''">
+                #{updatedBy,jdbcType=VARCHAR},
             </if>
                 </trim>
     </insert>
@@ -260,7 +260,7 @@
         insert into project(Number, Name, Type, BeginDate, EndDate, Director, Mebers, QuotaServiceState, Remark, State, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.number}, #{entity.name}, #{entity.type}, #{entity.begindate}, #{entity.enddate}, #{entity.director}, #{entity.mebers}, #{entity.quotaservicestate}, #{entity.remark}, #{entity.state}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+        (#{entity.number}, #{entity.name}, #{entity.typeCode}, #{entity.beginDate}, #{entity.endDate}, #{entity.director}, #{entity.mebers}, #{entity.quotaServiceState}, #{entity.remark}, #{entity.state}, #{entity.active}, #{entity.createdAt}, #{entity.createdBy}, #{entity.updatedAt}, #{entity.updatedBy})
         </foreach>
     </insert>
     
@@ -271,7 +271,7 @@
         insert into project(Number, Name, Type, BeginDate, EndDate, Director, Mebers, QuotaServiceState, Remark, State, Active, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.number}, #{entity.name}, #{entity.type}, #{entity.begindate}, #{entity.enddate}, #{entity.director}, #{entity.mebers}, #{entity.quotaservicestate}, #{entity.remark}, #{entity.state}, #{entity.active}, #{entity.createdat}, #{entity.createdby}, #{entity.updatedat}, #{entity.updatedby})
+            (#{entity.number}, #{entity.name}, #{entity.typeCode}, #{entity.beginDate}, #{entity.endDate}, #{entity.director}, #{entity.mebers}, #{entity.quotaServiceState}, #{entity.remark}, #{entity.state}, #{entity.active}, #{entity.createdAt}, #{entity.createdBy}, #{entity.updatedAt}, #{entity.updatedBy})
         </foreach>
         on duplicate key update
         Number = values(Number),
@@ -304,14 +304,14 @@
             <if test="name != null and name != ''">
                 Name = #{name},
             </if>
-            <if test="type != null">
-                Type = #{type},
+            <if test="typeCode != null">
+                Type = #{typeCode},
             </if>
-            <if test="begindate != null">
-                BeginDate = #{begindate},
+            <if test="beginDate != null">
+                BeginDate = #{beginDate},
             </if>
-            <if test="enddate != null">
-                EndDate = #{enddate},
+            <if test="endDate != null">
+                EndDate = #{endDate},
             </if>
             <if test="director != null and director != ''">
                 Director = #{director},
@@ -319,8 +319,8 @@
             <if test="mebers != null and mebers != ''">
                 Mebers = #{mebers},
             </if>
-            <if test="quotaservicestate != null">
-                QuotaServiceState = #{quotaservicestate},
+            <if test="quotaServiceState != null">
+                QuotaServiceState = #{quotaServiceState},
             </if>
             <if test="remark != null and remark != ''">
                 Remark = #{remark},
@@ -331,17 +331,17 @@
             <if test="active != null">
                 Active = #{active},
             </if>
-            <if test="createdat != null">
-                CreatedAt = #{createdat},
+            <if test="createdAt != null">
+                CreatedAt = #{createdAt},
             </if>
-            <if test="createdby != null and createdby != ''">
-                CreatedBy = #{createdby},
+            <if test="createdBy != null and createdBy != ''">
+                CreatedBy = #{createdBy},
             </if>
-            <if test="updatedat != null">
-                UpdatedAt = #{updatedat},
+            <if test="updatedAt != null">
+                UpdatedAt = #{updatedAt},
             </if>
-            <if test="updatedby != null and updatedby != ''">
-                UpdatedBy = #{updatedby},
+            <if test="updatedBy != null and updatedBy != ''">
+                UpdatedBy = #{updatedBy},
             </if>
         </set>
         where ID = #{id}
@@ -353,7 +353,24 @@
     </delete>
 
 
-
+    <resultMap type="com.lquan.layui.domain.Project" id="ProjectMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="number" column="Number" jdbcType="VARCHAR"/>
+        <result property="name" column="Name" jdbcType="VARCHAR"/>
+        <result property="typeCode" column="Type" jdbcType="INTEGER"/>
+        <result property="beginDate" column="BeginDate" jdbcType="TIMESTAMP"/>
+        <result property="endDate" column="EndDate" jdbcType="TIMESTAMP"/>
+        <result property="director" column="Director" jdbcType="VARCHAR"/>
+        <result property="mebers" column="Mebers" jdbcType="VARCHAR"/>
+        <result property="quotaServiceState" column="QuotaServiceState" jdbcType="INTEGER"/>
+        <result property="remark" column="Remark" jdbcType="VARCHAR"/>
+        <result property="state" column="State" jdbcType="INTEGER"/>
+        <result property="active" column="Active" jdbcType="INTEGER"/>
+        <result property="createdAt" column="CreatedAt" jdbcType="TIMESTAMP"/>
+        <result property="createdBy" column="CreatedBy" jdbcType="VARCHAR"/>
+        <result property="updatedAt" column="UpdatedAt" jdbcType="TIMESTAMP"/>
+        <result property="updatedBy" column="UpdatedBy" jdbcType="VARCHAR"/>
+    </resultMap>
     <!--查询指定行数据-->
     <select id="queryAllByBean" resultMap="ProjectMap">
         select
@@ -369,14 +386,14 @@
             <if test="name != null and name != ''">
                 and Name = #{name}
             </if>
-            <if test="type != null">
-                and Type = #{type}
+            <if test="typeCode != null">
+                and Type = #{typeCode}
             </if>
-            <if test="begindate != null">
-                and BeginDate = #{begindate}
+            <if test="beginDate != null">
+                and BeginDate = #{beginDate}
             </if>
-            <if test="enddate != null">
-                and EndDate = #{enddate}
+            <if test="endDate != null">
+                and EndDate = #{endDate}
             </if>
             <if test="director != null and director != ''">
                 and Director = #{director}
@@ -384,8 +401,8 @@
             <if test="mebers != null and mebers != ''">
                 and Mebers = #{mebers}
             </if>
-            <if test="quotaservicestate != null">
-                and QuotaServiceState = #{quotaservicestate}
+            <if test="quotaServiceState != null">
+                and QuotaServiceState = #{quotaServiceState}
             </if>
             <if test="remark != null and remark != ''">
                 and Remark = #{remark}
@@ -396,20 +413,20 @@
             <if test="active != null">
                 and Active = #{active}
             </if>
-            <if test="createdat != null">
-                and CreatedAt = #{createdat}
+            <if test="createdAt != null">
+                and CreatedAt = #{createdAt}
             </if>
-            <if test="createdby != null and createdby != ''">
-                and CreatedBy = #{createdby}
+            <if test="createdBy != null and createdBy != ''">
+                and CreatedBy = #{createdBy}
             </if>
-            <if test="updatedat != null">
-                and UpdatedAt = #{updatedat}
+            <if test="updatedAt != null">
+                and UpdatedAt = #{updatedAt}
             </if>
-            <if test="updatedby != null and updatedby != ''">
-                and UpdatedBy = #{updatedby}
+            <if test="updatedBy != null and updatedBy != ''">
+                and UpdatedBy = #{updatedBy}
             </if>
         </where>
-
+        order by CreatedAt desc ,UpdatedAt DESC
     </select>
 
 </mapper>

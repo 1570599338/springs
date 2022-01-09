@@ -14,4 +14,5 @@ public class ProjectPara {
     private Integer perRows;//: '2000',
     private String cnd_type;//: state,
     private String selCndIDs;//: 'type'
+    private String cnd_projectName;
 }

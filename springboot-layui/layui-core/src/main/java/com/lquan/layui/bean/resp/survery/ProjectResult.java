@@ -1,14 +1,11 @@
-package com.lquan.layui.domain;
-
-import java.util.Date;
+package com.lquan.layui.bean.resp.survery;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.ToString;
 
-
-
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (Project)实体类
@@ -17,16 +14,16 @@ import java.io.Serializable;
  * @since 2022-01-05 01:11:37
  */
 @ToString
-public class Project implements Serializable {
+public class ProjectResult implements Serializable {
     private static final long serialVersionUID = -53598506110416348L;
-
+    
     private Integer id;
-
+    
     private String number;
-
+    
     private String name;
-
-    private Integer typeCode;
+    
+    private Integer type;
 
   //  @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
    @JSONField(format="yyyy-MM-dd")//数据库导出页面时json格式化
@@ -35,31 +32,30 @@ public class Project implements Serializable {
   //  @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
     @JSONField(format="yyyy-MM-dd")//数据库导出页面时json格式化
     private Date endDate;
-
+    
     private String director;
-
+    
     private String mebers;
     /**
      * 1 - stop；2 - running
      */
     private Integer quotaServiceState;
-
+    
     private String remark;
     /**
      * 项目状态;0-初始，1-进行中，2-冻结，3-结束
      */
     private Integer state;
-
+    
     private Integer active;
-
+    
     private Date createdAt;
-
+    
     private String createdBy;
-
+    
     private Date updatedAt;
-
+    
     private String updatedBy;
-
 
     public Integer getId() {
         return id;
@@ -85,15 +81,13 @@ public class Project implements Serializable {
         this.name = name;
     }
 
-    public Integer getTypeCode() {
-        return typeCode;
+    public Integer getType() {
+        return type;
     }
 
-    public void setTypeCode(Integer typeCode) {
-        this.typeCode = typeCode;
+    public void setType(Integer type) {
+        this.type = type;
     }
-
-   // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getBeginDate() {
         return beginDate;
@@ -102,8 +96,6 @@ public class Project implements Serializable {
     public void setBeginDate(Date beginDate) {
         this.beginDate = beginDate;
     }
-
-   // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getEndDate() {
         return endDate;
@@ -192,6 +184,5 @@ public class Project implements Serializable {
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
-
 }
 
