@@ -55,12 +55,17 @@ public class UserController {
         //明文密码MD5加密
        /* tbUser.setUserPassword(StrToMd5.Md5(tbUser.getUserPassword()));
         TbUser user = tbUserDao.login(tbUser);*/
-        log.info("survery登录");
-        String token = tbUserService.login(response, tbUser);
-        if (token != null) {
-            return ResultSurveryData.bulidSuccessPageResult(token);
-        } else {
-            return ResultSurveryData.bulidFailResult(ResultCodeEnum.SYS_ERROR);
+        String msg =ResultCodeEnum.SYS_ERROR.getDesc();
+        try {
+            log.info("survery登录");
+            String token = tbUserService.login(response, tbUser);
+            if (token != null) {
+                return ResultSurveryData.bulidSuccessPageResult(token);
+            } else {
+                return ResultSurveryData.bulidSurveryFailedResult(msg);
+            }
+        } catch (Exception e) {
+            return ResultSurveryData.bulidSurveryFailedResult(msg);
         }
     }
 
@@ -137,13 +142,21 @@ public class UserController {
                                                 @RequestParam(required = false,value = "subSys") String subSys,
                                                 @RequestParam(required = false,value = "tplID") String tplID,
                                                 @RequestParam(required = false,value = "userID") String userID) {
-        TbUser user =tbUserService.queryByUserName(userID);
-        user.setImageUrl("/common/images/kaishun.jpg");
+        String msg =ResultCodeEnum.SYS_ERROR.getDesc();
+        try {
+            TbUser user =tbUserService.queryByUserName(userID);
+            user.setImageUrl("/common/images/kaishun.jpg");
+            if(user!=null){
+                List<TbUser> list = new ArrayList<>();
+                list.add(user);
+                return ResultSurveryData.bulidSuccessPageResult(list);
+            }
+        } catch (Exception e) {
 
-        List<TbUser> list = new ArrayList<>();
-        list.add(user);
+            return ResultSurveryData.bulidSurveryFailedResult(msg);
+        }
+        return ResultSurveryData.bulidSurveryFailedResult(msg);
 
-        return ResultSurveryData.bulidSuccessPageResult(list);
 
     }
 

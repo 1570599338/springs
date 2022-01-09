@@ -7,10 +7,11 @@ import lombok.ToString;
 @ToString
 public class ProjectPara {
     private String subSys;//: 'wesurvey',
-    private String repID;//: repID,
-    private String isQuery;//: '1',
-    private String dispType;//: '12',
-    private String perRows;//: '2000',
+    private Integer repID;//: repID,
+    private Integer isQuery;//: '1',
+    private Integer toPageNo;
+    private Integer dispType;//: '12',
+    private Integer perRows;//: '2000',
     private String cnd_type;//: state,
     private String selCndIDs;//: 'type'
 }

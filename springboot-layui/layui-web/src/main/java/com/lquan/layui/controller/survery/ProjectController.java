@@ -1,5 +1,8 @@
 package com.lquan.layui.controller.survery;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.lquan.layui.bean.req.survery.ProjectOptionPara;
 import com.lquan.layui.bean.req.survery.ProjectPara;
 import com.lquan.layui.bean.req.survery.UserPara;
 import com.lquan.layui.domain.Project;
@@ -34,16 +37,49 @@ public class ProjectController {
     @Resource
     private ProjectService projectService;
 
+    @RequestMapping("operate")
+    public ResultSurveryData<Project>  create(ProjectOptionPara projectOption, @PathVariable("operateState") Integer operateState) {
+      log.info("create project:{};operateState:{}",projectOption,operateState);
+      Project project = new Project();
+      project.setId(projectOption.getId());
+        project.setName(projectOption.getName());
+        project.setDirector(projectOption.getDirector());
+        project.setRemark(projectOption.getRemark());
+        project.setMebers(projectOption.getMebers());
+        project.setName(projectOption.getName());
+        project.setType(projectOption.getType());
+      if(operateState==1)
+           projectService.insertSelective(project);
+       else if(operateState==2)
+            projectService.update(project);
+       else if(operateState==3)
+           projectService.deleteById(project.getId());
+
+        return ResultSurveryData.bulidSuccessPageResult(ResultCodeEnum.SUCCESS_PAGE.getDesc());
+    }
+
 
     @JwtIgnore
     @RequestMapping("/sysmngJsonreport")
     public ResultSurveryData loginx(HttpServletResponse response, ProjectPara para ) {
 
         Project project = new Project();
-        log.info("project:{},para:{}",project,para);
+        log.info("para:{}",para);
        // project.setActive(Integer.valueOf(para.getIsQuery()));
+        int page = 1;
+        int limit = 2000;
+        if(para!=null ){
+            page = para.getToPageNo()==null?1:para.getToPageNo();
+            limit = para.getPerRows()==null?10:para.getPerRows();
+        }
+        log.info("2page:{},limit:{}",page,limit);
+        PageHelper.startPage(page,limit);
        List<Project> list =  projectService.queryAllByBean(project);
-       return ResultSurveryData.bulidSuccessPageResult(list);
+
+        PageInfo<Project> pageInfo = new PageInfo<>(list);
+
+
+       return ResultSurveryData.bulidSuccessResultWithPage(pageInfo);
 
 
     }

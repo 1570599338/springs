@@ -18,6 +18,7 @@ public class ResultSurveryData<T> {
     private T token;
     private String message;
     private T data;
+    private Long count;
 
     private List<String> errors;
     private T objs;
@@ -37,6 +38,39 @@ public class ResultSurveryData<T> {
         resultData.setObjs(data);
         resultData.setToken(data);
         resultData.setErrors(new ArrayList<>());
+
+
+        return resultData;
+    }
+    public static <T> ResultSurveryData bulidSuccessResultWithPage(PageInfo<T> data){
+
+        ResultSurveryData resultData = new ResultSurveryData();
+        resultData.setCode(ResultCodeEnum.SUCCESS_PAGE.getCode());
+        resultData.setMessage(ResultCodeEnum.SUCCESS_PAGE.getDesc());
+        resultData.setData(data.getList());
+        resultData.setObjs(data.getList());
+        resultData.setCount(data.getTotal());
+        resultData.setErrors(new ArrayList<>());
+
+
+        return resultData;
+    }
+
+    /**
+     * 构建成功的返回数据
+     * @param data 返回数据
+     */
+    public static <T> ResultSurveryData bulidSurveryFailedResult(T data ){
+
+        ResultSurveryData resultData = new ResultSurveryData();
+        resultData.setCode(ResultCodeEnum.SYS_ERROR.getCode());
+        resultData.setMessage(ResultCodeEnum.SYS_ERROR.getDesc());
+        List<T> list = new ArrayList();
+        resultData.setData(list);
+        resultData.setObjs(list);
+        resultData.setToken(list);
+        list.add(data);
+        resultData.setErrors(list);
 
 
         return resultData;
