@@ -40,7 +40,9 @@ public class ProjectController {
 
     @RequestMapping("operate")
     public ResultSurveryData<Project>  create(ProjectOptionPara projectOption, @RequestParam(required = false,value = "operateState")  Integer operateState) {
-      log.info("create project:{};operateState:{}",projectOption,operateState);
+
+
+        log.info("create project:{};operateState:{}",projectOption,operateState);
       Project project = new Project();
       project.setId(projectOption.getId());
         project.setName(projectOption.getName());
@@ -56,7 +58,7 @@ public class ProjectController {
         project.setCreatedAt(new Date());
         project.setCreatedBy("admin");
       if(operateState==1) {
-
+          project.setTypeCode(projectOption.getTypeCode());
           projectService.insertSelective(project);
       }else if(operateState==2) {
           project.setTypeCode(projectOption.getTypeCode());
