@@ -30,6 +30,11 @@ public class StatementController {
     @Resource
     private StatementService statementService;
 
+    /**
+     * 根据问卷id进行查询
+     * @param templateid
+     * @return
+     */
     @JwtIgnore
     @RequestMapping("/search")
     public ResultSurveryData search(@RequestParam(required = false,value = "templateid") Integer templateid) {
