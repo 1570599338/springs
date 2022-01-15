@@ -74,7 +74,7 @@ public class UserController {
     @RequestMapping("/modNav1jsp")
     public ResultSurveryData modNav1jsp(HttpServletResponse response, UserPara para ) {
 
-     /*   Item item = new Item();
+        Item item = new Item();
         item.setUrl("reward");
        List listitem=  new ArrayList<Item>();
         listitem.add(item);
@@ -126,10 +126,10 @@ public class UserController {
         menu.setChildren(itemslist);
 
         List<Menu> menulist = new ArrayList<>();
-        menulist.add(menu);*/
+        menulist.add(menu);
 
 
-        List<MenuResult> menulist =menuService.queryAllmenu(57);
+      //  List<MenuResult> menulist =menuService.queryAllmenu(57);
 
         return ResultSurveryData.bulidSuccessPageResult(menulist);
 

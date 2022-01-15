@@ -76,6 +76,7 @@ public class ProjectController {
 
         Project project = new Project();
         log.info("para:{}",para);
+        project.setName(para.getCnd_projectName());
        // project.setActive(Integer.valueOf(para.getIsQuery()));
         int page = 1;
         int limit = 2000;
