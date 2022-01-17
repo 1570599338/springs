@@ -16,7 +16,7 @@ import java.io.IOException;
 
         // 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
        // public static String alipay_public_key = "";
-        public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkzD6MWRCZ4PvQ/GZiRxFaOfR5DDrP4SgfoL+49KRYoCeJFY0UGTbfNeF3/hKKD9eH5jy2qXbd8s3Lb/ZBM4ImKh8Pmcc77c24lwvB6dbzQ3HlcMiC3AnF4kaikMcbflcDUisfso/hSqB59I3apx3w5tD04ZM4iFEPyZT42MgLyy4OSDMtBvdz/9b0DsrW3NinxU5e09VMWcLKJrPwoFiyz+jmxHQvOy7zp1N//rDjG37G/Ay8k6n7fiSrppKG7ol9hEuHXDDT7kAwRGSosl9mQUIlIfmDSH/ZAxkShEPdPxSVS4V33MsBDROSBe47YysnI5sgtZG8qGl7mhkwadKIwIDAQAB";
+        public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0Cu77m+zJeqn6NFj+YnDw5KRZnUFxkeWbCnb+RLQk2u7rbwQci1JI/8pJ++TQYckEeYjWaG62Pi4W0AxdhHt+Pert5RR8bMExMle3obkU19HcDu7aCC1cMPu3RS6ahuo2dtcOk2kv6r8TQLTPn8PlQNfJPu6yQa/1kbRUUwlYANMJrRq+hnsaHVb5J2Y9uKm8eLPZjqDjZ2zVgOmEwAyJsAvaFHNDnwUkCUagfUrTcHYvCF8huMzh/NE9EUWgwD0LfLTEOE0XZNmyYdw4VpmKr27Sk4rN1NG9falZKscdqJ2AY0pdY04l4qvPA6uTaRMRepu63WmeF7O+oy++GFBwIDAQAB";
 
         // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
        // public static String notify_url = "";
