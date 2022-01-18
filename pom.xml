@@ -11,6 +11,7 @@
     <modules>
         <module>springboot-layui</module>
         <module>springboot-pay</module>
+        <module>springboot-job</module>
     </modules>
 
     <properties>
