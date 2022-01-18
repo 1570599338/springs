@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 
+/**
+ * 测试支付宝支付问题
+ */
 @Controller
 @RequestMapping("/pay")
 public class PayController {
