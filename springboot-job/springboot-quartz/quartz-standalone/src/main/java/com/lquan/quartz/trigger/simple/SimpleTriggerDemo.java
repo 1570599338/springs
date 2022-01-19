@@ -38,8 +38,8 @@ public class SimpleTriggerDemo {
         SimpleScheduleBuilder simpleScheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
                 .withIntervalInSeconds(2) // 每隔2秒执行一次
                 //执行次数
-                //.repeatForever(); // 永久重复
-                .withRepeatCount(4); // 重复次数
+                .repeatForever(); // 永久重复
+              //  .withRepeatCount(4); // 重复次数
 
         triggerBuilder.withSchedule(simpleScheduleBuilder);
         // 执行的结束时间 当前时间6秒后结束
