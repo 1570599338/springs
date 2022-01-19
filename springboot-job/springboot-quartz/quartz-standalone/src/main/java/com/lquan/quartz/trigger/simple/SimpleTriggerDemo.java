@@ -1,13 +1,19 @@
-package com.lquan.quartz.simple;
+package com.lquan.quartz.trigger.simple;
 
 import com.lquan.quartz.job.MyJob1;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import java.util.Date;
+
 /**
- *
- */
-public class Test {
+ * @program: springs
+ * @description: SimpleTrigger 可以定义固定时刻或者固定时间间隔的调度规则（精确到毫秒）。
+ *                  例如：每天 9 点钟运行；每隔 30 分钟运行一次
+ * @author: lquan
+ * @create: 2022-01-18 10:46
+ **/
+public class SimpleTriggerDemo {
 
     public static void main(String[] args) throws SchedulerException {
         // 1、 将Job封装成JobDetail
@@ -17,7 +23,7 @@ public class Test {
         // 设置携带的参数JobData
         jobBuilder.usingJobData("fname","liu");
         jobBuilder.usingJobData("price",13.11f);
-        // 封装成JobDetail
+        // 通过JobBuild来实例化JobDetail
         JobDetail jobDetail = jobBuilder.build();
 
 
@@ -29,10 +35,19 @@ public class Test {
         triggerBuilder.usingJobData("triggerPrice",1314f);
         // 设置触发器的种类
         // 2.1 设置触发器的出发方式
-        SimpleScheduleBuilder simpleScheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(2).repeatForever();
+        SimpleScheduleBuilder simpleScheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
+                .withIntervalInSeconds(2) // 每隔2秒执行一次
+                //执行次数
+                //.repeatForever(); // 永久重复
+                .withRepeatCount(4); // 重复次数
+
         triggerBuilder.withSchedule(simpleScheduleBuilder);
+        // 执行的结束时间 当前时间6秒后结束
+        //  triggerBuilder.endAt(new Date(new Date().getTime()+6000));
+
         triggerBuilder.startNow();
         Trigger trigger = triggerBuilder.build();
+
 
 
         // 3、 创建Scheduler
