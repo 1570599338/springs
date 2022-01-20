@@ -39,7 +39,7 @@ public class MyTriggerListener implements TriggerListener {
     @Override
     public void triggerFired(Trigger trigger, JobExecutionContext jobExecutionContext) {
         String triggerName = trigger.getKey().getName();
-        System.out.println("Method 11111 " + triggerName + " was fired");
+        System.out.println("Method 11111-triggerFired" + triggerName + " was fired");
     }
 
     /**
@@ -53,19 +53,19 @@ public class MyTriggerListener implements TriggerListener {
     @Override
     public boolean vetoJobExecution(Trigger trigger, JobExecutionContext jobExecutionContext) {
         String triggerName = trigger.getKey().getName();
-        System.out.println("Method 222222 " + triggerName + " was not vetoed");
+        System.out.println("Method 222222-vetoJobExecution" + triggerName + " was not vetoed");
         return false;
     }
 
     /**
-     * Trigger 错过触发时调用
+     * Trigger 错过触发(失火)时调用
      * @param trigger
      */
     @Override
     public void triggerMisfired(Trigger trigger) {
 
         String triggerName = trigger.getKey().getName();
-        System.out.println("Method 333333 " + triggerName + " misfired");
+        System.out.println("Method 333333-triggerMisfired" + triggerName + " misfired");
 
     }
 
@@ -78,7 +78,7 @@ public class MyTriggerListener implements TriggerListener {
     @Override
     public void triggerComplete(Trigger trigger, JobExecutionContext jobExecutionContext, Trigger.CompletedExecutionInstruction completedExecutionInstruction) {
         String triggerName = trigger.getKey().getName();
-        System.out.println("Method 444444 " + triggerName + " is complete");
+        System.out.println("Method 444444-triggerComplete" + triggerName + " is complete");
         System.out.println("------------");
     }
 }

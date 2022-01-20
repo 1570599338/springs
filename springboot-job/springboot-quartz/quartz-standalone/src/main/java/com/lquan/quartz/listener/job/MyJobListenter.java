@@ -29,11 +29,7 @@ public class MyJobListenter implements JobListener {
      */
     @Override
     public void jobToBeExecuted(JobExecutionContext jobExecutionContext) {
-        System.out.println("***********************jobToBeExecuted cheduler 在 JobDetail 将要被执行时调用这个方法*************************************");
-        System.out.println("名称2222[" + jobExecutionContext.getJobDetail().getKey().getName() + "]");
-        System.out.println("分组22222[" + jobExecutionContext.getJobDetail().getKey().getGroup()+ "]");
-        System.out.println("********************************jobToBeExecuted END**********************************");
-
+        System.out.println("名称2222jobToBeExecuted scheduler 在 JobDetail 将要被执行时调用这个方法[" + jobExecutionContext.getJobDetail().getKey().getName() +"----"+jobExecutionContext.getJobDetail().getKey().getGroup()+"]");
     }
 
     /**
@@ -43,11 +39,7 @@ public class MyJobListenter implements JobListener {
     @Override
     public void jobExecutionVetoed(JobExecutionContext jobExecutionContext) {
 
-        System.out.println("***********************jobExecutionVetoed Scheduler 在 JobDetail 即将被执行， 但又被 TriggerListener 否决了时调用这个方法*************************************");
-        System.out.println("名称3333[" + jobExecutionContext.getJobDetail().getKey().getName() + "]");
-        System.out.println("分组3333[" + jobExecutionContext.getJobDetail().getKey().getGroup()+ "]");
-        System.out.println("********************************jobExecutionVetoed END**********************************");
-
+        System.out.println("名称3333jobExecutionVetoed Scheduler 在 JobDetail 即将被执行， 但又被 TriggerListener 否决了时调用这个方法[" + jobExecutionContext.getJobDetail().getKey().getName() +"----"+jobExecutionContext.getJobDetail().getKey().getGroup()+ "]");
 
     }
 
@@ -58,10 +50,9 @@ public class MyJobListenter implements JobListener {
      */
     @Override
     public void jobWasExecuted(JobExecutionContext jobExecutionContext, JobExecutionException e) {
-        System.out.println("***********************jobWasExecuted Scheduler 在 JobDetail 被执行之后调用这个方法*************************************");
-        System.out.println("名称44444[" + jobExecutionContext.getJobDetail().getKey().getName() + "]");
-        System.out.println("分组44444[" + jobExecutionContext.getJobDetail().getKey().getGroup()+ "]");
-        System.out.println("********************************jobWasExecuted END**********************************");
-
+        System.out.println("名称44444jobWasExecuted Scheduler 在 JobDetail 被执行之后调用这个方法[" + jobExecutionContext.getJobDetail().getKey().getName()  +"----"+jobExecutionContext.getJobDetail().getKey().getGroup()+  "]");
+        System.out.println();
+        System.out.println();
+        System.out.println("----------------------------------------------------------");
     }
 }
