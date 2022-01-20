@@ -12,18 +12,11 @@
     <artifactId>springboot-quartz</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>quartz-test</module>
+        <module>quartz-standalone</module>
+        <module>springboot-quartzweb</module>
     </modules>
 
-    <dependencies>
 
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-    </dependencies>
 
 
 </project>
