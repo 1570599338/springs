@@ -8,6 +8,7 @@ import com.lquan.domain.TbQuartzJob;
 import com.lquan.resp.ResultData;
 import com.lquan.exception.BizException;
 import com.lquan.exception.SystemException;
+import com.lquan.service.impl.QuartzSchedulerService;
 import com.lquan.util.Constant;
 import com.lquan.util.SchedulerUtil;
 import com.lquan.service.TbQuartzJobService;
@@ -34,6 +35,9 @@ public class QuartzJobController {
 //	private ISysJobService sysJobService;
 	@Autowired
 	private TbQuartzJobService tbQuartzJobService;
+
+	@Autowired
+	private QuartzSchedulerService quartzSchedulerService;
 
 	/**
 	 * 打开列表页
@@ -129,25 +133,13 @@ public class QuartzJobController {
 		if(page>=1){
 			page = (page-1)*limit;
 		}
-		//LayuiData layuiData = new LayuiData();
-		//PageRequest pageRequest = new PageRequest(page,limit);
 		try {
 
-
-		//	Page<TbQuartzJob>  pageBean = this.tbQuartzJobService.queryByPage(tbQuartzJob, PageRequest.of(page,limit));
-			//List<SysJob> jobList = sysJobService.querySysJobList(map);
 			PageHelper.startPage(page,limit);
 			List<TbQuartzJob> jobList= this.tbQuartzJobService.queryQuartzJobList(tbQuartzJob);
 			//生成分页信息对象
 			PageInfo<TbQuartzJob> pageInfo = new PageInfo<>(jobList);
 
-			//int count = sysJobService.getJobCount();
-			/*int count = this.tbQuartzJobService.
-			layuiData.setCode(0);
-			layuiData.setCount(count);
-			layuiData.setMsg("数据请求成功");
-			layuiData.setData(jobList);
-			return layuiData;*/
 			return ResultData.bulidSuccessPageResult(pageInfo);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -220,8 +212,8 @@ public class QuartzJobController {
 		} catch (Exception e) {
 			throw new BizException("新增定时任务失败");
 		}
-		
-		SchedulerUtil.addJob(jobClassPath,jobName, jobGroup, jobCron,jobDataMap);
+
+		this.quartzSchedulerService.addBeanJob(bean);
 		return 1;
 	}
 	
@@ -252,10 +244,9 @@ public class QuartzJobController {
 		//如果是现在是启用，则停用
 		if(Constant.JOB_STATE.YES == result.getJobStatus()){
 			updateBean.setJobStatus(Constant.JOB_STATE.NO);
-			//SchedulerUtil.jobPause(result.getJobName(), result.getJobGroup());
-		  Boolean b=SchedulerUtil.isResume(result.getJobName(), result.getJobGroup());
+			Boolean b=this.quartzSchedulerService.isResume(result.getJobName(),result.getJobGroup());
 		  if (b) {
-			  SchedulerUtil.jobdelete(result.getJobName(), result.getJobGroup());
+			  quartzSchedulerService.jobdelete(result.getJobName(), result.getJobGroup());
 		  }
 		}
 		
@@ -266,9 +257,9 @@ public class QuartzJobController {
 			 Boolean b=SchedulerUtil.isResume(result.getJobName(), result.getJobGroup());
 			 //存在则激活，不存在则添加
 			  if (b) {
-				  SchedulerUtil.jobresume(result.getJobName(), result.getJobGroup());
+				  quartzSchedulerService.jobresume(result.getJobName(), result.getJobGroup());
 			  }else {
-				  SchedulerUtil.addJob(result.getJobClassPath(),result.getJobName(), result.getJobGroup(), result.getJobCron(),result.getJobDataMap());
+				  quartzSchedulerService.addBeanJob(result);
 			}
 		}
 		
@@ -312,8 +303,8 @@ public class QuartzJobController {
 		} catch (Exception e) {
 			throw new BizException("从数据库删除定时任务时发生异常！");
 		}
-		
-		SchedulerUtil.jobdelete(result.getJobName(), result.getJobGroup());
+
+		quartzSchedulerService.jobdelete(result.getJobName(), result.getJobGroup());
 		return num;
 	}
 
@@ -353,7 +344,7 @@ public class QuartzJobController {
 		//只有任务状态为启用，才开始运行
 		// 如果先启动再手工插入数据，此处会报空指针异常
 		if( result.getJobStatus() ==Constant.JOB_STATE.YES ){
-			SchedulerUtil.jobReschedule(result.getJobName(), result.getJobGroup(),jobCron);
+			quartzSchedulerService.modifyJobTime(result.getJobName(), result.getJobGroup(),jobCron);
 		}
 		
 		// 返回成功
