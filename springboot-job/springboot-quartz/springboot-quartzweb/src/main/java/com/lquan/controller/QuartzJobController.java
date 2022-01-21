@@ -10,7 +10,6 @@ import com.lquan.exception.BizException;
 import com.lquan.exception.SystemException;
 import com.lquan.service.impl.QuartzSchedulerService;
 import com.lquan.util.Constant;
-import com.lquan.util.SchedulerUtil;
 import com.lquan.service.TbQuartzJobService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -254,7 +253,7 @@ public class QuartzJobController {
 		if(Constant.JOB_STATE.NO == result.getJobStatus()){
 			updateBean.setJobStatus(Constant.JOB_STATE.YES);
 			//SchedulerUtil.jobresume(result.getJobName(), result.getJobGroup());
-			 Boolean b=SchedulerUtil.isResume(result.getJobName(), result.getJobGroup());
+			 Boolean b=quartzSchedulerService.isResume(result.getJobName(), result.getJobGroup());
 			 //存在则激活，不存在则添加
 			  if (b) {
 				  quartzSchedulerService.jobresume(result.getJobName(), result.getJobGroup());
