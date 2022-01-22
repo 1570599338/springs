@@ -14,6 +14,8 @@ import java.util.Date;
  * @Author:
  * @Date:
  * @Description:
+ * @DisallowConcurrentExecution注解可以控制我们的相同类的定时任务同时只有一个执行。通常的场景是如果定时任务实际执行时间大于设定的定时任务执行间隔时间，就会导致同时多个任务并行。
+ *
  */
 @Slf4j
 @DisallowConcurrentExecution
