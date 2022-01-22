@@ -62,7 +62,10 @@ public class InitQuartzJob implements CommandLineRunner {
             log.info("系统启动，没有需要执行的任务... ...");
         }else{
             for (TbQuartzJob job:jobList){
-                quartzSchedulerService.addBeanJob(job);
+                if(quartzSchedulerService.notExists(job.getJobName(),job.getJobGroup())){//在第一次进行加载数据是执行，并且防止在集群情况下重复加载
+                    quartzSchedulerService.addBeanJob(job);
+                }
+
             }
 
         }

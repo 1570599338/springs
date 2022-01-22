@@ -24,6 +24,11 @@ public class JobFactory extends AdaptableJobFactory {
 
     /**
      * 创建Job实例
+     * Quartz的Job任务实例没有被Spring容器管理，所以当在Job实例对象中需要依赖注入的对象时，这个对象是为空的，
+     * 比如我要在Job的实现类中调用业务层，那么通过@Autowired注入的UserService是null对象，
+     *
+     * 解决方法是：通过继承SpringBeanJobFactory，在生成Job实例对象的的时候通过AutowireCapbaleBeanFactory将Job实例注入到Spring容器中去。
+     *
      * @param bundle
      * @return
      * @throws Exception

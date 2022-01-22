@@ -38,6 +38,12 @@ public class QuartzSchedulerService {
      */
     public void addJob(String jobName, String jobGroupName, String triggerName, String triggerGroupName, String jobClass, String cron, Map<String, Object> params) {
         try {
+
+            if(checkExists(jobName, jobGroupName, triggerName, triggerGroupName)) {
+                //先移除后添加
+                jobdelete(jobName, jobGroupName, triggerName, triggerGroupName);
+            }
+
             //1、 创建JobDetail
             Class<? extends Job> clz = (Class<? extends Job>) Class.forName(jobClass).newInstance().getClass();
             JobDetail jobDetail = JobBuilder.newJob(clz).withIdentity(jobName,jobGroupName).build();
@@ -234,6 +240,28 @@ public class QuartzSchedulerService {
         }
         return Boolean.FALSE;
     }
+
+    /**
+     * 检查是否存在
+     * @param jobName
+     * @param jobGroupName
+     * @param triggerName
+     * @param triggerGroupName
+     * @return
+     */
+    public boolean checkExists(String jobName, String jobGroupName, String triggerName, String triggerGroupName) {
+        try {
+            TriggerKey triggerKey = TriggerKey.triggerKey(triggerName, triggerGroupName);
+            JobKey jobKey = new JobKey(jobName, jobGroupName);
+            boolean triggerCheck = scheduler.checkExists(triggerKey);
+            boolean jobCheck = scheduler.checkExists(jobKey);
+            return triggerCheck || jobCheck;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 
     /**
