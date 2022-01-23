@@ -1,12 +1,14 @@
 package com.lquan.quartz.task;
 
 
+import com.lquan.dao.TbQuartzJobMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -19,10 +21,14 @@ import java.util.Date;
 @Slf4j
 @DisallowConcurrentExecution
 public class TestTask2 implements Job {
+
+    @Resource
+    private TbQuartzJobMapper mapper;
+
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        log.info(Thread.currentThread().getName() + " " +sdf.format(date) + " Task2： ----Hello world----");
+        log.info(Thread.currentThread().getName() + " " +sdf.format(date) + " Task2： mapper"+mapper+" ----Hello world----");
     }
 }

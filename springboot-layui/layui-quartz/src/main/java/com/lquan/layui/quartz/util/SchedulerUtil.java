@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Quartz工具类
  * qingshan
- * 咕泡学院，只为更好的你
+ *   ，只为更好的你
  *
  */
 public class SchedulerUtil {

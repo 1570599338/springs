@@ -1,4 +1,36 @@
 # SpringBoot Quartz 集群
+
+主要是整合springBoot和quart对应的依赖包进行整合有两个版本
+版本一：
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.2.3.RELEASE</version>
+        </dependency>
+        
+        
+  版本二：
+  直接利用springboot2.0进行整合
+          <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-quartz</artifactId>
+              <!--<version>2.0.5.RELEASE</version>-->
+          </dependency>
+  
+  此项目是版本一        
+          
+
+
 SpringBoot +Quartz + Mybatis + LayUI<br/>
 通过数据库实现了Quartz集群。<br/>
 
@@ -21,10 +53,10 @@ quartz-2.2.3-distribution\quartz-2.2.3\docs\dbTables
 3. 第三个任务是发送邮件的任务，SQL语句需要修改为自己的QQ账号和授权码，不需要可以把状态改成0或者删掉。
 
 ## 代码说明
-1. 需要运行的任务类放在task包下面，必须实现BaseJob接口。
+1. JobFactory是保证Spring的对象可以注入到Job里面。
 2. config下面的类是保证SpringBoot工程启动的时候任务可以运行。
-3. JobFactory是保证Spring的对象可以注入到Job里面。
-3. 最核心的类是 SchedulerUtil。
+
+
 
 ## 并发功能说明
 1.  在Job类上添加`@DisallowConcurrentExecution` 注解以后，任务就不会并行执行。<br/>
