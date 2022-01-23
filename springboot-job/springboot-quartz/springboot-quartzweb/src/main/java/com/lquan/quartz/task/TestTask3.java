@@ -3,7 +3,9 @@ package com.lquan.quartz.task;
 import com.alibaba.fastjson.JSONObject;
 import com.lquan.dao.TbQuartzJobMapper;
 import com.lquan.domain.TbQuartzJob;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -21,6 +23,7 @@ import java.util.List;
  * @DisallowConcurrentExecution注解可以控制我们的相同类的定时任务同时只有一个执行。通常的场景是如果定时任务实际执行时间大于设定的定时任务执行间隔时间，就会导致同时多个任务并行。
  *
  */
+@DisallowConcurrentExecution
 public class TestTask3 implements Job {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -34,10 +37,7 @@ public class TestTask3 implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         logger.info("开始执行任务3... ...");
-      /*  HashMap<String, String> map = new HashMap<String, String>();
-        map.put("jobGroup", "mail");
-        map.put("jobStatus", "1");
-        List<SysJob> jobList= sysJobService.querySysJobList(map);*/
+
 
         TbQuartzJob bean = new TbQuartzJob();
         bean.setJobGroup("main");

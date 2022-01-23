@@ -25,7 +25,6 @@ public class TestTask1 implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println(Thread.currentThread().getName() + " " +sdf.format(date) + " Task1： ----咕泡学院，只为更好的你----");
-        log.info(Thread.currentThread().getName() + " " +sdf.format(date) + " Task1.1： ----咕泡学院，只为更好的你----");
+        log.info(Thread.currentThread().getName() + " " +sdf.format(date) + " Task1.1： ----Hello world----");
     }
 }
