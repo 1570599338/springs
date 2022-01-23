@@ -14,6 +14,7 @@
     <modules>
         <module>quartz-standalone</module>
         <module>springboot-quartzweb</module>
+        <module>springboot-starterquart</module>
     </modules>
 
 

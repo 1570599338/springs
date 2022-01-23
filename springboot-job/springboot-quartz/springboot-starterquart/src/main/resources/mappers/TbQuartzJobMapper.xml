@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lquan.dao.TbQuartzJobMapper">
+
+    <resultMap type="com.lquan.domain.TbQuartzJob" id="TbQuartzJobMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="jobName" column="job_name" jdbcType="VARCHAR"/>
+        <result property="jobGroup" column="job_group" jdbcType="VARCHAR"/>
+        <result property="jobCron" column="job_cron" jdbcType="VARCHAR"/>
+        <result property="jobClassPath" column="job_class_path" jdbcType="VARCHAR"/>
+        <result property="jobDataMap" column="job_data_map" jdbcType="VARCHAR"/>
+        <result property="jobStatus" column="job_status" jdbcType="INTEGER"/>
+        <result property="jobDescribe" column="job_describe" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TbQuartzJobMap">
+        select
+          id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
+        from tb_quartz_job
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TbQuartzJobMap">
+        select
+          id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
+        from tb_quartz_job
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="jobName != null and jobName != ''">
+                and job_name = #{jobName}
+            </if>
+            <if test="jobGroup != null and jobGroup != ''">
+                and job_group = #{jobGroup}
+            </if>
+            <if test="jobCron != null and jobCron != ''">
+                and job_cron = #{jobCron}
+            </if>
+            <if test="jobClassPath != null and jobClassPath != ''">
+                and job_class_path = #{jobClassPath}
+            </if>
+            <if test="jobDataMap != null and jobDataMap != ''">
+                and job_data_map = #{jobDataMap}
+            </if>
+            <if test="jobStatus != null">
+                and job_status = #{jobStatus}
+            </if>
+            <if test="jobDescribe != null and jobDescribe != ''">
+                and job_describe = #{jobDescribe}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from tb_quartz_job
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="jobName != null and jobName != ''">
+                and job_name = #{jobName}
+            </if>
+            <if test="jobGroup != null and jobGroup != ''">
+                and job_group = #{jobGroup}
+            </if>
+            <if test="jobCron != null and jobCron != ''">
+                and job_cron = #{jobCron}
+            </if>
+            <if test="jobClassPath != null and jobClassPath != ''">
+                and job_class_path = #{jobClassPath}
+            </if>
+            <if test="jobDataMap != null and jobDataMap != ''">
+                and job_data_map = #{jobDataMap}
+            </if>
+            <if test="jobStatus != null">
+                and job_status = #{jobStatus}
+            </if>
+            <if test="jobDescribe != null and jobDescribe != ''">
+                and job_describe = #{jobDescribe}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_quartz_job(job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe)
+        values (#{jobName}, #{jobGroup}, #{jobCron}, #{jobClassPath}, #{jobDataMap}, #{jobStatus}, #{jobDescribe})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_quartz_job
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                `id`,
+            </if>
+                    <if test="jobName != null and jobName != ''">
+                `job_name`,
+            </if>
+                    <if test="jobGroup != null and jobGroup != ''">
+                `job_group`,
+            </if>
+                    <if test="jobCron != null and jobCron != ''">
+                `job_cron`,
+            </if>
+                    <if test="jobClassPath != null and jobClassPath != ''">
+                `job_class_path`,
+            </if>
+                    <if test="jobDataMap != null and jobDataMap != ''">
+                `job_data_map`,
+            </if>
+                    <if test="jobStatus != null">
+                `job_status`,
+            </if>
+                    <if test="jobDescribe != null and jobDescribe != ''">
+                `job_describe`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+                    <if test="jobName != null and jobName != ''">
+                #{jobName,jdbcType=VARCHAR},
+            </if>
+                    <if test="jobGroup != null and jobGroup != ''">
+                #{jobGroup,jdbcType=VARCHAR},
+            </if>
+                    <if test="jobCron != null and jobCron != ''">
+                #{jobCron,jdbcType=VARCHAR},
+            </if>
+                    <if test="jobClassPath != null and jobClassPath != ''">
+                #{jobClassPath,jdbcType=VARCHAR},
+            </if>
+                    <if test="jobDataMap != null and jobDataMap != ''">
+                #{jobDataMap,jdbcType=VARCHAR},
+            </if>
+                    <if test="jobStatus != null">
+                #{jobStatus,jdbcType=INTEGER},
+            </if>
+                    <if test="jobDescribe != null and jobDescribe != ''">
+                #{jobDescribe,jdbcType=VARCHAR},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_quartz_job(job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.jobName}, #{entity.jobGroup}, #{entity.jobCron}, #{entity.jobClassPath}, #{entity.jobDataMap}, #{entity.jobStatus}, #{entity.jobDescribe})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_quartz_job(job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.jobName}, #{entity.jobGroup}, #{entity.jobCron}, #{entity.jobClassPath}, #{entity.jobDataMap}, #{entity.jobStatus}, #{entity.jobDescribe})
+        </foreach>
+        on duplicate key update
+        job_name = values(job_name),
+        job_group = values(job_group),
+        job_cron = values(job_cron),
+        job_class_path = values(job_class_path),
+        job_data_map = values(job_data_map),
+        job_status = values(job_status),
+        job_describe = values(job_describe)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update tb_quartz_job
+        <set>
+            <if test="jobName != null and jobName != ''">
+                job_name = #{jobName},
+            </if>
+            <if test="jobGroup != null and jobGroup != ''">
+                job_group = #{jobGroup},
+            </if>
+            <if test="jobCron != null and jobCron != ''">
+                job_cron = #{jobCron},
+            </if>
+            <if test="jobClassPath != null and jobClassPath != ''">
+                job_class_path = #{jobClassPath},
+            </if>
+            <if test="jobDataMap != null and jobDataMap != ''">
+                job_data_map = #{jobDataMap},
+            </if>
+            <if test="jobStatus != null">
+                job_status = #{jobStatus},
+            </if>
+            <if test="jobDescribe != null and jobDescribe != ''">
+                job_describe = #{jobDescribe},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from tb_quartz_job where id = #{id}
+    </delete>
+
+
+
+
+    <!-- 查询定时任务列表 com.lquan.layui.domain.TbQuartzJob-->
+    <select id="queryQuartzJobList" parameterType="com.lquan.domain.TbQuartzJob" resultMap="TbQuartzJobMap">
+        select
+        id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
+        from tb_quartz_job where 1=1
+        <if test="id != null">
+            and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="jobDescribe != null">
+            and JOB_DESCRIBE = #{jobDescribe,jdbcType=VARCHAR}
+        </if>
+        <if test="jobClassPath != null">
+            and job_class_path = #{jobClassPath,jdbcType=VARCHAR}
+        </if>
+        <if test="jobStatus != null">
+            and job_status = #{jobStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="jobCron != null">
+            and job_cron like concat('%',#{jobCron},'%')
+        </if>
+        <if test="jobGroup != null">
+            and job_group = #{jobGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="jobName != null">
+            and job_name like concat('%',#{jobName},'%')
+        </if>
+    </select>
+
+
+    <!-- 根据bean查询定时任务详情  -->
+    <select id="selectByBean" parameterType="com.lquan.domain.TbQuartzJob" resultMap="TbQuartzJobMap">
+        select
+        id, job_name, job_group, job_cron, job_class_path, job_data_map, job_status, job_describe
+        from tb_quartz_job where 1=1
+        <if test="id != null">
+            and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="jobDescribe != null">
+            and JOB_DESCRIBE = #{jobDescribe,jdbcType=VARCHAR}
+        </if>
+        <if test="jobClassPath != null">
+            and job_class_path = #{jobClassPath,jdbcType=VARCHAR}
+        </if>
+        <if test="jobStatus != null">
+            and job_status = #{jobStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="jobCron != null">
+            and job_cron like concat('%',#{jobCron},'%')
+        </if>
+        <if test="jobGroup != null">
+            and job_group = #{jobGroup,jdbcType=VARCHAR}
+        </if>
+        <if test="jobName != null">
+            and job_name like concat('%',#{jobName},'%')
+        </if>
+    </select>
+
+    <!-- 更新定时任务信息 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.lquan.domain.TbQuartzJob">
+        update tb_quartz_job
+        <set>
+            <if test="jobDescribe != null">
+                job_describe = #{jobDescribe,jdbcType=VARCHAR},
+            </if>
+            <if test="jobClassPath != null">
+                job_class_path = #{jobClassPath,jdbcType=VARCHAR},
+            </if>
+            <if test="jobStatus != null">
+                job_status = #{jobStatus,jdbcType=INTEGER},
+            </if>
+            <if test="jobCron != null">
+                job_cron = #{jobCron,jdbcType=VARCHAR},
+            </if>
+            <if test="jobGroup != null">
+                job_group = #{jobGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="jobName != null">
+                job_name = #{jobName,jdbcType=VARCHAR},
+            </if>
+            <if test="jobDataMap != null">
+                job_data_map = #{jobDataMap,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+
+
+
+
+</mapper>
+
