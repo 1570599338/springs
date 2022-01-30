@@ -8,6 +8,7 @@ import lombok.ToString;
 public class UserPara {
 
     private String userID;
+    private String username;
 
     private String password;
 

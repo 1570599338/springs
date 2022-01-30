@@ -1,4 +1,4 @@
-package com.lquan.layui.controller.survery;
+package com.lquan.layui.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

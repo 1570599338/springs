@@ -20,6 +20,7 @@
         <module>layui-web</module>
         <module>layui-quartz</module>
         <module>layui-service</module>
+        <module>layui-api</module>
     </modules>
 
     <dependencies>

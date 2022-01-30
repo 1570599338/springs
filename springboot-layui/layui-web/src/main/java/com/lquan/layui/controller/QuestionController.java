@@ -1,4 +1,4 @@
-package com.lquan.layui.controller.survery;
+package com.lquan.layui.controller;
 
 import com.lquan.layui.bean.resp.QuestionResult;
 import com.lquan.layui.domain.Queoption;

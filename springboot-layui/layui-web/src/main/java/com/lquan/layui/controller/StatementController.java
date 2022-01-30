@@ -1,4 +1,4 @@
-package com.lquan.layui.controller.survery;
+package com.lquan.layui.controller;
 
 import com.lquan.layui.domain.Statement;
 import com.lquan.layui.domain.Template;

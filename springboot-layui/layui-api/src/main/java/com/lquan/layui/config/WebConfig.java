@@ -25,7 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new JwtInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns(
                         "/common/**"
-                        ,"/layui/**"
+                        , "/com/lquan/layui/**"
                         ,"/static/**"
                         ,"/user/**"
                         ,"/project/**"
