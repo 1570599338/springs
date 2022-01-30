@@ -12,6 +12,7 @@
         <module>springboot-layui</module>
         <module>springboot-pay</module>
         <module>springboot-job</module>
+        <module>springboot-shiro</module>
     </modules>
 
     <properties>
