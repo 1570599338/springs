@@ -43,6 +43,8 @@ public class ShrioConfig {
         Map<String,String> filtMap = new LinkedHashMap();
       //  filtMap.put("/add","authc");
         filtMap.put("/login","anon");// 无需认证可访问
+        filtMap.put("/toLogin","anon");// 无需认证可访问
+
 
         // 授权过滤器
         //注意：当前授权拦截后，shiro会自动跳转到未授权页面

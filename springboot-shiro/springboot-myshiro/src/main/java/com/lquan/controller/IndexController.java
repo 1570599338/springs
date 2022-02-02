@@ -1,6 +1,7 @@
 package com.lquan.controller;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public  String index(Model model){
 
         model.addAttribute("name","hello world!!!");
@@ -39,16 +40,20 @@ public class IndexController {
         return "test";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/toLogin")
     public  String toLogion(String name,String password){
 
 
-        // 获取subject对象
-        Subject subject = SecurityUtils.getSubject();
-        // 封装登陆用户数据
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(name,password);
-        //执行登陆方法
-        subject.login(usernamePasswordToken);
+        try {
+            // 获取subject对象
+            Subject subject = SecurityUtils.getSubject();
+            // 封装登陆用户数据
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(name,password);
+            //执行登陆方法
+            subject.login(usernamePasswordToken);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
 
 
         return "test";
@@ -62,6 +67,20 @@ public class IndexController {
         return "unAuth";
     }
 
+
+    @RequestMapping("/add")
+    public  String add(Model model){
+
+        model.addAttribute("name","add");
+        return "add";
+    }
+
+    @RequestMapping("/update")
+    public  String update(Model model){
+
+        model.addAttribute("name","update");
+        return "update";
+    }
 
 
 
