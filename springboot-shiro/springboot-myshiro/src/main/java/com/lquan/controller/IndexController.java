@@ -1,87 +1,76 @@
 package com.lquan.controller;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
+import com.lquan.common.shiro.ShiroUtils;
+import com.lquan.domain.Menu;
+import com.lquan.domain.User;
+import com.lquan.mapper.RoleMapper;
+import com.lquan.service.MenuService;
+import com.lquan.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
- * @program: springs
- * @description: index的controller
- * @author: lquan
- * @create: 2022-01-30 15:47
- **/
+ * 首页 业务处理
+ *
+ * @author lquan
+ */
 @Controller
-@RequestMapping("/")
 public class IndexController {
-    @RequestMapping("/login")
-    public  String index(Model model){
+    @Autowired
+    private MenuService menuService;
 
-        model.addAttribute("name","hello world!!!");
-        return "login";
-    }
+    @Autowired
+    private UserService userService;
 
-    @RequestMapping("/test")
-    @ResponseBody
-    public  String  test(){
+    @Resource
+    private RoleMapper roleMapper;
 
-        return "hello world";
-    }
-
-    @RequestMapping("/test2")
-    public  String testThymeleaf(Model model){
-
-        model.addAttribute("name","hello world!!!");
-        return "test";
-    }
-
-    @RequestMapping("/toLogin")
-    public  String toLogion(String name,String password){
+    // 系统首页
+    @GetMapping("/index")
+    public String index(String tourist, ModelMap mmap) {
+       User us = ShiroUtils.getSysUser();
+        if(us==null || us.getLoginName()==null){
+            ShiroUtils.logout();
+            ShiroUtils.clearCachedAuthorizationInfo();
+            return "login";
+        }
+        // 取身份信息
+        User user = userService.queryById(ShiroUtils.getUserId());
 
 
-        try {
-            // 获取subject对象
-            Subject subject = SecurityUtils.getSubject();
-            // 封装登陆用户数据
-            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(name,password);
-            //执行登陆方法
-            subject.login(usernamePasswordToken);
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
+        ShiroUtils.setSysUser(user);
+        // 根据用户id取出菜单
+        List<Menu> menus = menuService.selectMenusByUser(user);
+        mmap.put("menus", menus);
+        mmap.put("user", user);
+        mmap.put("tourist", tourist);
+        List<String> roleKeyList = roleMapper.selectRoleKey(ShiroUtils.getUserId());
+        if (roleKeyList.contains("job_wanted")) {
+            if ("0".equals(user.getVip())) {
+                mmap.put("job_wanted", "job_wanted");
+            }
         }
 
 
-        return "test";
+        return "index";
     }
 
-
-    @RequestMapping("/unAuth")
-    public  String unAuth(Model model){
-
-
-        return "unAuth";
+    // 切换主题
+    @GetMapping("/system/switchSkin")
+    public String switchSkin(ModelMap mmap) {
+        return "skin";
     }
 
-
-    @RequestMapping("/add")
-    public  String add(Model model){
-
-        model.addAttribute("name","add");
-        return "add";
+    // 系统介绍
+    @GetMapping("/system/main")
+    public String main(ModelMap mmap) {
+        mmap.put("version", "V1.0");
+        return "main";
     }
-
-    @RequestMapping("/update")
-    public  String update(Model model){
-
-        model.addAttribute("name","update");
-        return "update";
-    }
-
-
-
 }

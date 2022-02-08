@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -25,13 +26,13 @@ public class ShrioConfig {
      */
     @Bean
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager manager){
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+ /*       ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         // 设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(manager);
 
         // 设置安全管理器
-        /**
+        *//**
          * shiro 内置过滤器，可以实现权限相关的拦截器
          *          常用的过滤器：
          *              anon:无需认证（登录）可以访问
@@ -39,9 +40,9 @@ public class ShrioConfig {
          *              user:如果使用rememberMe的功能可以直接访问
          *              perms:改资源必须得到资源权限才可以访问
          *              role：该资源必须得到角色权限才可以 访问
-         */
+         *//*
         Map<String,String> filtMap = new LinkedHashMap();
-      //  filtMap.put("/add","authc");
+        //  filtMap.put("/add","authc");
         filtMap.put("/login","anon");// 无需认证可访问
         filtMap.put("/toLogin","anon");// 无需认证可访问
 
@@ -60,6 +61,54 @@ public class ShrioConfig {
 
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filtMap);
+        return shiroFilterFactoryBean;*/
+
+
+
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        // Shiro的核心安全接口,这个属性是必须的
+        shiroFilterFactoryBean.setSecurityManager(manager);
+        // 身份认证失败，则跳转到登录页面的配置
+        shiroFilterFactoryBean.setLoginUrl("/login");
+        // 权限认证失败，则跳转到指定页面
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
+        // Shiro连接约束配置，即过滤链的定义
+        LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        // 对静态资源设置匿名访问
+        filterChainDefinitionMap.put("/favicon.ico**", "anon");
+        filterChainDefinitionMap.put("/ruoyi.png**", "anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/docs/**", "anon");
+        filterChainDefinitionMap.put("/fonts/**", "anon");
+        filterChainDefinitionMap.put("/img/**", "anon");
+        filterChainDefinitionMap.put("/ajax/**", "anon");
+        filterChainDefinitionMap.put("/js/**", "anon");
+        filterChainDefinitionMap.put("/ruoyi/**", "anon");
+        filterChainDefinitionMap.put("/captcha/captchaImage**", "anon");
+        filterChainDefinitionMap.put("/user/**", "anon");
+        filterChainDefinitionMap.put("/system/user/check**", "anon");
+        filterChainDefinitionMap.put("/weixinpay/pay", "anon");
+        // 退出 logout地址，shiro去清除session
+        filterChainDefinitionMap.put("/logout", "logout");
+        // 不需要拦截的访问
+        filterChainDefinitionMap.put("/login", "anon");
+        // 系统权限列表
+        // filterChainDefinitionMap.putAll(SpringUtils.getBean(IMenuService.class).selectPermsAll());
+
+//        Map<String, Filter> filters = new LinkedHashMap<String, Filter>();
+//        filters.put("onlineSession", onlineSessionFilter());
+//        filters.put("syncOnlineSession", syncOnlineSessionFilter());
+//        filters.put("captchaValidate", captchaValidateFilter());
+//        filters.put("kickout", kickoutSessionFilter());
+//        // 注销成功，则跳转到指定页面
+//        filters.put("logout", logoutFilter());
+//        shiroFilterFactoryBean.setFilters(filters);
+//
+//        // 所有请求需要认证
+//        filterChainDefinitionMap.put("/**", "user,kickout,onlineSession,syncOnlineSession");
+        filterChainDefinitionMap.put("/**", "user");
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
         return shiroFilterFactoryBean;
     }
 
@@ -90,4 +139,6 @@ public class ShrioConfig {
     public ShiroDialect shiroDialect(){
         return  new ShiroDialect();
     }
+
+
 }
