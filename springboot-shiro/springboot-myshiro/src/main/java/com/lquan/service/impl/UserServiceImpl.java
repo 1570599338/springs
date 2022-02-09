@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 用户信息表(User)表服务实现类
@@ -35,8 +36,8 @@ public class UserServiceImpl implements UserService {
     /**
      * 分页查询
      *
-     * @param user 筛选条件
-     * @param pageRequest      分页对象
+     * @param user        筛选条件
+     * @param pageRequest 分页对象
      * @return 查询结果
      */
     @Override
@@ -56,7 +57,7 @@ public class UserServiceImpl implements UserService {
         this.userMapper.insert(user);
         return user;
     }
-    
+
     /**
      * 新增数据
      *
@@ -68,7 +69,7 @@ public class UserServiceImpl implements UserService {
         this.userMapper.insertSelective(user);
         return user;
     }
-    
+
 
     /**
      * 修改数据
@@ -106,5 +107,18 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.selectUserByLoginName(username);
 
         return user;
+    }
+
+
+    /**
+     * 根据条件分页查询用户列表
+     *
+     * @param user 用户信息
+     * @return 用户信息集合信息
+     */
+    @Override
+    public List<User> selectUserList(User user) {
+        // 生成数据权限过滤条件
+        return userMapper.selectUserList(user);
     }
 }

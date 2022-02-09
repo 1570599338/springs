@@ -4,6 +4,8 @@ import com.lquan.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
+
 /**
  * 用户信息表(User)表服务接口
  *
@@ -69,5 +71,15 @@ public interface UserService {
      * @return
      */
     public User login(String username, String password);
+
+
+    /**
+     * 根据条件分页查询用户列表
+     *
+     * @param user 用户信息
+     * @return 用户信息集合信息
+     */
+    public List<User> selectUserList(User user);
+
 
 }

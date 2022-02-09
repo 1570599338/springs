@@ -1,8 +1,11 @@
 package com.lquan.service;
 
+import com.lquan.bean.Resp.Ztree;
 import com.lquan.domain.Dept;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+
+import java.util.List;
 
 /**
  * 部门表(Dept)表服务接口
@@ -60,5 +63,23 @@ public interface DeptService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+    /**
+     * 查询部门管理数据
+     *
+     * @param dept 部门信息
+     * @return 部门信息集合
+     */
+    public List<Dept> selectDeptList(Dept dept);
+
+
+    /**
+     * 查询部门管理树
+     *
+     * @param dept 部门信息
+     * @return 所有部门信息
+     */
+    public List<Ztree> selectDeptTree(Dept dept);
+
 
 }

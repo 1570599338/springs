@@ -1,4 +1,4 @@
-package com.lquan.controller;
+package com.lquan.controller.test;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;

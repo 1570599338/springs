@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -18,8 +19,8 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2022-02-09 00:01:13
  */
-@RestController
-@RequestMapping("role")
+@Controller
+@RequestMapping("system/role")
 public class RoleController {
     /**
      * 服务对象
