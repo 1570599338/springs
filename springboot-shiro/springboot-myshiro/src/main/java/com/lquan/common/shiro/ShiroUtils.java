@@ -36,7 +36,8 @@ public class ShiroUtils {
         Object obj = getSubject().getPrincipal();
         if (obj!=null) {
             user = new User();
-            BeanUtils.copyProperties(user, obj);
+           // BeanUtils.copyProperties(user, obj);
+            BeanUtils.copyProperties(obj,user);
         }
         return user;
     }

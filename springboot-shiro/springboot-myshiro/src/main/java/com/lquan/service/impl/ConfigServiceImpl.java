@@ -2,7 +2,7 @@ package com.lquan.service.impl;
 
 import com.lquan.domain.Config;
 import com.lquan.mapper.ConfigMapper;
-import com.lquan.service.ConfigService;
+import com.lquan.service.IConfigService;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -17,7 +17,9 @@ import javax.annotation.Resource;
  * @since 2022-02-08 23:56:39
  */
 @Service
-public class ConfigServiceImpl implements ConfigService {
+public class ConfigServiceImpl implements IConfigService {
+
+
     @Resource
     private ConfigMapper configMapper;
 
@@ -91,5 +93,21 @@ public class ConfigServiceImpl implements ConfigService {
     @Override
     public boolean deleteById(Integer id) {
         return this.configMapper.deleteById(id) > 0;
+    }
+
+
+    /**
+     * 根据键名查询参数配置信息
+     *
+     * @param configKey 参数名称
+     * @return 参数键值
+     */
+    @Override
+    public String selectConfigByKey(String configKey)
+    {
+        Config config = new Config();
+        config.setConfigKey(configKey);
+        Config retConfig = configMapper.selectConfig(config);
+        return retConfig!=null ? retConfig.getConfigValue() : "";
     }
 }

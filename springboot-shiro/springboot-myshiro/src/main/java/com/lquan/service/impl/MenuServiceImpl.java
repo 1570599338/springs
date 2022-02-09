@@ -126,7 +126,8 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> selectMenusByUser(User user) {
         List<Menu> menus = new LinkedList<Menu>();
         // 管理员显示所有菜单信息
-        if ("admin".equalsIgnoreCase(user.getLoginName())){
+      //  if ("admin".equalsIgnoreCase(user.getLoginName())){
+        if (user.isAdmin()){
             menus = menuMapper.selectMenuNormalAll();
         }else {
             menus = menuMapper.selectMenusByUserId(user.getId());

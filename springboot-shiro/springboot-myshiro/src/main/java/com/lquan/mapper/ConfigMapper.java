@@ -71,7 +71,7 @@ public interface ConfigMapper {
      *
      * @param entities List<Config> 实例对象列表
      * @return 影响行数
-     * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
+     * throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
      */
     int insertOrUpdateBatch(@Param("entities") List<Config> entities);
 
@@ -90,6 +90,23 @@ public interface ConfigMapper {
      * @return 影响行数
      */
     int deleteById(Integer id);
+
+
+    /**
+     * 查询参数配置信息
+     *
+     * @param config 参数配置信息
+     * @return 参数配置信息
+     */
+    public Config selectConfig(Config config);
+
+    /**
+     * 查询参数配置列表
+     *
+     * @param config 参数配置信息
+     * @return 参数配置集合
+     */
+    public List<Config> selectConfigList(Config config);
 
 }
 

@@ -1,24 +1,22 @@
 /*
- Navicat Premium Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 50719
- Source Host           : 127.0.0.1
- Source Database       : retire
+Source Server         : localhost3306
+Source Server Version : 50622
+Source Host           : localhost:3306
+Source Database       : retire
 
- Target Server Type    : MySQL
- Target Server Version : 50719
- File Encoding         : utf-8
+Target Server Type    : MYSQL
+Target Server Version : 50622
+File Encoding         : 65001
 
- Date: 02/09/2022 02:57:27 AM
+Date: 2022-02-09 18:55:12
 */
 
-SET NAMES utf8;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
---  Table structure for `t_config`
+-- Table structure for t_config
 -- ----------------------------
 DROP TABLE IF EXISTS `t_config`;
 CREATE TABLE `t_config` (
@@ -33,10 +31,17 @@ CREATE TABLE `t_config` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='参数配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='参数配置表';
 
 -- ----------------------------
---  Table structure for `t_dept`
+-- Records of t_config
+-- ----------------------------
+INSERT INTO `t_config` VALUES ('1', '主框架页-默认皮肤样式名称', 'sys.index.skinName', 'skin-blue', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow');
+INSERT INTO `t_config` VALUES ('2', '用户管理-账号初始密码', 'sys.user.initPassword', '123456', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '初始化密码 123456');
+INSERT INTO `t_config` VALUES ('3', '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-dark', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '深黑主题theme-dark，浅色主题theme-light，深蓝主题theme-blue');
+
+-- ----------------------------
+-- Table structure for t_dept
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dept`;
 CREATE TABLE `t_dept` (
@@ -55,10 +60,24 @@ CREATE TABLE `t_dept` (
   `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- ----------------------------
---  Table structure for `t_dict_data`
+-- Records of t_dept
+-- ----------------------------
+INSERT INTO `t_dept` VALUES ('100', '0', '0', '若依科技', '0', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('101', '100', '0,100', '深圳总公司', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('102', '100', '0,100', '长沙分公司', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('103', '101', '0,100,101', '研发部门', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('104', '101', '0,100,101', '市场部门', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('105', '101', '0,100,101', '测试部门', '3', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('106', '101', '0,100,101', '财务部门', '4', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('107', '101', '0,100,101', '运维部门', '5', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('108', '102', '0,100,102', '市场部门', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+INSERT INTO `t_dept` VALUES ('109', '102', '0,100,102', '财务部门', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
+
+-- ----------------------------
+-- Table structure for t_dict_data
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dict_data`;
 CREATE TABLE `t_dict_data` (
@@ -77,10 +96,73 @@ CREATE TABLE `t_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
 
 -- ----------------------------
---  Table structure for `t_dict_type`
+-- Records of t_dict_data
+-- ----------------------------
+INSERT INTO `t_dict_data` VALUES ('1', '1', '男', '0', 't_user_sex', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别男');
+INSERT INTO `t_dict_data` VALUES ('2', '2', '女', '1', 't_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别女');
+INSERT INTO `t_dict_data` VALUES ('3', '3', '未知', '2', 't_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别未知');
+INSERT INTO `t_dict_data` VALUES ('4', '1', '显示', '0', 't_show_hide', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '显示菜单');
+INSERT INTO `t_dict_data` VALUES ('5', '2', '隐藏', '1', 't_show_hide', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '隐藏菜单');
+INSERT INTO `t_dict_data` VALUES ('6', '1', '正常', '0', 't_normal_disable', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('7', '2', '停用', '1', 't_normal_disable', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('8', '1', '正常', '0', 't_job_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('9', '2', '暂停', '1', 't_job_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('10', '1', '默认', 'DEFAULT', 't_job_group', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '默认分组');
+INSERT INTO `t_dict_data` VALUES ('11', '2', '系统', 'SYSTEM', 't_job_group', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统分组');
+INSERT INTO `t_dict_data` VALUES ('12', '1', '是', 'Y', 't_yes_no', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认是');
+INSERT INTO `t_dict_data` VALUES ('13', '2', '否', 'N', 't_yes_no', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认否');
+INSERT INTO `t_dict_data` VALUES ('14', '1', '通知', '1', 't_notice_type', '', 'warning', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知');
+INSERT INTO `t_dict_data` VALUES ('15', '2', '公告', '2', 't_notice_type', '', 'success', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '公告');
+INSERT INTO `t_dict_data` VALUES ('16', '1', '正常', '0', 't_notice_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('17', '2', '关闭', '1', 't_notice_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '关闭状态');
+INSERT INTO `t_dict_data` VALUES ('18', '1', '新增', '1', 't_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '新增操作');
+INSERT INTO `t_dict_data` VALUES ('19', '2', '修改', '2', 't_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '修改操作');
+INSERT INTO `t_dict_data` VALUES ('20', '3', '删除', '3', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '删除操作');
+INSERT INTO `t_dict_data` VALUES ('21', '4', '授权', '4', 't_oper_type', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '授权操作');
+INSERT INTO `t_dict_data` VALUES ('22', '5', '导出', '5', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导出操作');
+INSERT INTO `t_dict_data` VALUES ('23', '6', '导入', '6', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导入操作');
+INSERT INTO `t_dict_data` VALUES ('24', '7', '强退', '7', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '强退操作');
+INSERT INTO `t_dict_data` VALUES ('25', '8', '生成代码', '8', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '生成操作');
+INSERT INTO `t_dict_data` VALUES ('26', '9', '清空数据', '9', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作');
+INSERT INTO `t_dict_data` VALUES ('27', '1', '成功', '0', 't_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('28', '2', '失败', '1', 't_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('29', '1', '计算机类', '0', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:14:42', 'admin', '2020-02-05 10:37:05', '');
+INSERT INTO `t_dict_data` VALUES ('30', '1', '文职类', '1', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:05', 'admin', '2020-02-05 10:37:16', '');
+INSERT INTO `t_dict_data` VALUES ('31', '2', '销售类', '2', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:18', 'admin', '2020-02-05 10:37:27', '');
+INSERT INTO `t_dict_data` VALUES ('32', '0', '1000以下', '0', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:18', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('33', '1', '1000~3000', '1', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:34', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('34', '2', '3001~8000', '2', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:51', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('35', '3', '8001~12000', '3', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:17:07', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('36', '0', '未发布', '0', 'job_resume_status', null, null, 'Y', '0', 'admin', '2020-02-05 10:26:54', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('37', '1', '发布', '1', 'job_resume_status', null, null, 'Y', '0', 'admin', '2020-02-05 10:27:06', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('38', '0', '北京市', '0', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:31', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('39', '1', '上海市', '1', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:40', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('40', '2', '广州市', '2', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:51', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('41', '3', '深圳市', '3', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:14:03', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('42', '0', '未处理', '0', 'job_operate_status', null, null, 'Y', '0', 'admin', '2020-02-05 18:18:19', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('43', '1', '已处理', '1', 'job_operate_status', null, null, 'Y', '0', 'admin', '2020-02-05 18:18:32', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('44', '0', '同意', '0', 'job_operate_result', null, null, 'Y', '0', 'admin', '2020-02-05 18:19:13', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('45', '1', '拒绝', '1', 'job_operate_result', null, null, 'Y', '0', 'admin', '2020-02-05 18:19:20', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('46', '1', '30天(10元)', '10', 'job_vip_level', '', '', 'Y', '0', 'admin', '2020-02-07 13:27:38', 'admin', '2020-02-07 13:29:08', '');
+INSERT INTO `t_dict_data` VALUES ('47', '2', '90天(25元)', '25', 'job_vip_level', '', '', 'Y', '0', 'admin', '2020-02-07 13:27:58', 'admin', '2020-02-07 13:29:01', '');
+INSERT INTO `t_dict_data` VALUES ('48', '3', '180天(45元)', '45', 'job_vip_level', null, null, 'Y', '0', 'admin', '2020-02-07 13:28:51', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('49', '4', '360天(80元)', '80', 'job_vip_level', null, null, 'Y', '0', 'admin', '2020-02-07 13:29:34', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('50', '1', '20人以下', '1', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:12', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('51', '2', '20~50人', '2', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:30', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('52', '3', '50~100人', '3', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:46', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('53', '4', '100~500人', '4', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:10:00', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('54', '5', '500人以上', '5', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:10:14', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('55', '1', '金融/投资/证券', '1', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:11:35', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('56', '2', '计算机软件', '2', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:11:51', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('57', '3', '汽车及零配件', '3', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:26', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('58', '4', '房地产/汽车', '4', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:40', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('59', '5', '快速消费品(食品、饮料、化妆品) 批发/零售', '5', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 14:15:16', '', null, null);
+
+-- ----------------------------
+-- Table structure for t_dict_type
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dict_type`;
 CREATE TABLE `t_dict_type` (
@@ -95,10 +177,33 @@ CREATE TABLE `t_dict_type` (
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
   UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
 
 -- ----------------------------
---  Table structure for `t_logininfor`
+-- Records of t_dict_type
+-- ----------------------------
+INSERT INTO `t_dict_type` VALUES ('1', '用户性别', 't_user_sex', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户性别列表');
+INSERT INTO `t_dict_type` VALUES ('2', '菜单状态', 't_show_hide', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单状态列表');
+INSERT INTO `t_dict_type` VALUES ('3', '系统开关', 't_normal_disable', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统开关列表');
+INSERT INTO `t_dict_type` VALUES ('4', '任务状态', 't_job_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务状态列表');
+INSERT INTO `t_dict_type` VALUES ('5', '任务分组', 't_job_group', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务分组列表');
+INSERT INTO `t_dict_type` VALUES ('6', '系统是否', 't_yes_no', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统是否列表');
+INSERT INTO `t_dict_type` VALUES ('7', '通知类型', 't_notice_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知类型列表');
+INSERT INTO `t_dict_type` VALUES ('8', '通知状态', 't_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表');
+INSERT INTO `t_dict_type` VALUES ('9', '操作类型', 't_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表');
+INSERT INTO `t_dict_type` VALUES ('10', '系统状态', 't_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表');
+INSERT INTO `t_dict_type` VALUES ('11', '职位类别', 'job_position_type', '0', 'admin', '2020-02-05 10:13:26', 'admin', '2020-02-05 10:25:47', '职位类别');
+INSERT INTO `t_dict_type` VALUES ('12', '薪资范围', 'job_salary', '0', 'admin', '2020-02-05 10:15:51', 'admin', '2020-02-05 10:25:40', '');
+INSERT INTO `t_dict_type` VALUES ('13', '简历状态', 'job_resume_status', '0', 'admin', '2020-02-05 10:26:28', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('14', '地区', 'job_area', '0', 'admin', '2020-02-05 12:13:16', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('15', '处理状态', 'job_operate_status', '0', 'admin', '2020-02-05 18:18:02', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('16', '处理结果', 'job_operate_result', '0', 'admin', '2020-02-05 18:18:52', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('17', 'VIP等级', 'job_vip_level', '0', 'admin', '2020-02-07 13:27:08', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('18', '企业规模', 'job_enterprise_scale', '0', 'admin', '2020-02-10 13:08:24', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('19', '企业性质', 'job_enterprise_category', '0', 'admin', '2020-02-10 13:10:54', '', null, null);
+
+-- ----------------------------
+-- Table structure for t_logininfor
 -- ----------------------------
 DROP TABLE IF EXISTS `t_logininfor`;
 CREATE TABLE `t_logininfor` (
@@ -112,10 +217,91 @@ CREATE TABLE `t_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 
 -- ----------------------------
---  Table structure for `t_menu`
+-- Records of t_logininfor
+-- ----------------------------
+INSERT INTO `t_logininfor` VALUES ('100', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-04 20:49:05');
+INSERT INTO `t_logininfor` VALUES ('101', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:33:54');
+INSERT INTO `t_logininfor` VALUES ('102', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:34:23');
+INSERT INTO `t_logininfor` VALUES ('103', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:34:31');
+INSERT INTO `t_logininfor` VALUES ('104', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:36:38');
+INSERT INTO `t_logininfor` VALUES ('105', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:37:33');
+INSERT INTO `t_logininfor` VALUES ('106', 'common', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '用户不存在/密码错误', '2020-02-05 09:37:45');
+INSERT INTO `t_logininfor` VALUES ('107', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误1次', '2020-02-05 09:38:24');
+INSERT INTO `t_logininfor` VALUES ('108', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误2次', '2020-02-05 09:38:42');
+INSERT INTO `t_logininfor` VALUES ('109', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误1次', '2020-02-05 09:40:01');
+INSERT INTO `t_logininfor` VALUES ('110', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:40:23');
+INSERT INTO `t_logininfor` VALUES ('111', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:48:01');
+INSERT INTO `t_logininfor` VALUES ('112', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:48:49');
+INSERT INTO `t_logininfor` VALUES ('113', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:48:54');
+INSERT INTO `t_logininfor` VALUES ('114', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:49:08');
+INSERT INTO `t_logininfor` VALUES ('115', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:50:36');
+INSERT INTO `t_logininfor` VALUES ('116', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:50:48');
+INSERT INTO `t_logininfor` VALUES ('117', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 10:13:49');
+INSERT INTO `t_logininfor` VALUES ('118', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 10:25:21');
+INSERT INTO `t_logininfor` VALUES ('119', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 10:50:14');
+INSERT INTO `t_logininfor` VALUES ('120', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '验证码错误', '2020-02-05 11:13:20');
+INSERT INTO `t_logininfor` VALUES ('121', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:21:16');
+INSERT INTO `t_logininfor` VALUES ('122', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:24:18');
+INSERT INTO `t_logininfor` VALUES ('123', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:28:47');
+INSERT INTO `t_logininfor` VALUES ('124', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:38:33');
+INSERT INTO `t_logininfor` VALUES ('125', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:50:43');
+INSERT INTO `t_logininfor` VALUES ('126', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 11:54:07');
+INSERT INTO `t_logininfor` VALUES ('127', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:54:09');
+INSERT INTO `t_logininfor` VALUES ('128', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:01:26');
+INSERT INTO `t_logininfor` VALUES ('129', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:12:37');
+INSERT INTO `t_logininfor` VALUES ('130', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:31:38');
+INSERT INTO `t_logininfor` VALUES ('131', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:10');
+INSERT INTO `t_logininfor` VALUES ('132', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:16');
+INSERT INTO `t_logininfor` VALUES ('133', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:26');
+INSERT INTO `t_logininfor` VALUES ('134', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:28');
+INSERT INTO `t_logininfor` VALUES ('135', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:50');
+INSERT INTO `t_logininfor` VALUES ('136', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:54');
+INSERT INTO `t_logininfor` VALUES ('137', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:48:22');
+INSERT INTO `t_logininfor` VALUES ('138', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:48:26');
+INSERT INTO `t_logininfor` VALUES ('139', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:49:23');
+INSERT INTO `t_logininfor` VALUES ('140', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:49:25');
+INSERT INTO `t_logininfor` VALUES ('141', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:55:44');
+INSERT INTO `t_logininfor` VALUES ('142', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:57:52');
+INSERT INTO `t_logininfor` VALUES ('143', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:18:02');
+INSERT INTO `t_logininfor` VALUES ('144', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:20:12');
+INSERT INTO `t_logininfor` VALUES ('145', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 13:20:36');
+INSERT INTO `t_logininfor` VALUES ('146', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:20:39');
+INSERT INTO `t_logininfor` VALUES ('147', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:22:18');
+INSERT INTO `t_logininfor` VALUES ('148', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:32:14');
+INSERT INTO `t_logininfor` VALUES ('149', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:34:37');
+INSERT INTO `t_logininfor` VALUES ('150', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:35:51');
+INSERT INTO `t_logininfor` VALUES ('151', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:37:24');
+INSERT INTO `t_logininfor` VALUES ('152', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:41:01');
+INSERT INTO `t_logininfor` VALUES ('153', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:43:45');
+INSERT INTO `t_logininfor` VALUES ('154', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:46:29');
+INSERT INTO `t_logininfor` VALUES ('155', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 13:46:56');
+INSERT INTO `t_logininfor` VALUES ('156', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:46:58');
+INSERT INTO `t_logininfor` VALUES ('157', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:24:09');
+INSERT INTO `t_logininfor` VALUES ('158', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:37:54');
+INSERT INTO `t_logininfor` VALUES ('159', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:37:57');
+INSERT INTO `t_logininfor` VALUES ('160', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:38:01');
+INSERT INTO `t_logininfor` VALUES ('161', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:38:02');
+INSERT INTO `t_logininfor` VALUES ('162', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:38:16');
+INSERT INTO `t_logininfor` VALUES ('163', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:38:18');
+INSERT INTO `t_logininfor` VALUES ('164', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:39:07');
+INSERT INTO `t_logininfor` VALUES ('165', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:39:10');
+INSERT INTO `t_logininfor` VALUES ('166', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:40:16');
+INSERT INTO `t_logininfor` VALUES ('167', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:40:19');
+INSERT INTO `t_logininfor` VALUES ('168', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:44:27');
+INSERT INTO `t_logininfor` VALUES ('169', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 15:47:33');
+INSERT INTO `t_logininfor` VALUES ('170', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 16:09:33');
+INSERT INTO `t_logininfor` VALUES ('171', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 16:41:28');
+INSERT INTO `t_logininfor` VALUES ('172', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:08:26');
+INSERT INTO `t_logininfor` VALUES ('173', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:11:26');
+INSERT INTO `t_logininfor` VALUES ('174', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:46:13');
+INSERT INTO `t_logininfor` VALUES ('175', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 18:07:30');
+INSERT INTO `t_logininfor` VALUES ('176', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 18:16:18');
+
+-- ----------------------------
+-- Table structure for t_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -138,14 +324,100 @@ CREATE TABLE `t_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1068 DEFAULT CHARSET=utf8 COMMENT='菜单权限表';
 
 -- ----------------------------
---  Records of `t_menu`
+-- Records of t_menu
 -- ----------------------------
-BEGIN;
-INSERT INTO `t_menu` VALUES ('1', '系统管理', '0', '1', '#', '', 'M', '0', '', 'fa fa-gear', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录'), ('2', '系统监控', '0', '2', '#', 'menuItem', 'M', '1', '', 'fa fa-video-camera', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-08 10:39:16', '系统监控目录'), ('3', '系统工具', '0', '3', '#', 'menuItem', 'M', '1', '', 'fa fa-bars', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:11', '系统工具目录'), ('100', '用户管理', '1', '1', '/system/user', '', 'C', '0', 'system:user:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单'), ('101', '角色管理', '1', '2', '/system/role', '', 'C', '0', 'system:role:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单'), ('102', '菜单管理', '1', '3', '/system/menu', '', 'C', '0', 'system:menu:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单'), ('103', '部门管理', '1', '4', '/system/dept', 'menuItem', 'C', '1', 'system:dept:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:27', '部门管理菜单'), ('104', '岗位管理', '1', '5', '/system/post', 'menuItem', 'C', '1', 'system:post:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:33', '岗位管理菜单'), ('105', '字典管理', '1', '6', '/system/dict', '', 'C', '0', 'system:dict:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '字典管理菜单'), ('106', '参数设置', '1', '7', '/system/config', 'menuItem', 'C', '1', 'system:config:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:43', '参数设置菜单'), ('107', '通知公告', '1', '8', '/system/notice', 'menuItem', 'C', '1', 'system:notice:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:51', '通知公告菜单'), ('108', '日志管理', '1', '9', '#', 'menuItem', 'M', '1', '', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:59', '日志管理菜单'), ('109', '在线用户', '2', '1', '/monitor/online', '', 'C', '0', 'monitor:online:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '在线用户菜单'), ('110', '定时任务', '2', '2', '/monitor/job', '', 'C', '0', 'monitor:job:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '定时任务菜单'), ('111', '数据监控', '2', '3', '/monitor/data', '', 'C', '0', 'monitor:data:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '数据监控菜单'), ('112', '服务监控', '2', '3', '/monitor/server', '', 'C', '0', 'monitor:server:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '服务监控菜单'), ('113', '表单构建', '3', '1', '/tool/build', '', 'C', '0', 'tool:build:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '表单构建菜单'), ('114', '代码生成', '3', '2', '/tool/gen', '', 'C', '0', 'tool:gen:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '代码生成菜单'), ('115', '系统接口', '3', '3', '/tool/swagger', '', 'C', '0', 'tool:swagger:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统接口菜单'), ('500', '操作日志', '108', '1', '/monitor/operlog', '', 'C', '0', 'monitor:operlog:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单'), ('501', '登录日志', '108', '2', '/monitor/logininfor', '', 'C', '0', 'monitor:logininfor:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单'), ('1000', '用户查询', '100', '1', '#', '', 'F', '0', 'system:user:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1001', '用户新增', '100', '2', '#', '', 'F', '0', 'system:user:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1002', '用户修改', '100', '3', '#', '', 'F', '0', 'system:user:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1003', '用户删除', '100', '4', '#', '', 'F', '0', 'system:user:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1004', '用户导出', '100', '5', '#', '', 'F', '0', 'system:user:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1005', '用户导入', '100', '6', '#', '', 'F', '0', 'system:user:import', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1006', '重置密码', '100', '7', '#', '', 'F', '0', 'system:user:resetPwd', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1007', '角色查询', '101', '1', '#', '', 'F', '0', 'system:role:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1008', '角色新增', '101', '2', '#', '', 'F', '0', 'system:role:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1009', '角色修改', '101', '3', '#', '', 'F', '0', 'system:role:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1010', '角色删除', '101', '4', '#', '', 'F', '0', 'system:role:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1011', '角色导出', '101', '5', '#', '', 'F', '0', 'system:role:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1012', '菜单查询', '102', '1', '#', '', 'F', '0', 'system:menu:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1013', '菜单新增', '102', '2', '#', '', 'F', '0', 'system:menu:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1014', '菜单修改', '102', '3', '#', '', 'F', '0', 'system:menu:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1015', '菜单删除', '102', '4', '#', '', 'F', '0', 'system:menu:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1016', '部门查询', '103', '1', '#', '', 'F', '0', 'system:dept:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1017', '部门新增', '103', '2', '#', '', 'F', '0', 'system:dept:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1018', '部门修改', '103', '3', '#', '', 'F', '0', 'system:dept:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1019', '部门删除', '103', '4', '#', '', 'F', '0', 'system:dept:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1020', '岗位查询', '104', '1', '#', '', 'F', '0', 'system:post:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1021', '岗位新增', '104', '2', '#', '', 'F', '0', 'system:post:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1022', '岗位修改', '104', '3', '#', '', 'F', '0', 'system:post:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1023', '岗位删除', '104', '4', '#', '', 'F', '0', 'system:post:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1024', '岗位导出', '104', '5', '#', '', 'F', '0', 'system:post:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1025', '字典查询', '105', '1', '#', '', 'F', '0', 'system:dict:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1026', '字典新增', '105', '2', '#', '', 'F', '0', 'system:dict:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1027', '字典修改', '105', '3', '#', '', 'F', '0', 'system:dict:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1028', '字典删除', '105', '4', '#', '', 'F', '0', 'system:dict:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1029', '字典导出', '105', '5', '#', '', 'F', '0', 'system:dict:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1030', '参数查询', '106', '1', '#', '', 'F', '0', 'system:config:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1031', '参数新增', '106', '2', '#', '', 'F', '0', 'system:config:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1032', '参数修改', '106', '3', '#', '', 'F', '0', 'system:config:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1033', '参数删除', '106', '4', '#', '', 'F', '0', 'system:config:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1034', '参数导出', '106', '5', '#', '', 'F', '0', 'system:config:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1035', '公告查询', '107', '1', '#', '', 'F', '0', 'system:notice:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1036', '公告新增', '107', '2', '#', '', 'F', '0', 'system:notice:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1037', '公告修改', '107', '3', '#', '', 'F', '0', 'system:notice:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1038', '公告删除', '107', '4', '#', '', 'F', '0', 'system:notice:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1039', '操作查询', '500', '1', '#', '', 'F', '0', 'monitor:operlog:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1040', '操作删除', '500', '2', '#', '', 'F', '0', 'monitor:operlog:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1041', '详细信息', '500', '3', '#', '', 'F', '0', 'monitor:operlog:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1042', '日志导出', '500', '4', '#', '', 'F', '0', 'monitor:operlog:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1043', '登录查询', '501', '1', '#', '', 'F', '0', 'monitor:logininfor:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1044', '登录删除', '501', '2', '#', '', 'F', '0', 'monitor:logininfor:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1045', '日志导出', '501', '3', '#', '', 'F', '0', 'monitor:logininfor:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1046', '账户解锁', '501', '4', '#', '', 'F', '0', 'monitor:logininfor:unlock', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1047', '在线查询', '109', '1', '#', '', 'F', '0', 'monitor:online:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1048', '批量强退', '109', '2', '#', '', 'F', '0', 'monitor:online:batchForceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1049', '单条强退', '109', '3', '#', '', 'F', '0', 'monitor:online:forceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1050', '任务查询', '110', '1', '#', '', 'F', '0', 'monitor:job:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1051', '任务新增', '110', '2', '#', '', 'F', '0', 'monitor:job:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1052', '任务修改', '110', '3', '#', '', 'F', '0', 'monitor:job:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1053', '任务删除', '110', '4', '#', '', 'F', '0', 'monitor:job:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1054', '状态修改', '110', '5', '#', '', 'F', '0', 'monitor:job:changeStatus', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1055', '任务详细', '110', '6', '#', '', 'F', '0', 'monitor:job:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1056', '任务导出', '110', '7', '#', '', 'F', '0', 'monitor:job:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1057', '生成查询', '114', '1', '#', '', 'F', '0', 'tool:gen:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1058', '生成修改', '114', '2', '#', '', 'F', '0', 'tool:gen:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1059', '生成删除', '114', '3', '#', '', 'F', '0', 'tool:gen:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1060', '预览代码', '114', '4', '#', '', 'F', '0', 'tool:gen:preview', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1061', '生成代码', '114', '5', '#', '', 'F', '0', 'tool:gen:code', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1062', '兼职系统', '0', '4', '#', 'menuItem', 'M', '0', null, 'fa fa-handshake-o', 'admin', '2020-02-05 11:52:26', '', null, ''), ('1063', '简历管理', '1062', '1', '/job/resume', 'menuItem', 'C', '0', 'job:resume:view', '#', 'admin', '2020-02-05 11:53:07', 'admin', '2020-02-06 13:51:55', ''), ('1064', '职位管理', '1062', '2', '/job/position', 'menuItem', 'C', '0', 'job:position:view', '#', 'admin', '2020-02-05 12:03:54', 'admin', '2020-02-05 15:47:51', ''), ('1065', '新增', '1063', '1', '#', 'menuItem', 'F', '0', 'job:position:add', '#', 'admin', '2020-02-05 12:04:48', '', null, ''), ('1066', '编辑', '1063', '2', '#', 'menuItem', 'F', '0', 'job:position:edit', '#', 'admin', '2020-02-05 12:05:12', '', null, ''), ('1067', '删除', '1063', '3', '#', 'menuItem', 'F', '0', 'job:position:remove', '#', 'admin', '2020-02-05 12:05:31', '', null, '');
-COMMIT;
+INSERT INTO `t_menu` VALUES ('1', '系统管理', '0', '1', '#', '', 'M', '0', '', 'fa fa-gear', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录');
+INSERT INTO `t_menu` VALUES ('2', '系统监控', '0', '2', '#', 'menuItem', 'M', '1', '', 'fa fa-video-camera', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-08 10:39:16', '系统监控目录');
+INSERT INTO `t_menu` VALUES ('3', '系统工具', '0', '3', '#', 'menuItem', 'M', '1', '', 'fa fa-bars', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:11', '系统工具目录');
+INSERT INTO `t_menu` VALUES ('100', '用户管理', '1', '1', '/system/user', '', 'C', '0', 'system:user:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单');
+INSERT INTO `t_menu` VALUES ('101', '角色管理', '1', '2', '/system/role', '', 'C', '0', 'system:role:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单');
+INSERT INTO `t_menu` VALUES ('102', '菜单管理', '1', '3', '/system/menu', '', 'C', '0', 'system:menu:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单');
+INSERT INTO `t_menu` VALUES ('103', '部门管理', '1', '4', '/system/dept', 'menuItem', 'C', '1', 'system:dept:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:27', '部门管理菜单');
+INSERT INTO `t_menu` VALUES ('104', '岗位管理', '1', '5', '/system/post', 'menuItem', 'C', '1', 'system:post:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:33', '岗位管理菜单');
+INSERT INTO `t_menu` VALUES ('105', '字典管理', '1', '6', '/system/dict', '', 'C', '0', 'system:dict:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '字典管理菜单');
+INSERT INTO `t_menu` VALUES ('106', '参数设置', '1', '7', '/system/config', 'menuItem', 'C', '1', 'system:config:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:43', '参数设置菜单');
+INSERT INTO `t_menu` VALUES ('107', '通知公告', '1', '8', '/system/notice', 'menuItem', 'C', '1', 'system:notice:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:51', '通知公告菜单');
+INSERT INTO `t_menu` VALUES ('108', '日志管理', '1', '9', '#', 'menuItem', 'M', '1', '', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:59', '日志管理菜单');
+INSERT INTO `t_menu` VALUES ('109', '在线用户', '2', '1', '/monitor/online', '', 'C', '0', 'monitor:online:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '在线用户菜单');
+INSERT INTO `t_menu` VALUES ('110', '定时任务', '2', '2', '/monitor/job', '', 'C', '0', 'monitor:job:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '定时任务菜单');
+INSERT INTO `t_menu` VALUES ('111', '数据监控', '2', '3', '/monitor/data', '', 'C', '0', 'monitor:data:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '数据监控菜单');
+INSERT INTO `t_menu` VALUES ('112', '服务监控', '2', '3', '/monitor/server', '', 'C', '0', 'monitor:server:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '服务监控菜单');
+INSERT INTO `t_menu` VALUES ('113', '表单构建', '3', '1', '/tool/build', '', 'C', '0', 'tool:build:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '表单构建菜单');
+INSERT INTO `t_menu` VALUES ('114', '代码生成', '3', '2', '/tool/gen', '', 'C', '0', 'tool:gen:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '代码生成菜单');
+INSERT INTO `t_menu` VALUES ('115', '系统接口', '3', '3', '/tool/swagger', '', 'C', '0', 'tool:swagger:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统接口菜单');
+INSERT INTO `t_menu` VALUES ('500', '操作日志', '108', '1', '/monitor/operlog', '', 'C', '0', 'monitor:operlog:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单');
+INSERT INTO `t_menu` VALUES ('501', '登录日志', '108', '2', '/monitor/logininfor', '', 'C', '0', 'monitor:logininfor:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单');
+INSERT INTO `t_menu` VALUES ('1000', '用户查询', '100', '1', '#', '', 'F', '0', 'system:user:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1001', '用户新增', '100', '2', '#', '', 'F', '0', 'system:user:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1002', '用户修改', '100', '3', '#', '', 'F', '0', 'system:user:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1003', '用户删除', '100', '4', '#', '', 'F', '0', 'system:user:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1004', '用户导出', '100', '5', '#', '', 'F', '0', 'system:user:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1005', '用户导入', '100', '6', '#', '', 'F', '0', 'system:user:import', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1006', '重置密码', '100', '7', '#', '', 'F', '0', 'system:user:resetPwd', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1007', '角色查询', '101', '1', '#', '', 'F', '0', 'system:role:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1008', '角色新增', '101', '2', '#', '', 'F', '0', 'system:role:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1009', '角色修改', '101', '3', '#', '', 'F', '0', 'system:role:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1010', '角色删除', '101', '4', '#', '', 'F', '0', 'system:role:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1011', '角色导出', '101', '5', '#', '', 'F', '0', 'system:role:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1012', '菜单查询', '102', '1', '#', '', 'F', '0', 'system:menu:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1013', '菜单新增', '102', '2', '#', '', 'F', '0', 'system:menu:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1014', '菜单修改', '102', '3', '#', '', 'F', '0', 'system:menu:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1015', '菜单删除', '102', '4', '#', '', 'F', '0', 'system:menu:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1016', '部门查询', '103', '1', '#', '', 'F', '0', 'system:dept:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1017', '部门新增', '103', '2', '#', '', 'F', '0', 'system:dept:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1018', '部门修改', '103', '3', '#', '', 'F', '0', 'system:dept:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1019', '部门删除', '103', '4', '#', '', 'F', '0', 'system:dept:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1020', '岗位查询', '104', '1', '#', '', 'F', '0', 'system:post:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1021', '岗位新增', '104', '2', '#', '', 'F', '0', 'system:post:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1022', '岗位修改', '104', '3', '#', '', 'F', '0', 'system:post:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1023', '岗位删除', '104', '4', '#', '', 'F', '0', 'system:post:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1024', '岗位导出', '104', '5', '#', '', 'F', '0', 'system:post:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1025', '字典查询', '105', '1', '#', '', 'F', '0', 'system:dict:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1026', '字典新增', '105', '2', '#', '', 'F', '0', 'system:dict:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1027', '字典修改', '105', '3', '#', '', 'F', '0', 'system:dict:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1028', '字典删除', '105', '4', '#', '', 'F', '0', 'system:dict:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1029', '字典导出', '105', '5', '#', '', 'F', '0', 'system:dict:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1030', '参数查询', '106', '1', '#', '', 'F', '0', 'system:config:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1031', '参数新增', '106', '2', '#', '', 'F', '0', 'system:config:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1032', '参数修改', '106', '3', '#', '', 'F', '0', 'system:config:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1033', '参数删除', '106', '4', '#', '', 'F', '0', 'system:config:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1034', '参数导出', '106', '5', '#', '', 'F', '0', 'system:config:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1035', '公告查询', '107', '1', '#', '', 'F', '0', 'system:notice:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1036', '公告新增', '107', '2', '#', '', 'F', '0', 'system:notice:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1037', '公告修改', '107', '3', '#', '', 'F', '0', 'system:notice:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1038', '公告删除', '107', '4', '#', '', 'F', '0', 'system:notice:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1039', '操作查询', '500', '1', '#', '', 'F', '0', 'monitor:operlog:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1040', '操作删除', '500', '2', '#', '', 'F', '0', 'monitor:operlog:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1041', '详细信息', '500', '3', '#', '', 'F', '0', 'monitor:operlog:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1042', '日志导出', '500', '4', '#', '', 'F', '0', 'monitor:operlog:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1043', '登录查询', '501', '1', '#', '', 'F', '0', 'monitor:logininfor:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1044', '登录删除', '501', '2', '#', '', 'F', '0', 'monitor:logininfor:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1045', '日志导出', '501', '3', '#', '', 'F', '0', 'monitor:logininfor:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1046', '账户解锁', '501', '4', '#', '', 'F', '0', 'monitor:logininfor:unlock', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1047', '在线查询', '109', '1', '#', '', 'F', '0', 'monitor:online:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1048', '批量强退', '109', '2', '#', '', 'F', '0', 'monitor:online:batchForceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1049', '单条强退', '109', '3', '#', '', 'F', '0', 'monitor:online:forceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1050', '任务查询', '110', '1', '#', '', 'F', '0', 'monitor:job:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1051', '任务新增', '110', '2', '#', '', 'F', '0', 'monitor:job:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1052', '任务修改', '110', '3', '#', '', 'F', '0', 'monitor:job:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1053', '任务删除', '110', '4', '#', '', 'F', '0', 'monitor:job:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1054', '状态修改', '110', '5', '#', '', 'F', '0', 'monitor:job:changeStatus', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1055', '任务详细', '110', '6', '#', '', 'F', '0', 'monitor:job:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1056', '任务导出', '110', '7', '#', '', 'F', '0', 'monitor:job:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1057', '生成查询', '114', '1', '#', '', 'F', '0', 'tool:gen:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1058', '生成修改', '114', '2', '#', '', 'F', '0', 'tool:gen:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1059', '生成删除', '114', '3', '#', '', 'F', '0', 'tool:gen:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1060', '预览代码', '114', '4', '#', '', 'F', '0', 'tool:gen:preview', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1061', '生成代码', '114', '5', '#', '', 'F', '0', 'tool:gen:code', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
+INSERT INTO `t_menu` VALUES ('1062', '兼职系统', '0', '4', '#', 'menuItem', 'M', '0', null, 'fa fa-handshake-o', 'admin', '2020-02-05 11:52:26', '', null, '');
+INSERT INTO `t_menu` VALUES ('1063', '简历管理', '1062', '1', '/job/resume', 'menuItem', 'C', '0', 'job:resume:view', '#', 'admin', '2020-02-05 11:53:07', 'admin', '2020-02-06 13:51:55', '');
+INSERT INTO `t_menu` VALUES ('1064', '职位管理', '1062', '2', '/job/position', 'menuItem', 'C', '0', 'job:position:view', '#', 'admin', '2020-02-05 12:03:54', 'admin', '2020-02-05 15:47:51', '');
+INSERT INTO `t_menu` VALUES ('1065', '新增', '1063', '1', '#', 'menuItem', 'F', '0', 'job:position:add', '#', 'admin', '2020-02-05 12:04:48', '', null, '');
+INSERT INTO `t_menu` VALUES ('1066', '编辑', '1063', '2', '#', 'menuItem', 'F', '0', 'job:position:edit', '#', 'admin', '2020-02-05 12:05:12', '', null, '');
+INSERT INTO `t_menu` VALUES ('1067', '删除', '1063', '3', '#', 'menuItem', 'F', '0', 'job:position:remove', '#', 'admin', '2020-02-05 12:05:31', '', null, '');
 
 -- ----------------------------
---  Table structure for `t_notice`
+-- Table structure for t_notice
 -- ----------------------------
 DROP TABLE IF EXISTS `t_notice`;
 CREATE TABLE `t_notice` (
@@ -163,7 +435,11 @@ CREATE TABLE `t_notice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='通知公告表';
 
 -- ----------------------------
---  Table structure for `t_oper_log`
+-- Records of t_notice
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_oper_log
 -- ----------------------------
 DROP TABLE IF EXISTS `t_oper_log`;
 CREATE TABLE `t_oper_log` (
@@ -187,7 +463,11 @@ CREATE TABLE `t_oper_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
 
 -- ----------------------------
---  Table structure for `t_post`
+-- Records of t_oper_log
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_post
 -- ----------------------------
 DROP TABLE IF EXISTS `t_post`;
 CREATE TABLE `t_post` (
@@ -205,7 +485,11 @@ CREATE TABLE `t_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='岗位信息表';
 
 -- ----------------------------
---  Table structure for `t_role`
+-- Records of t_post
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role`;
 CREATE TABLE `t_role` (
@@ -222,10 +506,19 @@ CREATE TABLE `t_role` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='角色信息表';
 
 -- ----------------------------
---  Table structure for `t_role_dept`
+-- Records of t_role
+-- ----------------------------
+INSERT INTO `t_role` VALUES ('1', '管理员', 'admin', '1', '1', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '管理员');
+INSERT INTO `t_role` VALUES ('2', '普通角色', 'common', '2', '2', '0', '0', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-05 09:50:56', '普通角色');
+INSERT INTO `t_role` VALUES ('3', '求职者', 'job_wanted', '3', '1', '0', '0', 'admin', '2020-02-05 11:25:28', 'admin', '2020-02-08 13:47:12', '');
+INSERT INTO `t_role` VALUES ('4', '企业', 'enterprise', '4', '1', '0', '0', 'admin', '2020-02-05 11:25:48', 'admin', '2020-02-10 13:58:33', '');
+INSERT INTO `t_role` VALUES ('5', '游客', 'tourist', '5', '1', '0', '0', 'admin', '2020-02-05 11:26:13', 'admin', '2020-02-06 18:01:19', '');
+
+-- ----------------------------
+-- Table structure for t_role_dept
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role_dept`;
 CREATE TABLE `t_role_dept` (
@@ -233,10 +526,17 @@ CREATE TABLE `t_role_dept` (
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `dept_id` bigint(20) NOT NULL COMMENT '部门ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色和部门关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='角色和部门关联表';
 
 -- ----------------------------
---  Table structure for `t_role_menu`
+-- Records of t_role_dept
+-- ----------------------------
+INSERT INTO `t_role_dept` VALUES ('2', '2', '100');
+INSERT INTO `t_role_dept` VALUES ('3', '2', '101');
+INSERT INTO `t_role_dept` VALUES ('4', '2', '105');
+
+-- ----------------------------
+-- Table structure for t_role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role_menu`;
 CREATE TABLE `t_role_menu` (
@@ -244,10 +544,112 @@ CREATE TABLE `t_role_menu` (
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
 
 -- ----------------------------
---  Table structure for `t_user`
+-- Records of t_role_menu
+-- ----------------------------
+INSERT INTO `t_role_menu` VALUES ('1', '1', '1');
+INSERT INTO `t_role_menu` VALUES ('2', '2', '1');
+INSERT INTO `t_role_menu` VALUES ('3', '2', '2');
+INSERT INTO `t_role_menu` VALUES ('4', '2', '3');
+INSERT INTO `t_role_menu` VALUES ('5', '2', '100');
+INSERT INTO `t_role_menu` VALUES ('6', '2', '101');
+INSERT INTO `t_role_menu` VALUES ('7', '2', '102');
+INSERT INTO `t_role_menu` VALUES ('8', '2', '103');
+INSERT INTO `t_role_menu` VALUES ('9', '2', '104');
+INSERT INTO `t_role_menu` VALUES ('10', '2', '105');
+INSERT INTO `t_role_menu` VALUES ('11', '2', '106');
+INSERT INTO `t_role_menu` VALUES ('12', '2', '107');
+INSERT INTO `t_role_menu` VALUES ('13', '2', '108');
+INSERT INTO `t_role_menu` VALUES ('14', '2', '109');
+INSERT INTO `t_role_menu` VALUES ('15', '2', '110');
+INSERT INTO `t_role_menu` VALUES ('16', '2', '111');
+INSERT INTO `t_role_menu` VALUES ('17', '2', '112');
+INSERT INTO `t_role_menu` VALUES ('18', '2', '113');
+INSERT INTO `t_role_menu` VALUES ('19', '2', '114');
+INSERT INTO `t_role_menu` VALUES ('20', '2', '115');
+INSERT INTO `t_role_menu` VALUES ('21', '2', '500');
+INSERT INTO `t_role_menu` VALUES ('22', '2', '501');
+INSERT INTO `t_role_menu` VALUES ('23', '2', '1000');
+INSERT INTO `t_role_menu` VALUES ('24', '2', '1001');
+INSERT INTO `t_role_menu` VALUES ('25', '2', '1002');
+INSERT INTO `t_role_menu` VALUES ('26', '2', '1003');
+INSERT INTO `t_role_menu` VALUES ('27', '2', '1004');
+INSERT INTO `t_role_menu` VALUES ('28', '2', '1005');
+INSERT INTO `t_role_menu` VALUES ('29', '2', '1006');
+INSERT INTO `t_role_menu` VALUES ('30', '2', '1007');
+INSERT INTO `t_role_menu` VALUES ('31', '2', '1008');
+INSERT INTO `t_role_menu` VALUES ('32', '2', '1009');
+INSERT INTO `t_role_menu` VALUES ('33', '2', '1010');
+INSERT INTO `t_role_menu` VALUES ('34', '2', '1011');
+INSERT INTO `t_role_menu` VALUES ('35', '2', '1012');
+INSERT INTO `t_role_menu` VALUES ('36', '2', '1013');
+INSERT INTO `t_role_menu` VALUES ('37', '2', '1014');
+INSERT INTO `t_role_menu` VALUES ('38', '2', '1015');
+INSERT INTO `t_role_menu` VALUES ('39', '2', '1016');
+INSERT INTO `t_role_menu` VALUES ('40', '2', '1017');
+INSERT INTO `t_role_menu` VALUES ('41', '2', '1018');
+INSERT INTO `t_role_menu` VALUES ('42', '2', '1019');
+INSERT INTO `t_role_menu` VALUES ('43', '2', '1020');
+INSERT INTO `t_role_menu` VALUES ('44', '2', '1021');
+INSERT INTO `t_role_menu` VALUES ('45', '2', '1022');
+INSERT INTO `t_role_menu` VALUES ('46', '2', '1023');
+INSERT INTO `t_role_menu` VALUES ('47', '2', '1024');
+INSERT INTO `t_role_menu` VALUES ('48', '2', '1025');
+INSERT INTO `t_role_menu` VALUES ('49', '2', '1026');
+INSERT INTO `t_role_menu` VALUES ('50', '2', '1027');
+INSERT INTO `t_role_menu` VALUES ('51', '2', '1028');
+INSERT INTO `t_role_menu` VALUES ('52', '2', '1029');
+INSERT INTO `t_role_menu` VALUES ('53', '2', '1030');
+INSERT INTO `t_role_menu` VALUES ('54', '2', '1031');
+INSERT INTO `t_role_menu` VALUES ('55', '2', '1032');
+INSERT INTO `t_role_menu` VALUES ('56', '2', '1033');
+INSERT INTO `t_role_menu` VALUES ('57', '2', '1034');
+INSERT INTO `t_role_menu` VALUES ('58', '2', '1035');
+INSERT INTO `t_role_menu` VALUES ('59', '2', '1036');
+INSERT INTO `t_role_menu` VALUES ('60', '2', '1037');
+INSERT INTO `t_role_menu` VALUES ('61', '2', '1038');
+INSERT INTO `t_role_menu` VALUES ('62', '2', '1039');
+INSERT INTO `t_role_menu` VALUES ('63', '2', '1040');
+INSERT INTO `t_role_menu` VALUES ('64', '2', '1041');
+INSERT INTO `t_role_menu` VALUES ('65', '2', '1042');
+INSERT INTO `t_role_menu` VALUES ('66', '2', '1043');
+INSERT INTO `t_role_menu` VALUES ('67', '2', '1044');
+INSERT INTO `t_role_menu` VALUES ('68', '2', '1045');
+INSERT INTO `t_role_menu` VALUES ('69', '2', '1046');
+INSERT INTO `t_role_menu` VALUES ('70', '2', '1047');
+INSERT INTO `t_role_menu` VALUES ('71', '2', '1048');
+INSERT INTO `t_role_menu` VALUES ('72', '2', '1049');
+INSERT INTO `t_role_menu` VALUES ('73', '2', '1050');
+INSERT INTO `t_role_menu` VALUES ('74', '2', '1051');
+INSERT INTO `t_role_menu` VALUES ('75', '2', '1052');
+INSERT INTO `t_role_menu` VALUES ('76', '2', '1053');
+INSERT INTO `t_role_menu` VALUES ('77', '2', '1054');
+INSERT INTO `t_role_menu` VALUES ('78', '2', '1055');
+INSERT INTO `t_role_menu` VALUES ('79', '2', '1056');
+INSERT INTO `t_role_menu` VALUES ('80', '2', '1057');
+INSERT INTO `t_role_menu` VALUES ('81', '2', '1058');
+INSERT INTO `t_role_menu` VALUES ('82', '2', '1059');
+INSERT INTO `t_role_menu` VALUES ('83', '2', '1060');
+INSERT INTO `t_role_menu` VALUES ('84', '2', '1061');
+INSERT INTO `t_role_menu` VALUES ('85', '3', '1062');
+INSERT INTO `t_role_menu` VALUES ('86', '3', '1063');
+INSERT INTO `t_role_menu` VALUES ('87', '3', '1065');
+INSERT INTO `t_role_menu` VALUES ('88', '3', '1066');
+INSERT INTO `t_role_menu` VALUES ('89', '3', '1067');
+INSERT INTO `t_role_menu` VALUES ('90', '3', '1068');
+INSERT INTO `t_role_menu` VALUES ('91', '3', '1070');
+INSERT INTO `t_role_menu` VALUES ('92', '4', '1062');
+INSERT INTO `t_role_menu` VALUES ('93', '4', '1064');
+INSERT INTO `t_role_menu` VALUES ('94', '4', '1069');
+INSERT INTO `t_role_menu` VALUES ('95', '4', '1085');
+INSERT INTO `t_role_menu` VALUES ('96', '5', '1062');
+INSERT INTO `t_role_menu` VALUES ('97', '5', '1069');
+INSERT INTO `t_role_menu` VALUES ('98', '5', '1070');
+
+-- ----------------------------
+-- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
@@ -276,14 +678,26 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 -- ----------------------------
---  Records of `t_user`
+-- Records of t_user
 -- ----------------------------
-BEGIN;
-INSERT INTO `t_user` VALUES ('1', '103', '0', 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2020-02-12 14:44:20', 'admin', '2018-03-16 11:33:00', 'ry', '2020-02-12 14:44:19', '管理员'), ('2', '105', '0', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '127.0.0.1', '2020-02-05 09:49:08', 'admin', '2018-03-16 11:33:00', 'ry', '2020-02-05 09:49:08', '测试员'), ('3', '103', '0', 'qiye', 'qiye', '00', '111@qq.com', '15838772858', '0', '', '151a40eb7f763342c7a8823f4f5f58c1', 'bdff5e', '0', '0', '127.0.0.1', '2020-02-11 10:02:53', 'admin', '2020-02-05 12:47:04', '', '2020-02-11 10:02:53', null), ('4', '103', '1', 'qiuzhi', 'qiuzhi', '00', '1111@qq.com', '13012345678', '0', '', '788a097bfcd367bd86b872f43ad63a5b', '5bab55', '0', '0', '127.0.0.1', '2020-02-12 09:56:03', 'admin', '2020-02-06 09:51:08', 'qiuzhi', '2020-02-12 09:57:49', null), ('5', '104', '0', 'aa', '测试', '00', '11011@qq.com', '13212345678', '0', '', 'b28c9ef52e225383e2b36e9f37dc89ca', '228558', '0', '0', '127.0.0.1', '2020-02-10 16:45:00', 'admin', '2020-02-06 14:20:16', 'aa', '2020-02-10 16:44:59', ''), ('6', null, '0', 'zhuce', '注册用户', '00', '', '13212345671', '0', '', 'cc8108872b5e171603b93126d815012b', '411083', '0', '0', '127.0.0.1', '2020-02-10 11:06:34', 'zhuce', '2020-02-06 15:09:58', '', '2020-02-10 11:06:34', null), ('7', null, '0', 'zhuce1', '注册用户1', '00', '', '13212345672', '0', '', 'b138def70ec6a8323579b676c92cb3a6', 'a5ae87', '0', '0', '127.0.0.1', '2020-02-06 18:33:25', 'zhuce1', '2020-02-06 15:13:21', '', '2020-02-06 18:33:25', null), ('8', null, '0', 'zhuce2', '注册用户2', '00', '', '13212345673', '0', '', '58e8622c26a294d3bc9498afe5cd2c07', '140aa5', '0', '0', '127.0.0.1', '2020-02-10 11:17:48', 'zhuce2', '2020-02-06 15:14:41', '', '2020-02-10 11:17:47', null), ('9', null, '0', 'youke', '游客', '00', '', '13212345674', '0', '', '27e05d167a2d0dd8cc1dbce18cc7bd2e', '1fcc7d', '0', '0', '127.0.0.1', '2020-02-06 17:15:04', 'youke', '2020-02-06 15:28:34', '', '2020-02-06 17:15:04', null), ('10', null, '0', 'youke1', '游客1', '00', '', '13212345675', '0', '', '9b2273f4de287b72b943f7c2dedb46f3', 'acb69b', '0', '0', '127.0.0.1', '2020-02-10 10:12:39', 'youke1', '2020-02-06 15:30:02', '', '2020-02-10 10:12:39', null), ('11', null, '0', 'youke11', '游客11', '00', '', '13212345676', '0', '', 'd85ac05221bd7e1c5d45026d93029c15', '167f79', '0', '0', '127.0.0.1', '2020-02-06 18:23:58', 'youke11', '2020-02-06 15:33:17', '', '2020-02-06 18:23:58', null), ('12', null, '0', 'youke12', '游客12', '00', '', '13212345677', '0', '', '76ed5a15262a126fb264ee053d4f7ac4', '682d23', '0', '0', '127.0.0.1', '2020-02-11 09:26:47', 'youke12', '2020-02-06 15:34:36', '', '2020-02-11 09:26:46', null), ('13', null, '0', 'youke13', '游客13', '00', '', '13212345679', '0', '', '0893681ef9c9cc9424cf3b88ecd057ca', 'be7564', '0', '0', '127.0.0.1', '2020-02-07 19:48:20', 'youke13', '2020-02-06 15:36:38', '', '2020-02-07 19:48:19', null), ('14', null, '0', 'youke14', 'youke14', '00', '', '13212345611', '0', '', 'df94dceed3f51b07fb0f9d1e84b5e701', 'ed07c3', '0', '0', '127.0.0.1', '2020-02-10 10:11:53', 'youke14', '2020-02-06 15:38:54', '', '2020-02-10 10:11:52', null), ('15', null, '0', 'youke15', 'youke15', '00', '', '13212345612', '0', '', '3c720b8ad6ddc6de2fbf81c6db9de584', 'c3b332', '0', '0', '127.0.0.1', '2020-02-10 10:10:59', 'youke15', '2020-02-06 15:40:25', '', '2020-02-10 10:10:58', null);
-COMMIT;
+INSERT INTO `t_user` VALUES ('1', '103', '0', 'admin', 'lquan', '00', 'lquan@163.com', '15888888888', '1', '', 'admin123', '111111', '0', '0', '', '2022-02-07 14:38:23', 'admin', '2018-03-16 11:33:00', '', '2020-02-12 14:44:19', '管理员');
+INSERT INTO `t_user` VALUES ('2', '105', '0', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '', '2020-02-05 09:49:08', 'admin', '2018-03-16 11:33:00', 'ry', '2020-02-05 09:49:08', '测试员');
+INSERT INTO `t_user` VALUES ('3', '103', '0', 'qiye', 'qiye', '00', '111@qq.com', '15838772858', '0', '', '151a40eb7f763342c7a8823f4f5f58c1', 'bdff5e', '0', '0', '', '2020-02-11 10:02:53', 'admin', '2020-02-05 12:47:04', '', '2020-02-11 10:02:53', null);
+INSERT INTO `t_user` VALUES ('4', '103', '1', 'qiuzhi', 'qiuzhi', '00', '1111@qq.com', '13012345678', '0', '', '788a097bfcd367bd86b872f43ad63a5b', '5bab55', '0', '0', '', '2020-02-12 09:56:03', 'admin', '2020-02-06 09:51:08', 'qiuzhi', '2020-02-12 09:57:49', null);
+INSERT INTO `t_user` VALUES ('5', '104', '0', 'aa', '测试', '00', '11011@qq.com', '13212345678', '0', '', 'b28c9ef52e225383e2b36e9f37dc89ca', '228558', '0', '0', '', '2020-02-10 16:45:00', 'admin', '2020-02-06 14:20:16', 'aa', '2020-02-10 16:44:59', '');
+INSERT INTO `t_user` VALUES ('6', null, '0', 'zhuce', '注册用户', '00', '', '13212345671', '0', '', 'cc8108872b5e171603b93126d815012b', '411083', '0', '0', '', '2020-02-10 11:06:34', 'zhuce', '2020-02-06 15:09:58', '', '2020-02-10 11:06:34', null);
+INSERT INTO `t_user` VALUES ('7', null, '0', 'zhuce1', '注册用户1', '00', '', '13212345672', '0', '', 'b138def70ec6a8323579b676c92cb3a6', 'a5ae87', '0', '0', '', '2020-02-06 18:33:25', 'zhuce1', '2020-02-06 15:13:21', '', '2020-02-06 18:33:25', null);
+INSERT INTO `t_user` VALUES ('8', null, '0', 'zhuce2', '注册用户2', '00', '', '13212345673', '0', '', '58e8622c26a294d3bc9498afe5cd2c07', '140aa5', '0', '0', '', '2020-02-10 11:17:48', 'zhuce2', '2020-02-06 15:14:41', '', '2020-02-10 11:17:47', null);
+INSERT INTO `t_user` VALUES ('9', null, '0', 'youke', '游客', '00', '', '13212345674', '0', '', '27e05d167a2d0dd8cc1dbce18cc7bd2e', '1fcc7d', '0', '0', '', '2020-02-06 17:15:04', 'youke', '2020-02-06 15:28:34', '', '2020-02-06 17:15:04', null);
+INSERT INTO `t_user` VALUES ('10', null, '0', 'youke1', '游客1', '00', '', '13212345675', '0', '', '9b2273f4de287b72b943f7c2dedb46f3', 'acb69b', '0', '0', '', '2020-02-10 10:12:39', 'youke1', '2020-02-06 15:30:02', '', '2020-02-10 10:12:39', null);
+INSERT INTO `t_user` VALUES ('11', null, '0', 'youke11', '游客11', '00', '', '13212345676', '0', '', 'd85ac05221bd7e1c5d45026d93029c15', '167f79', '0', '0', '', '2020-02-06 18:23:58', 'youke11', '2020-02-06 15:33:17', '', '2020-02-06 18:23:58', null);
+INSERT INTO `t_user` VALUES ('12', null, '0', 'youke12', '游客12', '00', '', '13212345677', '0', '', '76ed5a15262a126fb264ee053d4f7ac4', '682d23', '0', '0', '', '2020-02-11 09:26:47', 'youke12', '2020-02-06 15:34:36', '', '2020-02-11 09:26:46', null);
+INSERT INTO `t_user` VALUES ('13', null, '0', 'youke13', '游客13', '00', '', '13212345679', '0', '', '0893681ef9c9cc9424cf3b88ecd057ca', 'be7564', '0', '0', '', '2020-02-07 19:48:20', 'youke13', '2020-02-06 15:36:38', '', '2020-02-07 19:48:19', null);
+INSERT INTO `t_user` VALUES ('14', null, '0', 'youke14', 'youke14', '00', '', '13212345611', '0', '', 'df94dceed3f51b07fb0f9d1e84b5e701', 'ed07c3', '0', '0', '', '2020-02-10 10:11:53', 'youke14', '2020-02-06 15:38:54', '', '2020-02-10 10:11:52', null);
+INSERT INTO `t_user` VALUES ('15', null, '0', 'youke15', 'youke15', '00', '', '13212345612', '0', '', '3c720b8ad6ddc6de2fbf81c6db9de584', 'c3b332', '0', '0', '', '2020-02-10 10:10:59', 'youke15', '2020-02-06 15:40:25', '', '2020-02-10 10:10:58', null);
 
 -- ----------------------------
---  Table structure for `t_user_online`
+-- Table structure for t_user_online
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_online`;
 CREATE TABLE `t_user_online` (
@@ -303,7 +717,11 @@ CREATE TABLE `t_user_online` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='在线用户记录';
 
 -- ----------------------------
---  Table structure for `t_user_post`
+-- Records of t_user_online
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_user_post
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_post`;
 CREATE TABLE `t_user_post` (
@@ -314,7 +732,11 @@ CREATE TABLE `t_user_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户与岗位关联表';
 
 -- ----------------------------
---  Table structure for `t_user_role`
+-- Records of t_user_post
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_role`;
 CREATE TABLE `t_user_role` (
@@ -322,6 +744,23 @@ CREATE TABLE `t_user_role` (
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- ----------------------------
+-- Records of t_user_role
+-- ----------------------------
+INSERT INTO `t_user_role` VALUES ('2', '1', '1');
+INSERT INTO `t_user_role` VALUES ('3', '2', '2');
+INSERT INTO `t_user_role` VALUES ('4', '3', '4');
+INSERT INTO `t_user_role` VALUES ('5', '4', '3');
+INSERT INTO `t_user_role` VALUES ('6', '5', '3');
+INSERT INTO `t_user_role` VALUES ('7', '6', '5');
+INSERT INTO `t_user_role` VALUES ('8', '7', '5');
+INSERT INTO `t_user_role` VALUES ('9', '8', '5');
+INSERT INTO `t_user_role` VALUES ('10', '9', '5');
+INSERT INTO `t_user_role` VALUES ('11', '10', '5');
+INSERT INTO `t_user_role` VALUES ('12', '11', '5');
+INSERT INTO `t_user_role` VALUES ('13', '12', '5');
+INSERT INTO `t_user_role` VALUES ('14', '13', '5');
+INSERT INTO `t_user_role` VALUES ('15', '14', '5');
+INSERT INTO `t_user_role` VALUES ('16', '15', '5');

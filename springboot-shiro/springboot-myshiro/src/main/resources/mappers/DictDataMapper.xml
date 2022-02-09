@@ -318,5 +318,21 @@
         delete from t_dict_data where id = #{id}
     </delete>
 
+
+    <sql id="selectDictDataVo">
+        select id, dict_sort, dict_label, dict_value, dict_type, css_class, list_class, is_default, status, create_by, create_time, remark
+		from t_dict_data
+    </sql>
+
+    <select id="selectDictDataByType" parameterType="DictData" resultMap="DictDataMap">
+        <include refid="selectDictDataVo"/>
+        where status = '0' and dict_type = #{dictType} order by dict_sort asc
+    </select>
+
+    <select id="selectDictLabel" resultType="String">
+		select dict_label from t_dict_data
+		where dict_type = #{dictType} and dict_value = #{dictValue}
+	</select>
+
 </mapper>
 

@@ -34,14 +34,15 @@ public class IndexController {
     // 系统首页
     @GetMapping("/index")
     public String index(String tourist, ModelMap mmap) {
-       User us = ShiroUtils.getSysUser();
-        if(us==null || us.getLoginName()==null){
+
+        // 取身份信息
+       User user = ShiroUtils.getSysUser();
+        if(user==null || user.getLoginName()==null){
             ShiroUtils.logout();
             ShiroUtils.clearCachedAuthorizationInfo();
             return "login";
         }
-        // 取身份信息
-        User user = userService.queryById(ShiroUtils.getUserId());
+
 
 
         ShiroUtils.setSysUser(user);

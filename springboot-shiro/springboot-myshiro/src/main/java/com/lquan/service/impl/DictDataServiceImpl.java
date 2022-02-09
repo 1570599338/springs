@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 字典数据表(DictData)表服务实现类
@@ -35,8 +36,8 @@ public class DictDataServiceImpl implements DictDataService {
     /**
      * 分页查询
      *
-     * @param dictData 筛选条件
-     * @param pageRequest      分页对象
+     * @param dictData    筛选条件
+     * @param pageRequest 分页对象
      * @return 查询结果
      */
     @Override
@@ -56,7 +57,7 @@ public class DictDataServiceImpl implements DictDataService {
         this.dictDataMapper.insert(dictData);
         return dictData;
     }
-    
+
     /**
      * 新增数据
      *
@@ -68,7 +69,7 @@ public class DictDataServiceImpl implements DictDataService {
         this.dictDataMapper.insertSelective(dictData);
         return dictData;
     }
-    
+
 
     /**
      * 修改数据
@@ -92,4 +93,29 @@ public class DictDataServiceImpl implements DictDataService {
     public boolean deleteById(Long id) {
         return this.dictDataMapper.deleteById(id) > 0;
     }
+
+    /**
+     * 根据字典类型查询字典数据
+     *
+     * @param dictType 字典类型
+     * @return 字典数据集合信息
+     */
+    @Override
+    public List<DictData> selectDictDataByType(String dictType) {
+        return dictDataMapper.selectDictDataByType(dictType);
+    }
+
+
+    /**
+     * 根据字典类型和字典键值查询字典数据信息
+     *
+     * @param dictType  字典类型
+     * @param dictValue 字典键值
+     * @return 字典标签
+     */
+    @Override
+    public String selectDictLabel(String dictType, String dictValue) {
+        return dictDataMapper.selectDictLabel(dictType, dictValue);
+    }
+
 }

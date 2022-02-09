@@ -1,36 +1,56 @@
 package com.lquan.domain;
 
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
-import lombok.ToString;
-import java.io.Serializable;
+import java.util.List;
 
 /**
- * 用户信息表(User)实体类
+ * 用户对象 sys_user
  *
- * @author makejava
- * @since 2022-02-09 00:40:32
+ * @author ruoyi
  */
-@ToString
-public class User implements Serializable {
-    private static final long serialVersionUID = 119551132256453481L;
+public class User {
+    private static final long serialVersionUID = 1L;
+
     /**
      * 用户ID
      */
     private Long id;
+
+    /**
+     * 是否是vip (0否1是)
+     */
+    private String vip;
+
     /**
      * 部门ID
      */
     private Long deptId;
+
     /**
-     * 是否是vip（0否1是）
+     * 部门父ID
      */
-    private Integer vip;
+    private Long parentId;
+
     /**
-     * 登录账号
+     * 角色ID
+     */
+    private Long roleId;
+
+    /**
+     * 登录名称
      */
     private String loginName;
+
     /**
-     * 用户昵称
+     * 用户名称
      */
     private String userName;
     /**
@@ -41,42 +61,53 @@ public class User implements Serializable {
      * 用户邮箱
      */
     private String email;
+
     /**
      * 手机号码
      */
     private String phonenumber;
+
     /**
-     * 用户性别（0男 1女 2未知）
+     * 用户性别
      */
+
     private String sex;
+
     /**
-     * 头像路径
+     * 用户头像
      */
     private String avatar;
+
     /**
      * 密码
      */
     private String password;
+
     /**
      * 盐加密
      */
     private String salt;
+
     /**
      * 帐号状态（0正常 1停用）
      */
     private String status;
+
     /**
      * 删除标志（0代表存在 2代表删除）
      */
     private String delFlag;
+
     /**
      * 最后登陆IP
      */
     private String loginIp;
+
     /**
      * 最后登陆时间
      */
     private Date loginDate;
+
     /**
      * 创建者
      */
@@ -99,12 +130,45 @@ public class User implements Serializable {
     private String remark;
 
 
+    /**
+     * 部门对象
+     */
+    private Dept dept;
+
+    private List<Role> roles;
+
+    /**
+     * 角色组
+     */
+    private Long[] roleIds;
+
+    /**
+     * 岗位组
+     */
+    private Long[] postIds;
+
+    public User() {
+
+    }
+
+    public User(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin(this.id);
+    }
+
+    public static boolean isAdmin(Long userId) {
+        return userId != null && 1L == userId;
     }
 
     public Long getDeptId() {
@@ -115,14 +179,24 @@ public class User implements Serializable {
         this.deptId = deptId;
     }
 
-    public Integer getVip() {
-        return vip;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setVip(Integer vip) {
-        this.vip = vip;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    @NotBlank(message = "登录账号不能为空")
+    @Size(min = 0, max = 30, message = "登录账号长度不能超过30个字符")
     public String getLoginName() {
         return loginName;
     }
@@ -131,6 +205,7 @@ public class User implements Serializable {
         this.loginName = loginName;
     }
 
+    @Size(min = 0, max = 30, message = "用户昵称长度不能超过30个字符")
     public String getUserName() {
         return userName;
     }
@@ -139,14 +214,8 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
+    @Email(message = "邮箱格式不正确")
+    @Size(min = 0, max = 50, message = "邮箱长度不能超过50个字符")
     public String getEmail() {
         return email;
     }
@@ -155,6 +224,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Size(min = 0, max = 11, message = "手机号码长度不能超过11个字符")
     public String getPhonenumber() {
         return phonenumber;
     }
@@ -195,6 +265,16 @@ public class User implements Serializable {
         this.salt = salt;
     }
 
+    /**
+     * 生成随机盐
+     */
+    public void randomSalt() {
+        // 一个Byte占两个字节，此处生成的3字节，字符串长度为6
+        SecureRandomNumberGenerator secureRandom = new SecureRandomNumberGenerator();
+        String hex = secureRandom.nextBytes(3).toHex();
+        setSalt(hex);
+    }
+
     public String getStatus() {
         return status;
     }
@@ -225,6 +305,49 @@ public class User implements Serializable {
 
     public void setLoginDate(Date loginDate) {
         this.loginDate = loginDate;
+    }
+
+    public Dept getDept() {
+        if (dept == null) {
+            dept = new Dept();
+        }
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Long[] getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(Long[] roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public Long[] getPostIds() {
+        return postIds;
+    }
+
+    public void setPostIds(Long[] postIds) {
+        this.postIds = postIds;
+    }
+
+    public String getVip() {
+        return vip;
+    }
+
+    public void setVip(String vip) {
+        this.vip = vip;
     }
 
     public String getCreateBy() {
@@ -267,5 +390,11 @@ public class User implements Serializable {
         this.remark = remark;
     }
 
-}
+    public String getUserType() {
+        return userType;
+    }
 
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+}
