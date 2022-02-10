@@ -2,6 +2,9 @@ package com.lquan.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lquan.annotation.Excel;
+import com.lquan.annotation.Excel.Type;
+import com.lquan.annotation.Excels;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -25,6 +28,7 @@ public class User {
     /**
      * 用户ID
      */
+    @Excel(name = "用户序号", cellType = Excel.ColumnType.NUMERIC, prompt = "用户编号")
     private Long id;
 
     /**
@@ -35,6 +39,7 @@ public class User {
     /**
      * 部门ID
      */
+    @Excel(name = "部门编号", type = Type.IMPORT)
     private Long deptId;
 
     /**
@@ -50,11 +55,13 @@ public class User {
     /**
      * 登录名称
      */
+    @Excel(name = "登录名称")
     private String loginName;
 
     /**
      * 用户名称
      */
+    @Excel(name = "用户名称")
     private String userName;
     /**
      * 用户类型（00系统用户）
@@ -63,17 +70,20 @@ public class User {
     /**
      * 用户邮箱
      */
+    @Excel(name = "用户邮箱")
     private String email;
 
     /**
      * 手机号码
      */
+    @Excel(name = "手机号码")
     private String phonenumber;
 
     /**
      * 用户性别
      */
 
+    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
     private String sex;
 
     /**
@@ -94,6 +104,7 @@ public class User {
     /**
      * 帐号状态（0正常 1停用）
      */
+    @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
     /**
@@ -104,11 +115,13 @@ public class User {
     /**
      * 最后登陆IP
      */
+    @Excel(name = "最后登陆IP", type = Type.EXPORT)
     private String loginIp;
 
     /**
      * 最后登陆时间
      */
+    @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
 
     /**
@@ -138,6 +151,10 @@ public class User {
     /**
      * 部门对象
      */
+    @Excels({
+            @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
+            @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
+    })
     private Dept dept;
 
     private List<Role> roles;

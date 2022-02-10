@@ -131,5 +131,11 @@
         delete from t_user_role where id = #{id}
     </delete>
 
+
+
+    <delete id="deleteUserRoleByUserId" parameterType="Long">
+		delete from t_user_role where user_id=#{userId}
+	</delete>
+
 </mapper>
 

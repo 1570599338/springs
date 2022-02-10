@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 岗位信息表(Post)表服务实现类
@@ -35,8 +36,8 @@ public class PostServiceImpl implements PostService {
     /**
      * 分页查询
      *
-     * @param post 筛选条件
-     * @param pageRequest      分页对象
+     * @param post        筛选条件
+     * @param pageRequest 分页对象
      * @return 查询结果
      */
     @Override
@@ -56,7 +57,7 @@ public class PostServiceImpl implements PostService {
         this.postMapper.insert(post);
         return post;
     }
-    
+
     /**
      * 新增数据
      *
@@ -68,7 +69,7 @@ public class PostServiceImpl implements PostService {
         this.postMapper.insertSelective(post);
         return post;
     }
-    
+
 
     /**
      * 修改数据
@@ -91,5 +92,16 @@ public class PostServiceImpl implements PostService {
     @Override
     public boolean deleteById(Long id) {
         return this.postMapper.deleteById(id) > 0;
+    }
+
+
+    /**
+     * 查询所有岗位
+     *
+     * @return 岗位列表
+     */
+    @Override
+    public List<Post> selectPostAll() {
+        return postMapper.selectPostAll();
     }
 }

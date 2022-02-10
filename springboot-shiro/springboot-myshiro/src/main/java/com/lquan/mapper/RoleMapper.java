@@ -113,5 +113,14 @@ public interface RoleMapper {
      */
     public List<String> selectRoleKey(@Param("userId") Long userId);
 
+
+    /**
+     * 根据条件分页查询角色数据
+     *
+     * @param role 角色信息
+     * @return 角色数据集合信息
+     */
+    public List<Role> selectRoleList(Role role);
+
 }
 

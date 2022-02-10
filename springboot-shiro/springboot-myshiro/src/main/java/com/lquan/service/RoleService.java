@@ -4,6 +4,7 @@ import com.lquan.domain.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -70,5 +71,30 @@ public interface RoleService {
      * @return 权限列表
      */
     public Set<String> selectRoleKeys(Long userId);
+
+
+
+    /**
+     * 根据用户ID查询角色
+     *
+     * @param userId 用户ID
+     * @return 角色列表
+     */
+    public List<Role> selectRolesByUserId(Long userId);
+
+
+
+    /**
+     * 查询所有角色
+     *
+     * @return 角色列表
+     */
+    public List<Role> selectRoleAll();
+
+
+
+
+
+
 
 }

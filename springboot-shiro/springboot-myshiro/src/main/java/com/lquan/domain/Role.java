@@ -1,8 +1,12 @@
 package com.lquan.domain;
 
 import java.util.Date;
+
 import lombok.ToString;
+
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 角色信息表(Role)实体类
@@ -157,6 +161,34 @@ public class Role implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    /**
+     * 用户是否存在此角色标识 默认不存在
+     */
+    private boolean flag = false;
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+    /**
+     * 请求参数
+     */
+    private Map<String, Object> params;
+
+    public Map<String, Object> getParams() {
+        if (params == null) {
+            params = new HashMap();
+        }
+        return params;
+    }
+
+    public void setParams(Map<String, Object> params) {
+        this.params = params;
     }
 
 }

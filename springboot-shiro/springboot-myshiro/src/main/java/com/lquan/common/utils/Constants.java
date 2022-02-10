@@ -64,4 +64,20 @@ public class Constants
 
     // 初始默认密码
     public static final String PASSWORD = "123456";
+
+    // 文件路径
+    public static final String profile = "D:/lquan/uploadPath";
+
+    // 获取头像上传路径
+    public static final String avatarPath = "D:/lquan/uploadPath/avatar";
+
+
+    // 获取下载路径
+    public static final String downloadPath = "D:/lquan/uploadPath/download";
+
+
+    // 获取上传路径
+    public static final String uploadPath = "D:/lquan/uploadPath/upload";
+
+
 }

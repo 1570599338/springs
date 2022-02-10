@@ -250,5 +250,19 @@
         delete from t_post where id = #{id}
     </delete>
 
+
+
+    <sql id="selectPostVo">
+        select id, post_code, post_name, post_sort, status, create_by, create_time, remark
+		from t_post
+    </sql>
+
+
+    <select id="selectPostAll" resultMap="PostMap">
+        <include refid="selectPostVo"/>
+    </select>
+
+
+
 </mapper>
 

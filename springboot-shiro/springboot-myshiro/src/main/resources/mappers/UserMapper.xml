@@ -443,12 +443,11 @@
             <if test="updateBy != null and updateBy != ''">
                 update_by = #{updateBy},
             </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime},
-            </if>
+
             <if test="remark != null and remark != ''">
                 remark = #{remark},
             </if>
+            update_time =  sysdate(),
         </set>
         where id = #{id}
     </update>
@@ -500,5 +499,32 @@
         <!-- 数据范围过滤 -->
         ${params.dataScope}
     </select>
+
+    <select id="selectUserById" parameterType="Long" resultMap="UserMap">
+        <include refid="selectUserVo"/>
+        where u.id = #{userId}
+    </select>
+
+    <select id="checkLoginNameUnique" parameterType="String" resultType="int">
+		select count(1) from t_user where login_name=#{loginName}
+	</select>
+
+    <select id="checkPhoneUnique" parameterType="String" resultMap="UserMap">
+		select id, phonenumber from t_user where phonenumber=#{phonenumber}
+	</select>
+
+    <select id="checkEmailUnique" parameterType="String" resultMap="UserMap">
+		select id, email from t_user where email=#{email}
+	</select>
+
+
+
+    <delete id="deleteUserByIds" parameterType="Long">
+        update t_user set del_flag = '2' where id in
+        <foreach collection="array" item="userId" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+
 </mapper>
 

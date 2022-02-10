@@ -4,6 +4,8 @@ import com.lquan.domain.Post;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
+
 /**
  * 岗位信息表(Post)表服务接口
  *
@@ -60,5 +62,13 @@ public interface PostService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+
+    /**
+     * 查询所有岗位
+     *
+     * @return 岗位列表
+     */
+    public List<Post> selectPostAll();
 
 }

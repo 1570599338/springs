@@ -114,4 +114,37 @@ public class RoleServiceImpl implements RoleService {
         }
         return permsSet;
     }
+
+    /**
+     * 根据用户ID查询角色
+     *
+     * @param userId 用户ID
+     * @return 角色列表
+     */
+    @Override
+    public List<Role> selectRolesByUserId(Long userId) {
+        List<Role> userRoles = roleMapper.selectRolesByUserId(userId);
+        // List<Role> roles = selectRoleAll();
+        List<Role> roles = roleMapper.selectRoleList(new Role());
+        for (Role role : roles) {
+            for (Role userRole : userRoles) {
+                if (role.getId().longValue() == userRole.getId().longValue()) {
+                    role.setFlag(true);
+                    break;
+                }
+            }
+        }
+        return roles;
+    }
+
+    /**
+     * 查询所有角色
+     *
+     * @return 角色列表
+     */
+    @Override
+    public List<Role> selectRoleAll() {
+        return roleMapper.selectRoleList(new Role());
+    }
+
 }

@@ -111,5 +111,54 @@ public interface UserMapper {
      */
     public List<User> selectUserList(User user);
 
+
+
+
+    /**
+     * 通过用户ID查询用户
+     *
+     * @param userId 用户ID
+     * @return 用户对象信息
+     */
+    public User selectUserById(Long userId);
+
+
+    /**
+     * 校验用户名称是否唯一
+     *
+     * @param loginName 登录名称
+     * @return 结果
+     */
+    public int checkLoginNameUnique(String loginName);
+
+    /**
+     * 校验手机号码是否唯一
+     *
+     * @param phonenumber 手机号码
+     * @return 结果
+     */
+    public User checkPhoneUnique(String phonenumber);
+
+    /**
+     * 校验email是否唯一
+     *
+     * @param email 用户邮箱
+     * @return 结果
+     */
+    public User checkEmailUnique(String email);
+
+
+
+    /**
+     * 批量删除用户信息
+     *
+     * @param ids 需要删除的数据ID
+     * @return 结果
+     */
+    public int deleteUserByIds(Long[] ids);
+
+
+
+
 }
 

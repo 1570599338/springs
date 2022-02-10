@@ -91,5 +91,14 @@ public interface PostMapper {
      */
     int deleteById(Long id);
 
+
+    /**
+     * 查询所有岗位
+     *
+     * @return 岗位列表
+     */
+    public List<Post> selectPostAll();
+
+
 }
 
