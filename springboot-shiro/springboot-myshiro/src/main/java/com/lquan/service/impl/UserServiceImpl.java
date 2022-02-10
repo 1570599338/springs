@@ -5,12 +5,11 @@ import com.lquan.common.shiro.ShiroUtils;
 import com.lquan.common.text.Convert;
 import com.lquan.common.utils.Constants;
 import com.lquan.common.utils.StringUtils;
-import com.lquan.domain.User;
-import com.lquan.domain.UserPost;
-import com.lquan.domain.UserRole;
+import com.lquan.domain.*;
 import com.lquan.mapper.*;
 import com.lquan.service.ConfigService;
 import com.lquan.service.IConfigService;
+import com.lquan.service.PostService;
 import com.lquan.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +49,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private IConfigService configService;
 
+
+    @Resource
+    private PostMapper postMapper;
 
 
     /**
@@ -240,9 +242,9 @@ public class UserServiceImpl implements UserService {
         // 新增用户与角色管理
         insertUserRole(user);
         // 删除用户与岗位关联
-        //-- userPostMapper.deleteUserPostByUserId(userId);
+         userPostMapper.deleteUserPostByUserId(userId);
         // 新增用户与岗位管理
-        //-- insertUserPost(user);
+         insertUserPost(user);
         // return userMapper.updateUser(user);
         return userMapper.update(user);
     }
@@ -315,12 +317,11 @@ public class UserServiceImpl implements UserService {
                 list.add(up);
             }
             if (list.size() > 0) {
-               // userPostMapper.batchUserPost(list);
+                // userPostMapper.batchUserPost(list);
                 userPostMapper.insertBatch(list);
             }
         }
     }
-
 
 
     /**
@@ -377,7 +378,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     /**
      * 批量删除用户信息
      *
@@ -385,7 +385,7 @@ public class UserServiceImpl implements UserService {
      * @return 结果
      */
     @Override
-    public int deleteUserByIds(String ids){
+    public int deleteUserByIds(String ids) {
         Long[] userIds = Convert.toLongArray(ids);
         for (Long userId : userIds) {
             checkUserAllowed(new User(userId));
@@ -404,4 +404,69 @@ public class UserServiceImpl implements UserService {
     public int changeStatus(User user) {
         return userMapper.update(user);
     }
+
+
+    /**
+     * 查询用户所属角色组
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    @Override
+    public String selectUserRoleGroup(Long userId) {
+        List<Role> list = roleMapper.selectRolesByUserId(userId);
+        StringBuffer idsStr = new StringBuffer();
+        for (Role role : list) {
+            idsStr.append(role.getRoleName()).append(",");
+        }
+        if (StringUtils.isNotEmpty(idsStr.toString())) {
+            return idsStr.substring(0, idsStr.length() - 1);
+        }
+        return idsStr.toString();
+    }
+
+    /**
+     * 查询用户所属岗位组
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    @Override
+    public String selectUserPostGroup(Long userId) {
+        List<Post> list = postMapper.selectPostsByUserId(userId);
+        StringBuffer idsStr = new StringBuffer();
+        for (Post post : list) {
+            idsStr.append(post.getPostName()).append(",");
+        }
+        if (StringUtils.isNotEmpty(idsStr.toString())) {
+            return idsStr.substring(0, idsStr.length() - 1);
+        }
+        return idsStr.toString();
+    }
+
+    /**
+     * 修改用户个人详细信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserInfo(User user) {
+        return userMapper.update(user);
+    }
+
+    /**
+     * 修改用户密码
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int resetUserPwd(User user) {
+        user.randomSalt();
+        // user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
+        user.setPassword(user.getPassword());
+        return updateUserInfo(user);
+    }
+
 }

@@ -263,6 +263,12 @@
     </select>
 
 
-
+    <select id="selectPostsByUserId" parameterType="Long" resultMap="PostMap">
+		SELECT p.id, p.post_name, p.post_code
+		FROM t_user u
+			 LEFT JOIN t_user_post up ON u.id = up.user_id
+			 LEFT JOIN t_post p ON up.post_id = p.id
+		WHERE up.user_id = #{userId}
+	</select>
 </mapper>
 

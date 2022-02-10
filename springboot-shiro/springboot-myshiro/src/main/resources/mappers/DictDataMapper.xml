@@ -303,12 +303,11 @@
             <if test="updateBy != null and updateBy != ''">
                 update_by = #{updateBy},
             </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime},
-            </if>
+
             <if test="remark != null and remark != ''">
                 remark = #{remark},
             </if>
+            update_time = sysdate(),
         </set>
         where id = #{id}
     </update>
@@ -324,7 +323,7 @@
 		from t_dict_data
     </sql>
 
-    <select id="selectDictDataByType" parameterType="DictData" resultMap="DictDataMap">
+    <select id="selectDictDataByType" parameterType="com.lquan.domain.DictData" resultMap="DictDataMap">
         <include refid="selectDictDataVo"/>
         where status = '0' and dict_type = #{dictType} order by dict_sort asc
     </select>
@@ -333,6 +332,30 @@
 		select dict_label from t_dict_data
 		where dict_type = #{dictType} and dict_value = #{dictValue}
 	</select>
+
+
+    <select id="selectDictDataList" parameterType="com.lquan.domain.DictData" resultMap="DictDataMap">
+        <include refid="selectDictDataVo"/>
+        <where>
+            <if test="dictType != null and dictType != ''">
+                AND dict_type = #{dictType}
+            </if>
+            <if test="dictLabel != null and dictLabel != ''">
+                AND dict_label like concat('%', #{dictLabel}, '%')
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteDictDataByIds" parameterType="String">
+        delete from t_dict_data where id in
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
 
 </mapper>
 

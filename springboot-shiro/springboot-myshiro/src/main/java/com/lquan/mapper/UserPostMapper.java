@@ -91,5 +91,13 @@ public interface UserPostMapper {
      */
     int deleteById(Long id);
 
+    /**
+     * 通过用户ID删除用户和岗位关联
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    public int deleteUserPostByUserId(Long userId);
+
 }
 

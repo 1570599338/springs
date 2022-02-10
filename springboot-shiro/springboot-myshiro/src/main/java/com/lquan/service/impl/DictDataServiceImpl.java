@@ -1,5 +1,7 @@
 package com.lquan.service.impl;
 
+import com.lquan.common.shiro.ShiroUtils;
+import com.lquan.common.text.Convert;
 import com.lquan.domain.DictData;
 import com.lquan.mapper.DictDataMapper;
 import com.lquan.service.DictDataService;
@@ -9,6 +11,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -117,5 +120,55 @@ public class DictDataServiceImpl implements DictDataService {
     public String selectDictLabel(String dictType, String dictValue) {
         return dictDataMapper.selectDictLabel(dictType, dictValue);
     }
+
+
+    /**
+     * 根据条件分页查询字典数据
+     *
+     * @param dictData 字典数据信息
+     * @return 字典数据集合信息
+     */
+    @Override
+    public List<DictData> selectDictDataList(DictData dictData) {
+        return dictDataMapper.selectDictDataList(dictData);
+    }
+
+
+    /**
+     * 新增保存字典数据信息
+     *
+     * @param dictData 字典数据信息
+     * @return 结果
+     */
+    @Override
+    public int insertDictData(DictData dictData) {
+        dictData.setCreateBy(ShiroUtils.getLoginName());
+        dictData.setCreateTime(new Date());
+        return dictDataMapper.insert(dictData);
+    }
+
+    /**
+     * 修改保存字典数据信息
+     *
+     * @param dictData 字典数据信息
+     * @return 结果
+     */
+    @Override
+    public int updateDictData(DictData dictData) {
+        dictData.setUpdateBy(ShiroUtils.getLoginName());
+        return dictDataMapper.update(dictData);
+    }
+    /**
+     * 批量删除字典数据
+     *
+     * @param ids 需要删除的数据
+     * @return 结果
+     */
+    @Override
+    public int deleteDictDataByIds(String ids)
+    {
+        return dictDataMapper.deleteDictDataByIds(Convert.toStrArray(ids));
+    }
+
 
 }

@@ -100,5 +100,14 @@ public interface PostMapper {
     public List<Post> selectPostAll();
 
 
+    /**
+     * 根据用户ID查询岗位
+     *
+     * @param userId 用户ID
+     * @return 岗位列表
+     */
+    public List<Post> selectPostsByUserId(Long userId);
+
+
 }
 

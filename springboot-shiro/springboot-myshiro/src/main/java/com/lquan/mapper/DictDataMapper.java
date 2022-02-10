@@ -110,6 +110,21 @@ public interface DictDataMapper {
     public String selectDictLabel(String dictType, String dictValue);
 
 
+    /**
+     * 根据条件分页查询字典数据
+     *
+     * @param dictData 字典数据信息
+     * @return 字典数据集合信息
+     */
+    public List<DictData> selectDictDataList(DictData dictData);
 
+
+    /**
+     * 批量删除字典数据
+     *
+     * @param ids 需要删除的数据
+     * @return 结果
+     */
+    public int deleteDictDataByIds(String[] ids);
 }
 

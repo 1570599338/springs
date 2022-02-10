@@ -2,11 +2,10 @@ package com.lquan.common.utils;
 
 /**
  * 通用常量信息
- * 
- * @author ruoyi
+ *
+ * @author
  */
-public class Constants
-{
+public class Constants {
     /**
      * UTF-8 字符集
      */
@@ -69,15 +68,17 @@ public class Constants
     public static final String profile = "D:/lquan/uploadPath";
 
     // 获取头像上传路径
-    public static final String avatarPath = "D:/lquan/uploadPath/avatar";
-
+   // public static final String avatarPath = "D:/lquan/uploadPath/avatar";
+    public static final String avatarPath = profile+"/avatar";
 
     // 获取下载路径
-    public static final String downloadPath = "D:/lquan/uploadPath/download";
+  //  public static final String downloadPath = "D:/lquan/uploadPath/download";
+    public static final String downloadPath = profile+"download";
 
 
     // 获取上传路径
-    public static final String uploadPath = "D:/lquan/uploadPath/upload";
+  //  public static final String uploadPath = "D:/lquan/uploadPath/upload";
+    public static final String uploadPath = profile+"/upload";
 
 
 }

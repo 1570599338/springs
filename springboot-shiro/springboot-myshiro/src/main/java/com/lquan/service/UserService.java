@@ -166,4 +166,37 @@ public interface UserService {
     public int changeStatus(User user);
 
 
+    /**
+     * 根据用户ID查询用户所属角色组
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    public String selectUserRoleGroup(Long userId);
+
+    /**
+     * 根据用户ID查询用户所属岗位组
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    public String selectUserPostGroup(Long userId);
+
+
+    /**
+     * 修改用户密码信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int resetUserPwd(User user);
+
+
+    /**
+     * 修改用户密码信息
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int updateUserInfo(User user);
 }
