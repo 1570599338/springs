@@ -131,5 +131,11 @@
         delete from t_role_menu where id = #{id}
     </delete>
 
+    <select id="selectCountRoleMenuByMenuId" resultType="java.lang.Integer">
+	    select count(1) from t_role_menu where menu_id=#{menuId}
+	</select>
+
+
+
 </mapper>
 

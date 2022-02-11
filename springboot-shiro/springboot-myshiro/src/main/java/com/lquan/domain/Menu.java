@@ -1,10 +1,10 @@
 package com.lquan.domain;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.ToString;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 菜单权限表(Menu)实体类
@@ -62,6 +62,7 @@ public class Menu implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 更新者
@@ -70,6 +71,7 @@ public class Menu implements Serializable {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
      * 备注
@@ -207,6 +209,22 @@ public class Menu implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    /**
+     * 请求参数
+     */
+    private Map<String, Object> params;
+
+    public Map<String, Object> getParams() {
+        if (params == null) {
+            params = new HashMap();
+        }
+        return params;
+    }
+
+    public void setParams(Map<String, Object> params) {
+        this.params = params;
     }
 
 }
