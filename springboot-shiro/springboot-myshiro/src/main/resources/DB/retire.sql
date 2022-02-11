@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2022-02-09 18:55:12
+Date: 2022-02-11 17:10:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -96,39 +96,39 @@ CREATE TABLE `t_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
 
 -- ----------------------------
 -- Records of t_dict_data
 -- ----------------------------
-INSERT INTO `t_dict_data` VALUES ('1', '1', '男', '0', 't_user_sex', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别男');
-INSERT INTO `t_dict_data` VALUES ('2', '2', '女', '1', 't_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别女');
-INSERT INTO `t_dict_data` VALUES ('3', '3', '未知', '2', 't_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别未知');
-INSERT INTO `t_dict_data` VALUES ('4', '1', '显示', '0', 't_show_hide', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '显示菜单');
-INSERT INTO `t_dict_data` VALUES ('5', '2', '隐藏', '1', 't_show_hide', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '隐藏菜单');
-INSERT INTO `t_dict_data` VALUES ('6', '1', '正常', '0', 't_normal_disable', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('7', '2', '停用', '1', 't_normal_disable', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
-INSERT INTO `t_dict_data` VALUES ('8', '1', '正常', '0', 't_job_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('9', '2', '暂停', '1', 't_job_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
-INSERT INTO `t_dict_data` VALUES ('10', '1', '默认', 'DEFAULT', 't_job_group', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '默认分组');
-INSERT INTO `t_dict_data` VALUES ('11', '2', '系统', 'SYSTEM', 't_job_group', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统分组');
-INSERT INTO `t_dict_data` VALUES ('12', '1', '是', 'Y', 't_yes_no', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认是');
-INSERT INTO `t_dict_data` VALUES ('13', '2', '否', 'N', 't_yes_no', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认否');
-INSERT INTO `t_dict_data` VALUES ('14', '1', '通知', '1', 't_notice_type', '', 'warning', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知');
-INSERT INTO `t_dict_data` VALUES ('15', '2', '公告', '2', 't_notice_type', '', 'success', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '公告');
-INSERT INTO `t_dict_data` VALUES ('16', '1', '正常', '0', 't_notice_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('17', '2', '关闭', '1', 't_notice_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '关闭状态');
-INSERT INTO `t_dict_data` VALUES ('18', '1', '新增', '1', 't_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '新增操作');
-INSERT INTO `t_dict_data` VALUES ('19', '2', '修改', '2', 't_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '修改操作');
-INSERT INTO `t_dict_data` VALUES ('20', '3', '删除', '3', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '删除操作');
-INSERT INTO `t_dict_data` VALUES ('21', '4', '授权', '4', 't_oper_type', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '授权操作');
-INSERT INTO `t_dict_data` VALUES ('22', '5', '导出', '5', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导出操作');
-INSERT INTO `t_dict_data` VALUES ('23', '6', '导入', '6', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导入操作');
-INSERT INTO `t_dict_data` VALUES ('24', '7', '强退', '7', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '强退操作');
-INSERT INTO `t_dict_data` VALUES ('25', '8', '生成代码', '8', 't_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '生成操作');
-INSERT INTO `t_dict_data` VALUES ('26', '9', '清空数据', '9', 't_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作');
-INSERT INTO `t_dict_data` VALUES ('27', '1', '成功', '0', 't_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('28', '2', '失败', '1', 't_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('1', '1', '男', '0', 'sys_user_sex', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别男');
+INSERT INTO `t_dict_data` VALUES ('2', '2', '女', '1', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别女');
+INSERT INTO `t_dict_data` VALUES ('3', '3', '未知', '2', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别未知');
+INSERT INTO `t_dict_data` VALUES ('4', '1', '显示', '0', 'sys_show_hide', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '显示菜单');
+INSERT INTO `t_dict_data` VALUES ('5', '2', '隐藏', '1', 'sys_show_hide', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '隐藏菜单');
+INSERT INTO `t_dict_data` VALUES ('6', '1', '正常', '0', 'sys_normal_disable', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('7', '2', '停用', '1', 'sys_normal_disable', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('8', '1', '正常', '0', 'sys_job_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('9', '2', '暂停', '1', 'sys_job_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
+INSERT INTO `t_dict_data` VALUES ('10', '1', '默认', 'DEFAULT', 'sys_job_group', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '默认分组');
+INSERT INTO `t_dict_data` VALUES ('11', '2', '系统', 'SYSTEM', 'sys_job_group', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统分组');
+INSERT INTO `t_dict_data` VALUES ('12', '1', '是', 'Y', 'sys_yes_no', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认是');
+INSERT INTO `t_dict_data` VALUES ('13', '2', '否', 'N', 'sys_yes_no', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认否');
+INSERT INTO `t_dict_data` VALUES ('14', '1', '通知', '1', 'sys_notice_type', '', 'warning', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知');
+INSERT INTO `t_dict_data` VALUES ('15', '2', '公告', '2', 'sys_notice_type', '', 'success', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '公告');
+INSERT INTO `t_dict_data` VALUES ('16', '1', '正常', '0', 'sys_notice_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('17', '2', '关闭', '1', 'sys_notice_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '关闭状态');
+INSERT INTO `t_dict_data` VALUES ('18', '1', '新增', '1', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '新增操作');
+INSERT INTO `t_dict_data` VALUES ('19', '2', '修改', '2', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '修改操作');
+INSERT INTO `t_dict_data` VALUES ('20', '3', '删除', '3', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '删除操作');
+INSERT INTO `t_dict_data` VALUES ('21', '4', '授权', '4', 'sys_oper_type', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '授权操作');
+INSERT INTO `t_dict_data` VALUES ('22', '5', '导出', '5', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导出操作');
+INSERT INTO `t_dict_data` VALUES ('23', '6', '导入', '6', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导入操作');
+INSERT INTO `t_dict_data` VALUES ('24', '7', '强退', '7', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '强退操作');
+INSERT INTO `t_dict_data` VALUES ('25', '8', '生成代码', '8', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '生成操作');
+INSERT INTO `t_dict_data` VALUES ('26', '9', '清空数据', '9', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作');
+INSERT INTO `t_dict_data` VALUES ('27', '1', '成功', '0', 'sys_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
+INSERT INTO `t_dict_data` VALUES ('28', '2', '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
 INSERT INTO `t_dict_data` VALUES ('29', '1', '计算机类', '0', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:14:42', 'admin', '2020-02-05 10:37:05', '');
 INSERT INTO `t_dict_data` VALUES ('30', '1', '文职类', '1', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:05', 'admin', '2020-02-05 10:37:16', '');
 INSERT INTO `t_dict_data` VALUES ('31', '2', '销售类', '2', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:18', 'admin', '2020-02-05 10:37:27', '');
@@ -160,6 +160,8 @@ INSERT INTO `t_dict_data` VALUES ('56', '2', '计算机软件', '2', 'job_enterp
 INSERT INTO `t_dict_data` VALUES ('57', '3', '汽车及零配件', '3', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:26', '', null, null);
 INSERT INTO `t_dict_data` VALUES ('58', '4', '房地产/汽车', '4', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:40', '', null, null);
 INSERT INTO `t_dict_data` VALUES ('59', '5', '快速消费品(食品、饮料、化妆品) 批发/零售', '5', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 14:15:16', '', null, null);
+INSERT INTO `t_dict_data` VALUES ('60', '1', 'lquan01tab', 'lquan01key', 'sys_user_sex1', '', 'primary', 'Y', '0', 'admin', '2022-02-11 17:02:09', 'admin', '2022-02-11 17:03:31', 'lquan01');
+INSERT INTO `t_dict_data` VALUES ('61', '2', 'lquan02tab', 'lquan02key', 'sys_user_sex1', '', 'default', 'Y', '0', 'admin', '2022-02-11 17:02:49', null, null, 'lquan02');
 
 -- ----------------------------
 -- Table structure for t_dict_type
@@ -177,21 +179,21 @@ CREATE TABLE `t_dict_type` (
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
   UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
 
 -- ----------------------------
 -- Records of t_dict_type
 -- ----------------------------
-INSERT INTO `t_dict_type` VALUES ('1', '用户性别', 't_user_sex', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户性别列表');
-INSERT INTO `t_dict_type` VALUES ('2', '菜单状态', 't_show_hide', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单状态列表');
-INSERT INTO `t_dict_type` VALUES ('3', '系统开关', 't_normal_disable', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统开关列表');
-INSERT INTO `t_dict_type` VALUES ('4', '任务状态', 't_job_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务状态列表');
-INSERT INTO `t_dict_type` VALUES ('5', '任务分组', 't_job_group', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务分组列表');
-INSERT INTO `t_dict_type` VALUES ('6', '系统是否', 't_yes_no', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统是否列表');
-INSERT INTO `t_dict_type` VALUES ('7', '通知类型', 't_notice_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知类型列表');
-INSERT INTO `t_dict_type` VALUES ('8', '通知状态', 't_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表');
-INSERT INTO `t_dict_type` VALUES ('9', '操作类型', 't_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表');
-INSERT INTO `t_dict_type` VALUES ('10', '系统状态', 't_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表');
+INSERT INTO `t_dict_type` VALUES ('1', '用户性别', 'sys_user_sex', '0', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-11 14:26:08', '用户性别列表');
+INSERT INTO `t_dict_type` VALUES ('2', '菜单状态', 'sys_show_hide', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单状态列表');
+INSERT INTO `t_dict_type` VALUES ('3', '系统开关', 'sys_normal_disable', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统开关列表');
+INSERT INTO `t_dict_type` VALUES ('4', '任务状态', 'sys_job_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务状态列表');
+INSERT INTO `t_dict_type` VALUES ('5', '任务分组', 'sys_job_group', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务分组列表');
+INSERT INTO `t_dict_type` VALUES ('6', '系统是否', 'sys_yes_no', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统是否列表');
+INSERT INTO `t_dict_type` VALUES ('7', '通知类型', 'sys_notice_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知类型列表');
+INSERT INTO `t_dict_type` VALUES ('8', '通知状态', 'sys_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表');
+INSERT INTO `t_dict_type` VALUES ('9', '操作类型', 'sys_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表');
+INSERT INTO `t_dict_type` VALUES ('10', '系统状态', 'sys_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表');
 INSERT INTO `t_dict_type` VALUES ('11', '职位类别', 'job_position_type', '0', 'admin', '2020-02-05 10:13:26', 'admin', '2020-02-05 10:25:47', '职位类别');
 INSERT INTO `t_dict_type` VALUES ('12', '薪资范围', 'job_salary', '0', 'admin', '2020-02-05 10:15:51', 'admin', '2020-02-05 10:25:40', '');
 INSERT INTO `t_dict_type` VALUES ('13', '简历状态', 'job_resume_status', '0', 'admin', '2020-02-05 10:26:28', '', null, null);
@@ -201,6 +203,7 @@ INSERT INTO `t_dict_type` VALUES ('16', '处理结果', 'job_operate_result', '0
 INSERT INTO `t_dict_type` VALUES ('17', 'VIP等级', 'job_vip_level', '0', 'admin', '2020-02-07 13:27:08', '', null, null);
 INSERT INTO `t_dict_type` VALUES ('18', '企业规模', 'job_enterprise_scale', '0', 'admin', '2020-02-10 13:08:24', '', null, null);
 INSERT INTO `t_dict_type` VALUES ('19', '企业性质', 'job_enterprise_category', '0', 'admin', '2020-02-10 13:10:54', '', null, null);
+INSERT INTO `t_dict_type` VALUES ('22', '用户性别1', 'sys_user_sex1', '0', 'admin', '2022-02-11 17:01:29', '', null, 'xxxxxx');
 
 -- ----------------------------
 -- Table structure for t_logininfor
@@ -675,7 +678,7 @@ CREATE TABLE `t_user` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of t_user
@@ -684,8 +687,8 @@ INSERT INTO `t_user` VALUES ('1', '103', '0', 'admin', 'lquan', '00', 'lquan@163
 INSERT INTO `t_user` VALUES ('2', '105', '0', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '', '2020-02-05 09:49:08', 'admin', '2018-03-16 11:33:00', 'ry', '2020-02-05 09:49:08', '测试员');
 INSERT INTO `t_user` VALUES ('3', '103', '0', 'qiye', 'qiye', '00', '111@qq.com', '15838772858', '0', '', '151a40eb7f763342c7a8823f4f5f58c1', 'bdff5e', '0', '0', '', '2020-02-11 10:02:53', 'admin', '2020-02-05 12:47:04', '', '2020-02-11 10:02:53', null);
 INSERT INTO `t_user` VALUES ('4', '103', '1', 'qiuzhi', 'qiuzhi', '00', '1111@qq.com', '13012345678', '0', '', '788a097bfcd367bd86b872f43ad63a5b', '5bab55', '0', '0', '', '2020-02-12 09:56:03', 'admin', '2020-02-06 09:51:08', 'qiuzhi', '2020-02-12 09:57:49', null);
-INSERT INTO `t_user` VALUES ('5', '104', '0', 'aa', '测试', '00', '11011@qq.com', '13212345678', '0', '', 'b28c9ef52e225383e2b36e9f37dc89ca', '228558', '0', '0', '', '2020-02-10 16:45:00', 'admin', '2020-02-06 14:20:16', 'aa', '2020-02-10 16:44:59', '');
-INSERT INTO `t_user` VALUES ('6', null, '0', 'zhuce', '注册用户', '00', '', '13212345671', '0', '', 'cc8108872b5e171603b93126d815012b', '411083', '0', '0', '', '2020-02-10 11:06:34', 'zhuce', '2020-02-06 15:09:58', '', '2020-02-10 11:06:34', null);
+INSERT INTO `t_user` VALUES ('5', '104', '0', 'aa', '测试', '00', '11011@qq.com', '13212345689', '0', '', 'b28c9ef52e225383e2b36e9f37dc89ca', '228558', '0', '0', '', '2020-02-10 16:45:00', 'admin', '2020-02-06 14:20:16', 'admin', '2022-02-10 16:44:54', 'ceshiceshilqiuan33');
+INSERT INTO `t_user` VALUES ('6', null, '0', 'zhuce', '注册用户', '00', '', '13212345671', '0', '', 'cc8108872b5e171603b93126d815012b', '411083', '0', '0', '', '2020-02-10 11:06:34', 'zhuce', '2020-02-06 15:09:58', 'admin', '2022-02-10 15:06:38', null);
 INSERT INTO `t_user` VALUES ('7', null, '0', 'zhuce1', '注册用户1', '00', '', '13212345672', '0', '', 'b138def70ec6a8323579b676c92cb3a6', 'a5ae87', '0', '0', '', '2020-02-06 18:33:25', 'zhuce1', '2020-02-06 15:13:21', '', '2020-02-06 18:33:25', null);
 INSERT INTO `t_user` VALUES ('8', null, '0', 'zhuce2', '注册用户2', '00', '', '13212345673', '0', '', '58e8622c26a294d3bc9498afe5cd2c07', '140aa5', '0', '0', '', '2020-02-10 11:17:48', 'zhuce2', '2020-02-06 15:14:41', '', '2020-02-10 11:17:47', null);
 INSERT INTO `t_user` VALUES ('9', null, '0', 'youke', '游客', '00', '', '13212345674', '0', '', '27e05d167a2d0dd8cc1dbce18cc7bd2e', '1fcc7d', '0', '0', '', '2020-02-06 17:15:04', 'youke', '2020-02-06 15:28:34', '', '2020-02-06 17:15:04', null);
@@ -695,6 +698,7 @@ INSERT INTO `t_user` VALUES ('12', null, '0', 'youke12', '游客12', '00', '', '
 INSERT INTO `t_user` VALUES ('13', null, '0', 'youke13', '游客13', '00', '', '13212345679', '0', '', '0893681ef9c9cc9424cf3b88ecd057ca', 'be7564', '0', '0', '', '2020-02-07 19:48:20', 'youke13', '2020-02-06 15:36:38', '', '2020-02-07 19:48:19', null);
 INSERT INTO `t_user` VALUES ('14', null, '0', 'youke14', 'youke14', '00', '', '13212345611', '0', '', 'df94dceed3f51b07fb0f9d1e84b5e701', 'ed07c3', '0', '0', '', '2020-02-10 10:11:53', 'youke14', '2020-02-06 15:38:54', '', '2020-02-10 10:11:52', null);
 INSERT INTO `t_user` VALUES ('15', null, '0', 'youke15', 'youke15', '00', '', '13212345612', '0', '', '3c720b8ad6ddc6de2fbf81c6db9de584', 'c3b332', '0', '0', '', '2020-02-10 10:10:59', 'youke15', '2020-02-06 15:40:25', '', '2020-02-10 10:10:58', null);
+INSERT INTO `t_user` VALUES ('17', null, '0', 'lquantest', 'lquantest', '00', '', '13212345687', '0', '', '123456', '2d50b6', '0', '2', '', null, 'admin', '2022-02-10 16:32:12', '', null, 'xxxx');
 
 -- ----------------------------
 -- Table structure for t_user_online
@@ -744,7 +748,7 @@ CREATE TABLE `t_user_role` (
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
 
 -- ----------------------------
 -- Records of t_user_role
@@ -753,8 +757,6 @@ INSERT INTO `t_user_role` VALUES ('2', '1', '1');
 INSERT INTO `t_user_role` VALUES ('3', '2', '2');
 INSERT INTO `t_user_role` VALUES ('4', '3', '4');
 INSERT INTO `t_user_role` VALUES ('5', '4', '3');
-INSERT INTO `t_user_role` VALUES ('6', '5', '3');
-INSERT INTO `t_user_role` VALUES ('7', '6', '5');
 INSERT INTO `t_user_role` VALUES ('8', '7', '5');
 INSERT INTO `t_user_role` VALUES ('9', '8', '5');
 INSERT INTO `t_user_role` VALUES ('10', '9', '5');
@@ -764,3 +766,7 @@ INSERT INTO `t_user_role` VALUES ('13', '12', '5');
 INSERT INTO `t_user_role` VALUES ('14', '13', '5');
 INSERT INTO `t_user_role` VALUES ('15', '14', '5');
 INSERT INTO `t_user_role` VALUES ('16', '15', '5');
+INSERT INTO `t_user_role` VALUES ('51', '6', '5');
+INSERT INTO `t_user_role` VALUES ('52', '5', '3');
+INSERT INTO `t_user_role` VALUES ('53', '16', '4');
+INSERT INTO `t_user_role` VALUES ('54', '17', '4');

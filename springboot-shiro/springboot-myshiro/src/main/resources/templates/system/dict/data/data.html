@@ -20,7 +20,7 @@
 								字典标签：<input type="text" name="dictLabel"/>
 							</li>
 							<li>
-								数据状态：<select name="status" th:with="type=${@dict.getType('t_normal_disable')}">
+								数据状态：<select name="status" th:with="type=${@dict.getType('sys_normal_disable')}">
 									      <option value="">所有</option>
 									      <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
 								      </select>
@@ -59,7 +59,7 @@
 	<script th:inline="javascript">
 		var editFlag = [[${@permission.hasPermi('system:dict:edit')}]];
 		var removeFlag = [[${@permission.hasPermi('system:dict:remove')}]];
-		var datas = [[${@dict.getType('t_normal_disable')}]];
+		var datas = [[${@dict.getType('sys_normal_disable')}]];
 		var prefix = ctx + "system/dict/data";
 
 		$(function() {

@@ -233,5 +233,54 @@
         delete from t_dict_type where id = #{id}
     </delete>
 
+
+    <sql id="selectDictTypeVo">
+        select id, dict_name, dict_type, status, create_by, create_time, remark
+		from t_dict_type
+    </sql>
+
+    <select id="selectDictTypeList" parameterType="com.lquan.domain.DictType" resultMap="DictTypeMap">
+        <include refid="selectDictTypeVo"/>
+        <where>
+            <if test="dictName != null and dictName != ''">
+                AND dict_name like concat('%', #{dictName}, '%')
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+            <if test="dictType != null and dictType != ''">
+                AND dict_type like concat('%', #{dictType}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        </where>
+    </select>
+
+    <select id="checkDictTypeUnique" parameterType="java.lang.String" resultMap="DictTypeMap">
+        <include refid="selectDictTypeVo"/>
+        where dict_type = #{dictType}
+    </select>
+
+    <delete id="deleteDictTypeByIds" parameterType="java.lang.Long">
+        delete from t_dict_type where id in
+        <foreach collection="array" item="dictId" open="(" separator="," close=")">
+            #{dictId}
+        </foreach>
+    </delete>
+
+    <select id="selectDictTypeAll" resultMap="DictTypeMap">
+        <include refid="selectDictTypeVo"/>
+    </select>
+
+
+    <select id="selectDictTypeByType" parameterType="java.lang.String" resultMap="DictTypeMap">
+        <include refid="selectDictTypeVo"/>
+        where dict_type = #{dictType}
+    </select>
+
 </mapper>
 

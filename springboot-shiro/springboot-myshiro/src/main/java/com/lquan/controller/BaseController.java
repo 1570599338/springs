@@ -4,11 +4,13 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import com.lquan.bean.Resp.AjaxResult;
+import com.lquan.bean.Resp.AjaxResult.Type;
 import com.lquan.common.page.PageDomain;
 import com.lquan.common.page.TableDataInfo;
 import com.lquan.common.page.TableSupport;
 import com.lquan.common.shiro.ShiroUtils;
 import com.lquan.common.sql.SqlUtil;
+import com.lquan.common.utils.DateUtils;
 import com.lquan.common.utils.StringUtils;
 import com.lquan.domain.User;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,6 +27,20 @@ import java.util.List;
  */
 public class BaseController {
 
+
+    /**
+     * 将前台传递过来的日期格式的字符串，自动转化为Date类型
+     */
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        // Date 类型转换
+        binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) {
+                setValue(DateUtils.parseDate(text));
+            }
+        });
+    }
 
     /**
      * 设置请求分页数据
@@ -99,6 +115,19 @@ public class BaseController {
         return AjaxResult.error(message);
     }
 
+    /**
+     * 返回错误码消息
+     */
+    public AjaxResult error(Type type, String message) {
+        return new AjaxResult(type, message);
+    }
+
+    /**
+     * 页面跳转
+     */
+    public String redirect(String url) {
+        return StringUtils.format("redirect:{}", url);
+    }
 
     public User getSysUser() {
         return ShiroUtils.getSysUser();

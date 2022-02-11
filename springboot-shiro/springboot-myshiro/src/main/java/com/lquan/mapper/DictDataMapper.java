@@ -126,5 +126,34 @@ public interface DictDataMapper {
      * @return 结果
      */
     public int deleteDictDataByIds(String[] ids);
+
+    /**
+     * 同步修改字典类型
+     *
+     * @param oldDictType 旧字典类型
+     * @param newDictType 新旧字典类型
+     * @return 结果
+     */
+    public int updateDictDataType(@Param("oldDictType") String oldDictType, @Param("newDictType") String newDictType);
+
+    /**
+     * 查询字典数据
+     *
+     * @param dictType 字典类型
+     * @return 字典数据
+     */
+    public int countDictDataByType(String dictType);
+
+
+    /**
+     * 批量删除字典类型
+     *
+     * @param ids 需要删除的数据
+     * @return 结果
+     * @throws Exception 异常
+     */
+    public int deleteDictTypeByIds(String ids);
+
+
 }
 

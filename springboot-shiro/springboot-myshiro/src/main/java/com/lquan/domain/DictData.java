@@ -3,7 +3,13 @@ package com.lquan.domain;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lquan.annotation.Excel;
+import com.lquan.annotation.Excel.ColumnType;
+import com.lquan.common.UserConstants;
 import lombok.ToString;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -18,38 +24,53 @@ public class DictData implements Serializable {
     /**
      * 字典id
      */
+    @Excel(name = "字典编码", cellType = ColumnType.NUMERIC)
     private Long id;
     /**
      * 字典排序
      */
+    @Excel(name = "字典排序", cellType = ColumnType.NUMERIC)
     private Integer dictSort;
+
     /**
      * 字典标签
      */
+    @Excel(name = "字典标签")
     private String dictLabel;
+
     /**
      * 字典键值
      */
+    @Excel(name = "字典键值")
     private String dictValue;
+
     /**
      * 字典类型
      */
+    @Excel(name = "字典类型")
     private String dictType;
+
     /**
      * 样式属性（其他样式扩展）
      */
+    @Excel(name = "字典样式")
     private String cssClass;
+
     /**
-     * 表格回显样式
+     * 表格字典样式
      */
     private String listClass;
+
     /**
      * 是否默认（Y是 N否）
      */
+    @Excel(name = "是否默认", readConverterExp = "Y=是,N=否")
     private String isDefault;
+
     /**
      * 状态（0正常 1停用）
      */
+    @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
     /**
      * 创建者
@@ -91,6 +112,8 @@ public class DictData implements Serializable {
         this.dictSort = dictSort;
     }
 
+    @NotBlank(message = "字典标签不能为空")
+    @Size(min = 0, max = 100, message = "字典标签长度不能超过100个字符")
     public String getDictLabel() {
         return dictLabel;
     }
@@ -99,6 +122,8 @@ public class DictData implements Serializable {
         this.dictLabel = dictLabel;
     }
 
+    @NotBlank(message = "字典键值不能为空")
+    @Size(min = 0, max = 100, message = "字典键值长度不能超过100个字符")
     public String getDictValue() {
         return dictValue;
     }
@@ -107,6 +132,8 @@ public class DictData implements Serializable {
         this.dictValue = dictValue;
     }
 
+    @NotBlank(message = "字典类型不能为空")
+    @Size(min = 0, max = 100, message = "字典类型长度不能超过100个字符")
     public String getDictType() {
         return dictType;
     }
@@ -115,6 +142,7 @@ public class DictData implements Serializable {
         this.dictType = dictType;
     }
 
+    @Size(min = 0, max = 100, message = "样式属性长度不能超过100个字符")
     public String getCssClass() {
         return cssClass;
     }
@@ -129,6 +157,11 @@ public class DictData implements Serializable {
 
     public void setListClass(String listClass) {
         this.listClass = listClass;
+    }
+
+
+    public boolean getDefault() {
+        return UserConstants.YES.equals(this.isDefault) ? true : false;
     }
 
     public String getIsDefault() {

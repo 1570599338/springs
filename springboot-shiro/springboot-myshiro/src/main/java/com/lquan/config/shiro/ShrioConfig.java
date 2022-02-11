@@ -1,8 +1,10 @@
 package com.lquan.config.shiro;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +21,8 @@ import java.util.Map;
  **/
 @Configuration
 public class ShrioConfig {
+
+
 
     /**
      * 创建shiroFilterFactoryBean
@@ -113,13 +117,22 @@ public class ShrioConfig {
     }
 
 
+
+    @Bean(name = "sessionManager")
+    public SessionManager sessionManager() {
+        DefaultWebSessionManager sManager = new DefaultWebSessionManager();
+        sManager.setGlobalSessionTimeout(60*60*1000);//30 * 60 *1000 1800000L 30分钟
+        return sManager;
+
+    }
     /**
      * 创建DefaultWebSecurityManager
      */
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm){
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm, @Qualifier("sessionManager") SessionManager sessionManager){
         DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
         defaultWebSecurityManager.setRealm(userRealm);
+        defaultWebSecurityManager.setSessionManager(sessionManager);
         return defaultWebSecurityManager;
     }
 
