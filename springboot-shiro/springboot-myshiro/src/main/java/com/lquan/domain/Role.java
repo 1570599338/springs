@@ -66,6 +66,27 @@ public class Role implements Serializable {
      */
     private String remark;
 
+    /** 菜单组 */
+    private Long[] menuIds;
+
+    /** 部门组（数据权限） */
+    private Long[] deptIds;
+
+    public Long[] getMenuIds() {
+        return menuIds;
+    }
+
+    public void setMenuIds(Long[] menuIds) {
+        this.menuIds = menuIds;
+    }
+
+    public Long[] getDeptIds() {
+        return deptIds;
+    }
+
+    public void setDeptIds(Long[] deptIds) {
+        this.deptIds = deptIds;
+    }
 
     public Long getId() {
         return id;
@@ -175,6 +196,17 @@ public class Role implements Serializable {
     public void setFlag(boolean flag) {
         this.flag = flag;
     }
+
+    public boolean isAdmin()
+    {
+        return isAdmin(this.id);
+    }
+
+    public static boolean isAdmin(Long roleId)
+    {
+        return roleId != null && 1L == roleId;
+    }
+
     /**
      * 请求参数
      */

@@ -6,6 +6,7 @@
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
         <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="parentName"     column="parent_name"    />
         <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
         <result property="url" column="url" jdbcType="VARCHAR"/>
         <result property="target" column="target" jdbcType="VARCHAR"/>
@@ -439,6 +440,9 @@
 		where rm.role_id = #{roleId}
 		order by m.parent_id, m.order_num
 	</select>
+
+
+
 
 </mapper>
 

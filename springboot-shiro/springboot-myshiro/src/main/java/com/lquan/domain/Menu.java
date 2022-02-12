@@ -27,6 +27,9 @@ public class Menu implements Serializable {
      * 父菜单ID
      */
     private Long parentId;
+
+    /** 父菜单名称 */
+    private String parentName;
     /**
      * 显示顺序
      */
@@ -55,6 +58,7 @@ public class Menu implements Serializable {
      * 菜单图标
      */
     private String icon;
+
     /**
      * 创建者
      */
@@ -209,6 +213,14 @@ public class Menu implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     /**

@@ -122,6 +122,8 @@ public class ShrioConfig {
     public SessionManager sessionManager() {
         DefaultWebSessionManager sManager = new DefaultWebSessionManager();
         sManager.setGlobalSessionTimeout(60*60*1000);//30 * 60 *1000 1800000L 30分钟
+        // 去掉shiro登录时url里的JSESSIONID
+        sManager.setSessionIdUrlRewritingEnabled(false);
         return sManager;
 
     }

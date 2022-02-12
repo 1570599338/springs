@@ -91,5 +91,13 @@ public interface RoleDeptMapper {
      */
     int deleteById(Long id);
 
+    /**
+     * 通过角色ID删除角色和部门关联
+     *
+     * @param roleId 角色ID
+     * @return 结果
+     */
+    public int deleteRoleDeptByRoleId(Long roleId);
+
 }
 

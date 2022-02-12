@@ -199,4 +199,21 @@ public interface UserService {
      * @return 结果
      */
     public int updateUserInfo(User user);
+
+    /**
+     * 根据条件分页查询已分配用户角色列表
+     *
+     * @param user 用户信息
+     * @return 用户信息集合信息
+     */
+    public List<User> selectAllocatedList(User user);
+
+
+    /**
+     * 根据条件分页查询未分配用户角色列表
+     *
+     * @param user 用户信息
+     * @return 用户信息集合信息
+     */
+    public List<User> selectUnallocatedList(User user);
 }
