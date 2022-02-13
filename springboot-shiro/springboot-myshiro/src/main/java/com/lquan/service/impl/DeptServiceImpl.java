@@ -2,7 +2,9 @@ package com.lquan.service.impl;
 
 import com.lquan.bean.Resp.Ztree;
 import com.lquan.common.UserConstants;
+import com.lquan.common.utils.StringUtils;
 import com.lquan.domain.Dept;
+import com.lquan.domain.Role;
 import com.lquan.mapper.DeptMapper;
 import com.lquan.service.DeptService;
 import org.springframework.stereotype.Service;
@@ -156,6 +158,32 @@ public class DeptServiceImpl implements DeptService {
                 }
                 ztrees.add(ztree);
             }
+        }
+        return ztrees;
+    }
+
+
+
+    /**
+     * 根据角色ID查询部门（数据权限）
+     *
+     * @param role 角色对象
+     * @return 部门列表（数据权限）
+     */
+    @Override
+    public List<Ztree> roleDeptTreeData(Role role)
+    {
+        Long roleId = role.getId();
+        List<Ztree> ztrees = new ArrayList<Ztree>();
+        List<Dept> deptList = selectDeptList(new Dept());
+        if (StringUtils.isNotNull(roleId))
+        {
+            List<String> roleDeptList = deptMapper.selectRoleDeptTree(roleId);
+            ztrees = initZtree(deptList, roleDeptList);
+        }
+        else
+        {
+            ztrees = initZtree(deptList);
         }
         return ztrees;
     }

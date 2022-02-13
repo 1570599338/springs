@@ -2,6 +2,7 @@ package com.lquan.service;
 
 import com.lquan.bean.Resp.Ztree;
 import com.lquan.domain.Dept;
+import com.lquan.domain.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -80,6 +81,15 @@ public interface DeptService {
      * @return 所有部门信息
      */
     public List<Ztree> selectDeptTree(Dept dept);
+
+
+    /**
+     * 根据角色ID查询菜单
+     *
+     * @param role 角色对象
+     * @return 菜单列表
+     */
+    public List<Ztree> roleDeptTreeData(Role role);
 
 
 }

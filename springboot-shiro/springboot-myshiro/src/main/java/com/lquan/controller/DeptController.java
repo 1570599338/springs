@@ -2,6 +2,7 @@ package com.lquan.controller;
 
 import com.lquan.bean.Resp.Ztree;
 import com.lquan.domain.Dept;
+import com.lquan.domain.Role;
 import com.lquan.service.DeptService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,18 @@ public class DeptController {
     public List<Ztree> treeData()
     {
         List<Ztree> ztrees = deptService.selectDeptTree(new Dept());
+        return ztrees;
+    }
+
+
+    /**
+     * 加载角色部门（数据权限）列表树
+     */
+    @GetMapping("/roleDeptTreeData")
+    @ResponseBody
+    public List<Ztree> deptTreeData(Role role)
+    {
+        List<Ztree> ztrees = deptService.roleDeptTreeData(role);
         return ztrees;
     }
 
