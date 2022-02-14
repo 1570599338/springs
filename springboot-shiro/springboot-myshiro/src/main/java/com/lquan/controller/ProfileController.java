@@ -128,7 +128,7 @@ public class ProfileController extends BaseController {
         try {
             if (!file.isEmpty()) {
                 String avatar = FileUploadUtils.upload(Constants.avatarPath, file);
-                currentUser.setAvatar(avatar);
+                currentUser.setAvatar(Constants.avatarPath+"/"+avatar);
                 if (userService.updateUserInfo(currentUser) > 0) {
                     setSysUser(userService.selectUserById(currentUser.getId()));
                     return success();
