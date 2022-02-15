@@ -68,11 +68,11 @@ public class Constants {
     public static final String profile = "D:/lquan/uploadPath";
 
     // 文件路径
-    public static final String headImage = "headImage";
+    public static final String headImage = "/headImage";
 
     // 获取头像上传路径
    // public static final String avatarPath = "D:/lquan/uploadPath/avatar";
-    public static final String avatarPath = "D:\\lquan\\File\\0code\\git\\springs\\springboot-shiro\\springboot-myshiro\\src\\main\\resources\\static\\headImage\\";
+    public static final String avatarPath = System.getProperty("user.dir")+ "/src/main/resources/static/headImage/";
 
     // 获取下载路径
   //  public static final String downloadPath = "D:/lquan/uploadPath/download";
