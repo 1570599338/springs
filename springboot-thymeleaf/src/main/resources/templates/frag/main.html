@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+<body>
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<p>使用header名称的模版-insert</p>
+<br><br>
+<div th:insert="frag/incfrag::header">
+
+    插入header名称的模版用insert
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用header名称的模版-replace</p>
+<br>
+<div th:replace="frag/incfrag::header">
+    插入header名称的模版用replace
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用header名称的模版-include</p>
+<br>
+<div th:include="frag/incfrag::header">
+    插入header名称的模版用include
+</div>
+
+<br><br>
+<hr>
+
+
+
+####################################################
+
+<br><br>
+
+<p>使用footer名称的模版-insert</p>
+<br><br>
+<div th:insert="frag/incfrag::footer">
+
+    插入header名称的模版用insert
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用footer名称的模版-replace</p>
+<br>
+<div th:replace="frag/incfrag::footer">
+    插入header名称的模版用replace
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用footer名称的模版-include</p>
+<br>
+<div th:include="frag/incfrag::footer">
+    插入header名称的模版用include
+</div>
+
+<br><br>
+<hr>
+
+
+
+####################################################
+
+<br><br>
+
+<p>使用footer名称的模版-insert</p>
+<br><br>
+<div th:insert="frag/incfrag::footer">
+
+    插入header名称的模版用insert
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用footer名称的模版-replace</p>
+<br>
+<div th:replace="frag/incfrag::footer">
+    插入header名称的模版用replace
+</div>
+<br><br>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<br>
+<p>使用footer名称的模版-include</p>
+<br>
+<div th:include="frag/incfrag::footer">
+    插入header名称的模版用include
+</div>
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+引用的～
+
+<br><br>
+
+<p>frag/incfrag::footer方式引用</p>
+<br><br>
+<div th:insert="frag/incfrag::footer">
+    插入header名称的模版用insert
+</div>
+<br><br>
+<p>~{frag/incfrag::footer}引用</p>
+<br><br>
+<div th:insert="~{frag/incfrag::footer}">
+
+    插入header名称的模版用insert
+</div>
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+引用的～
+
+<br><br>
+
+<p>frag/incfrag::footer方式引用</p>
+<br><br>
+<div th:insert="frag/incfrag::funtpl('张三','李四')">
+    插入header名称的模版用insert
+</div>
+<br><br>
+<br><br>
+</body>
+</html>

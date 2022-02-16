@@ -119,4 +119,26 @@ public class LinkController {
 
         return "foreach";
     }
+
+
+    @RequestMapping("if")
+    public String express_if( Model model) {
+
+        model.addAttribute("flageFalse",Boolean.FALSE);
+        model.addAttribute("flageTrue",Boolean.TRUE);
+
+        model.addAttribute("flage0",0);
+        model.addAttribute("flage1",1);
+
+
+        return "if";
+    }
+
+    @RequestMapping("fragment")
+    public String express_fragment( Model model) {
+
+
+        return "frag/main";
+    }
+
 }

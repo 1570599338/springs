@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p >bool表达式</p>
+<p th:text="true">true</p>
+<p th:if="${flageTrue}"  th:text="'th:if${flageTrue}'">if</p>
+<p th:unless="${flageFalse}" th:text="'th:unless=${flageFalse}'">unless</p>
+<br>
+<hr>
+<p th:if="${flage1}"  th:text="'th:if${flage1}'">if</p>
+<p th:unless="${flage0}" th:text="'th:unless=${flage0}'">unless</p>
+
+
+<br>
+<hr>
+
+
+
+
+</body>
+</html>

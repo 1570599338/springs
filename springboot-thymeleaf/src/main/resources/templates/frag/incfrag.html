@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>fragment</title>
+</head>
+<body>
+
+    <div th:fragment="header">
+        <b> 全栈工程师-header</b>
+    </div>
+
+<div th:fragment="footer">
+   &copy; lquan全栈工程师 2020~2022
+</div>
+
+<div th:fragment="funtpl(one,two)">
+
+    <p th:text="hello +${one}+','+${two} "></p>
+</div>
+
+
+
+
+</body>
+</html>
