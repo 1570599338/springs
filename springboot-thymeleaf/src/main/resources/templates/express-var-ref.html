@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p> 3、school属性展示：</p>
+<p th:text="${school.id}"></p>
+<p th:text="${school.name}"></p>
+<p th:text="${school.adress}"></p>
+<p th:text="${school.email}"></p>
+<p> student属性展示：</p>
+<p th:text="${school.student.id}"></p>
+<p th:text="${school.student.name}"></p>
+<p th:text="${school.student.age}"></p>
+邮箱：<p th:text="${school.student.email}"></p>
+用Get方式获取邮箱：<p th:text="${school.student.getEmail()}"></p>
+
+<hr/><br/>
+
+<p> 1、thymeleaf的传参：</p>
+<p th:text="${name}"></p>
+
+<hr/>
+
+<br/>
+<p> 2、student属性展示：</p>
+<p th:text="${student.id}"></p>
+<p th:text="${student.name}"></p>
+<p th:text="${student.age}"></p>
+<p th:text="${student.email}"></p>
+
+
+<hr/>
+
+<br/>
+<p>Mystudentt属性展示：</p>
+<p th:text="${mystudent.id}"></p>
+<p th:text="${mystudent.name}"></p>
+<p th:text="${mystudent.age}"></p>
+<p th:text="${mystudent.email}"></p>
+
+<hr/>
+
+<br/>
+
+
+<hr/>
+
+</body>
+</html>
