@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function  fun1() {
+            alert('hello attr!');
+        }
+    </script>
+</head>
+<body>
+<style type="text/css">
+    .large-font{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+
+</style>
+
+<p >foreach select</p>
+<select >
+    <option th:each="s:${mapselect}" th:value="${s.key}" th:text="${s.value}" th:selected="${s.value} eq ${chose}" ></option>
+
+</select>
+
+<br>
+<br>
+<hr>
+<p >foreach遍历</p>
+
+<hr>
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>name</td>
+            <td>age</td>
+            <td>email</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="stu:${students}">
+            <td th:text="${stu.id}"></td>
+            <td th:text="${stu.name}"></td>
+            <td th:text="${stu.age}"></td>
+            <td th:text="${stu.email}"></td>
+
+        </tr>
+
+    </tbody>
+</table>
+
+
+<br>
+<br>
+<hr>
+<p >foreach遍历-循环变量</p>
+
+<hr>
+<table border="1" >
+    <thead>
+    <tr>
+        <td>序号/size</td>
+        <td>ID</td>
+        <td>name</td>
+        <td>age</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stu,xxx:${students}">
+        <td th:text="${xxx.count} +'/'+${xxx.size}"  ></td>
+        <td th:text="${stu.id}"></td>
+        <td th:text="${stu.name}"></td>
+        <td th:text="${stu.age}"></td>
+        <td th:text="${stu.email}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+<br>
+<br>
+<hr>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>age</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td  th:each="stu:${map}"><p th:text="${stu.value}"></p></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+<br>
+<br>
+<hr>遍历map2 指定key的方式
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>age</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+        <td th:text="${map['id']}"></td>
+        <td th:text="${map['name']}"></td>
+        <td th:text="${map['age']}"></td>
+        <td th:text="${map['email']}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+<br>
+<br>
+<hr>遍历Listmap1 遍历value方式无序的
+
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>age</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item:${listMap}">
+        <td  th:each="stu:${item}"><p th:text="${stu.value}"></p></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+<br>
+<br>
+<hr>遍历Listmap2 指定key的方式
+
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>age</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item:${listMap}">
+        <td th:text="${item['id']}"></td>
+        <td th:text="${item['name']}"></td>
+        <td th:text="${item['age']}"></td>
+        <td th:text="${item['email']}"></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+<br>
+<br>
+<hr>遍历数组
+
+
+<table>
+    <thead>
+    <tr>
+        <td>名字</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="name:${names}">
+        <td th:text="${name}"></td>
+
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

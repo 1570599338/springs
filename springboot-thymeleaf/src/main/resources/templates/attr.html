@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function  fun1() {
+            alert('hello attr!');
+        }
+    </script>
+</head>
+<body>
+<style type="text/css">
+    .large-font{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+
+</style>
+<p >表达式属性</p>
+<form action="index.html" method="post" th:attr="action=${myaction}">
+    账号：<input type="text" name="username"><br>
+    密码：<input type="text" name="pwd"><br>
+    <input type="submit" value="登录" th:attr="value=${mytext}" ><br>
+    <input type="submit" value="登录点击" th:attr="onclick='fun1()'">
+
+</form>
+
+<hr>
+<a th:href="@{/hello.html}" th:class="large-font">连接店址</a>
+
+<hr>
+<a href="/hello.html" class="large-font">连接店址</a>
+
+
+</body>
+</html>

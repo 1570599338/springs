@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function  fun1() {
+            alert('hello attr!');
+        }
+    </script>
+</head>
+<body>
+<style type="text/css">
+    .large-font{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+
+</style>
+<p >表达式属性</p>
+
+
+<hr>
+<p th:text="${aa}"/>
+
+<hr>
+<p th:utext="${bb}"/>
+
+
+</body>
+</html>

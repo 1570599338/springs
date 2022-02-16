@@ -15,4 +15,13 @@ public class Student {
     private int age;
     private String email;
 
+    public Student(Integer id, String name, int age, String email) {
+        Id = id;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    public Student() {
+    }
 }

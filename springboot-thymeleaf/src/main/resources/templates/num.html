@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p >数字表达式</p>
+字面常量55<p th:text="55"/>
+数字运算5+5<p th:text="5+5"/>
+字符串连接<p th:text="6+6+'字符串'+10+11"/>
+括号优先级<p th:text="6+6+'字符串'+(10+11)"/>
+使用模型中的数据<p th:text="${n1}-${n2}"/>
+计算<p th:text="100-${n2}"/>
+
+
+</body>
+</html>

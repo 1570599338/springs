@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p >bool表达式</p>
+<p th:text="true">true</p>
+<p th:if="${married}">已婚</p>
+<p th:if="${age &gt; 18}">已成年</p>
+<p th:if="${age &lt; 18}">未成年</p>
+<p th:if="${married} and ${age &lt; 18}">组合使用and</p>
+<br>
+<hr>
+<p th:if="${married}">已婚</p>
+<p th:if="${age > 18}">已成年</p>
+<p th:if="${age < 18}">未成年</p>
+<p th:if="${married} and ${age < 18}">组合使用and</p>
+
+
+<br>
+<hr>
+null 表达式
+
+<p th:text="${name}">name后台值是null</p>
+<p th:if="${myname}">myname is 空字符串</p>
+<p th:if="${name} eq null">使用eq判断null</p>
+<p th:if="${myname}==''">比较myname is 空字符串</p>
+<p th:if="${myname}eq('')">比较myname is 空字符串eq</p>
+
+
+
+</body>
+</html>
