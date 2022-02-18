@@ -182,3 +182,56 @@
 	<script th:src="@{/ajax/libs/bootstrap-table/extensions/editable/bootstrap-editable.min.js}"></script>
     <script th:src="@{/ajax/libs/bootstrap-table/extensions/editable/bootstrap-table-editable.js}"></script>
 </div>
+
+
+
+<!--前端的log-->
+<div th:fragment="front-logo">
+	<div class="logo">
+		<a th:href="@{/front/index}">爱心<span class="glyphicon glyphicon-heart heart-image"></span>圆梦</a>
+	</div>
+
+	<ul class="nav-list">
+		<li><a th:href="@{/front/index}">首页</a></li>
+		<li><a th:href="@{/front/wishes}">愿望清单</a></li>
+		<li><a th:href="@{/front/realizations}">圆梦故事</a></li>
+		<li><a th:href="@{/front/contact}">联系我们</a></li>
+	</ul>
+</div>
+
+
+<!-- 前端通用CSS -->
+<head th:fragment="front-header-index(title)">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title th:text="${title}"></title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" th:href="@{/front/third_lib/bootstrap/css/bootstrap.css}"/>
+	<link rel="stylesheet" th:href="@{/front/css/common.css}"/>
+	<link rel="stylesheet" th:href="@{/front/css/index.css}"/>
+	<script th:src="@{/front/third_lib/jquery/jquery.js}"></script>
+	<script th:src="@{/front/third_lib/bootstrap/js/bootstrap.js}"></script>
+</head>
+
+<!-- 前端通用CSS -->
+<head th:fragment="front-header(title)">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title th:text="${title}"></title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" th:href="@{/front/third_lib/bootstrap/css/bootstrap.css}"/>
+	<link rel="stylesheet" th:href="@{/front/css/common.css}"/>
+	<script src="/front/third_lib/jquery/jquery.js"></script>
+	<script src="/front/third_lib/bootstrap/js/bootstrap.js"></script>
+
+</head>
+
+<!-- cropbox图像裁剪插件 -->
+<div th:fragment="front-wishes">
+	<link rel="stylesheet" th:href="@{/front/css/wishes.css}"/>
+
+</div>
