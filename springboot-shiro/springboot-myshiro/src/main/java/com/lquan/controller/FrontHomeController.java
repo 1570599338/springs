@@ -39,6 +39,14 @@ public class FrontHomeController {
         return prefix + "realizations";
     }
 
+
+    // 圆梦故事
+    @RequestMapping("/realizationInfo")
+    public String frontRealizationInfo( ModelMap mmap) {
+
+        return prefix + "realization-info";
+    }
+
     // 联系我们
     @RequestMapping("/contact")
     public String frontContact( ModelMap mmap) {
