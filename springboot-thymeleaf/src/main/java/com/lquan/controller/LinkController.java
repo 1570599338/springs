@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @program: springs
@@ -141,4 +138,51 @@ public class LinkController {
         return "frag/main";
     }
 
+    @RequestMapping("remove")
+    public String remove( Model model) {
+
+
+        return "frag/remove";
+    }
+
+
+    @RequestMapping("dynamic")
+    public String dynamic( Model model) {
+        model.addAttribute("tplname","menu");
+
+        return "frag/dynamic";
+    }
+
+    @RequestMapping("inline")
+    public String inline( Model model) {
+        model.addAttribute("inlineJs","内联js的哈哈哈");
+
+        List<Student> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add( new Student(i+1,"name_"+i,i+1,"110@qq.com"+i));
+        }
+        model.addAttribute("students",list);
+
+
+        model.addAttribute("name","我爱你<b>中国</b>");
+        return "inline";
+    }
+
+
+    @RequestMapping("with")
+    public String with( Model model) {
+        model.addAttribute("age",19);
+
+        return "with";
+    }
+
+
+    @RequestMapping("toolObject")
+    public String toolObject( Model model) {
+        model.addAttribute("mydata",new Date());
+        model.addAttribute("price",89.35);
+        model.addAttribute("myname","zhangsan");
+
+        return "toolObject";
+    }
 }

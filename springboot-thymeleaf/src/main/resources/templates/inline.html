@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:inline="javascript">
+        var inlineJs=[[${inlineJs}]];
+        function  fun1() {
+            alert('打印'+inlineJs);
+        }
+
+        var students=[[${students}]];
+        for (var i = 0; i <students.length ; i++) {
+            console.log("name:"+students[i].name+"****"+students[i]);
+        }
+    </script>
+</head>
+<body>
+<style type="text/css">
+    .large-font{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+
+</style>
+<p >表达式属性</p>
+
+    <input type="submit" value="内联js" onclick='fun1()'/>
+
+<hr>
+<p th:text="'使用非内联text文本输出：'+${name}"></p>
+<p >使用内联输出[[${name}]]</p>
+<hr>
+<p th:utext="'使用非内联utext文本输出：'+${name}"></p>
+<p >使用内联输出[(${name})]</p>
+<hr>
+<hr>
+
+<p th:inline="none">使用内联输出[(${name})]</p>
+<p  th:inline="none">使用内联输出[(${name})]</p>
+<hr>
+
+
+</body>
+</html>

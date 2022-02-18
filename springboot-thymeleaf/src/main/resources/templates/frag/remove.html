@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>remove</title>
+</head>
+<body>
+
+<<<<<<<<<<<<<<<<使用remove=all删除属性 all:删除包含标签机器所有子项>>>>>>>>>>>>>
+<br>
+
+    <div th:remove="all">
+        指定all删除选项
+        <p>hello</p>
+        <span>你好我是span</span>
+
+
+    </div>
+<br>
+
+<<<<<<<<<<<<<<<<使用remove=body删除属性  body：不删除包含标签，但删除所有子项>>>>>>>>>>>>>
+<br>
+
+<div th:remove="body">
+    指定all删除选项
+    <p>hello</p>
+    <span>你好我是span</span>
+
+
+</div>
+<br>
+
+
+<<<<<<<<<<<<<<<<使用remove=tag删除属性  tag：删除包含标签，但不要删除其子项>>>>>>>>>>>>>
+<br>
+
+<div th:remove="tag">
+    指定all删除选项
+    <p>hello</p>
+    <span>你好我是span</span>
+
+
+</div>
+<br>
+<<<<<<<<<<<<<<<<使用remove=all-but-first删除属性  all-but-first：删除第一个子项以外的其他所有子项>>>>>>>>>>>>>
+<br>
+
+<div th:remove="all-but-first">
+    指定all删除选项
+    <p>hello</p>
+    <span>你好我是span</span>
+
+
+</div>
+<br>
+
+
+<<<<<<<<<<<<<<<<使用remove=none删除属性  none：什么都不做，改制对于动态计算有用，null也会被视为none>>>>>>>>>>>>>
+<br>
+
+<div th:remove="none">
+    指定all删除选项
+    <p>hello</p>
+    <span>你好我是span</span>
+
+
+</div>
+<br>
+
+</body>
+</html>
