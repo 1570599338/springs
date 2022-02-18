@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>愿望申请</title>
+  <link rel="stylesheet" href="../front/front/third_lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../front/front/css/common.css"/>
+  <link rel="stylesheet" href="../front/front/css/apply.css"/>
+</head>
+<body>
+
+<!-------------------------------- 导航栏 --------------------------------->
+<div class="main-nav">
+  <div class="main-container">
+    <div class="logo">
+      <a href="/front/index">爱心<span class="glyphicon glyphicon-heart heart-image"></span>圆梦</a>
+    </div>
+
+    <ul class="nav-list">
+<!--      <li><a href="../front/front/home.html">首页</a></li>
+      <li class="active"><a href="wishes.html">愿望清单</a></li>
+      <li><a href="realizations.html">圆梦故事</a></li>
+      <li><a href="contact.html">联系我们</a></li>-->
+
+      <li><a href="/front/index">首页</a></li>
+      <li class="active"><a href="/front/wishes">愿望清单</a></li>
+      <li><a href="/front/realizations">圆梦故事</a></li>
+      <li><a href="/front/contact">联系我们</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="apply-jumbotron" class="jumbotron">
+  <div class="main-container">
+    <h2>愿望单申领</h2>
+    <p>xxx的愿望单</p>
+  </div>
+</div>
+<div id="apply" class="main-container">
+  <!--<h2 class="title text-center">愿望单申领</h2>-->
+
+  <p class="notify">注：点击确认申领后，我们会默认您愿意实现他/她的愿望，在愿望实现期（一般为一个月）该愿望将会暂时下架，
+  若您在规定时间内能完成，我们将致电咨询，在确认您不能完成该愿望后，该愿望将重新上架</p>
+
+  <!--------------------------------- 愿望申请表单 ------------------------>
+  <form id="applyForm">
+    <div class="row field-row">
+      <!------------------- 个人信息图标 ------------------------>
+      <div class="col col-sm-3 image-row col-xs-3">
+        <div class="image-box1">
+          <span class="glyphicon glyphicon-user sm-image"></span>
+          <p>个人信息</p>
+        </div>
+      </div>
+
+      <!------------------- 个人信息 ------------------------>
+      <div class="col col-sm-9 col-xs-9">
+        <div class="input-group">
+          <label for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<em>*</em></label>
+          <input id="name" type="text" name="name" required autofocus/>
+
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            用户名不能超过xx个字符
+          </div>
+        </div>
+
+
+
+        <div class="input-group">
+          <label for="phone">联系电话<em>*</em></label>
+          <input id="phone" type="text" name="phone" required/>
+        </div>
+
+        <div class="input-group">
+          <label for="address">地区</label>
+          <input id="address" type="text" name="address"/>
+        </div>
+      </div>
+    </div>
+
+    <!------------------- 申请理由图标 ------------------------>
+    <div class="row field-row">
+      <div class="col col-sm-3 col-xs-3">
+        <div class="image-box2">
+          <span class="glyphicon glyphicon-pencil sm-image"></span>
+          <p>申领理由</p>
+        </div>
+      </div>
+
+      <div class="col col-sm-9 col-xs-9">
+        <div class="input-group">
+          <label for="reason">申请理由</label>
+          <textarea name="reason" id="reason" cols="30" rows="10"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!------------------- 提交按钮 ------------------------->
+    <div class="button-row col-xs-offset-3">
+      <input id="submit" class="btn btn-primary" value="确认申领" type="submit"/>
+    </div>
+
+
+  </form>
+</div>
+
+
+
+<script src="../front/front/third_lib/jquery/jquery.js"></script>
+<script src="../front/front/third_lib/bootstrap/js/bootstrap.js"></script>
+
+</body>
+</html>

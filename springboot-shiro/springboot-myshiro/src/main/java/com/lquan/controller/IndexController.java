@@ -31,6 +31,8 @@ public class IndexController {
     @Resource
     private RoleMapper roleMapper;
 
+
+
     // 系统首页
     @GetMapping("/index")
     public String index(String tourist, ModelMap mmap) {
