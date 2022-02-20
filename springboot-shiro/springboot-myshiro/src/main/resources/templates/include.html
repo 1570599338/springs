@@ -192,10 +192,10 @@
 	</div>
 
 	<ul class="nav-list">
-		<li><a th:href="@{/front/index}">首页</a></li>
-		<li><a th:href="@{/front/wishes}">愿望清单</a></li>
-		<li><a th:href="@{/front/realizations}">圆梦故事</a></li>
-		<li><a th:href="@{/front/contact}">联系我们</a></li>
+		<li  class=""th:classappend="${index} ? 'active' : '' "> <a th:href="@{/front/index}">首页</a></li>
+		<li   class=""th:classappend="${wishes} ? 'active' : '' "><a th:href="@{/front/wishes}">愿望清单</a></li>
+		<li  class=""th:classappend="${realizations} ? 'active' : '' "><a th:href="@{/front/realizations}">圆梦故事</a></li>
+		<li  class=""th:classappend="${contact} ? 'active' : '' "><a th:href="@{/front/contact}">联系我们</a></li>
 	</ul>
 </div>
 
@@ -230,8 +230,32 @@
 
 </head>
 
-<!-- cropbox图像裁剪插件 -->
+<!-- wishes -->
 <div th:fragment="front-wishes">
 	<link rel="stylesheet" th:href="@{/front/css/wishes.css}"/>
+</div>
 
+<!-- wish -->
+<div th:fragment="front-wish">
+	<link rel="stylesheet" th:href="@{/front/css/wish.css}"/>
+</div>
+
+<!-- realizations -->
+<div th:fragment="front-realizations">
+	<link rel="stylesheet" th:href="@{/front/css/realizations.css}"/>
+</div>
+
+<!-- realization-info -->
+<div th:fragment="front-realization-info">
+	<link rel="stylesheet" th:href="@{/front/css/realization-info.css}"/>
+</div>
+
+<!-- contact -->
+<div th:fragment="front-contact">
+	<link rel="stylesheet" th:href="@{/front/css/contact.css}"/>
+</div>
+
+<!-- apply -->
+<div th:fragment="front-apply">
+	<link rel="stylesheet" th:href="@{/front/css/apply.css}"/>
 </div>

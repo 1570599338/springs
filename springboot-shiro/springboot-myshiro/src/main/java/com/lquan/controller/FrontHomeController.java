@@ -1,6 +1,7 @@
 package com.lquan.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +20,16 @@ public class FrontHomeController {
 
     // 系统首页
     @GetMapping("/index")
-    public String indexFront( ModelMap mmap) {
+    public String indexFront(Model model) {
+        model.addAttribute("index", Boolean.TRUE);
         return "front/index";
     }
 
 
     // 愿望清单
     @RequestMapping("/wishes")
-    public String frontwishes( ModelMap mmap) {
+    public String frontwishes( Model model) {
+        model.addAttribute("wishes",  Boolean.TRUE);
 
          return prefix + "wishes";
     }
@@ -34,7 +37,8 @@ public class FrontHomeController {
 
     // 圆梦故事
     @RequestMapping("/realizations")
-    public String frontRealizations( ModelMap mmap) {
+    public String frontRealizations( Model model) {
+        model.addAttribute("realizations",  Boolean.TRUE);
 
         return prefix + "realizations";
     }
@@ -42,15 +46,16 @@ public class FrontHomeController {
 
     // 圆梦故事
     @RequestMapping("/realizationInfo")
-    public String frontRealizationInfo( ModelMap mmap) {
+    public String frontRealizationInfo( Model model) {
+        model.addAttribute("realizations",  Boolean.TRUE);
 
         return prefix + "realization-info";
     }
 
     // 联系我们
     @RequestMapping("/contact")
-    public String frontContact( ModelMap mmap) {
-
+    public String frontContact( Model model) {
+        model.addAttribute("contact",  Boolean.TRUE);
         return prefix + "contact";
     }
 
@@ -58,15 +63,22 @@ public class FrontHomeController {
 
     // 详细信息
     @RequestMapping("/wish")
-    public String frontWishe( ModelMap mmap) {
-
+    public String frontWishe( Model model) {
+        model.addAttribute("wishes",  Boolean.TRUE);
         return prefix + "wish";
     }
 
     // 详细信息
     @RequestMapping("/apply")
-    public String frontApply( ModelMap mmap) {
-
+    public String frontApply( Model model) {
+        model.addAttribute("wishes",  Boolean.TRUE);
         return prefix + "apply";
+    }
+
+    // 成功
+    @RequestMapping("/apply_success")
+    public String frontApplySuccess( Model model) {
+        model.addAttribute("wishes",  Boolean.TRUE);
+        return prefix + "apply_success";
     }
 }

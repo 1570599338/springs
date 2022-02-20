@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-  <meta charset="UTF-8">
+<!--  <meta charset="UTF-8">
   <title>圆梦故事</title>
   <link rel="stylesheet" href="../front/third_lib/bootstrap/css/bootstrap.css"/>
   <link rel="stylesheet" href="../front/css/common.css"/>
-  <link rel="stylesheet" href="../front/css/realization-info.css"/>
+  <link rel="stylesheet" href="../front/css/realization-info.css"/>-->
+  <th:block th:include="include :: front-header('圆梦故事')" />
+  <th:block th:include="include :: front-realization-info" />
 </head>
 <body>
 
@@ -14,16 +16,13 @@
   <div class="main-container">
     <th:block th:include="include :: front-logo" />
 
-    <ul class="nav-list">
-      <!--<li><a href="../front/home.html">首页</a></li>
-      <li><a href="wishes.html">愿望清单</a></li>
-      <li class="active"><a href="realizations.html">圆梦故事</a></li>
-      <li><a href="contact.html">联系我们</a></li>-->
+    <!--<ul class="nav-list">
+
 
       <li><a href="/front/index">首页</a></li>
       <li><a href="/front/wishes">愿望清单</a></li>
       <li  class="active"><a href="/front/realizations">圆梦故事</a></li>
-      <li><a href="/front/contact">联系我们</a></li>
+      <li><a href="/front/contact">联系我们</a></li>-->
     </ul>
   </div>
 </div>
@@ -129,9 +128,11 @@
 
 
 
+<!--
 
 <script src="../front/third_lib/jquery/jquery.js"></script>
 <script src="../front/third_lib/bootstrap/js/bootstrap.js"></script>
+-->
 
 </body>
 </html>
