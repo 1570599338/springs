@@ -82,6 +82,7 @@ public class ShrioConfig {
         filterChainDefinitionMap.put("/favicon.ico**", "anon");
         // 前端请求
         filterChainDefinitionMap.put("/front/**", "anon");
+        filterChainDefinitionMap.put("/demo/**", "anon");
 
         filterChainDefinitionMap.put("/ruoyi.png**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");

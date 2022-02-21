@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 关于我们Controller
  *
- * @author ruoyi
+ * @author
  * @date 2022-02-21
  */
 @Controller
