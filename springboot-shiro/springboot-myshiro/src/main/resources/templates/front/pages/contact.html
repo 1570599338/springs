@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../front/css/contact.css"/>-->
   <th:block th:include="include :: front-header('联系我们')" />
   <th:block th:include="include :: front-contact" />
+
 </head>
 <body>
 
@@ -30,11 +31,15 @@
 
 <div class="jumbotron">
   <div class="main-container">
-    <h2>联系我们</h2>
+    <h2  th:if="${about}">[[${about.title}]]</h2>
+    <h2  th:unless="${about}">联系我们</h2>
   </div>
 </div>
 
-<div id="contact" class="main-container">
+<div th:if="${about}" id="contact" class="main-container">
+  [(${about.content})]
+</div>
+<div th:unless="${about}" id="contact" class="main-container">
   <p class="contact-info">如果您有正能量需要投稿分享...</p>
 
   <p class="contact-info">如果您身边有人需要帮忙...</p>

@@ -148,6 +148,22 @@ public class User {
      */
     private String remark;
 
+    /** 监护人名字 */
+    @Excel(name = "监护人名字")
+    private String guarderName;
+
+    /** 监护人电话 */
+    @Excel(name = "监护人电话")
+    private String guarderPhone;
+
+    /** 地址 */
+    @Excel(name = "地址")
+    private String address;
+
+    /** 审核状态 0：待审核 1：已审核 2：审核未通过 */
+    @Excel(name = "审核状态 0：待审核 1：已审核 2：审核未通过")
+    private Integer audit;
+
 
     /**
      * 部门对象
@@ -419,6 +435,39 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+
+    public String getGuarderName() {
+        return guarderName;
+    }
+
+    public void setGuarderName(String guarderName) {
+        this.guarderName = guarderName;
+    }
+
+    public String getGuarderPhone() {
+        return guarderPhone;
+    }
+
+    public void setGuarderPhone(String guarderPhone) {
+        this.guarderPhone = guarderPhone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Integer audit) {
+        this.audit = audit;
     }
 
     /**

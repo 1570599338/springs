@@ -24,9 +24,15 @@
         <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
         <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
         <result property="remark" column="remark" jdbcType="VARCHAR"/>
+
+        <result property="guarderName"    column="guarder_name"    />
+        <result property="guarderPhone"    column="guarder_phone"    />
+        <result property="address"    column="address"    />
+        <result property="audit"    column="audit"    />
     <!--</resultMap>-->
         <association property="dept"    column="dept_id" javaType="Dept" resultMap="deptResult" />
         <collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
+
     </resultMap>
 
     <resultMap id="deptResult" type="com.lquan.domain.Dept">
@@ -50,7 +56,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select
-          id, dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+          id, dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark, guarder_name, guarder_phone, address, audit
         from t_user
         where id = #{id}
     </select>
@@ -58,7 +64,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="UserMap">
         select
-          id, dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+          id, dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark, guarder_name, guarder_phone, address, audit
         from t_user
         <where>
             <if test="id != null">
@@ -123,6 +129,18 @@
             </if>
             <if test="remark != null and remark != ''">
                 and remark = #{remark}
+            </if>
+            <if test="guarderName != null and guarderName != ''">
+                and guarder_name = #{guarderName}
+            </if>
+            <if test="guarderPhone != null and guarderPhone != ''">
+                and guarder_phone = #{guarderPhone}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="audit != null">
+                and audit = #{audit}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -196,157 +214,193 @@
             <if test="remark != null and remark != ''">
                 and remark = #{remark}
             </if>
+            <if test="guarderName != null and guarderName != ''">
+                and guarder_name = #{guarderName}
+            </if>
+            <if test="guarderPhone != null and guarderPhone != ''">
+                and guarder_phone = #{guarderPhone}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="audit != null">
+                and audit = #{audit}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
+    <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
-        values (#{deptId}, #{vip}, #{loginName}, #{userName}, #{userType}, #{email}, #{phonenumber}, #{sex}, #{avatar}, #{password}, #{salt}, #{status}, #{delFlag}, #{loginIp}, #{loginDate}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
+        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark, guarder_name, guarder_phone, address, audit)
+        values (#{deptId}, #{vip}, #{loginName}, #{userName}, #{userType}, #{email}, #{phonenumber}, #{sex}, #{avatar}, #{password}, #{salt}, #{status}, #{delFlag}, #{loginIp}, #{loginDate}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark}, #{guarderName}, #{guarderPhone}, #{address}, #{audit})
     </insert>
-    
-    
-              <!-- 新增选择列 -->
+
+
+    <!-- 新增选择列 -->
     <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
         insert into t_user
         <trim prefix="(" suffix=")" suffixOverrides="," >
-                    <if test="id != null">
+            <if test="id != null">
                 `id`,
             </if>
-                    <if test="deptId != null">
+            <if test="deptId != null">
                 `dept_id`,
             </if>
-                    <if test="vip != null">
+            <if test="vip != null">
                 `vip`,
             </if>
-                    <if test="loginName != null and loginName != ''">
+            <if test="loginName != null and loginName != ''">
                 `login_name`,
             </if>
-                    <if test="userName != null and userName != ''">
+            <if test="userName != null and userName != ''">
                 `user_name`,
             </if>
-                    <if test="userType != null and userType != ''">
+            <if test="userType != null and userType != ''">
                 `user_type`,
             </if>
-                    <if test="email != null and email != ''">
+            <if test="email != null and email != ''">
                 `email`,
             </if>
-                    <if test="phonenumber != null and phonenumber != ''">
+            <if test="phonenumber != null and phonenumber != ''">
                 `phonenumber`,
             </if>
-                    <if test="sex != null and sex != ''">
+            <if test="sex != null and sex != ''">
                 `sex`,
             </if>
-                    <if test="avatar != null and avatar != ''">
+            <if test="avatar != null and avatar != ''">
                 `avatar`,
             </if>
-                    <if test="password != null and password != ''">
+            <if test="password != null and password != ''">
                 `password`,
             </if>
-                    <if test="salt != null and salt != ''">
+            <if test="salt != null and salt != ''">
                 `salt`,
             </if>
-                    <if test="status != null and status != ''">
+            <if test="status != null and status != ''">
                 `status`,
             </if>
-                    <if test="delFlag != null and delFlag != ''">
+            <if test="delFlag != null and delFlag != ''">
                 `del_flag`,
             </if>
-                    <if test="loginIp != null and loginIp != ''">
+            <if test="loginIp != null and loginIp != ''">
                 `login_ip`,
             </if>
-                    <if test="loginDate != null">
+            <if test="loginDate != null">
                 `login_date`,
             </if>
-                    <if test="createBy != null and createBy != ''">
+            <if test="createBy != null and createBy != ''">
                 `create_by`,
             </if>
-                    <if test="createTime != null">
+            <if test="createTime != null">
                 `create_time`,
             </if>
-                    <if test="updateBy != null and updateBy != ''">
+            <if test="updateBy != null and updateBy != ''">
                 `update_by`,
             </if>
-                    <if test="updateTime != null">
+            <if test="updateTime != null">
                 `update_time`,
             </if>
-                    <if test="remark != null and remark != ''">
+            <if test="remark != null and remark != ''">
                 `remark`,
             </if>
-                </trim>
+            <if test="guarderName != null and guarderName != ''">
+                `guarder_name`,
+            </if>
+            <if test="guarderPhone != null and guarderPhone != ''">
+                `guarder_phone`,
+            </if>
+            <if test="address != null and address != ''">
+                `address`,
+            </if>
+            <if test="audit != null">
+                `audit`,
+            </if>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-                    <if test="id != null">
+            <if test="id != null">
                 #{id,jdbcType=INTEGER},
             </if>
-                    <if test="deptId != null">
+            <if test="deptId != null">
                 #{deptId,jdbcType=INTEGER},
             </if>
-                    <if test="vip != null">
+            <if test="vip != null">
                 #{vip,jdbcType=INTEGER},
             </if>
-                    <if test="loginName != null and loginName != ''">
+            <if test="loginName != null and loginName != ''">
                 #{loginName,jdbcType=VARCHAR},
             </if>
-                    <if test="userName != null and userName != ''">
+            <if test="userName != null and userName != ''">
                 #{userName,jdbcType=VARCHAR},
             </if>
-                    <if test="userType != null and userType != ''">
+            <if test="userType != null and userType != ''">
                 #{userType,jdbcType=VARCHAR},
             </if>
-                    <if test="email != null and email != ''">
+            <if test="email != null and email != ''">
                 #{email,jdbcType=VARCHAR},
             </if>
-                    <if test="phonenumber != null and phonenumber != ''">
+            <if test="phonenumber != null and phonenumber != ''">
                 #{phonenumber,jdbcType=VARCHAR},
             </if>
-                    <if test="sex != null and sex != ''">
+            <if test="sex != null and sex != ''">
                 #{sex,jdbcType=VARCHAR},
             </if>
-                    <if test="avatar != null and avatar != ''">
+            <if test="avatar != null and avatar != ''">
                 #{avatar,jdbcType=VARCHAR},
             </if>
-                    <if test="password != null and password != ''">
+            <if test="password != null and password != ''">
                 #{password,jdbcType=VARCHAR},
             </if>
-                    <if test="salt != null and salt != ''">
+            <if test="salt != null and salt != ''">
                 #{salt,jdbcType=VARCHAR},
             </if>
-                    <if test="status != null and status != ''">
+            <if test="status != null and status != ''">
                 #{status,jdbcType=VARCHAR},
             </if>
-                    <if test="delFlag != null and delFlag != ''">
+            <if test="delFlag != null and delFlag != ''">
                 #{delFlag,jdbcType=VARCHAR},
             </if>
-                    <if test="loginIp != null and loginIp != ''">
+            <if test="loginIp != null and loginIp != ''">
                 #{loginIp,jdbcType=VARCHAR},
             </if>
-                    <if test="loginDate != null">
+            <if test="loginDate != null">
                 #{loginDate,jdbcType=TIMESTAMP},
             </if>
-                    <if test="createBy != null and createBy != ''">
+            <if test="createBy != null and createBy != ''">
                 #{createBy,jdbcType=VARCHAR},
             </if>
-                    <if test="createTime != null">
+            <if test="createTime != null">
                 #{createTime,jdbcType=TIMESTAMP},
             </if>
-                    <if test="updateBy != null and updateBy != ''">
+            <if test="updateBy != null and updateBy != ''">
                 #{updateBy,jdbcType=VARCHAR},
             </if>
-                    <if test="updateTime != null">
+            <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
-                    <if test="remark != null and remark != ''">
+            <if test="remark != null and remark != ''">
                 #{remark,jdbcType=VARCHAR},
             </if>
-                </trim>
+            <if test="guarderName != null and guarderName != ''">
+                #{guarderName,jdbcType=VARCHAR},
+            </if>
+            <if test="guarderPhone != null and guarderPhone != ''">
+                #{guarderPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null and address != ''">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="audit != null">
+                #{audit,jdbcType=INTEGER},
+            </if>
+        </trim>
     </insert>
-    
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
+        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark, guarder_name, guarder_phone, address, audit)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.deptId}, #{entity.vip}, #{entity.loginName}, #{entity.userName}, #{entity.userType}, #{entity.email}, #{entity.phonenumber}, #{entity.sex}, #{entity.avatar}, #{entity.password}, #{entity.salt}, #{entity.status}, #{entity.delFlag}, #{entity.loginIp}, #{entity.loginDate}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark})
+        (#{entity.deptId}, #{entity.vip}, #{entity.loginName}, #{entity.userName}, #{entity.userType}, #{entity.email}, #{entity.phonenumber}, #{entity.sex}, #{entity.avatar}, #{entity.password}, #{entity.salt}, #{entity.status}, #{entity.delFlag}, #{entity.loginIp}, #{entity.loginDate}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark}, #{entity.guarderName}, #{entity.guarderPhone}, #{entity.address}, #{entity.audit})
         </foreach>
     </insert>
     
@@ -354,10 +408,10 @@
     
 
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
+        insert into t_user(dept_id, vip, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark, guarder_name, guarder_phone, address, audit)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.deptId}, #{entity.vip}, #{entity.loginName}, #{entity.userName}, #{entity.userType}, #{entity.email}, #{entity.phonenumber}, #{entity.sex}, #{entity.avatar}, #{entity.password}, #{entity.salt}, #{entity.status}, #{entity.delFlag}, #{entity.loginIp}, #{entity.loginDate}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark})
+            (#{entity.deptId}, #{entity.vip}, #{entity.loginName}, #{entity.userName}, #{entity.userType}, #{entity.email}, #{entity.phonenumber}, #{entity.sex}, #{entity.avatar}, #{entity.password}, #{entity.salt}, #{entity.status}, #{entity.delFlag}, #{entity.loginIp}, #{entity.loginDate}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark}, #{entity.guarderName}, #{entity.guarderPhone}, #{entity.address}, #{entity.audit})
         </foreach>
         on duplicate key update
         dept_id = values(dept_id),
@@ -379,6 +433,10 @@
         create_time = values(create_time),
         update_by = values(update_by),
         update_time = values(update_time),
+        guarder_name = values(guarder_name),
+        guarder_phone = values(guarder_phone),
+        address = values(address),
+        audit = values(audit),
         remark = values(remark)
     </insert>
     
@@ -447,6 +505,18 @@
             <if test="remark != null and remark != ''">
                 remark = #{remark},
             </if>
+            <if test="guarderName != null and guarderName != ''">
+                guarder_name = #{guarderName},
+            </if>
+            <if test="guarderPhone != null and guarderPhone != ''">
+                guarder_phone = #{guarderPhone},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="audit != null">
+                audit = #{audit},
+            </if>
             update_time =  sysdate(),
         </set>
         where id = #{id}
@@ -459,6 +529,7 @@
 
     <sql id="selectUserVo">
         select  u.id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,
+                u.audit,u.user_type,u.guarder_name,u.guarder_phone,u.address,
        		    d.id, d.parent_id, d.dept_name, d.order_num, d.leader, d.status as dept_status,
        		    r.id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
 		from t_user u
@@ -475,7 +546,7 @@
 
 
     <select id="selectUserList" parameterType="com.lquan.domain.User" resultMap="UserMap">
-        select u.id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from t_user u
+        select u.id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, u.audit, d.dept_name, d.leader from t_user u
         left join t_dept d on u.dept_id = d.id
         where u.del_flag = '0'
         <if test="loginName != null and loginName != ''">
@@ -495,6 +566,12 @@
         </if>
         <if test="deptId != null and deptId != 0">
             AND (u.dept_id = #{deptId} OR u.dept_id IN ( SELECT t.id FROM t_dept t WHERE FIND_IN_SET (#{deptId},ancestors) ))
+        </if>
+        <if test="audit != null">
+            AND u.audit = #{audit}
+        </if>
+        <if test="userType != null and userType != ''">
+            AND u.user_type = #{userType}
         </if>
         <!-- 数据范围过滤 -->
         ${params.dataScope}

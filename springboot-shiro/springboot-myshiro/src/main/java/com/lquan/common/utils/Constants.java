@@ -83,5 +83,34 @@ public class Constants {
   //  public static final String uploadPath = "D:/lquan/uploadPath/upload";
     public static final String uploadPath = profile+"/upload";
 
+    /**
+     * 未审核
+     */
+    public static final int audit_init = 0;
 
+    /**
+     * 已审核
+     */
+    public static final int audit_pass = 0;
+
+    /**
+     * 审核通过
+     */
+    public static final int audit_fail = 2;
+
+
+    /**
+     * 系统用户
+     */
+    public static final String USER_SYS = "00";
+
+    /**
+     * 志愿者
+     */
+    public static final String USER_ZY = "01";
+
+    /**
+     * 求助者
+     */
+    public static final String USER_QZ = "02";
 }

@@ -1,10 +1,15 @@
 package com.lquan.controller;
 
+import com.lquan.domain.About;
+import com.lquan.service.IAboutService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @program: springs
@@ -52,10 +57,20 @@ public class FrontHomeController {
         return prefix + "realization-info";
     }
 
+    @Autowired
+    private IAboutService aboutService;
     // 联系我们
     @RequestMapping("/contact")
     public String frontContact( Model model) {
         model.addAttribute("contact",  Boolean.TRUE);
+
+        List<About> list =aboutService.selectAboutList(new About());
+        if(list!=null){
+            model.addAttribute("about",  list.get(0));
+        }else{
+            model.addAttribute("about", "");
+        }
+
         return prefix + "contact";
     }
 

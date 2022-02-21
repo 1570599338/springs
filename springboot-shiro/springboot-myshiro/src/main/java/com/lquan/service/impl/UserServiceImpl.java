@@ -282,6 +282,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public int insertUser(User user) {
         user.randomSalt();
+        // 审核状态
+        user.setAudit(Constants.audit_init);
         //user.setPassword(passwordService.encryptPassword(user.getLoginName(), Constants.PASSWORD, user.getSalt()));
         user.setPassword(Constants.PASSWORD);
         if (ShiroUtils.getSysUser() != null) {
