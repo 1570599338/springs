@@ -144,4 +144,17 @@ public class WishController extends BaseController {
         return getDataTable(list);
     }
 
+    /**
+     * 用户状态修改
+     */
+    @RequiresPermissions("system:auditF:edit")
+    @PostMapping("/auditF/changeAudt")
+    @ResponseBody
+    public AjaxResult changeAudtF(Wish wish) {
+        wish.setAuditId(ShiroUtils.getUserId().intValue());
+        return toAjax(wishService.updateWish(wish));
+    }
+
+
+
 }
