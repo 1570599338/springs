@@ -58,6 +58,7 @@ public class Wish {
     private String delFlag;
 
 
+
     /**
      * 创建者
      */
@@ -78,6 +79,19 @@ public class Wish {
      * 备注
      */
     private String remark;
+	    /** 用户id */
+    @Excel(name = "用户id")
+    private Integer userId;
+	
+	    /** 审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望 */
+    @Excel(name = "审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望")
+    private Integer auditStatus;
+
+    /** 审核人员id */
+    private Integer auditId;
+
+
+    private String auditName;
 
 
     public void setId(Integer id) {
@@ -176,6 +190,44 @@ public class Wish {
         this.remark = remark;
     }
 
+   public void setUserId(Integer userId) 
+    {
+        this.userId = userId;
+    }
+
+    public Integer getUserId() 
+    {
+        return userId;
+    }
+
+
+	
+	  public void setAuditStatus(Integer auditStatus) 
+    {
+        this.auditStatus = auditStatus;
+    }
+
+    public Integer getAuditStatus() 
+    {
+        return auditStatus;
+    }
+    public void setAuditId(Integer auditId) 
+    {
+        this.auditId = auditId;
+    }
+
+    public Integer getAuditId() 
+    {
+        return auditId;
+    }
+
+    public String getAuditName() {
+        return auditName;
+    }
+
+    public void setAuditName(String auditName) {
+        this.auditName = auditName;
+    }
 
     /**
      * 请求参数

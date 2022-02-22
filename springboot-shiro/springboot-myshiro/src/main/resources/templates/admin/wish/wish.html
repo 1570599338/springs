@@ -14,7 +14,7 @@
                                 <p>名称：</p>
                                 <input type="text" name="title"/>
                             </li>
-                            <li>
+                         <!--   <li>
                                 <p>图片地址：</p>
                                 <input type="text" name="imgurl"/>
                             </li>
@@ -25,10 +25,10 @@
                             <li>
                                 <p>愿望简介：</p>
                                 <input type="text" name="wishInfo"/>
-                            </li>
+                            </li>-->
                             <li>
                                 <p>愿望类型</p>
-                                <select name="wishType" th:with="type=${@dict.getType('')}">
+                                <select name="wishType" th:with="type=${@dict.getType('sys_audit_status')}">
                                     <option value="">所有</option>
                                     <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
                                 </select>
@@ -107,6 +107,27 @@
                                                         return "人力物力";
                                                     }
                                                 }
+                },
+                {
+                    field : 'createBy',  title : '创建者'
+                },
+                {
+                    field : 'auditStatus',  title : '审核状态',formatter:function(value,row,index){
+                        if (row.auditStatus == 0) {
+                            return "待审核";
+                        }
+                        if (row.auditStatus == 1) {
+                            return "审核通过";
+                        }if (row.auditStatus == 2) {
+                            return "审核失败";
+                        }else{
+                            return "实现愿望";
+                        }
+                    }
+                },
+                {
+                    field : 'auditName',
+                    title : '审核人员'
                 },
                 {
                     field : 'remark', 

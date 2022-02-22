@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.lquan.bean.Resp.AjaxResult;
 import com.lquan.common.poi.ExcelUtil;
+import com.lquan.common.shiro.ShiroUtils;
+import com.lquan.common.utils.Constants;
+import com.lquan.domain.User;
 import com.lquan.domain.Wish;
 import com.lquan.common.page.TableDataInfo;
 import com.lquan.service.IWishService;
@@ -45,6 +48,10 @@ public class WishController extends BaseController {
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Wish wish) {
+        User user = ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            wish.setUserId(user.getId().intValue());
+        }
         startPage();
         List<Wish> list = wishService.selectWishList(wish);
         return getDataTable(list);
@@ -109,4 +116,32 @@ public class WishController extends BaseController {
     public AjaxResult remove(String ids) {
         return toAjax(wishService.deleteWishByIds(ids));
     }
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<待审核数据>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    @RequiresPermissions("system:wishA:view")
+    @GetMapping("/auditView")
+    public String wishA() {
+        return prefix + "/wishAudit";
+    }
+
+    /**
+     * 查询关于我们列表
+     */
+    @RequiresPermissions("system:wishA:list")
+    @PostMapping("/auditlist")
+    @ResponseBody
+    public TableDataInfo listA(Wish wish) {
+        User user = ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            wish.setUserId(user.getId().intValue());
+        }
+        wish.setAuditStatus(Constants.audit_init);
+        startPage();
+        List<Wish> list = wishService.selectWishList(wish);
+        return getDataTable(list);
+    }
+
 }

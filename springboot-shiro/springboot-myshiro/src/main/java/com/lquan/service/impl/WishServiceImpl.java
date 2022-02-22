@@ -1,9 +1,13 @@
 package com.lquan.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.lquan.common.shiro.ShiroUtils;
 import com.lquan.common.text.Convert;
+import com.lquan.common.utils.Constants;
 import com.lquan.common.utils.DateUtils;
+import com.lquan.mapper.UserMapper;
 import com.lquan.service.IWishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +29,9 @@ public class WishServiceImpl implements IWishService {
     @Resource
     private WishMapper wishMapper;
 
+    @Resource
+    private UserMapper userMapper;
+
     /**
      * 查询关于我们
      *
@@ -44,7 +51,16 @@ public class WishServiceImpl implements IWishService {
      */
     @Override
     public List<Wish> selectWishList(Wish wish) {
-        return wishMapper.selectWishList(wish);
+
+        List<Wish> list  = wishMapper.selectWishList(wish);
+        List<Wish> result_list  = new ArrayList<>();
+        for (Wish bean:list){
+            if(bean!=null && bean.getAuditId()!=null)
+                bean.setAuditName(userMapper.queryById(bean.getAuditId().longValue()).getLoginName());
+            result_list.add(bean);
+        }
+
+        return result_list;
     }
 
     /**
@@ -56,6 +72,10 @@ public class WishServiceImpl implements IWishService {
     @Override
     public int insertWish(Wish wish) {
         wish.setCreateTime(DateUtils.getNowDate());
+        wish.setCreateBy(ShiroUtils.getLoginName());
+        wish.setUserId(ShiroUtils.getUserId().intValue());
+        // 审核状态
+        wish.setAuditStatus(Constants.audit_init);
         return wishMapper.insertWish(wish);
     }
 
@@ -68,6 +88,7 @@ public class WishServiceImpl implements IWishService {
     @Override
     public int updateWish(Wish wish) {
         wish.setUpdateTime(DateUtils.getNowDate());
+        wish.setUpdateBy(ShiroUtils.getLoginName());
         return wishMapper.updateWish(wish);
     }
 
