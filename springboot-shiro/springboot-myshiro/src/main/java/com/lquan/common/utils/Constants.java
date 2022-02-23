@@ -65,7 +65,8 @@ public class Constants {
     public static final String PASSWORD = "123456";
 
     // 文件路径
-    public static final String profile = "D:/lquan/uploadPath";
+   // public static final String profile = "D:/lquan/uploadPath";
+    public static final String profile = System.getProperty("user.dir")+ "/src/main/resources/static/headImage/";
 
     // 文件路径
     public static final String headImage = "/headImage";
@@ -91,7 +92,7 @@ public class Constants {
     /**
      * 已审核
      */
-    public static final int audit_pass = 0;
+    public static final int audit_pass = 1;
 
     /**
      * 审核通过

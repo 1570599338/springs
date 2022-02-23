@@ -148,13 +148,43 @@ public class WishController extends BaseController {
      * 用户状态修改
      */
     @RequiresPermissions("system:auditF:edit")
-    @PostMapping("/auditF/changeAudt")
+    @PostMapping("/changeAudt")
     @ResponseBody
     public AjaxResult changeAudtF(Wish wish) {
         wish.setAuditId(ShiroUtils.getUserId().intValue());
         return toAjax(wishService.updateWish(wish));
     }
 
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<守护心愿>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    /**
+     * 跳转到守护心愿界面
+     * @return
+     */
+    @RequiresPermissions("system:wishA:view")
+    @GetMapping("/VolunteerView")
+    public String wishV() {
+        return prefix + "/wishVolunteer";
+    }
+
+    /**
+     * 查询守护心愿的数据
+     */
+    @RequiresPermissions("system:wishV:list")
+    @PostMapping("/volunteerList")
+    @ResponseBody
+    public TableDataInfo volunteerList(Wish wish) {
+        User user = ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            wish.setAuditId(user.getId().intValue());//负责或者跟踪的帮扶对象的心愿
+        }
+        wish.setAuditStatus(Constants.audit_pass);
+        startPage();
+        List<Wish> list = wishService.selectWishList(wish);
+        return getDataTable(list);
+    }
 
 
 }

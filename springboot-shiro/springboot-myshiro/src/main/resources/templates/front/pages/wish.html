@@ -28,12 +28,13 @@
 </div>
 
 
-<div id="wish" class="main-container">
+<div id="wish" class="main-container" >
   <div class="wish-picture">
-    <img src="../front/images/p1.jpg" alt="wish picture"/>
+   <!-- <img src="../front/images/p1.jpg" alt="wish picture"/>-->
+    <img th:src="@{'/headImage/upload/'+${wish.imgurl}}" th:alt="${wish.title}" />
   </div>
   <div class="wish-content">
-    <div class="title">一个标题：呵呵呵</div>
+    <div class="title">[(${wish.title})]</div>
 
     <div class="description-row info-top">
 
@@ -43,27 +44,33 @@
       </span>
 
 
-      <div class="description">prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦.总之编得就编</div>
+      <div class="description">
+        [(${wish.wishInfo})]
+       <!-- prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦.总之编得就编-->
+      </div>
     </div>
 
     <div class="wish-row info-top">
       <span class="row-label">姓名</span>
-      <div class="name row-main">少女</div>
+      <div class="name row-main">[(${user.userName})]</div>
     </div>
 
     <div class="wish-row info-top">
       <span class="row-label">地址</span>
-      <div class="address row-main">一个很远很远的地方噢</div>
+      <div class="address row-main">[(${user.address})]</div>
     </div>
 
 
 
     <div class="wish-row info-top">
-      <a class="btn btn-default btn-lg btn-desire" href="/front/apply">帮他圆梦</a>
+      <!--<a class="btn btn-default btn-lg btn-desire" href="/front/apply/">帮他圆梦</a>-->
+      <a class="btn btn-default btn-lg btn-desire" th:href="@{'/front/apply/'+${wish.id}}">帮他圆梦</a>
+
     </div>
   </div>
 
 </div>
+
 
 
 
