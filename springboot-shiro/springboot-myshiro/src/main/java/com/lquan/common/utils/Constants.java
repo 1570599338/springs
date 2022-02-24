@@ -114,4 +114,15 @@ public class Constants {
      * 求助者
      */
     public static final String USER_QZ = "02";
+
+
+    /**
+     * 未发布
+     */
+    public static final int publish_init = 0;
+
+    /**
+     * 已发布
+     */
+    public static final int publish_pass = 1;
 }

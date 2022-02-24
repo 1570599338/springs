@@ -2,6 +2,7 @@ package com.lquan.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lquan.annotation.Excel;
+import lombok.ToString;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -10,12 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 愿望申领单对象 t_apply
+ * 圆梦故事对象 t_wish_story
  *
  * @author lquan
- * @date 2022-02-23
+ * @date 2022-02-24
  */
-public class Apply {
+@ToString
+public class WishStory {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -24,59 +26,39 @@ public class Apply {
     private Integer id;
 
     /**
-     * 姓名
+     * 名称
      */
-    @Excel(name = "姓名")
-    private String name;
+    @Excel(name = "名称")
+    private String title;
 
     /**
-     * 电话
+     * 图片地址
      */
-    @Excel(name = "电话")
-    private String tel;
+    @Excel(name = "图片地址")
+    private String imgurl;
 
     /**
-     * 地址
+     * 圆梦简介
      */
-    @Excel(name = "地址")
-    private String adress;
+    @Excel(name = "圆梦简介")
+    private String storyShort;
 
     /**
-     * 申请理由
+     * 圆梦故事内容
      */
-    @Excel(name = "申请理由")
-    private String reason;
+    @Excel(name = "圆梦故事")
+    private String storyInfo;
 
     /**
-     * 心愿id
+     * 审核状态 0：带发布  1：发布
      */
-    @Excel(name = "心愿id")
-    private Integer wishId;
-
-    /**
-     * 用户id
-     */
-    @Excel(name = "用户id")
-    private Integer useId;
-
-    /**
-     * 审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望
-     */
-    @Excel(name = "审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望")
-    private Integer auditStatus;
-
-    /**
-     * 审核人员id
-     */
-    @Excel(name = "审核人员id")
-    private Integer auditId;
+    @Excel(name = "审核状态 0：带发布  1：发布")
+    private Integer isPublish;
 
     /**
      * 删除标志（0代表存在 1代表删除）
      */
     private String delFlag;
-
-
 
     /**
      * 创建者
@@ -101,7 +83,6 @@ public class Apply {
      */
     private String remark;
 
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -110,68 +91,44 @@ public class Apply {
         return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 
-    public String getTel() {
-        return tel;
+    public String getImgurl() {
+        return imgurl;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setStoryShort(String storyShort) {
+        this.storyShort = storyShort;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getStoryShort() {
+        return storyShort;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setStoryInfo(String storyInfo) {
+        this.storyInfo = storyInfo;
     }
 
-    public String getReason() {
-        return reason;
+    public String getStoryInfo() {
+        return storyInfo;
     }
 
-    public void setWishId(Integer wishId) {
-        this.wishId = wishId;
+    public void setIsPublish(Integer isPublish) {
+        this.isPublish = isPublish;
     }
 
-    public Integer getWishId() {
-        return wishId;
-    }
-
-    public void setUseId(Integer useId) {
-        this.useId = useId;
-    }
-
-    public Integer getUseId() {
-        return useId;
-    }
-
-    public void setAuditStatus(Integer auditStatus) {
-        this.auditStatus = auditStatus;
-    }
-
-    public Integer getAuditStatus() {
-        return auditStatus;
-    }
-
-    public void setAuditId(Integer auditId) {
-        this.auditId = auditId;
-    }
-
-    public Integer getAuditId() {
-        return auditId;
+    public Integer getIsPublish() {
+        return isPublish;
     }
 
     public void setDelFlag(String delFlag) {

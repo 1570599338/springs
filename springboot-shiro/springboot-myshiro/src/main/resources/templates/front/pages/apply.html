@@ -48,6 +48,8 @@
         <div class="input-group">
           <label for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<em>*</em></label>
           <input id="name" type="text" name="name"   required autofocus/>
+          <input id="useId" type="hidden" name="useId" th:value="${user.id}" />
+          <input id="wishId" type="hidden" name="wishId"  th:value="${wish.id}" />
 
           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">
@@ -91,7 +93,7 @@
 
     <!------------------- 提交按钮 ------------------------->
     <div class="button-row col-xs-offset-3">
-      <input class="btn btn-primary" value="确认申领" type="button"  th:attr="onclick='submitApply()'"/>
+      <input class="btn btn-primary" value="确认申领" type="button"  onclick='submitApply()'/>
     </div>
 
 
@@ -127,7 +129,7 @@
       return false;
     }
 
-    document.applyForm.action=prefix+"/add";
+    document.applyForm.action="/front/add";
     document.applyForm.submit();
 
   }

@@ -33,13 +33,13 @@
 
   <div class="wish-list">
 
-  <div class="wish-item">
+<!--  <div class="wish-item">
     <img src="../front/images/p2.jpg" alt="test"/>
     <h4 class="wish-title">看望山区的儿童呀</h4>
     <p class="wish-content">prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦</p>
     <a class="more-info-btn btn btn-info" href="/front/wish">详细信息</a>
     <a class="realization-btn btn btn-default" href="/front/apply">帮他圆梦</a>
-  </div>
+  </div>-->
   <!--<h2 class="title text-center">愿望清单</h2>-->
 
     <div class="wish-item" th:each="wish:${wisheList}">
@@ -47,7 +47,7 @@
       <h4 class="wish-title">[(${wish.title})]</h4>
       <p class="wish-content">[(${wish.wishShort})]</p>
       <a class="more-info-btn btn btn-info" th:href="@{'/front/wish/'+${wish.id}}">详细信息</a>
-      <a class="realization-btn btn btn-default" href="/front/apply">帮他圆梦</a>
+      <a class="realization-btn btn btn-default" th:href="@{'/front/apply/'+${wish.id}}">帮他圆梦</a>
     </div>
 
   </div>
