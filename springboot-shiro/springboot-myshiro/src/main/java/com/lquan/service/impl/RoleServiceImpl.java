@@ -207,7 +207,7 @@ public class RoleServiceImpl implements RoleService {
     public String checkRoleKeyUnique(Role role) {
         Long roleId = StringUtils.isNull(role.getId()) ? -1L : role.getId();
         Role info = roleMapper.checkRoleKeyUnique(role.getRoleKey());
-        if (StringUtils.isNotNull(info) && info.getId().longValue() != roleId.longValue()) {
+        if (info!=null && info.getId().longValue() != roleId.longValue()) {
             return UserConstants.ROLE_KEY_NOT_UNIQUE;
         }
         return UserConstants.ROLE_KEY_UNIQUE;

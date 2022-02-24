@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2022-02-11
  */
 @Controller
-@RequestMapping("/system/dict")
+@RequestMapping("/admin/dict")
 public class DictTypeController extends BaseController {
-    private String prefix = "system/dict/type";
+    private String prefix = "admin/dict/type";
 
     @Autowired
     private DictTypeService dictTypeService;
@@ -130,7 +130,7 @@ public class DictTypeController extends BaseController {
     {
         mmap.put("dict", dictTypeService.queryById(dictId));
         mmap.put("dictList", dictTypeService.selectDictTypeAll());
-        return "system/dict/data/data";
+        return "admin/dict/data/data";
     }
 
     /**

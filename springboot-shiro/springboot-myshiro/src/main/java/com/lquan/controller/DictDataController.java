@@ -25,10 +25,10 @@ import java.util.List;
  * @since 2022-02-10 23:47:21
  */
 @Controller
-@RequestMapping("/system/dict/data")
+@RequestMapping("/admin/dict/data")
 public class DictDataController extends BaseController {
 
-    private String prefix = "system/dict/data";
+    private String prefix = "admin/dict/data";
 
     /**
      * 服务对象

@@ -23,10 +23,10 @@ import java.util.List;
  * @author ruoyi
  */
 @Controller
-@RequestMapping("/system/config")
+@RequestMapping("/admin/config")
 public class ConfigController extends BaseController
 {
-    private String prefix = "system/config";
+    private String prefix = "admin/config";
 
     @Autowired
     private IConfigService configService;

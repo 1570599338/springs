@@ -21,11 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
  * @author
  */
 @Controller
-@RequestMapping("/system/user/profile")
+@RequestMapping("/admin/user/profile")
 public class ProfileController extends BaseController {
     private static final Logger log = LoggerFactory.getLogger(ProfileController.class);
 
-    private String prefix = "system/user/profile";
+    private String prefix = "admin/user/profile";
 
     @Autowired
     private UserService userService;

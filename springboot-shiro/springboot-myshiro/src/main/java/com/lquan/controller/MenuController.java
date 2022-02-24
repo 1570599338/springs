@@ -24,9 +24,9 @@ import java.util.List;
  * @author
  */
 @Controller
-@RequestMapping("/system/menu")
+@RequestMapping("/admin/menu")
 public class MenuController extends BaseController {
-    private String prefix = "system/menu";
+    private String prefix = "admin/menu";
 
     @Autowired
     private MenuService menuService;

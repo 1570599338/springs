@@ -42,8 +42,8 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserRoleMapper userRoleMapper;
 
-    @Resource
-    private UserPostMapper userPostMapper;
+ //   @Resource
+ //   private UserPostMapper userPostMapper;
 
 
     @Resource
@@ -242,9 +242,9 @@ public class UserServiceImpl implements UserService {
         // 新增用户与角色管理
         insertUserRole(user);
         // 删除用户与岗位关联
-         userPostMapper.deleteUserPostByUserId(userId);
+ //        userPostMapper.deleteUserPostByUserId(userId);
         // 新增用户与岗位管理
-         insertUserPost(user);
+ //        insertUserPost(user);
         // return userMapper.updateUser(user);
         return userMapper.update(user);
     }
@@ -295,7 +295,7 @@ public class UserServiceImpl implements UserService {
         // 新增用户信息
         int rows = userMapper.insertSelective(user);
         // 新增用户岗位关联
-        insertUserPost(user);
+        //  insertUserPost(user);
         // 新增用户与角色管理
         insertUserRole(user);
         return rows;
@@ -307,7 +307,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param user 用户对象
      */
-    public void insertUserPost(User user) {
+   /* public void insertUserPost(User user) {
         Long[] posts = user.getPostIds();
         if (StringUtils.isNotNull(posts)) {
             // 新增用户与岗位管理
@@ -323,7 +323,7 @@ public class UserServiceImpl implements UserService {
                 userPostMapper.insertBatch(list);
             }
         }
-    }
+    }*/
 
 
     /**

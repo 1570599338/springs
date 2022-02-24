@@ -29,7 +29,7 @@ import java.util.List;
  * @since 2022-02-09 00:01:13
  */
 @Controller
-@RequestMapping("system/role")
+@RequestMapping("admin/role")
 public class RoleController extends BaseController {
     /**
      * 服务对象
@@ -37,7 +37,7 @@ public class RoleController extends BaseController {
     @Resource
     private RoleService roleService;
 
-    private String prefix = "system/role";
+    private String prefix = "admin/role";
 
 
     @Autowired

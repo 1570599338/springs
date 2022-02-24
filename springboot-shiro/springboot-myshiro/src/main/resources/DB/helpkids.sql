@@ -1,22 +1,24 @@
 /*
-Navicat MySQL Data Transfer
+ Navicat Premium Data Transfer
 
-Source Server         : localhost3306
-Source Server Version : 50622
-Source Host           : localhost:3306
-Source Database       : helpkids
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50719
+ Source Host           : 127.0.0.1
+ Source Database       : helpkids
 
-Target Server Type    : MYSQL
-Target Server Version : 50622
-File Encoding         : 65001
+ Target Server Type    : MySQL
+ Target Server Version : 50719
+ File Encoding         : utf-8
 
-Date: 2022-02-22 17:38:14
+ Date: 02/25/2022 00:10:13 AM
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for t_about
+--  Table structure for `t_about`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_about`;
 CREATE TABLE `t_about` (
@@ -30,16 +32,47 @@ CREATE TABLE `t_about` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='关于我们';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='关于我们';
 
 -- ----------------------------
--- Records of t_about
+--  Records of `t_about`
 -- ----------------------------
-INSERT INTO `t_about` VALUES ('1', '联系我们', '<pre style=\"background-color: rgb(255, 255, 255);\"><div style=\"color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;; font-size: 9pt; text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您有正能量需要投稿分享...</span></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\"><span style=\"font-size: 12px;\"><br></span></font></div><font color=\"#000000\" face=\"Courier New\"><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您身边有人需要帮忙...</span></div><div style=\"text-align: right;\"><span style=\"font-size: 12px;\"><br></span></div><span style=\"font-size: 9pt;\"><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您要寻找亲人...</span></div><br><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">请联系我们！</span></div><br><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\">我们的联系方式是xxxxxx</span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div></span></font></pre>', '0', '', '2022-02-21 13:47:27', 'admin', '2022-02-21 18:56:20', 'dddddd');
-INSERT INTO `t_about` VALUES ('3', 'qwer', 'qwerwq', '0', '', '2022-02-21 12:36:31', '', '2022-02-21 12:36:39', 'qwerqwress水电费是梵蒂冈的');
+BEGIN;
+INSERT INTO `t_about` VALUES ('1', '联系我们', '<pre style=\"background-color: rgb(255, 255, 255);\"><div style=\"color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;; font-size: 9pt; text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您有正能量需要投稿分享...</span></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\"><span style=\"font-size: 12px;\"><br></span></font></div><font color=\"#000000\" face=\"Courier New\"><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您身边有人需要帮忙...</span></div><div style=\"text-align: right;\"><span style=\"font-size: 12px;\"><br></span></div><span style=\"font-size: 9pt;\"><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">如果您要寻找亲人...</span></div><br><div style=\"text-align: right;\"><span style=\"font-size: 24px; font-family: Helvetica;\">请联系我们！</span></div><br><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\">我们的联系方式是xxxxxx</span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div><div style=\"text-align: right;\"><font color=\"#000000\" face=\"Courier New\" style=\"font-size: 13px;\"><span style=\"font-size: 24px; font-family: Helvetica;\"><br></span></font></div></span></font></pre>', '0', '', '2022-02-21 13:47:27', 'admin', '2022-02-21 18:56:20', 'dddddd'), ('3', 'aaaqwer', 'qwerwqqqqq', '0', '', '2022-02-21 12:36:31', 'lquan2', '2022-02-24 23:45:19', 'qwerqwress水电费是梵蒂冈的');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_config
+--  Table structure for `t_apply`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_apply`;
+CREATE TABLE `t_apply` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(100) DEFAULT '' COMMENT '姓名',
+  `tel` varchar(11) DEFAULT '' COMMENT '电话',
+  `adress` varchar(200) DEFAULT '' COMMENT '地址',
+  `reason` longtext COMMENT '申请理由',
+  `wish_id` int(5) DEFAULT NULL COMMENT '心愿id',
+  `use_id` int(5) DEFAULT NULL COMMENT '用户id',
+  `audit_status` int(2) DEFAULT '0' COMMENT '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望',
+  `audit_id` int(5) DEFAULT NULL COMMENT '审核人员id',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='愿望申领单';
+
+-- ----------------------------
+--  Records of `t_apply`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_apply` VALUES ('7', 'ddd', '15810704401', '布局不不不', 'asfsaa阿斯顿发撒地方', '3', '1', '0', null, '0', '', '2022-02-23 23:55:59', '', null, null), ('8', '在政治', '15810704401', '', '阿熟悉啊心', '5', '1', '0', null, '0', '', '2022-02-24 15:22:27', '', null, null);
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `t_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_config`;
 CREATE TABLE `t_config` (
@@ -57,14 +90,14 @@ CREATE TABLE `t_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='参数配置表';
 
 -- ----------------------------
--- Records of t_config
+--  Records of `t_config`
 -- ----------------------------
-INSERT INTO `t_config` VALUES ('1', '主框架页-默认皮肤样式名称', 'sys.index.skinName', 'skin-blue', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow');
-INSERT INTO `t_config` VALUES ('2', '用户管理-账号初始密码', 'sys.user.initPassword', '123456', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '初始化密码 123456');
-INSERT INTO `t_config` VALUES ('3', '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-dark', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '深黑主题theme-dark，浅色主题theme-light，深蓝主题theme-blue');
+BEGIN;
+INSERT INTO `t_config` VALUES ('1', '主框架页-默认皮肤样式名称', 'sys.index.skinName', 'skin-purple', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-24 22:59:00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow'), ('2', '用户管理-账号初始密码', 'sys.user.initPassword', '123456', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '初始化密码 123456'), ('3', '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-blue', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-24 23:00:56', '深黑主题theme-dark，浅色主题theme-light，深蓝主题theme-blue');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_dept
+--  Table structure for `t_dept`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dept`;
 CREATE TABLE `t_dept` (
@@ -86,21 +119,7 @@ CREATE TABLE `t_dept` (
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- ----------------------------
--- Records of t_dept
--- ----------------------------
-INSERT INTO `t_dept` VALUES ('100', '0', '0', '若依科技', '0', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('101', '100', '0,100', '深圳总公司', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('102', '100', '0,100', '长沙分公司', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('103', '101', '0,100,101', '研发部门', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('104', '101', '0,100,101', '市场部门', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('105', '101', '0,100,101', '测试部门', '3', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('106', '101', '0,100,101', '财务部门', '4', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('107', '101', '0,100,101', '运维部门', '5', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('108', '102', '0,100,102', '市场部门', '1', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-INSERT INTO `t_dept` VALUES ('109', '102', '0,100,102', '财务部门', '2', '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00');
-
--- ----------------------------
--- Table structure for t_dict_data
+--  Table structure for `t_dict_data`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dict_data`;
 CREATE TABLE `t_dict_data` (
@@ -122,79 +141,14 @@ CREATE TABLE `t_dict_data` (
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
 
 -- ----------------------------
--- Records of t_dict_data
+--  Records of `t_dict_data`
 -- ----------------------------
-INSERT INTO `t_dict_data` VALUES ('1', '1', '男', '0', 'sys_user_sex', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别男');
-INSERT INTO `t_dict_data` VALUES ('2', '2', '女', '1', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别女');
-INSERT INTO `t_dict_data` VALUES ('3', '3', '未知', '2', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别未知');
-INSERT INTO `t_dict_data` VALUES ('4', '1', '显示', '0', 'sys_show_hide', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '显示菜单');
-INSERT INTO `t_dict_data` VALUES ('5', '2', '隐藏', '1', 'sys_show_hide', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '隐藏菜单');
-INSERT INTO `t_dict_data` VALUES ('6', '1', '正常', '0', 'sys_normal_disable', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('7', '2', '停用', '1', 'sys_normal_disable', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
-INSERT INTO `t_dict_data` VALUES ('8', '1', '正常', '0', 'sys_job_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('9', '2', '暂停', '1', 'sys_job_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
-INSERT INTO `t_dict_data` VALUES ('10', '1', '默认', 'DEFAULT', 'sys_job_group', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '默认分组');
-INSERT INTO `t_dict_data` VALUES ('11', '2', '系统', 'SYSTEM', 'sys_job_group', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统分组');
-INSERT INTO `t_dict_data` VALUES ('12', '1', '是', 'Y', 'sys_yes_no', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认是');
-INSERT INTO `t_dict_data` VALUES ('13', '2', '否', 'N', 'sys_yes_no', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认否');
-INSERT INTO `t_dict_data` VALUES ('14', '1', '通知', '1', 'sys_notice_type', '', 'warning', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知');
-INSERT INTO `t_dict_data` VALUES ('15', '2', '公告', '2', 'sys_notice_type', '', 'success', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '公告');
-INSERT INTO `t_dict_data` VALUES ('16', '1', '正常', '0', 'sys_notice_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('17', '2', '关闭', '1', 'sys_notice_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '关闭状态');
-INSERT INTO `t_dict_data` VALUES ('18', '1', '新增', '1', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '新增操作');
-INSERT INTO `t_dict_data` VALUES ('19', '2', '修改', '2', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '修改操作');
-INSERT INTO `t_dict_data` VALUES ('20', '3', '删除', '3', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '删除操作');
-INSERT INTO `t_dict_data` VALUES ('21', '4', '授权', '4', 'sys_oper_type', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '授权操作');
-INSERT INTO `t_dict_data` VALUES ('22', '5', '导出', '5', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导出操作');
-INSERT INTO `t_dict_data` VALUES ('23', '6', '导入', '6', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导入操作');
-INSERT INTO `t_dict_data` VALUES ('24', '7', '强退', '7', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '强退操作');
-INSERT INTO `t_dict_data` VALUES ('25', '8', '生成代码', '8', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '生成操作');
-INSERT INTO `t_dict_data` VALUES ('26', '9', '清空数据', '9', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作');
-INSERT INTO `t_dict_data` VALUES ('27', '1', '成功', '0', 'sys_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态');
-INSERT INTO `t_dict_data` VALUES ('28', '2', '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态');
-INSERT INTO `t_dict_data` VALUES ('29', '1', '计算机类', '0', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:14:42', 'admin', '2020-02-05 10:37:05', '');
-INSERT INTO `t_dict_data` VALUES ('30', '1', '文职类', '1', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:05', 'admin', '2020-02-05 10:37:16', '');
-INSERT INTO `t_dict_data` VALUES ('31', '2', '销售类', '2', 'job_position_type', '', '', 'Y', '0', 'admin', '2020-02-05 10:15:18', 'admin', '2020-02-05 10:37:27', '');
-INSERT INTO `t_dict_data` VALUES ('32', '0', '1000以下', '0', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:18', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('33', '1', '1000~3000', '1', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:34', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('34', '2', '3001~8000', '2', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:16:51', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('35', '3', '8001~12000', '3', 'job_salary', null, null, 'Y', '0', 'admin', '2020-02-05 10:17:07', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('36', '0', '未发布', '0', 'job_resume_status', null, null, 'Y', '0', 'admin', '2020-02-05 10:26:54', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('37', '1', '发布', '1', 'job_resume_status', null, null, 'Y', '0', 'admin', '2020-02-05 10:27:06', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('38', '0', '北京市', '0', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:31', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('39', '1', '上海市', '1', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:40', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('40', '2', '广州市', '2', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:13:51', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('41', '3', '深圳市', '3', 'job_area', null, null, 'Y', '0', 'admin', '2020-02-05 12:14:03', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('42', '0', '未处理', '0', 'job_operate_status', null, null, 'Y', '0', 'admin', '2020-02-05 18:18:19', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('43', '1', '已处理', '1', 'job_operate_status', null, null, 'Y', '0', 'admin', '2020-02-05 18:18:32', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('44', '0', '同意', '0', 'job_operate_result', null, null, 'Y', '0', 'admin', '2020-02-05 18:19:13', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('45', '1', '拒绝', '1', 'job_operate_result', null, null, 'Y', '0', 'admin', '2020-02-05 18:19:20', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('46', '1', '30天(10元)', '10', 'job_vip_level', '', '', 'Y', '0', 'admin', '2020-02-07 13:27:38', 'admin', '2020-02-07 13:29:08', '');
-INSERT INTO `t_dict_data` VALUES ('47', '2', '90天(25元)', '25', 'job_vip_level', '', '', 'Y', '0', 'admin', '2020-02-07 13:27:58', 'admin', '2020-02-07 13:29:01', '');
-INSERT INTO `t_dict_data` VALUES ('48', '3', '180天(45元)', '45', 'job_vip_level', null, null, 'Y', '0', 'admin', '2020-02-07 13:28:51', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('49', '4', '360天(80元)', '80', 'job_vip_level', null, null, 'Y', '0', 'admin', '2020-02-07 13:29:34', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('50', '1', '20人以下', '1', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:12', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('51', '2', '20~50人', '2', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:30', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('52', '3', '50~100人', '3', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:09:46', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('53', '4', '100~500人', '4', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:10:00', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('54', '5', '500人以上', '5', 'job_enterprise_scale', null, null, 'Y', '0', 'admin', '2020-02-10 13:10:14', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('55', '1', '金融/投资/证券', '1', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:11:35', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('56', '2', '计算机软件', '2', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:11:51', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('57', '3', '汽车及零配件', '3', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:26', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('58', '4', '房地产/汽车', '4', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:40', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('59', '5', '快速消费品(食品、饮料、化妆品) 批发/零售', '5', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 14:15:16', '', null, null);
-INSERT INTO `t_dict_data` VALUES ('60', '1', 'lquan01tab', 'lquan01key', 'sys_user_sex1', '', 'primary', 'Y', '0', 'admin', '2022-02-11 17:02:09', 'admin', '2022-02-11 17:03:31', 'lquan01');
-INSERT INTO `t_dict_data` VALUES ('61', '2', 'lquan02tab', 'lquan02key', 'sys_user_sex1', '', 'default', 'Y', '0', 'admin', '2022-02-11 17:02:49', null, null, 'lquan02');
-INSERT INTO `t_dict_data` VALUES ('63', '4', 'lquan03tab1', 'lquan03key1', 'sys_user_sex1', '', 'success', 'Y', '0', 'admin', '2022-02-11 17:13:30', 'admin', '2022-02-11 17:13:53', 'lquan03tab1');
-INSERT INTO `t_dict_data` VALUES ('64', '1', '货币', '0', 'sys_user_wishType', '', '', 'Y', '0', 'admin', '2022-02-21 21:52:07', null, null, '货币援助');
-INSERT INTO `t_dict_data` VALUES ('65', '2', '人力物力', '1', 'sys_user_wishType', '', '', 'Y', '0', 'admin', '2022-02-21 21:52:43', null, null, '人力物力援助');
-INSERT INTO `t_dict_data` VALUES ('66', '1', '待审核', '0', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:54:39', 'admin', '2022-02-22 15:55:21', '0：待审核');
-INSERT INTO `t_dict_data` VALUES ('67', '2', '审核通过', '1', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:55:11', null, null, '1：审核通过');
-INSERT INTO `t_dict_data` VALUES ('68', '3', '审核失败', '2', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:55:53', null, null, '2：审核失败');
-INSERT INTO `t_dict_data` VALUES ('69', '4', '圆梦', '3', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:56:47', null, null, '3：圆梦');
+BEGIN;
+INSERT INTO `t_dict_data` VALUES ('1', '1', '男', '0', 'sys_user_sex', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别男'), ('2', '2', '女', '1', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别女'), ('3', '3', '未知', '2', 'sys_user_sex', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '性别未知'), ('4', '1', '显示', '0', 'sys_show_hide', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '显示菜单'), ('5', '2', '隐藏', '1', 'sys_show_hide', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '隐藏菜单'), ('6', '1', '正常', '0', 'sys_normal_disable', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态'), ('7', '2', '停用', '1', 'sys_normal_disable', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态'), ('8', '1', '正常', '0', 'sys_job_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态'), ('9', '2', '暂停', '1', 'sys_job_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态'), ('10', '1', '默认', 'DEFAULT', 'sys_job_group', '', '', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '默认分组'), ('11', '2', '系统', 'SYSTEM', 'sys_job_group', '', '', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统分组'), ('12', '1', '是', 'Y', 'sys_yes_no', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认是'), ('13', '2', '否', 'N', 'sys_yes_no', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统默认否'), ('14', '1', '通知', '1', 'sys_notice_type', '', 'warning', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知'), ('15', '2', '公告', '2', 'sys_notice_type', '', 'success', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '公告'), ('16', '1', '正常', '0', 'sys_notice_status', '', 'primary', 'Y', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态'), ('17', '2', '关闭', '1', 'sys_notice_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '关闭状态'), ('18', '1', '新增', '1', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '新增操作'), ('19', '2', '修改', '2', 'sys_oper_type', '', 'info', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '修改操作'), ('20', '3', '删除', '3', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '删除操作'), ('21', '4', '授权', '4', 'sys_oper_type', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '授权操作'), ('22', '5', '导出', '5', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导出操作'), ('23', '6', '导入', '6', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '导入操作'), ('24', '7', '强退', '7', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '强退操作'), ('25', '8', '生成代码', '8', 'sys_oper_type', '', 'warning', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '生成操作'), ('26', '9', '清空数据', '9', 'sys_oper_type', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '清空操作'), ('27', '1', '成功', '0', 'sys_common_status', '', 'primary', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '正常状态'), ('28', '2', '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '停用状态'), ('60', '1', 'lquan01tab', 'lquan01key', 'sys_user_sex1', '', 'primary', 'Y', '0', 'admin', '2022-02-11 17:02:09', 'admin', '2022-02-11 17:03:31', 'lquan01'), ('61', '2', 'lquan02tab', 'lquan02key', 'sys_user_sex1', '', 'default', 'Y', '0', 'admin', '2022-02-11 17:02:49', null, null, 'lquan02'), ('63', '4', 'lquan03tab1', 'lquan03key1', 'sys_user_sex1', '', 'success', 'Y', '0', 'admin', '2022-02-11 17:13:30', 'admin', '2022-02-11 17:13:53', 'lquan03tab1'), ('64', '1', '货币', '0', 'sys_user_wishType', '', '', 'Y', '0', 'admin', '2022-02-21 21:52:07', null, null, '货币援助'), ('65', '2', '人力物力', '1', 'sys_user_wishType', '', '', 'Y', '0', 'admin', '2022-02-21 21:52:43', null, null, '人力物力援助'), ('66', '1', '待审核', '0', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:54:39', 'admin', '2022-02-22 15:55:21', '0：待审核'), ('67', '2', '审核通过', '1', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:55:11', null, null, '1：审核通过'), ('68', '3', '审核失败', '2', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:55:53', null, null, '2：审核失败'), ('69', '4', '圆梦', '3', 'sys_audit_status', '', '', 'Y', '0', 'admin', '2022-02-22 15:56:47', null, null, '3：圆梦');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_dict_type
+--  Table structure for `t_dict_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dict_type`;
 CREATE TABLE `t_dict_type` (
@@ -212,131 +166,14 @@ CREATE TABLE `t_dict_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
 
 -- ----------------------------
--- Records of t_dict_type
+--  Records of `t_dict_type`
 -- ----------------------------
-INSERT INTO `t_dict_type` VALUES ('1', '用户性别', 'sys_user_sex', '0', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-11 14:26:08', '用户性别列表');
-INSERT INTO `t_dict_type` VALUES ('2', '菜单状态', 'sys_show_hide', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单状态列表');
-INSERT INTO `t_dict_type` VALUES ('3', '系统开关', 'sys_normal_disable', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统开关列表');
-INSERT INTO `t_dict_type` VALUES ('4', '任务状态', 'sys_job_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务状态列表');
-INSERT INTO `t_dict_type` VALUES ('5', '任务分组', 'sys_job_group', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '任务分组列表');
-INSERT INTO `t_dict_type` VALUES ('6', '系统是否', 'sys_yes_no', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统是否列表');
-INSERT INTO `t_dict_type` VALUES ('7', '通知类型', 'sys_notice_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知类型列表');
-INSERT INTO `t_dict_type` VALUES ('8', '通知状态', 'sys_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表');
-INSERT INTO `t_dict_type` VALUES ('9', '操作类型', 'sys_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表');
-INSERT INTO `t_dict_type` VALUES ('10', '系统状态', 'sys_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表');
-INSERT INTO `t_dict_type` VALUES ('11', '职位类别', 'job_position_type', '0', 'admin', '2020-02-05 10:13:26', 'admin', '2020-02-05 10:25:47', '职位类别');
-INSERT INTO `t_dict_type` VALUES ('12', '薪资范围', 'job_salary', '0', 'admin', '2020-02-05 10:15:51', 'admin', '2020-02-05 10:25:40', '');
-INSERT INTO `t_dict_type` VALUES ('13', '简历状态', 'job_resume_status', '0', 'admin', '2020-02-05 10:26:28', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('14', '地区', 'job_area', '0', 'admin', '2020-02-05 12:13:16', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('15', '处理状态', 'job_operate_status', '0', 'admin', '2020-02-05 18:18:02', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('16', '处理结果', 'job_operate_result', '0', 'admin', '2020-02-05 18:18:52', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('17', 'VIP等级', 'job_vip_level', '0', 'admin', '2020-02-07 13:27:08', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('18', '企业规模', 'job_enterprise_scale', '0', 'admin', '2020-02-10 13:08:24', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('19', '企业性质', 'job_enterprise_category', '0', 'admin', '2020-02-10 13:10:54', '', null, null);
-INSERT INTO `t_dict_type` VALUES ('22', '用户性别1', 'sys_user_sex1', '0', 'admin', '2022-02-11 17:01:29', '', null, 'xxxxxx');
-INSERT INTO `t_dict_type` VALUES ('23', '愿望类型', 'sys_user_wishType', '0', 'admin', '2022-02-21 21:50:31', '', null, '愿望类型 0：金钱援助 1：人力物力援助');
-INSERT INTO `t_dict_type` VALUES ('24', '审核类型', 'sys_audit_status', '0', 'admin', '2022-02-22 15:53:34', '', null, '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望');
+BEGIN;
+INSERT INTO `t_dict_type` VALUES ('1', '用户性别', 'sys_user_sex', '0', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-11 14:26:08', '用户性别列表'), ('2', '菜单状态', 'sys_show_hide', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单状态列表'), ('3', '系统开关', 'sys_normal_disable', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统开关列表'), ('6', '系统是否', 'sys_yes_no', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统是否列表'), ('7', '通知类型', 'sys_notice_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知类型列表'), ('8', '通知状态', 'sys_notice_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '通知状态列表'), ('9', '操作类型', 'sys_oper_type', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作类型列表'), ('10', '系统状态', 'sys_common_status', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录状态列表'), ('22', '用户性别1', 'sys_user_sex1', '0', 'admin', '2022-02-11 17:01:29', '', null, 'xxxxxx'), ('23', '愿望类型', 'sys_user_wishType', '0', 'admin', '2022-02-21 21:50:31', '', null, '愿望类型 0：金钱援助 1：人力物力援助'), ('24', '审核类型', 'sys_audit_status', '0', 'admin', '2022-02-22 15:53:34', '', null, '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_logininfor
--- ----------------------------
-DROP TABLE IF EXISTS `t_logininfor`;
-CREATE TABLE `t_logininfor` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '访问ID',
-  `login_name` varchar(50) DEFAULT '' COMMENT '登录账号',
-  `ipaddr` varchar(50) DEFAULT '' COMMENT '登录IP地址',
-  `login_location` varchar(255) DEFAULT '' COMMENT '登录地点',
-  `browser` varchar(50) DEFAULT '' COMMENT '浏览器类型',
-  `os` varchar(50) DEFAULT '' COMMENT '操作系统',
-  `status` char(1) DEFAULT '0' COMMENT '登录状态（0成功 1失败）',
-  `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
-  `login_time` datetime DEFAULT NULL COMMENT '访问时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
-
--- ----------------------------
--- Records of t_logininfor
--- ----------------------------
-INSERT INTO `t_logininfor` VALUES ('100', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-04 20:49:05');
-INSERT INTO `t_logininfor` VALUES ('101', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:33:54');
-INSERT INTO `t_logininfor` VALUES ('102', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:34:23');
-INSERT INTO `t_logininfor` VALUES ('103', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:34:31');
-INSERT INTO `t_logininfor` VALUES ('104', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:36:38');
-INSERT INTO `t_logininfor` VALUES ('105', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:37:33');
-INSERT INTO `t_logininfor` VALUES ('106', 'common', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '用户不存在/密码错误', '2020-02-05 09:37:45');
-INSERT INTO `t_logininfor` VALUES ('107', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误1次', '2020-02-05 09:38:24');
-INSERT INTO `t_logininfor` VALUES ('108', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误2次', '2020-02-05 09:38:42');
-INSERT INTO `t_logininfor` VALUES ('109', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '密码输入错误1次', '2020-02-05 09:40:01');
-INSERT INTO `t_logininfor` VALUES ('110', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:40:23');
-INSERT INTO `t_logininfor` VALUES ('111', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:48:01');
-INSERT INTO `t_logininfor` VALUES ('112', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:48:49');
-INSERT INTO `t_logininfor` VALUES ('113', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:48:54');
-INSERT INTO `t_logininfor` VALUES ('114', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:49:08');
-INSERT INTO `t_logininfor` VALUES ('115', 'ry', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 09:50:36');
-INSERT INTO `t_logininfor` VALUES ('116', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 09:50:48');
-INSERT INTO `t_logininfor` VALUES ('117', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 10:13:49');
-INSERT INTO `t_logininfor` VALUES ('118', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 10:25:21');
-INSERT INTO `t_logininfor` VALUES ('119', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 10:50:14');
-INSERT INTO `t_logininfor` VALUES ('120', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '验证码错误', '2020-02-05 11:13:20');
-INSERT INTO `t_logininfor` VALUES ('121', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:21:16');
-INSERT INTO `t_logininfor` VALUES ('122', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:24:18');
-INSERT INTO `t_logininfor` VALUES ('123', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:28:47');
-INSERT INTO `t_logininfor` VALUES ('124', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:38:33');
-INSERT INTO `t_logininfor` VALUES ('125', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:50:43');
-INSERT INTO `t_logininfor` VALUES ('126', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 11:54:07');
-INSERT INTO `t_logininfor` VALUES ('127', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 11:54:09');
-INSERT INTO `t_logininfor` VALUES ('128', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:01:26');
-INSERT INTO `t_logininfor` VALUES ('129', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:12:37');
-INSERT INTO `t_logininfor` VALUES ('130', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:31:38');
-INSERT INTO `t_logininfor` VALUES ('131', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:10');
-INSERT INTO `t_logininfor` VALUES ('132', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:16');
-INSERT INTO `t_logininfor` VALUES ('133', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:26');
-INSERT INTO `t_logininfor` VALUES ('134', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:28');
-INSERT INTO `t_logininfor` VALUES ('135', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:47:50');
-INSERT INTO `t_logininfor` VALUES ('136', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:47:54');
-INSERT INTO `t_logininfor` VALUES ('137', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:48:22');
-INSERT INTO `t_logininfor` VALUES ('138', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:48:26');
-INSERT INTO `t_logininfor` VALUES ('139', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 12:49:23');
-INSERT INTO `t_logininfor` VALUES ('140', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:49:25');
-INSERT INTO `t_logininfor` VALUES ('141', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:55:44');
-INSERT INTO `t_logininfor` VALUES ('142', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 12:57:52');
-INSERT INTO `t_logininfor` VALUES ('143', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:18:02');
-INSERT INTO `t_logininfor` VALUES ('144', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:20:12');
-INSERT INTO `t_logininfor` VALUES ('145', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 13:20:36');
-INSERT INTO `t_logininfor` VALUES ('146', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:20:39');
-INSERT INTO `t_logininfor` VALUES ('147', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:22:18');
-INSERT INTO `t_logininfor` VALUES ('148', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:32:14');
-INSERT INTO `t_logininfor` VALUES ('149', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:34:37');
-INSERT INTO `t_logininfor` VALUES ('150', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:35:51');
-INSERT INTO `t_logininfor` VALUES ('151', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:37:24');
-INSERT INTO `t_logininfor` VALUES ('152', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:41:01');
-INSERT INTO `t_logininfor` VALUES ('153', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:43:45');
-INSERT INTO `t_logininfor` VALUES ('154', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:46:29');
-INSERT INTO `t_logininfor` VALUES ('155', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 13:46:56');
-INSERT INTO `t_logininfor` VALUES ('156', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 13:46:58');
-INSERT INTO `t_logininfor` VALUES ('157', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:24:09');
-INSERT INTO `t_logininfor` VALUES ('158', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:37:54');
-INSERT INTO `t_logininfor` VALUES ('159', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:37:57');
-INSERT INTO `t_logininfor` VALUES ('160', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:38:01');
-INSERT INTO `t_logininfor` VALUES ('161', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:38:02');
-INSERT INTO `t_logininfor` VALUES ('162', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:38:16');
-INSERT INTO `t_logininfor` VALUES ('163', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:38:18');
-INSERT INTO `t_logininfor` VALUES ('164', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:39:07');
-INSERT INTO `t_logininfor` VALUES ('165', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:39:10');
-INSERT INTO `t_logininfor` VALUES ('166', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '退出成功', '2020-02-05 14:40:16');
-INSERT INTO `t_logininfor` VALUES ('167', 'qiye', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:40:19');
-INSERT INTO `t_logininfor` VALUES ('168', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 14:44:27');
-INSERT INTO `t_logininfor` VALUES ('169', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 15:47:33');
-INSERT INTO `t_logininfor` VALUES ('170', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 16:09:33');
-INSERT INTO `t_logininfor` VALUES ('171', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 16:41:28');
-INSERT INTO `t_logininfor` VALUES ('172', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:08:26');
-INSERT INTO `t_logininfor` VALUES ('173', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:11:26');
-INSERT INTO `t_logininfor` VALUES ('174', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 17:46:13');
-INSERT INTO `t_logininfor` VALUES ('175', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 18:07:30');
-INSERT INTO `t_logininfor` VALUES ('176', 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-02-05 18:16:18');
-
--- ----------------------------
--- Table structure for t_menu
+--  Table structure for `t_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -356,130 +193,17 @@ CREATE TABLE `t_menu` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1095 DEFAULT CHARSET=utf8 COMMENT='菜单权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=1110 DEFAULT CHARSET=utf8 COMMENT='菜单权限表';
 
 -- ----------------------------
--- Records of t_menu
+--  Records of `t_menu`
 -- ----------------------------
-INSERT INTO `t_menu` VALUES ('1', '系统管理', '0', '1', '#', '', 'M', '0', '', 'fa fa-gear', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录');
-INSERT INTO `t_menu` VALUES ('2', '系统监控', '0', '2', '#', 'menuItem', 'M', '0', '', 'fa fa-video-camera', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 11:02:17', '系统监控目录');
-INSERT INTO `t_menu` VALUES ('3', '系统工具', '0', '3', '#', 'menuItem', 'M', '1', '', 'fa fa-bars', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:11', '系统工具目录');
-INSERT INTO `t_menu` VALUES ('4', '前端展示', '0', '1', '#', 'menuItem', 'M', '0', null, 'fa fa-area-chart', 'admin', '2022-02-21 11:04:44', 'admin', '2022-02-21 14:45:21', '');
-INSERT INTO `t_menu` VALUES ('100', '用户管理', '1', '1', '/system/user', '', 'C', '0', 'system:user:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单');
-INSERT INTO `t_menu` VALUES ('101', '角色管理', '1', '2', '/system/role', '', 'C', '0', 'system:role:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单');
-INSERT INTO `t_menu` VALUES ('102', '菜单管理', '1', '3', '/system/menu', '', 'C', '0', 'system:menu:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单');
-INSERT INTO `t_menu` VALUES ('103', '部门管理', '1', '4', '/system/dept', 'menuItem', 'C', '1', 'system:dept:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:27', '部门管理菜单');
-INSERT INTO `t_menu` VALUES ('104', '岗位管理', '1', '5', '/system/post', 'menuItem', 'C', '1', 'system:post:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:33', '岗位管理菜单');
-INSERT INTO `t_menu` VALUES ('105', '字典管理', '1', '6', '/system/dict', '', 'C', '0', 'system:dict:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '字典管理菜单');
-INSERT INTO `t_menu` VALUES ('106', '参数设置', '1', '7', '/system/config', 'menuItem', 'C', '0', 'system:config:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 10:00:54', '参数设置菜单');
-INSERT INTO `t_menu` VALUES ('107', '通知公告', '1', '8', '/system/notice', 'menuItem', 'C', '1', 'system:notice:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 14:50:01', '通知公告菜单');
-INSERT INTO `t_menu` VALUES ('108', '日志管理', '1', '9', '#', 'menuItem', 'M', '1', '', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:59', '日志管理菜单');
-INSERT INTO `t_menu` VALUES ('109', '在线用户', '2', '1', '/monitor/online', '', 'C', '0', 'monitor:online:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '在线用户菜单');
-INSERT INTO `t_menu` VALUES ('110', '定时任务', '2', '2', '/monitor/job', '', 'C', '0', 'monitor:job:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '定时任务菜单');
-INSERT INTO `t_menu` VALUES ('111', '数据监控', '2', '3', '/monitor/data', '', 'C', '0', 'monitor:data:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '数据监控菜单');
-INSERT INTO `t_menu` VALUES ('112', '服务监控', '2', '3', '/monitor/server', '', 'C', '0', 'monitor:server:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '服务监控菜单');
-INSERT INTO `t_menu` VALUES ('113', '表单构建', '3', '1', '/tool/build', '', 'C', '0', 'tool:build:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '表单构建菜单');
-INSERT INTO `t_menu` VALUES ('114', '代码生成', '3', '2', '/tool/gen', '', 'C', '0', 'tool:gen:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '代码生成菜单');
-INSERT INTO `t_menu` VALUES ('115', '系统接口', '3', '3', '/tool/swagger', '', 'C', '0', 'tool:swagger:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统接口菜单');
-INSERT INTO `t_menu` VALUES ('500', '操作日志', '108', '1', '/monitor/operlog', '', 'C', '0', 'monitor:operlog:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单');
-INSERT INTO `t_menu` VALUES ('501', '登录日志', '108', '2', '/monitor/logininfor', '', 'C', '0', 'monitor:logininfor:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单');
-INSERT INTO `t_menu` VALUES ('1000', '用户查询', '100', '1', '#', '', 'F', '0', 'system:user:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1001', '用户新增', '100', '2', '#', '', 'F', '0', 'system:user:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1002', '用户修改', '100', '3', '#', '', 'F', '0', 'system:user:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1003', '用户删除', '100', '4', '#', '', 'F', '0', 'system:user:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1004', '用户导出', '100', '5', '#', '', 'F', '0', 'system:user:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1005', '用户导入', '100', '6', '#', '', 'F', '0', 'system:user:import', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1006', '重置密码', '100', '7', '#', '', 'F', '0', 'system:user:resetPwd', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1007', '角色查询', '101', '1', '#', '', 'F', '0', 'system:role:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1008', '角色新增', '101', '2', '#', '', 'F', '0', 'system:role:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1009', '角色修改', '101', '3', '#', '', 'F', '0', 'system:role:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1010', '角色删除', '101', '4', '#', '', 'F', '0', 'system:role:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1011', '角色导出', '101', '5', '#', '', 'F', '0', 'system:role:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1012', '菜单查询', '102', '1', '#', '', 'F', '0', 'system:menu:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1013', '菜单新增', '102', '2', '#', '', 'F', '0', 'system:menu:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1014', '菜单修改', '102', '3', '#', '', 'F', '0', 'system:menu:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1015', '菜单删除', '102', '4', '#', '', 'F', '0', 'system:menu:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1016', '部门查询', '103', '1', '#', '', 'F', '0', 'system:dept:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1017', '部门新增', '103', '2', '#', '', 'F', '0', 'system:dept:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1018', '部门修改', '103', '3', '#', '', 'F', '0', 'system:dept:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1019', '部门删除', '103', '4', '#', '', 'F', '0', 'system:dept:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1020', '岗位查询', '104', '1', '#', '', 'F', '0', 'system:post:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1021', '岗位新增', '104', '2', '#', '', 'F', '0', 'system:post:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1022', '岗位修改', '104', '3', '#', '', 'F', '0', 'system:post:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1023', '岗位删除', '104', '4', '#', '', 'F', '0', 'system:post:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1024', '岗位导出', '104', '5', '#', '', 'F', '0', 'system:post:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1025', '字典查询', '105', '1', '#', '', 'F', '0', 'system:dict:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1026', '字典新增', '105', '2', '#', '', 'F', '0', 'system:dict:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1027', '字典修改', '105', '3', '#', '', 'F', '0', 'system:dict:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1028', '字典删除', '105', '4', '#', '', 'F', '0', 'system:dict:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1029', '字典导出', '105', '5', '#', '', 'F', '0', 'system:dict:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1030', '参数查询', '106', '1', '#', '', 'F', '0', 'system:config:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1031', '参数新增', '106', '2', '#', '', 'F', '0', 'system:config:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1032', '参数修改', '106', '3', '#', '', 'F', '0', 'system:config:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1033', '参数删除', '106', '4', '#', '', 'F', '0', 'system:config:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1034', '参数导出', '106', '5', '#', '', 'F', '0', 'system:config:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1035', '公告查询', '107', '1', '#', '', 'F', '0', 'system:notice:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1036', '公告新增', '107', '2', '#', '', 'F', '0', 'system:notice:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1037', '公告修改', '107', '3', '#', '', 'F', '0', 'system:notice:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1038', '公告删除', '107', '4', '#', '', 'F', '0', 'system:notice:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1039', '操作查询', '500', '1', '#', '', 'F', '0', 'monitor:operlog:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1040', '操作删除', '500', '2', '#', '', 'F', '0', 'monitor:operlog:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1041', '详细信息', '500', '3', '#', '', 'F', '0', 'monitor:operlog:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1042', '日志导出', '500', '4', '#', '', 'F', '0', 'monitor:operlog:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1043', '登录查询', '501', '1', '#', '', 'F', '0', 'monitor:logininfor:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1044', '登录删除', '501', '2', '#', '', 'F', '0', 'monitor:logininfor:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1045', '日志导出', '501', '3', '#', '', 'F', '0', 'monitor:logininfor:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1046', '账户解锁', '501', '4', '#', '', 'F', '0', 'monitor:logininfor:unlock', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1047', '在线查询', '109', '1', '#', '', 'F', '0', 'monitor:online:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1048', '批量强退', '109', '2', '#', '', 'F', '0', 'monitor:online:batchForceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1049', '单条强退', '109', '3', '#', '', 'F', '0', 'monitor:online:forceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1050', '任务查询', '110', '1', '#', '', 'F', '0', 'monitor:job:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1051', '任务新增', '110', '2', '#', '', 'F', '0', 'monitor:job:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1052', '任务修改', '110', '3', '#', '', 'F', '0', 'monitor:job:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1053', '任务删除', '110', '4', '#', '', 'F', '0', 'monitor:job:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1054', '状态修改', '110', '5', '#', '', 'F', '0', 'monitor:job:changeStatus', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1055', '任务详细', '110', '6', '#', '', 'F', '0', 'monitor:job:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1056', '任务导出', '110', '7', '#', '', 'F', '0', 'monitor:job:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1057', '生成查询', '114', '1', '#', '', 'F', '0', 'tool:gen:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1058', '生成修改', '114', '2', '#', '', 'F', '0', 'tool:gen:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1059', '生成删除', '114', '3', '#', '', 'F', '0', 'tool:gen:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1060', '预览代码', '114', '4', '#', '', 'F', '0', 'tool:gen:preview', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1061', '生成代码', '114', '5', '#', '', 'F', '0', 'tool:gen:code', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `t_menu` VALUES ('1062', '志愿者模块', '0', '4', '#', 'menuItem', 'M', '0', null, 'fa fa-handshake-o', 'admin', '2020-02-05 11:52:26', 'admin', '2022-02-14 10:23:15', '');
-INSERT INTO `t_menu` VALUES ('1063', '简历管理', '1062', '1', '/job/resume', 'menuItem', 'C', '0', 'job:resume:view', '#', 'admin', '2020-02-05 11:53:07', 'admin', '2020-02-06 13:51:55', '');
-INSERT INTO `t_menu` VALUES ('1064', '职位管理', '1062', '2', '/job/position', 'menuItem', 'C', '0', 'job:position:view', '#', 'admin', '2020-02-05 12:03:54', 'admin', '2020-02-05 15:47:51', '');
-INSERT INTO `t_menu` VALUES ('1065', '新增', '1063', '1', '#', 'menuItem', 'F', '0', 'job:position:add', '#', 'admin', '2020-02-05 12:04:48', '', null, '');
-INSERT INTO `t_menu` VALUES ('1066', '编辑', '1063', '2', '#', 'menuItem', 'F', '0', 'job:position:edit', '#', 'admin', '2020-02-05 12:05:12', '', null, '');
-INSERT INTO `t_menu` VALUES ('1067', '删除', '1063', '3', '#', 'menuItem', 'F', '0', 'job:position:remove', '#', 'admin', '2020-02-05 12:05:31', '', null, '');
-INSERT INTO `t_menu` VALUES ('1068', '关于我们', '4', '1', '/admin/about', '', 'C', '0', 'system:about:view', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '关于我们菜单');
-INSERT INTO `t_menu` VALUES ('1069', '查询', '1068', '1', '#', '', 'F', '0', 'system:about:list', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1070', '新增', '1068', '2', '#', '', 'F', '0', 'system:about:add', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1071', '修改', '1068', '3', '#', '', 'F', '0', 'system:about:edit', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1072', '删除', '1068', '4', '#', '', 'F', '0', 'system:about:remove', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1073', '关于我们导出', '1068', '5', '#', '', 'F', '0', 'system:about:export', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1075', '人员审核', '0', '2', '#', 'menuItem', 'M', '0', null, 'fa fa-group', 'admin', '2022-02-21 19:04:00', '', null, '');
-INSERT INTO `t_menu` VALUES ('1076', '待审核志愿者', '1075', '1', '/admin/audit', 'menuItem', 'C', '0', 'system:audit:view', 'fa fa-battery-4', 'admin', '2022-02-21 19:07:54', 'admin', '2022-02-21 19:16:41', '');
-INSERT INTO `t_menu` VALUES ('1077', '查询', '1076', '1', '#', 'menuItem', 'F', '0', 'system:audit:list', '#', 'admin', '2022-02-21 19:09:48', '', null, '');
-INSERT INTO `t_menu` VALUES ('1078', '审核', '1076', '2', '#', 'menuItem', 'F', '0', 'system:audit:audited', '#', 'admin', '2022-02-21 19:11:36', '', null, '');
-INSERT INTO `t_menu` VALUES ('1079', '待审核求助者', '1075', '1', '/admin/auditQ', 'menuItem', 'C', '0', 'system:audit:view', 'fa fa-battery-0', 'admin', '2022-02-21 19:07:54', 'admin', '2022-02-21 19:16:30', '');
-INSERT INTO `t_menu` VALUES ('1080', '查询', '1079', '1', '#', 'menuItem', 'F', '0', 'system:audit:list', '#', 'admin', '2022-02-21 19:09:48', '', null, '');
-INSERT INTO `t_menu` VALUES ('1081', '审核', '1079', '2', '#', 'menuItem', 'F', '0', 'system:audit:audited', '#', 'admin', '2022-02-21 19:11:36', '', null, '');
-INSERT INTO `t_menu` VALUES ('1082', '待审失败', '1075', '1', '/admin/auditF', 'menuItem', 'C', '0', 'system:audit:view', 'fa fa-certificate', 'admin', '2022-02-21 19:07:54', 'admin', '2022-02-21 19:13:44', '');
-INSERT INTO `t_menu` VALUES ('1083', '查询', '1082', '1', '#', 'menuItem', 'F', '0', 'system:audit:list', '#', 'admin', '2022-02-21 19:09:48', '', null, '');
-INSERT INTO `t_menu` VALUES ('1084', '审核', '1082', '2', '#', 'menuItem', 'F', '0', 'system:audit:audited', '#', 'admin', '2022-02-21 19:11:36', '', null, '');
-INSERT INTO `t_menu` VALUES ('1085', '求助管理', '0', '5', '#', 'menuItem', 'M', '0', null, 'fa fa-heartbeat', 'admin', '2022-02-21 21:12:17', 'admin', '2022-02-21 21:14:00', '');
-INSERT INTO `t_menu` VALUES ('1086', '我的愿望', '1085', '1', '/admin/wish', '', 'C', '0', 'system:wish:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '关于我们菜单');
-INSERT INTO `t_menu` VALUES ('1087', '查询', '1086', '1', '#', '', 'F', '0', 'system:wish:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1088', '新增', '1086', '2', '#', '', 'F', '0', 'system:wish:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1089', '修改', '1086', '3', '#', '', 'F', '0', 'system:wish:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1090', '删除', '1086', '4', '#', '', 'F', '0', 'system:wish:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1091', '导出', '1086', '5', '#', '', 'F', '0', 'system:wish:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1092', '审核心愿', '1085', '1', '/admin/wish/auditView', '', 'C', '0', 'system:wishA:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '关于我们菜单');
-INSERT INTO `t_menu` VALUES ('1093', '查询', '1092', '1', '#', '', 'F', '0', 'system:wishA:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `t_menu` VALUES ('1094', '审核', '1092', '2', '#', '', 'F', '0', 'system:wishA:audit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+BEGIN;
+INSERT INTO `t_menu` VALUES ('1', '系统管理', '0', '1', '#', '', 'M', '0', '', 'fa fa-gear', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录'), ('4', '前端展示', '0', '1', '#', 'menuItem', 'M', '0', null, 'fa fa-area-chart', 'admin', '2022-02-21 11:04:44', 'admin', '2022-02-21 14:45:21', ''), ('100', '用户管理', '1', '1', '/admin/user', '', 'C', '0', 'system:user:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单'), ('101', '角色管理', '1', '2', '/admin/role', '', 'C', '0', 'system:role:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单'), ('102', '菜单管理', '1', '3', '/admin/menu', '', 'C', '0', 'system:menu:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单'), ('103', '部门管理', '1', '4', '/sadmin/dept', 'menuItem', 'C', '1', 'system:dept:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:27', '部门管理菜单'), ('104', '岗位管理', '1', '5', '/admin/post', 'menuItem', 'C', '1', 'system:post:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:33', '岗位管理菜单'), ('105', '字典管理', '1', '6', '/admin/dict', '', 'C', '0', 'system:dict:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '字典管理菜单'), ('106', '参数设置', '1', '7', '/admin/config', 'menuItem', 'C', '0', 'system:config:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 10:00:54', '参数设置菜单'), ('107', '通知公告', '1', '8', '/admin/notice', 'menuItem', 'C', '1', 'system:notice:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 14:50:01', '通知公告菜单'), ('108', '日志管理', '1', '9', '#', 'menuItem', 'M', '1', '', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:59', '日志管理菜单'), ('500', '操作日志', '108', '1', '/monitor/operlog', '', 'C', '0', 'monitor:operlog:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单'), ('501', '登录日志', '108', '2', '/monitor/logininfor', '', 'C', '0', 'monitor:logininfor:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单'), ('1000', '用户查询', '100', '1', '#', '', 'F', '0', 'system:user:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1001', '用户新增', '100', '2', '#', '', 'F', '0', 'system:user:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1002', '用户修改', '100', '3', '#', '', 'F', '0', 'system:user:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1003', '用户删除', '100', '4', '#', '', 'F', '0', 'system:user:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1004', '用户导出', '100', '5', '#', '', 'F', '0', 'system:user:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1005', '用户导入', '100', '6', '#', '', 'F', '0', 'system:user:import', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1006', '重置密码', '100', '7', '#', '', 'F', '0', 'system:user:resetPwd', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1007', '角色查询', '101', '1', '#', '', 'F', '0', 'system:role:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1008', '角色新增', '101', '2', '#', '', 'F', '0', 'system:role:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1009', '角色修改', '101', '3', '#', '', 'F', '0', 'system:role:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1010', '角色删除', '101', '4', '#', '', 'F', '0', 'system:role:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1011', '角色导出', '101', '5', '#', '', 'F', '0', 'system:role:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1012', '菜单查询', '102', '1', '#', '', 'F', '0', 'system:menu:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1013', '菜单新增', '102', '2', '#', '', 'F', '0', 'system:menu:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1014', '菜单修改', '102', '3', '#', '', 'F', '0', 'system:menu:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1015', '菜单删除', '102', '4', '#', '', 'F', '0', 'system:menu:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1016', '部门查询', '103', '1', '#', '', 'F', '0', 'system:dept:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1017', '部门新增', '103', '2', '#', '', 'F', '0', 'system:dept:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1018', '部门修改', '103', '3', '#', '', 'F', '0', 'system:dept:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1019', '部门删除', '103', '4', '#', '', 'F', '0', 'system:dept:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1020', '岗位查询', '104', '1', '#', '', 'F', '0', 'system:post:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1021', '岗位新增', '104', '2', '#', '', 'F', '0', 'system:post:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1022', '岗位修改', '104', '3', '#', '', 'F', '0', 'system:post:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1023', '岗位删除', '104', '4', '#', '', 'F', '0', 'system:post:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1024', '岗位导出', '104', '5', '#', '', 'F', '0', 'system:post:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1025', '字典查询', '105', '1', '#', '', 'F', '0', 'system:dict:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1026', '字典新增', '105', '2', '#', '', 'F', '0', 'system:dict:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1027', '字典修改', '105', '3', '#', '', 'F', '0', 'system:dict:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1028', '字典删除', '105', '4', '#', '', 'F', '0', 'system:dict:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1029', '字典导出', '105', '5', '#', '', 'F', '0', 'system:dict:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1030', '参数查询', '106', '1', '#', '', 'F', '0', 'system:config:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1031', '参数新增', '106', '2', '#', '', 'F', '0', 'system:config:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1032', '参数修改', '106', '3', '#', '', 'F', '0', 'system:config:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1033', '参数删除', '106', '4', '#', '', 'F', '0', 'system:config:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1034', '参数导出', '106', '5', '#', '', 'F', '0', 'system:config:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1035', '公告查询', '107', '1', '#', '', 'F', '0', 'system:notice:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1036', '公告新增', '107', '2', '#', '', 'F', '0', 'system:notice:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1037', '公告修改', '107', '3', '#', '', 'F', '0', 'system:notice:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1038', '公告删除', '107', '4', '#', '', 'F', '0', 'system:notice:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1039', '操作查询', '500', '1', '#', '', 'F', '0', 'monitor:operlog:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1040', '操作删除', '500', '2', '#', '', 'F', '0', 'monitor:operlog:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1041', '详细信息', '500', '3', '#', '', 'F', '0', 'monitor:operlog:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1042', '日志导出', '500', '4', '#', '', 'F', '0', 'monitor:operlog:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1043', '登录查询', '501', '1', '#', '', 'F', '0', 'monitor:logininfor:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1044', '登录删除', '501', '2', '#', '', 'F', '0', 'monitor:logininfor:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1045', '日志导出', '501', '3', '#', '', 'F', '0', 'monitor:logininfor:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1046', '账户解锁', '501', '4', '#', '', 'F', '0', 'monitor:logininfor:unlock', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', ''), ('1062', '志愿者模块', '0', '4', '#', 'menuItem', 'M', '0', null, 'fa fa-handshake-o', 'admin', '2020-02-05 11:52:26', 'admin', '2022-02-14 10:23:15', ''), ('1068', '关于我们', '4', '1', '/admin/about', '', 'C', '0', 'system:about:view', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '关于我们菜单'), ('1069', '查询', '1068', '1', '#', '', 'F', '0', 'system:about:list', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', ''), ('1070', '新增', '1068', '2', '#', '', 'F', '0', 'system:about:add', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', ''), ('1071', '修改', '1068', '3', '#', '', 'F', '0', 'system:about:edit', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', ''), ('1072', '删除', '1068', '4', '#', '', 'F', '0', 'system:about:remove', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', ''), ('1073', '关于我们导出', '1068', '5', '#', '', 'F', '0', 'system:about:export', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', ''), ('1075', '人员审核', '0', '2', '#', 'menuItem', 'M', '0', null, 'fa fa-group', 'admin', '2022-02-21 19:04:00', '', null, ''), ('1076', '待审核志愿者', '1075', '1', '/admin/audit', 'menuItem', 'C', '0', 'system:audit:view', 'fa fa-battery-4', 'admin', '2022-02-21 19:07:54', 'admin', '2022-02-21 19:16:41', ''), ('1077', '查询', '1076', '1', '#', 'menuItem', 'F', '0', 'system:audit:list', '#', 'admin', '2022-02-21 19:09:48', '', null, ''), ('1078', '审核', '1076', '2', '#', 'menuItem', 'F', '0', 'system:audit:audited', '#', 'admin', '2022-02-21 19:11:36', '', null, ''), ('1079', '待审核求助者', '1075', '1', '/admin/auditQ', 'menuItem', 'C', '0', 'system:auditQ:view', 'fa fa-battery-0', 'admin', '2022-02-21 19:07:54', 'lquan5', '2022-02-24 23:56:21', ''), ('1080', '查询', '1079', '1', '#', 'menuItem', 'F', '0', 'system:auditQ:list', '#', 'admin', '2022-02-21 19:09:48', '', null, ''), ('1081', '审核', '1079', '2', '#', 'menuItem', 'F', '0', 'system:auditQ:edit', '#', 'admin', '2022-02-21 19:11:36', '', null, ''), ('1082', '待审失败', '1075', '1', '/admin/auditF', 'menuItem', 'C', '0', 'system:auditF:view', 'fa fa-certificate', 'admin', '2022-02-21 19:07:54', 'admin', '2022-02-21 19:13:44', ''), ('1083', '查询', '1082', '1', '#', 'menuItem', 'F', '0', 'system:auditF:list', '#', 'admin', '2022-02-21 19:09:48', '', null, ''), ('1084', '审核', '1082', '2', '#', 'menuItem', 'F', '0', 'system:auditF:audited', '#', 'admin', '2022-02-21 19:11:36', '', null, ''), ('1085', '求助管理', '0', '5', '#', 'menuItem', 'M', '0', null, 'fa fa-heartbeat', 'admin', '2022-02-21 21:12:17', 'admin', '2022-02-21 21:14:00', ''), ('1086', '我的愿望', '1085', '1', '/admin/wish', '', 'C', '0', 'system:wish:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '关于我们菜单'), ('1087', '查询', '1086', '1', '#', '', 'F', '0', 'system:wish:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1088', '新增', '1086', '2', '#', '', 'F', '0', 'system:wish:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1089', '修改', '1086', '3', '#', '', 'F', '0', 'system:wish:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1090', '删除', '1086', '4', '#', '', 'F', '0', 'system:wish:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1091', '导出', '1086', '5', '#', '', 'F', '0', 'system:wish:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1092', '审核心愿', '1085', '1', '/admin/wish/auditView', '', 'C', '0', 'system:wishA:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '关于我们菜单'), ('1093', '查询', '1092', '1', '#', 'menuItem', 'F', '0', 'system:wishA:list', '#', 'admin', '2018-03-01 00:00:00', 'admin', '2022-02-24 22:20:06', ''), ('1094', '审核', '1092', '2', '#', '', 'F', '0', 'system:wishA:audit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1095', '审核心愿', '1062', '1', '/admin/wish/VolunteerView', 'menuItem', 'C', '0', 'system:wishV:view', '#', 'admin', '2018-03-01 00:00:00', 'admin', '2022-02-23 15:17:24', '关于我们菜单'), ('1096', '查询', '1095', '1', '#', '', 'F', '0', 'system:wishA:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1097', '审核', '1095', '2', '#', '', 'F', '0', 'system:wishA:audit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1098', '愿望申领单', '1062', '1', '/admin/apply', 'menuItem', 'C', '0', 'system:apply:view', '#', 'admin', '2018-03-01 00:00:00', 'admin', '2022-02-23 22:01:40', '愿望申领单菜单'), ('1099', '查询', '1098', '1', '#', '', 'F', '0', 'system:apply:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1100', '新增', '1098', '2', '#', '', 'F', '0', 'system:apply:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1101', '修改', '1098', '3', '#', '', 'F', '0', 'system:apply:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1102', '删除', '1098', '4', '#', '', 'F', '0', 'system:apply:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1103', '导出', '1098', '5', '#', '', 'F', '0', 'system:apply:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1104', '圆梦故事', '4', '1', '/admin/story', '', 'C', '0', 'system:story:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '圆梦故事菜单'), ('1105', '查询', '1104', '1', '#', '', 'F', '0', 'system:story:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1106', '新增', '1104', '2', '#', '', 'F', '0', 'system:story:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1107', '修改', '1104', '3', '#', '', 'F', '0', 'system:story:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1108', '删除', '1104', '4', '#', '', 'F', '0', 'system:story:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', ''), ('1109', '导出', '1104', '5', '#', '', 'F', '0', 'system:story:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_notice
+--  Table structure for `t_notice`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_notice`;
 CREATE TABLE `t_notice` (
@@ -497,39 +221,7 @@ CREATE TABLE `t_notice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='通知公告表';
 
 -- ----------------------------
--- Records of t_notice
--- ----------------------------
-
--- ----------------------------
--- Table structure for t_oper_log
--- ----------------------------
-DROP TABLE IF EXISTS `t_oper_log`;
-CREATE TABLE `t_oper_log` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志主键',
-  `title` varchar(50) DEFAULT '' COMMENT '模块标题',
-  `business_type` int(2) DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
-  `method` varchar(100) DEFAULT '' COMMENT '方法名称',
-  `request_method` varchar(10) DEFAULT '' COMMENT '请求方式',
-  `operator_type` int(1) DEFAULT '0' COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
-  `oper_name` varchar(50) DEFAULT '' COMMENT '操作人员',
-  `dept_name` varchar(50) DEFAULT '' COMMENT '部门名称',
-  `oper_url` varchar(255) DEFAULT '' COMMENT '请求URL',
-  `oper_ip` varchar(50) DEFAULT '' COMMENT '主机地址',
-  `oper_location` varchar(255) DEFAULT '' COMMENT '操作地点',
-  `oper_param` varchar(2000) DEFAULT '' COMMENT '请求参数',
-  `json_result` varchar(2000) DEFAULT '' COMMENT '返回参数',
-  `status` int(1) DEFAULT '0' COMMENT '操作状态（0正常 1异常）',
-  `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
-  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
-
--- ----------------------------
--- Records of t_oper_log
--- ----------------------------
-
--- ----------------------------
--- Table structure for t_post
+--  Table structure for `t_post`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_post`;
 CREATE TABLE `t_post` (
@@ -547,11 +239,7 @@ CREATE TABLE `t_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='岗位信息表';
 
 -- ----------------------------
--- Records of t_post
--- ----------------------------
-
--- ----------------------------
--- Table structure for t_role
+--  Table structure for `t_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role`;
 CREATE TABLE `t_role` (
@@ -568,37 +256,17 @@ CREATE TABLE `t_role` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='角色信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='角色信息表';
 
 -- ----------------------------
--- Records of t_role
+--  Records of `t_role`
 -- ----------------------------
-INSERT INTO `t_role` VALUES ('1', '管理员', 'admin', '1', '1', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '管理员');
-INSERT INTO `t_role` VALUES ('2', '普通角色', 'common', '2', '2', '0', '0', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-05 09:50:56', '普通角色');
-INSERT INTO `t_role` VALUES ('3', '志愿者', 'job_wanted', '3', '1', '0', '0', 'admin', '2020-02-05 11:25:28', 'admin', '2020-02-08 13:47:12', '');
-INSERT INTO `t_role` VALUES ('4', '求助者', 'enterprise', '4', '1', '0', '0', 'admin', '2020-02-05 11:25:48', 'admin', '2020-02-10 13:58:33', '');
-INSERT INTO `t_role` VALUES ('5', '游客', 'tourist', '5', '1', '0', '0', 'admin', '2020-02-05 11:26:13', 'admin', '2020-02-06 18:01:19', '');
+BEGIN;
+INSERT INTO `t_role` VALUES ('1', '管理员', 'admin', '1', '1', '0', '0', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '管理员'), ('2', '普通角色', 'common', '2', '2', '0', '0', 'admin', '2018-03-16 11:33:00', 'super', '2022-02-24 23:39:03', '普通角色'), ('3', '志愿者', 'job_wanted', '3', '1', '0', '0', 'admin', '2020-02-05 11:25:28', 'admin', '2020-02-08 13:47:12', ''), ('4', '求助者', 'enterprise', '4', '1', '0', '0', 'admin', '2020-02-05 11:25:48', 'admin', '2022-02-24 22:08:07', ''), ('5', '游客', 'tourist', '5', '1', '0', '2', 'admin', '2020-02-05 11:26:13', 'admin', '2020-02-06 18:01:19', ''), ('6', 'role1', 'role1', '5', '1', '0', '0', 'super', '2022-02-24 23:40:21', '', null, null), ('7', 'role2', 'role2', '6', '1', '0', '0', 'super', '2022-02-24 23:40:38', 'super', '2022-02-24 23:41:53', null), ('8', 'role3', 'role3', '7', '1', '0', '0', 'super', '2022-02-24 23:41:01', '', null, null), ('9', 'role4', 'role4', '8', '1', '0', '0', 'super', '2022-02-24 23:41:22', '', null, null), ('10', 'role5', 'role5', '9', '1', '0', '0', 'super', '2022-02-24 23:41:45', '', null, null);
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_role_dept
--- ----------------------------
-DROP TABLE IF EXISTS `t_role_dept`;
-CREATE TABLE `t_role_dept` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `role_id` bigint(20) NOT NULL COMMENT '角色ID',
-  `dept_id` bigint(20) NOT NULL COMMENT '部门ID',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='角色和部门关联表';
-
--- ----------------------------
--- Records of t_role_dept
--- ----------------------------
-INSERT INTO `t_role_dept` VALUES ('2', '2', '100');
-INSERT INTO `t_role_dept` VALUES ('3', '2', '101');
-INSERT INTO `t_role_dept` VALUES ('4', '2', '105');
-
--- ----------------------------
--- Table structure for t_role_menu
+--  Table structure for `t_role_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_role_menu`;
 CREATE TABLE `t_role_menu` (
@@ -606,112 +274,17 @@ CREATE TABLE `t_role_menu` (
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=860 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
 
 -- ----------------------------
--- Records of t_role_menu
+--  Records of `t_role_menu`
 -- ----------------------------
-INSERT INTO `t_role_menu` VALUES ('1', '1', '1');
-INSERT INTO `t_role_menu` VALUES ('2', '2', '1');
-INSERT INTO `t_role_menu` VALUES ('3', '2', '2');
-INSERT INTO `t_role_menu` VALUES ('4', '2', '3');
-INSERT INTO `t_role_menu` VALUES ('5', '2', '100');
-INSERT INTO `t_role_menu` VALUES ('6', '2', '101');
-INSERT INTO `t_role_menu` VALUES ('7', '2', '102');
-INSERT INTO `t_role_menu` VALUES ('8', '2', '103');
-INSERT INTO `t_role_menu` VALUES ('9', '2', '104');
-INSERT INTO `t_role_menu` VALUES ('10', '2', '105');
-INSERT INTO `t_role_menu` VALUES ('11', '2', '106');
-INSERT INTO `t_role_menu` VALUES ('12', '2', '107');
-INSERT INTO `t_role_menu` VALUES ('13', '2', '108');
-INSERT INTO `t_role_menu` VALUES ('14', '2', '109');
-INSERT INTO `t_role_menu` VALUES ('15', '2', '110');
-INSERT INTO `t_role_menu` VALUES ('16', '2', '111');
-INSERT INTO `t_role_menu` VALUES ('17', '2', '112');
-INSERT INTO `t_role_menu` VALUES ('18', '2', '113');
-INSERT INTO `t_role_menu` VALUES ('19', '2', '114');
-INSERT INTO `t_role_menu` VALUES ('20', '2', '115');
-INSERT INTO `t_role_menu` VALUES ('21', '2', '500');
-INSERT INTO `t_role_menu` VALUES ('22', '2', '501');
-INSERT INTO `t_role_menu` VALUES ('23', '2', '1000');
-INSERT INTO `t_role_menu` VALUES ('24', '2', '1001');
-INSERT INTO `t_role_menu` VALUES ('25', '2', '1002');
-INSERT INTO `t_role_menu` VALUES ('26', '2', '1003');
-INSERT INTO `t_role_menu` VALUES ('27', '2', '1004');
-INSERT INTO `t_role_menu` VALUES ('28', '2', '1005');
-INSERT INTO `t_role_menu` VALUES ('29', '2', '1006');
-INSERT INTO `t_role_menu` VALUES ('30', '2', '1007');
-INSERT INTO `t_role_menu` VALUES ('31', '2', '1008');
-INSERT INTO `t_role_menu` VALUES ('32', '2', '1009');
-INSERT INTO `t_role_menu` VALUES ('33', '2', '1010');
-INSERT INTO `t_role_menu` VALUES ('34', '2', '1011');
-INSERT INTO `t_role_menu` VALUES ('35', '2', '1012');
-INSERT INTO `t_role_menu` VALUES ('36', '2', '1013');
-INSERT INTO `t_role_menu` VALUES ('37', '2', '1014');
-INSERT INTO `t_role_menu` VALUES ('38', '2', '1015');
-INSERT INTO `t_role_menu` VALUES ('39', '2', '1016');
-INSERT INTO `t_role_menu` VALUES ('40', '2', '1017');
-INSERT INTO `t_role_menu` VALUES ('41', '2', '1018');
-INSERT INTO `t_role_menu` VALUES ('42', '2', '1019');
-INSERT INTO `t_role_menu` VALUES ('43', '2', '1020');
-INSERT INTO `t_role_menu` VALUES ('44', '2', '1021');
-INSERT INTO `t_role_menu` VALUES ('45', '2', '1022');
-INSERT INTO `t_role_menu` VALUES ('46', '2', '1023');
-INSERT INTO `t_role_menu` VALUES ('47', '2', '1024');
-INSERT INTO `t_role_menu` VALUES ('48', '2', '1025');
-INSERT INTO `t_role_menu` VALUES ('49', '2', '1026');
-INSERT INTO `t_role_menu` VALUES ('50', '2', '1027');
-INSERT INTO `t_role_menu` VALUES ('51', '2', '1028');
-INSERT INTO `t_role_menu` VALUES ('52', '2', '1029');
-INSERT INTO `t_role_menu` VALUES ('53', '2', '1030');
-INSERT INTO `t_role_menu` VALUES ('54', '2', '1031');
-INSERT INTO `t_role_menu` VALUES ('55', '2', '1032');
-INSERT INTO `t_role_menu` VALUES ('56', '2', '1033');
-INSERT INTO `t_role_menu` VALUES ('57', '2', '1034');
-INSERT INTO `t_role_menu` VALUES ('58', '2', '1035');
-INSERT INTO `t_role_menu` VALUES ('59', '2', '1036');
-INSERT INTO `t_role_menu` VALUES ('60', '2', '1037');
-INSERT INTO `t_role_menu` VALUES ('61', '2', '1038');
-INSERT INTO `t_role_menu` VALUES ('62', '2', '1039');
-INSERT INTO `t_role_menu` VALUES ('63', '2', '1040');
-INSERT INTO `t_role_menu` VALUES ('64', '2', '1041');
-INSERT INTO `t_role_menu` VALUES ('65', '2', '1042');
-INSERT INTO `t_role_menu` VALUES ('66', '2', '1043');
-INSERT INTO `t_role_menu` VALUES ('67', '2', '1044');
-INSERT INTO `t_role_menu` VALUES ('68', '2', '1045');
-INSERT INTO `t_role_menu` VALUES ('69', '2', '1046');
-INSERT INTO `t_role_menu` VALUES ('70', '2', '1047');
-INSERT INTO `t_role_menu` VALUES ('71', '2', '1048');
-INSERT INTO `t_role_menu` VALUES ('72', '2', '1049');
-INSERT INTO `t_role_menu` VALUES ('73', '2', '1050');
-INSERT INTO `t_role_menu` VALUES ('74', '2', '1051');
-INSERT INTO `t_role_menu` VALUES ('75', '2', '1052');
-INSERT INTO `t_role_menu` VALUES ('76', '2', '1053');
-INSERT INTO `t_role_menu` VALUES ('77', '2', '1054');
-INSERT INTO `t_role_menu` VALUES ('78', '2', '1055');
-INSERT INTO `t_role_menu` VALUES ('79', '2', '1056');
-INSERT INTO `t_role_menu` VALUES ('80', '2', '1057');
-INSERT INTO `t_role_menu` VALUES ('81', '2', '1058');
-INSERT INTO `t_role_menu` VALUES ('82', '2', '1059');
-INSERT INTO `t_role_menu` VALUES ('83', '2', '1060');
-INSERT INTO `t_role_menu` VALUES ('84', '2', '1061');
-INSERT INTO `t_role_menu` VALUES ('85', '3', '1062');
-INSERT INTO `t_role_menu` VALUES ('86', '3', '1063');
-INSERT INTO `t_role_menu` VALUES ('87', '3', '1065');
-INSERT INTO `t_role_menu` VALUES ('88', '3', '1066');
-INSERT INTO `t_role_menu` VALUES ('89', '3', '1067');
-INSERT INTO `t_role_menu` VALUES ('90', '3', '1068');
-INSERT INTO `t_role_menu` VALUES ('91', '3', '1070');
-INSERT INTO `t_role_menu` VALUES ('92', '4', '1062');
-INSERT INTO `t_role_menu` VALUES ('93', '4', '1064');
-INSERT INTO `t_role_menu` VALUES ('94', '4', '1069');
-INSERT INTO `t_role_menu` VALUES ('95', '4', '1085');
-INSERT INTO `t_role_menu` VALUES ('96', '5', '1062');
-INSERT INTO `t_role_menu` VALUES ('97', '5', '1069');
-INSERT INTO `t_role_menu` VALUES ('98', '5', '1070');
+BEGIN;
+INSERT INTO `t_role_menu` VALUES ('299', '2', '1'), ('300', '2', '100'), ('301', '2', '1000'), ('302', '2', '1001'), ('303', '2', '1002'), ('304', '2', '1003'), ('305', '2', '1004'), ('306', '2', '1005'), ('307', '2', '1006'), ('308', '2', '101'), ('309', '2', '1007'), ('310', '2', '1008'), ('311', '2', '1009'), ('312', '2', '1010'), ('313', '2', '1011'), ('314', '2', '102'), ('315', '2', '1012'), ('316', '2', '1013'), ('317', '2', '1014'), ('318', '2', '1015'), ('319', '2', '103'), ('320', '2', '1016'), ('321', '2', '1017'), ('322', '2', '1018'), ('323', '2', '1019'), ('324', '2', '104'), ('325', '2', '1020'), ('326', '2', '1021'), ('327', '2', '1022'), ('328', '2', '1023'), ('329', '2', '1024'), ('330', '2', '105'), ('331', '2', '1025'), ('332', '2', '1026'), ('333', '2', '1027'), ('334', '2', '1028'), ('335', '2', '1029'), ('336', '2', '106'), ('337', '2', '1030'), ('338', '2', '1031'), ('339', '2', '1032'), ('340', '2', '1033'), ('341', '2', '1034'), ('342', '2', '107'), ('343', '2', '1035'), ('344', '2', '1036'), ('345', '2', '1037'), ('346', '2', '1038'), ('347', '2', '108'), ('348', '2', '500'), ('349', '2', '1039'), ('350', '2', '1040'), ('351', '2', '1041'), ('352', '2', '1042'), ('353', '2', '501'), ('354', '2', '1043'), ('355', '2', '1044'), ('356', '2', '1045'), ('357', '2', '1046'), ('358', '2', '4'), ('359', '2', '1068'), ('360', '2', '1069'), ('361', '2', '1070'), ('362', '2', '1071'), ('363', '2', '1072'), ('364', '2', '1073'), ('365', '2', '1104'), ('366', '2', '1105'), ('367', '2', '1106'), ('368', '2', '1107'), ('369', '2', '1108'), ('370', '2', '1109'), ('371', '2', '1075'), ('372', '2', '1076'), ('373', '2', '1077'), ('374', '2', '1078'), ('375', '2', '1079'), ('376', '2', '1080'), ('377', '2', '1081'), ('378', '2', '1082'), ('379', '2', '1083'), ('380', '2', '1084'), ('381', '6', '1'), ('382', '6', '100'), ('383', '6', '1000'), ('384', '6', '1001'), ('385', '6', '1002'), ('386', '6', '1003'), ('387', '6', '1004'), ('388', '6', '1005'), ('389', '6', '1006'), ('390', '6', '101'), ('391', '6', '1007'), ('392', '6', '1008'), ('393', '6', '1009'), ('394', '6', '1010'), ('395', '6', '1011'), ('396', '6', '102'), ('397', '6', '1012'), ('398', '6', '1013'), ('399', '6', '1014'), ('400', '6', '1015'), ('401', '6', '103'), ('402', '6', '1016'), ('403', '6', '1017'), ('404', '6', '1018'), ('405', '6', '1019'), ('406', '6', '104'), ('407', '6', '1020'), ('408', '6', '1021'), ('409', '6', '1022'), ('410', '6', '1023'), ('411', '6', '1024'), ('412', '6', '105'), ('413', '6', '1025'), ('414', '6', '1026'), ('415', '6', '1027'), ('416', '6', '1028'), ('417', '6', '1029'), ('418', '6', '106'), ('419', '6', '1030'), ('420', '6', '1031'), ('421', '6', '1032'), ('422', '6', '1033'), ('423', '6', '1034'), ('424', '6', '107'), ('425', '6', '1035'), ('426', '6', '1036'), ('427', '6', '1037'), ('428', '6', '1038'), ('429', '6', '108'), ('430', '6', '500'), ('431', '6', '1039'), ('432', '6', '1040'), ('433', '6', '1041'), ('434', '6', '1042'), ('435', '6', '501'), ('436', '6', '1043'), ('437', '6', '1044'), ('438', '6', '1045'), ('439', '6', '1046'), ('512', '8', '1'), ('513', '8', '100'), ('514', '8', '1000'), ('515', '8', '1001'), ('516', '8', '1002'), ('517', '8', '1003'), ('518', '8', '1004'), ('519', '8', '1005'), ('520', '8', '1006'), ('521', '8', '101'), ('522', '8', '1007'), ('523', '8', '1008'), ('524', '8', '1009'), ('525', '8', '1010'), ('526', '8', '1011'), ('527', '8', '102'), ('528', '8', '1012'), ('529', '8', '1013'), ('530', '8', '1014'), ('531', '8', '1015'), ('532', '8', '103'), ('533', '8', '1016'), ('534', '8', '1017'), ('535', '8', '1018'), ('536', '8', '1019'), ('537', '8', '104'), ('538', '8', '1020'), ('539', '8', '1021'), ('540', '8', '1022'), ('541', '8', '1023'), ('542', '8', '1024'), ('543', '8', '105'), ('544', '8', '1025'), ('545', '8', '1026'), ('546', '8', '1027'), ('547', '8', '1028'), ('548', '8', '1029'), ('549', '8', '106'), ('550', '8', '1030'), ('551', '8', '1031'), ('552', '8', '1032'), ('553', '8', '1033'), ('554', '8', '1034'), ('555', '8', '107'), ('556', '8', '1035'), ('557', '8', '1036'), ('558', '8', '1037'), ('559', '8', '1038'), ('560', '8', '108'), ('561', '8', '500'), ('562', '8', '1039'), ('563', '8', '1040'), ('564', '8', '1041'), ('565', '8', '1042'), ('566', '8', '501'), ('567', '8', '1043'), ('568', '8', '1044'), ('569', '8', '1045'), ('570', '8', '1046'), ('571', '8', '4'), ('572', '8', '1068'), ('573', '8', '1069'), ('574', '8', '1070'), ('575', '8', '1071'), ('576', '8', '1072'), ('577', '8', '1073'), ('578', '8', '1104'), ('579', '8', '1105'), ('580', '8', '1106'), ('581', '8', '1107'), ('582', '8', '1108'), ('583', '8', '1109'), ('584', '8', '1075'), ('585', '8', '1076'), ('586', '8', '1077'), ('587', '8', '1078'), ('588', '8', '1079'), ('589', '8', '1080'), ('590', '8', '1081'), ('591', '8', '1082'), ('592', '8', '1083'), ('593', '8', '1084'), ('594', '9', '1'), ('595', '9', '100'), ('596', '9', '1000'), ('597', '9', '1001'), ('598', '9', '1002'), ('599', '9', '1003'), ('600', '9', '1004'), ('601', '9', '1005'), ('602', '9', '1006'), ('603', '9', '101'), ('604', '9', '1007'), ('605', '9', '1008'), ('606', '9', '1009'), ('607', '9', '1010'), ('608', '9', '1011'), ('609', '9', '102'), ('610', '9', '1012'), ('611', '9', '1013'), ('612', '9', '1014'), ('613', '9', '1015'), ('614', '9', '103'), ('615', '9', '1016'), ('616', '9', '1017'), ('617', '9', '1018'), ('618', '9', '1019'), ('619', '9', '104'), ('620', '9', '1020'), ('621', '9', '1021'), ('622', '9', '1022'), ('623', '9', '1023'), ('624', '9', '1024'), ('625', '9', '105'), ('626', '9', '1025'), ('627', '9', '1026'), ('628', '9', '1027'), ('629', '9', '1028'), ('630', '9', '1029'), ('631', '9', '106'), ('632', '9', '1030'), ('633', '9', '1031'), ('634', '9', '1032'), ('635', '9', '1033'), ('636', '9', '1034'), ('637', '9', '107'), ('638', '9', '1035'), ('639', '9', '1036'), ('640', '9', '1037'), ('641', '9', '1038'), ('642', '9', '108'), ('643', '9', '500'), ('644', '9', '1039'), ('645', '9', '1040'), ('646', '9', '1041'), ('647', '9', '1042'), ('648', '9', '501'), ('649', '9', '1043'), ('650', '9', '1044'), ('651', '9', '1045'), ('652', '9', '1046'), ('653', '9', '4'), ('654', '9', '1068'), ('655', '9', '1069'), ('656', '9', '1070'), ('657', '9', '1071'), ('658', '9', '1072'), ('659', '9', '1073'), ('660', '9', '1104'), ('661', '9', '1105'), ('662', '9', '1106'), ('663', '9', '1107'), ('664', '9', '1108'), ('665', '9', '1109'), ('666', '9', '1075'), ('667', '9', '1076'), ('668', '9', '1077'), ('669', '9', '1078'), ('670', '9', '1079'), ('671', '9', '1080'), ('672', '9', '1081'), ('673', '9', '1082'), ('674', '9', '1083'), ('675', '9', '1084'), ('676', '9', '1062'), ('677', '9', '1095'), ('678', '9', '1096'), ('679', '9', '1097'), ('680', '9', '1098'), ('681', '9', '1099'), ('682', '9', '1100'), ('683', '9', '1101'), ('684', '9', '1102'), ('685', '9', '1103'), ('686', '10', '1'), ('687', '10', '100'), ('688', '10', '1000'), ('689', '10', '1001'), ('690', '10', '1002'), ('691', '10', '1003'), ('692', '10', '1004'), ('693', '10', '1005'), ('694', '10', '1006'), ('695', '10', '101'), ('696', '10', '1007'), ('697', '10', '1008'), ('698', '10', '1009'), ('699', '10', '1010'), ('700', '10', '1011'), ('701', '10', '102'), ('702', '10', '1012'), ('703', '10', '1013'), ('704', '10', '1014'), ('705', '10', '1015'), ('706', '10', '103'), ('707', '10', '1016'), ('708', '10', '1017'), ('709', '10', '1018'), ('710', '10', '1019'), ('711', '10', '104'), ('712', '10', '1020'), ('713', '10', '1021'), ('714', '10', '1022'), ('715', '10', '1023'), ('716', '10', '1024'), ('717', '10', '105'), ('718', '10', '1025'), ('719', '10', '1026'), ('720', '10', '1027'), ('721', '10', '1028'), ('722', '10', '1029'), ('723', '10', '106'), ('724', '10', '1030'), ('725', '10', '1031'), ('726', '10', '1032'), ('727', '10', '1033'), ('728', '10', '1034'), ('729', '10', '107'), ('730', '10', '1035'), ('731', '10', '1036'), ('732', '10', '1037'), ('733', '10', '1038'), ('734', '10', '108'), ('735', '10', '500'), ('736', '10', '1039'), ('737', '10', '1040'), ('738', '10', '1041'), ('739', '10', '1042'), ('740', '10', '501'), ('741', '10', '1043'), ('742', '10', '1044'), ('743', '10', '1045'), ('744', '10', '1046'), ('745', '10', '4'), ('746', '10', '1068'), ('747', '10', '1069'), ('748', '10', '1070'), ('749', '10', '1071'), ('750', '10', '1072'), ('751', '10', '1073'), ('752', '10', '1104'), ('753', '10', '1105'), ('754', '10', '1106'), ('755', '10', '1107'), ('756', '10', '1108'), ('757', '10', '1109'), ('758', '10', '1075'), ('759', '10', '1076'), ('760', '10', '1077'), ('761', '10', '1078'), ('762', '10', '1079'), ('763', '10', '1080'), ('764', '10', '1081'), ('765', '10', '1082'), ('766', '10', '1083'), ('767', '10', '1084'), ('768', '10', '1062'), ('769', '10', '1095'), ('770', '10', '1096'), ('771', '10', '1097'), ('772', '10', '1098'), ('773', '10', '1099'), ('774', '10', '1100'), ('775', '10', '1101'), ('776', '10', '1102'), ('777', '10', '1103'), ('778', '10', '1085'), ('779', '10', '1086'), ('780', '10', '1087'), ('781', '10', '1088'), ('782', '10', '1089'), ('783', '10', '1090'), ('784', '10', '1091'), ('785', '10', '1092'), ('786', '10', '1093'), ('787', '10', '1094'), ('788', '7', '1'), ('789', '7', '100'), ('790', '7', '1000'), ('791', '7', '1001'), ('792', '7', '1002'), ('793', '7', '1003'), ('794', '7', '1004'), ('795', '7', '1005'), ('796', '7', '1006'), ('797', '7', '101'), ('798', '7', '1007'), ('799', '7', '1008'), ('800', '7', '1009'), ('801', '7', '1010'), ('802', '7', '1011'), ('803', '7', '102'), ('804', '7', '1012'), ('805', '7', '1013'), ('806', '7', '1014'), ('807', '7', '1015'), ('808', '7', '103'), ('809', '7', '1016'), ('810', '7', '1017'), ('811', '7', '1018'), ('812', '7', '1019'), ('813', '7', '104'), ('814', '7', '1020'), ('815', '7', '1021'), ('816', '7', '1022'), ('817', '7', '1023'), ('818', '7', '1024'), ('819', '7', '105'), ('820', '7', '1025'), ('821', '7', '1026'), ('822', '7', '1027'), ('823', '7', '1028'), ('824', '7', '1029'), ('825', '7', '106'), ('826', '7', '1030'), ('827', '7', '1031'), ('828', '7', '1032'), ('829', '7', '1033'), ('830', '7', '1034'), ('831', '7', '107'), ('832', '7', '1035'), ('833', '7', '1036'), ('834', '7', '1037'), ('835', '7', '1038'), ('836', '7', '108'), ('837', '7', '500'), ('838', '7', '1039'), ('839', '7', '1040'), ('840', '7', '1041'), ('841', '7', '1042'), ('842', '7', '501'), ('843', '7', '1043'), ('844', '7', '1044'), ('845', '7', '1045'), ('846', '7', '1046'), ('847', '7', '4'), ('848', '7', '1068'), ('849', '7', '1069'), ('850', '7', '1070'), ('851', '7', '1071'), ('852', '7', '1072'), ('853', '7', '1073'), ('854', '7', '1104'), ('855', '7', '1105'), ('856', '7', '1106'), ('857', '7', '1107'), ('858', '7', '1108'), ('859', '7', '1109');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_user
+--  Table structure for `t_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
@@ -741,58 +314,17 @@ CREATE TABLE `t_user` (
   `address` varchar(255) DEFAULT NULL COMMENT '地址',
   `audit` int(6) DEFAULT NULL COMMENT '审核状态 0：待审核 1：已审核 2：审核未通过',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 -- ----------------------------
--- Records of t_user
+--  Records of `t_user`
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', '103', '0', 'admin', 'lquan', '00', 'lquan@163.com', '15888888888', '1', '/headImage/d03124dd10707a029e36786bffeb60e2.png', 'admin123', '111111', '0', '0', '', '2022-02-07 14:38:23', 'admin', '2018-03-16 11:33:00', '', '2022-02-15 09:59:39', '管理员', null, null, null, null);
-INSERT INTO `t_user` VALUES ('2', '105', '0', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '', '2020-02-05 09:49:08', 'admin', '2018-03-16 11:33:00', 'ry', '2020-02-05 09:49:08', '测试员', null, null, null, null);
-INSERT INTO `t_user` VALUES ('22', null, '0', 'lquans', 'lquans', '00', '', '15810607111', '0', '', '123456', 'e83b02', '0', '0', '', null, 'admin', '2022-02-21 18:43:12', '', null, '北京 朝阳 surp', null, null, '北京 朝阳', '0');
-INSERT INTO `t_user` VALUES ('23', null, '0', 'lquanz', 'lquanz2', '01', '', '15810607122', '1', '', '123456', '9ed206', '0', '0', '', null, 'admin', '2022-02-21 18:45:27', 'admin', '2022-02-21 21:02:09', '北京 东城区志愿者2', null, null, '北京 东城区志愿者', '2');
-INSERT INTO `t_user` VALUES ('25', null, '0', 'lquanq', 'lquanq', '02', '', '15810607113', '0', '', '123456', '452d07', '0', '0', '', null, 'admin', '2022-02-21 20:33:17', 'admin', '2022-02-21 20:44:35', null, '习大大', '18888888888', '北京 通州', '1');
+BEGIN;
+INSERT INTO `t_user` VALUES ('1', '0', '0', 'super', 'super', '00', 'lquan@163.com', '15888888888', '1', '/headImage/c74dd2dc8533b952786b3c0cc3c4f6dd.png', '123456', '111111', '0', '0', '', '2022-02-07 14:38:23', 'admin', '2018-03-16 11:33:00', '', '2022-02-23 11:27:11', '管理员', null, null, '北京 东城区', null), ('26', null, '0', 'lquan', 'lquan', '00', '', '15810607114', '0', '', '123456', 'f50426', '0', '0', '', null, 'admin', '2022-02-24 21:00:24', 'admin', '2022-02-24 21:00:41', 'xxxx', null, null, '北京', '0'), ('27', null, '0', 'lquan001', 'lquanqx', '00', '', '15810607110', '0', '', '123456', '42e734', '0', '0', '', null, 'admin', '2022-02-24 21:15:38', 'admin', '2022-02-24 21:31:50', 'nn', null, null, '北京', '0'), ('28', null, '0', 'lquan1', 'lquan1', '00', '', '15810608111', '0', '', '123456', '060ec6', '0', '0', '', null, 'super', '2022-02-24 23:42:42', '', null, null, null, null, '比较', '0'), ('29', null, '0', 'lquan2', 'lquan2', '00', '', '15810608112', '0', '', '123456', 'c97fc5', '0', '0', '', null, 'super', '2022-02-24 23:43:06', '', null, null, null, null, '比较', '0'), ('30', null, '0', 'lquan3', 'lquan3', '00', '', '15810608113', '0', '', '123456', '1f32d2', '0', '0', '', null, 'super', '2022-02-24 23:43:32', '', null, null, null, null, '比较', '0'), ('31', null, '0', 'lquan4', 'lquan4', '00', '', '15810608114', '0', '', '123456', 'cb9257', '0', '0', '', null, 'super', '2022-02-24 23:43:51', '', null, null, null, null, '比较', '0'), ('32', null, '0', 'lquan5', 'lquan5', '00', '', '15810608115', '0', '', '123456', 'd9b7fb', '0', '0', '', null, 'super', '2022-02-24 23:44:07', '', null, null, null, null, '比较', '0'), ('33', null, '0', 'xxx', 'xx', '02', '', '15810608110', '0', '', '123456', '2bcf15', '0', '0', '', null, 'lquan5', '2022-02-24 23:53:41', '', '2022-02-25 00:06:58', null, '15810608110', '15810608110', '比较', '1'), ('34', null, '0', 'zyz', 'zyz', '01', '', '15810602311', '0', '', '123456', 'e5b9cd', '0', '0', '', null, 'super', '2022-02-25 00:05:34', '', null, null, null, null, '比较', '0');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_user_online
--- ----------------------------
-DROP TABLE IF EXISTS `t_user_online`;
-CREATE TABLE `t_user_online` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `sessionId` varchar(50) NOT NULL DEFAULT '' COMMENT '用户会话id',
-  `login_name` varchar(50) DEFAULT '' COMMENT '登录账号',
-  `dept_name` varchar(50) DEFAULT '' COMMENT '部门名称',
-  `ipaddr` varchar(50) DEFAULT '' COMMENT '登录IP地址',
-  `login_location` varchar(255) DEFAULT '' COMMENT '登录地点',
-  `browser` varchar(50) DEFAULT '' COMMENT '浏览器类型',
-  `os` varchar(50) DEFAULT '' COMMENT '操作系统',
-  `status` varchar(10) DEFAULT '' COMMENT '在线状态on_line在线off_line离线',
-  `start_timestamp` datetime DEFAULT NULL COMMENT 'session创建时间',
-  `last_access_time` datetime DEFAULT NULL COMMENT 'session最后访问时间',
-  `expire_time` int(5) DEFAULT '0' COMMENT '超时时间，单位为分钟',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='在线用户记录';
-
--- ----------------------------
--- Records of t_user_online
--- ----------------------------
-
--- ----------------------------
--- Table structure for t_user_post
--- ----------------------------
-DROP TABLE IF EXISTS `t_user_post`;
-CREATE TABLE `t_user_post` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
-  `post_id` bigint(20) NOT NULL COMMENT '岗位ID',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户与岗位关联表';
-
--- ----------------------------
--- Records of t_user_post
--- ----------------------------
-
--- ----------------------------
--- Table structure for t_user_role
+--  Table structure for `t_user_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_role`;
 CREATE TABLE `t_user_role` (
@@ -800,19 +332,17 @@ CREATE TABLE `t_user_role` (
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联表';
 
 -- ----------------------------
--- Records of t_user_role
+--  Records of `t_user_role`
 -- ----------------------------
-INSERT INTO `t_user_role` VALUES ('2', '1', '1');
-INSERT INTO `t_user_role` VALUES ('3', '2', '2');
-INSERT INTO `t_user_role` VALUES ('58', '24', '4');
-INSERT INTO `t_user_role` VALUES ('60', '25', '4');
-INSERT INTO `t_user_role` VALUES ('66', '23', '2');
+BEGIN;
+INSERT INTO `t_user_role` VALUES ('2', '1', '1'), ('92', '27', '1'), ('93', '27', '2'), ('94', '26', '2'), ('95', '28', '6'), ('96', '29', '7'), ('97', '30', '8'), ('98', '31', '9'), ('99', '32', '10'), ('100', '33', '2'), ('101', '34', '3');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_wish
+--  Table structure for `t_wish`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_wish`;
 CREATE TABLE `t_wish` (
@@ -832,37 +362,40 @@ CREATE TABLE `t_wish` (
   `audit_status` int(2) DEFAULT '0' COMMENT '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望',
   `audit_id` int(5) DEFAULT NULL COMMENT '审核人员id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='愿望清单';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='愿望清单';
 
 -- ----------------------------
--- Records of t_wish
+--  Records of `t_wish`
 -- ----------------------------
-INSERT INTO `t_wish` VALUES ('3', 'xxxxxxxy', 'ba28991cbcdec83afdbe75b00035f225.jpg', 'xxxxxyy', '<p>ss<b><span style=\"font-size: 9px;\">s<span style=\"font-size: 36px;\">s</span></span></b><span style=\"font-size: 36px;\">﻿</span><span style=\"font-size: 36px;\">sss</span>sBBB</p>', '1', '0', '', '2022-02-22 12:14:33', '', '2022-02-22 14:05:33', null, null, '0', null);
-INSERT INTO `t_wish` VALUES ('4', '啊发顺丰', '8f8f4ea1ef47cb5512114d10fb5d5be2.jpg', '阿士大夫撒范德萨发的', '<p>广发的GV持续性差V型成本是多少方法</p><p><img src=\"data:image/png;base64,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\" alt=\"\"><br></p>', '0', '0', 'admin', '2022-02-22 14:33:46', 'admin', '2022-02-22 14:34:26', null, '1', '0', null);
+BEGIN;
+INSERT INTO `t_wish` VALUES ('3', 'xxxxxxxy', '01d709bbf5e0365dd45ab25a11726566.jpg', 'xxxxxyy', '<p>ss<b><span style=\"font-size: 9px;\">s<span style=\"font-size: 36px;\">s</span></span></b><span style=\"font-size: 36px;\">﻿</span><span style=\"font-size: 36px;\">sss</span>sBBB vvvyyygkvghfffk</p>', '1', '0', '', '2022-02-22 12:14:33', 'admin', '2022-02-24 15:19:15', null, '1', '1', '1'), ('4', '啊发顺丰', '2faf2ced959ad835185c9bcbbc27e93b.jpg', '阿士大夫撒范德萨发的', '<p>广发的GV持续性差V型成本是多少方法</p><p><br></p>', '0', '0', 'admin', '2022-02-22 14:33:46', 'admin', '2022-02-24 21:26:01', null, '1', '2', '1'), ('5', '看望山区的儿童呀', 'e2269fa959aa9e3be4522cab4bc37b32.jpg', 'prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦', 'prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦', '1', '0', 'admin', '2022-02-24 15:18:32', 'admin', '2022-02-24 15:20:35', null, '1', '1', '1'), ('6', 'qerqwrwqer', '61133060e2ae688b0d239a6664db7c2e.jpg', 'qwerwqer', '<p>qwerwqerwqer</p>', '0', '0', 'lquan5', '2022-02-24 23:47:49', 'lquan5', '2022-02-24 23:51:24', null, '32', '1', '32');
+COMMIT;
 
 -- ----------------------------
--- Table structure for t_wishxxx
+--  Table structure for `t_wish_story`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_wishxxx`;
-CREATE TABLE `t_wishxxx` (
+DROP TABLE IF EXISTS `t_wish_story`;
+CREATE TABLE `t_wish_story` (
   `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(100) DEFAULT '' COMMENT '名称',
   `imgUrl` varchar(200) DEFAULT '' COMMENT '图片地址',
-  `wish_short` varchar(200) DEFAULT '' COMMENT '愿望简介',
-  `wish_info` longtext COMMENT '愿望简介',
-  `wish_type` int(2) DEFAULT NULL COMMENT '愿望类型 0:代表金钱；1：人力物力',
+  `story_short` varchar(1000) DEFAULT '' COMMENT '圆梦简介',
+  `story_info` longtext COMMENT '圆梦故事内容',
+  `is_publish` int(2) DEFAULT '0' COMMENT '审核状态 0：带发布  1：发布',
   `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  `user_id` int(5) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='关于我们';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='圆梦故事';
 
 -- ----------------------------
--- Records of t_wishxxx
+--  Records of `t_wish_story`
 -- ----------------------------
-INSERT INTO `t_wishxxx` VALUES ('3', 'xxxxxxxy', 'ba28991cbcdec83afdbe75b00035f225.jpg', 'xxxxxyy', '<p>ss<b><span style=\"font-size: 9px;\">s<span style=\"font-size: 36px;\">s</span></span></b><span style=\"font-size: 36px;\">﻿</span><span style=\"font-size: 36px;\">sss</span>sBBB</p>', '1', '0', '', '2022-02-22 12:14:33', '', '2022-02-22 14:05:33', null, null);
-INSERT INTO `t_wishxxx` VALUES ('4', '啊发顺丰', '8f8f4ea1ef47cb5512114d10fb5d5be2.jpg', '阿士大夫撒范德萨发的', '<p>广发的GV持续性差V型成本是多少方法</p><p><img src=\"data:image/png;base64,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\" alt=\"\"><br></p>', '0', '0', 'admin', '2022-02-22 14:33:46', 'admin', '2022-02-22 14:34:26', null, '1');
+BEGIN;
+INSERT INTO `t_wish_story` VALUES ('6', '123312313', '1a244038018e845e69c2cdfcf8eba2a6.jpg', 'qwrqwe', '<p>rqwerqwerqwerqwer</p>', '1', '0', '', '2022-02-24 01:00:25', 'lquan2', '2022-02-24 23:44:59', null), ('7', '果度有好多人系度量血压啊，猴赛雷啊', '111c8e62196fc4570789a15eaced5974.jpg', '中国的慈善事业，同样有着自己悠久的传统。汉唐寺院济贫、赈灾、医疗、戒残杀的长盛不衰；宋代养老扶幼事业的勃兴；元医疗救助的兴起；明清民间慈善群体在中国慈善史上首屈一指 。更有当今国门开放以来，涌现出一批批社会贤达、名流、企业家、离退休干部为水灾、为贫困大中小学生、为艾滋病、白内障的贫困患者，默默从事的慈善救助。统计表明，至少一半的富豪要求对其捐款事实及数额“保密”。中国的慈善事业，同样有着自己悠久的传统。汉唐寺院济贫、赈灾、医疗、戒残杀的长盛不衰；宋代养老扶幼事业的勃兴；元医疗救助的兴起；明清民间慈善群体在中国慈善史上首屈一指 。更有当今国门开放以来，涌现出一批批社会贤达、名流、企业家、离退休干部为水灾、为贫困大中小学生、为艾滋病、白内障的贫困患者，默默从事的慈善救助。统计表明，至少一半的富豪要求对其捐款事实及数额“保密”。', '<p></p><p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">6月10日放学后，姐妹俩吃了垃圾堆里的食物后中毒。事发后住在附近的小孩过来看。图/潇湘晨报记者陈正 从学校回出租屋的那条路，只有一公里，姐妹俩却再也走不到了。 6月10日放学后，她们走了一条与往常不一样的路：来到离学校不远的山脚下，这里，堆了一些被丢弃的垃圾。 姐妹俩应该有些饿，她们吃起了垃圾堆里的食物。 没过多久，这对14岁和8岁的姐妹俩的生命，因“毒鼠强”而终止。 “我看到小妹子的时候，她眼睛都翻白了。”6月11日下午，见到记者时，60岁的汤和平老泪纵横。 一天前，他的两个女儿放学后回家，在途中死亡。衡阳警方认定，两女孩的死因系中毒引发。 14岁的姐姐汤银霞、8岁的妹妹汤溪林，都在衡阳县界牌镇银瓷完小读书，姐姐读六年级，妹妹读一年级。 6月10日下午放学后，姐妹俩一起回家。她们家在镇上租的房子离学校仅一公里左右，谁也没料到，姐妹俩会在途中出事。 汤和平事后了解到的情况是，大女儿死在离家半公里的山下——这并不是从学校回家的路。随后，妹妹哭着回家喊人，倒在半途中，后来被附近居民发现。汤和平赶到医院不久，小女儿停止了呼吸。 当地流传的说法称，汤银霞姐妹俩途中遇上两名男子，两男子请她们喝可乐，之后姐妹俩倒地死亡。 “这种说法基本可以排除。”6月11日，衡阳县公安局刑侦大队大队长黄均说。 事发后，当地公安机关迅速介入调查。 据了解，事发时，汤银霞的同学陈文华也在现场。11日晚，陈文华仍在派出所配合调查。据她的奶奶凌红燕转述，在当天回家途中，陈文华看到汤银霞姐妹捡垃圾堆里的食物吃。“什么麻辣烫呀，还有一些脏的东西都吃，里面可能有老鼠药。”凌红燕说，“她们是吃垃圾中毒的。” 正在当地调查的黄均确认，汤银霞姐妹系中毒身亡，“是毒鼠强。具体什么原因，还在调查。” 哪里来的毒鼠强? 孩子们倒在毒鼠强之下的新闻并不少见。今年3月，山东巨野6岁男童路边捡到一根棒棒糖，吃完后中毒死亡。 毒鼠强，毒性极强，几毫克毒鼠强便可致成人死亡，目前尚无特效解毒剂。早在1991年，农业部即将毒鼠强为禁用品种。2003年，“两高”曾出台司法解释，明确非法制造、买卖、运输、储存毒鼠强等禁用剧毒化学品，最高可判处死刑。 然而，因成本低廉，购买方便，这种毒药在很多农村乡镇集市上可以随意买到，毒鼠强中毒事件仍然不断发生。 这一次，毒死衡阳县两姐妹的毒鼠强到底从何而来?仍待警方调查。 父母可以做到这些 衡阳县两姐妹的悲剧，令人唏嘘。作为家长，应该告诫孩子“不要捡掉地上的食物吃”，并懂得一定的急救知识。 专家建议，父母首先以身作则，家里吃饭时，食物掉地上不要捡起来吃。此外，在公共场所发现的食物，即使包装完好，也不要让孩子碰。 除了预防，父母还必须懂得一些中毒急救方法。如果孩子食物中毒，要及时进行催吐。孩子吃过的食物，怀疑变质或者有毒时，要保存起来，交给医生急救时分析处理。同时要第一时间送往医院检查救治。 常随母亲捡废品，常饿肚子 两个女儿的生命无法挽回了，汤和平，这个60岁的老人，头发泛白，满面憔悴，接受采访时哭成了泪人。 这并非是他第一次面对命运的残酷。 十六年前，13岁的儿子在水塘里溺亡。此后，夫妻俩陆续生下两个女儿。谁也没想到，夫妻俩要再次承受丧女之痛。 母亲捡垃圾常忘记给她们做饭 汤和平的家位于偏僻的界牌镇高山村，离镇上七八公里远。村里的小学早撤了，汤和平只能将女儿送到镇里的银瓷完小就读。 6月11日，潇湘晨报记者来到界牌镇一家破旧的瓷器厂仓库。走过一条狭长的小道，看到一间小杂屋，透过破烂的木门，可见屋内堆积的杂乱废品。 这间杂屋曾是破产企业的一个澡堂，改造后用来出租。七年前，为了方便孩子读书，汤和平租下这间小杂房，月租50元。 汤和平平常都在老家务农，农闲时节出去帮人弹棉被挣些零用钱。这些年，在镇上出租屋照顾两个女儿的任务，便由汤和平的妻子承担。 汤妻比他小十来岁，没读过书，有智力障碍。“脑子有问题。”汤和平说，妻子唯一的技能，就是捡废品。她不懂算术，挑废品去卖，“老板给多少就多少。” 住在附近的居民王兰兰介绍，汤妻经常半夜三更出来走动。令邻居们担忧的是，汤妻白天外出捡垃圾，常常忘记回家给两个女儿煮饭，“有时候一天吃一顿饭，有时候两顿。”王兰兰说。 垃圾堆里有她们喜欢的麻辣小吃 汤银霞姐妹的学习成绩不好。 她的一名同学说，在班上69个同学中，汤银霞总是倒数一二名，“三科加起来都考不到30分。” 办案民警对姐妹俩的生活状况进行过调查。据黄均介绍，姐妹俩有捡垃圾的生活习性，常跟母亲外出捡废品，“有时也捡一些东西吃。” 6月10日下午放学回家，姐妹俩没有直接走马路回，而是来到离学校不远的山脚下，这里有一些被居民们丢弃的垃圾废品。当时，姐妹俩应该有些饿，而回到家，也许要几小时后才能等到母亲做的晚饭。姐妹俩从垃圾堆里捡了一些别人扔弃的食物，其中有她们喜欢的麻辣小吃。 幼小的她们没考虑到，这些垃圾废品中，可能有当地居民毒鼠用过的“食品”——毒鼠强。 14岁的姐姐先倒地，她吃得多，也吃得快。 8岁的妹妹吓得往前跑，没多久，也倒在了半途中。 从大瑶山来到县城，开始了照顾母亲兼打工的生活</span><br></p><p><br></p><p><br></p><p><br></p>', '1', '0', '', '2022-02-24 01:28:26', 'lquan2', '2022-02-24 23:45:06', null);
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;

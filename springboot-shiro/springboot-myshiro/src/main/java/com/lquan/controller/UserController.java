@@ -5,6 +5,7 @@ import com.lquan.bean.Resp.AjaxResult;
 import com.lquan.common.UserConstants;
 import com.lquan.common.page.TableDataInfo;
 import com.lquan.common.poi.ExcelUtil;
+import com.lquan.common.shiro.ShiroUtils;
 import com.lquan.domain.User;
 import com.lquan.enums.BusinessType;
 import com.lquan.service.PostService;
@@ -32,9 +33,9 @@ import java.util.stream.Collectors;
  * @since 2022-02-09 00:40:35
  */
 @Controller
-@RequestMapping("/system/user")
+@RequestMapping("/admin/user")
 public class UserController extends BaseController {
-    private String prefix = "system/user";
+    private String prefix = "admin/user";
     /**
      * 服务对象
      */
@@ -99,7 +100,7 @@ public class UserController extends BaseController {
     public String edit(@PathVariable("userId") Long userId, ModelMap mmap) {
         mmap.put("user", userService.selectUserById(userId));
         mmap.put("roles", roleService.selectRolesByUserId(userId));
-      //  mmap.put("posts", postService.selectPostsByUserId(userId));
+        //  mmap.put("posts", postService.selectPostsByUserId(userId));
         return prefix + "/edit";
     }
 
@@ -122,6 +123,7 @@ public class UserController extends BaseController {
 
     /**
      * 删除
+     *
      * @param ids
      * @return
      */
@@ -147,7 +149,6 @@ public class UserController extends BaseController {
         userService.checkUserAllowed(user);
         return toAjax(userService.changeStatus(user));
     }
-
 
 
     /**
@@ -180,6 +181,7 @@ public class UserController extends BaseController {
 
     /**
      * 导出数据
+     *
      * @param user
      * @return
      */
@@ -194,6 +196,7 @@ public class UserController extends BaseController {
 
     /**
      * 导入数据
+     *
      * @param file
      * @param updateSupport
      * @return
@@ -211,6 +214,7 @@ public class UserController extends BaseController {
 
     /**
      * 验证表头
+     *
      * @return
      */
     @RequiresPermissions("system:user:view")
@@ -221,5 +225,26 @@ public class UserController extends BaseController {
         return util.importTemplateExcel("用户数据");
     }
 
+
+    @RequiresPermissions("system:user:resetPwd")
+    @GetMapping("/resetPwd/{userId}")
+    public String resetPwd(@PathVariable("userId") Long userId, ModelMap mmap) {
+        mmap.put("user", userService.selectUserById(userId));
+        return prefix + "/resetPwd";
+    }
+
+    @RequiresPermissions("system:user:resetPwd")
+    @PostMapping("/resetPwd")
+    @ResponseBody
+    public AjaxResult resetPwdSave(User user) {
+        userService.checkUserAllowed(user);
+        if (userService.resetUserPwd(user) > 0) {
+            if (ShiroUtils.getUserId() == user.getId()) {
+                setSysUser(userService.selectUserById(user.getId()));
+            }
+            return success();
+        }
+        return error();
+    }
 }
 

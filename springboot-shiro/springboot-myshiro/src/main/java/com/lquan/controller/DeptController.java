@@ -22,10 +22,10 @@ import java.util.List;
  * @since 2022-02-09 23:26:22
  */
 @Controller
-@RequestMapping("/system/dept")
+@RequestMapping("/admin/dept")
 public class DeptController {
 
-    private String prefix = "system/dept";
+    private String prefix = "admin/dept";
 
     @Autowired
     private DeptService deptService;

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/user")
 public class RegisterController extends BaseController {
 
-    private String prefix = "system/user";
+    private String prefix = "admin/user";
 
     @Autowired
     private UserService userService;

@@ -96,7 +96,7 @@ public class AuditController  extends BaseController{
     /**
      * 用户状态修改
      */
-    @RequiresPermissions("system:audit:edit")
+    @RequiresPermissions("system:auditQ:edit")
     @PostMapping("/auditQ/changeAudt")
     @ResponseBody
     public AjaxResult changeAudtQ(User user) {
