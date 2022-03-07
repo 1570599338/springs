@@ -14,6 +14,7 @@
         <module>springboot-job</module>
         <module>springboot-shiro</module>
         <module>springboot-thymeleaf</module>
+        <module>springboot-modeST</module>
     </modules>
 
     <properties>
