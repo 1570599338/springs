@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * ClassName:    RandomStringUtils
- * Package:    com.test.demo.utils
+ * Package:    com.shiro.demo.utils
  * Description:
  * Datetime:    2020/1/17   14:19
  * Author:   zhoukaishun

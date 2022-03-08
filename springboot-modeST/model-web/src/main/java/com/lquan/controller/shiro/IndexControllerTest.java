@@ -1,4 +1,4 @@
-package com.lquan.controller.test;
+package com.lquan.controller.shiro;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/")
 public class IndexControllerTest {
+
+    private String prefix = "/shiro/";
     @RequestMapping("/login")
     public  String index(Model model){
 
         model.addAttribute("name","hello world!!!");
-        return "login";
+        return  prefix+"login";
     }
 
     @RequestMapping("/test")
@@ -36,7 +38,7 @@ public class IndexControllerTest {
     public  String testThymeleaf(Model model){
 
         model.addAttribute("name","hello world!!!");
-        return "test";
+        return prefix+"shiro";
     }
 
     @RequestMapping("/toLogin")
@@ -55,7 +57,7 @@ public class IndexControllerTest {
         }
 
 
-        return "test";
+        return prefix+"test";
     }
 
 
@@ -63,7 +65,7 @@ public class IndexControllerTest {
     public  String unAuth(Model model){
 
 
-        return "unAuth";
+        return prefix+"unAuth";
     }
 
 
@@ -71,14 +73,14 @@ public class IndexControllerTest {
     public  String add(Model model){
 
         model.addAttribute("name","add");
-        return "add";
+        return prefix+ "add";
     }
 
     @RequestMapping("/update")
     public  String update(Model model){
 
         model.addAttribute("name","update");
-        return "update";
+        return prefix+"update";
     }
 
 

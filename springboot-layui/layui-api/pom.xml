@@ -171,10 +171,10 @@
          </profile>-->
         <!--<profile>
             &lt;!&ndash; 测试环境 &ndash;&gt;
-            <id>test</id>
+            <id>shiro</id>
             <properties>
                 <finalName>${project.artifactId}</finalName>
-                <package.env>test</package.env>
+                <package.env>shiro</package.env>
             </properties>
         </profile>
         <profile>
@@ -195,10 +195,10 @@
         </profile>
         <profile>
             &lt;!&ndash;压测环境 &ndash;&gt;
-            <id>test-yc</id>
+            <id>shiro-yc</id>
             <properties>
                 <finalName>${project.artifactId}</finalName>
-                <package.env>test-yc</package.env>
+                <package.env>shiro-yc</package.env>
             </properties>
         </profile>-->
     </profiles>

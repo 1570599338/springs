@@ -5,7 +5,7 @@ import lombok.Getter;
 
 /**
  * ClassName:    CodeMessageException
- * Package:    com.test.demo.utils.exception
+ * Package:    com.shiro.demo.utils.exception
  * Description:
  * Datetime:    2020/1/17   13:00
  * Author:   zhoukaishun
