@@ -15,6 +15,7 @@
         <module>springboot-shiro</module>
         <module>springboot-thymeleaf</module>
         <module>springboot-modeST</module>
+        <module>springboot-jpa</module>
     </modules>
 
     <properties>
