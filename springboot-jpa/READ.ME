@@ -1,1 +1,40 @@
 https://www.bilibili.com/video/BV1c54y1C7tV?p=34
+
+jpa的关键字
+findByName    jpql片段     where name=xxx
+
+#关键字                  接口函数例子                                              JPQL片段
+And                     findByLastnameAndFirstname                            where x.lastname=? and x.firstname=?
+
+Or                      findByLastnameORFirstname                             where x.lastname=? or x.firstname=?
+
+Is，Equals               findByFirstnameIs、findByFirstnameEqual               where  x.firstname=?
+
+Between                 findByStartDateBetween                                where  x.startDate   between  ?  and ?
+
+lessThan                findByAgeLessThan                                     where x.age<?
+
+lessThanEqual           findByAgeLessThanEqual                                where x.age<=?
+
+GreaterThan             findByAgeGreaterThan                                  where x.age>?
+
+GreaterThanEqual        findByAgeGreaterThanEqual                              where x.age>=?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
