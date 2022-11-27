@@ -1,0 +1,36 @@
+
+
+persion:
+  userName: zhangsan
+  boss: true
+  birth: 2022/11/27
+  age: 16
+ # interests: [篮球，足球]
+  interests:
+    - 足球
+    - 篮球
+    - 18
+    - 2022/11/27
+  animal: [cat,dog]
+
+#score是map类型的两种写法
+# score: {english: 80,math: 90}
+  score:
+    english: 80
+    math: 90
+# salarys是set类型的两种写法和数组、list写法一样
+#  salarys: [998,999]
+  salarys:
+    - 990
+    - 991
+
+ # Map<String, List<Pet>> 类型写法
+  allPets:
+    dog: [{name: dog1,weight: 2},{name: dog2,weight: 3.1},{name: dog3,weight: 5.21}]
+    cat: [{name: cat1,weight: 2},{name: cat2,weight: 3.1},{name: cat3,weight: 5.21}]
+
+
+  pet: {name: tom,weight: 3.3}
+#  pet:
+#    name: tom
+#   weigth: 3.3
