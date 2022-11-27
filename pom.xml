@@ -16,6 +16,10 @@
         <module>springboot-thymeleaf</module>
         <module>springboot-modeST</module>
         <module>springboot-jpa</module>
+        <module>SpringBoot2</module>
+
+
+
     </modules>
 
     <properties>
