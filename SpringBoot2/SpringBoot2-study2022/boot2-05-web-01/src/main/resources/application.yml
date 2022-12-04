@@ -2,7 +2,10 @@
 #  web:
 #    resources:
 #      static-locations: [classpath:/haha]
-
+spring:
+  mvc:
+    contentnegotiation:
+      favor-parameter: true
 
  # mvc:
  #   static-path-pattern: /res/**

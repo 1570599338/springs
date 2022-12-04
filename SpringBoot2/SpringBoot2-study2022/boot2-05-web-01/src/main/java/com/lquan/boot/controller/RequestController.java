@@ -1,12 +1,15 @@
 package com.lquan.boot.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +46,52 @@ public class RequestController {
         map.put("msg",msg);
         map.put("code",code);
         map.put("msg1",msg1);
+        return map;
+    }
+
+
+
+
+
+
+
+
+
+    // 复杂参数
+    @GetMapping("/param")
+    public String testParam(Map<String,String> map,
+                            Model model,
+                            HttpServletRequest request,
+                            HttpServletResponse response){
+        map.put("hello","world66");
+        model.addAttribute("world","hello66！");
+        request.setAttribute("msgs","helloworld");
+
+        Cookie cookie = new Cookie("c1", "v1");
+        response.addCookie(cookie);
+
+        return "forward:/testParam";
+
+    }
+
+    @ResponseBody
+    @GetMapping("/testParam")
+    public Map successParam(HttpServletRequest request,
+                       @RequestAttribute("hello") String msg1,
+                       @RequestAttribute("world") String msg2,
+                       @RequestAttribute("msgs") String msg3){
+        Map<String,Object> map = new HashMap<>();
+        Object hello = request.getAttribute("hello");
+        Object world = request.getAttribute("world");
+        Object message = request.getAttribute("msgs");
+
+
+        map.put("msg1",msg1);
+        map.put("msg2",msg2);
+        map.put("msg3",msg3);
+        map.put("hello",hello);
+        map.put("world",world);
+        map.put("message",message);
         return map;
     }
 
