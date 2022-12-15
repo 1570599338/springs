@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--xml形式的全局配置如果在yml中进行配置了，此处的就不能在配置了，只能二选一
+        如果mybatis.config-location的配置路径没有配置，此处的xml是不生效的
+    -->
+    
+    <settings>
+        <!--驼峰命名规则 开启-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+</configuration>

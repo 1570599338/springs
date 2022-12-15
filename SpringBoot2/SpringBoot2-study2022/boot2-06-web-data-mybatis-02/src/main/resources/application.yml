@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+#mybatis的配置
+mybatis:
+  # config-location: classpath:mybatis/mybatis-config.xml  #mybatis的全局文件
+  mapper-locations: classpath:mybatis/*.xml        #mybatis的sql映射文件
+  configuration:                        #此处配置了config-location的配置文件就不能再配置了，只能二选一
+    map-underscore-to-camel-case: true      #开启驼峰命名规则
