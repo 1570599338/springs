@@ -6,7 +6,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
     druid:
-      filters: stat,wall,sl4j # 底层开启功能，stat（sql监控），wall（防火墙）、日志
+      aop-patterns: com.lquan.boot.*   #监控SpringBean
+      filters: stat,wall,slf4j # 底层开启功能，stat（sql监控），wall（防火墙）、日志
+
       stat-view-servlet:   # 配置监控页功能
         enabled: true  #配置druid的监控页面功能开启，默认关闭的
         login-username: admin  #登录名
@@ -18,13 +20,16 @@ spring:
         url-pattern: /*  #拦截所有
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'  # 排除
 
-      aop-patterns: com.lquan.boot.aop.*   #spring 监控AOP切入点多个用英文逗号分割
+
+
 
       filter:    # 对上面filters里面的stat的详细配置
-        stat:
+        stat:     #sql监控
           slow-sql-millis: 1000
           log-slow-sql: true
           enabled: true
 
-        wall:
+        wall:         #防火墙
           enabled: true
+          config:
+            drop-table-allow: false
