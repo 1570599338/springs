@@ -34,7 +34,7 @@ public class TableController {
         return "table/basic_table";
     }
 
-    @GetMapping("/user/delete/{id}")
+   // @GetMapping("/user/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id,
                              @RequestParam(value = "pn",defaultValue = "1")Integer pn,
                              RedirectAttributes ra){
@@ -80,5 +80,23 @@ public class TableController {
     @GetMapping("/editable_table")
     public String editable_table(){
         return "table/editable_table";
+    }
+
+    /**
+     *
+     * 删除数据
+     * @param pn
+     * @param id
+     * @param redirectAttributes
+     * @return
+     */
+    @GetMapping("/user/delete/{id}")
+    public  String deteUser(@RequestParam(value = "pn",defaultValue = "1") Integer pn,
+                            @PathVariable("id") Long id,
+                            RedirectAttributes redirectAttributes){
+
+        userService.removeById(id);
+        redirectAttributes.addAttribute("pn",pn);
+        return "redirect:/dynamic_table";
     }
 }

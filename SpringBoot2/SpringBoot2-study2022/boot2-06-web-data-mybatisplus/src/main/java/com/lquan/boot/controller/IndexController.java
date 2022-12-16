@@ -1,12 +1,16 @@
 package com.lquan.boot.controller;
 
 import com.lquan.boot.bean.User;
+import com.lquan.boot.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +22,12 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 public class IndexController {
+
+    @Autowired(required = false)
+    StringRedisTemplate redisTemplate;
+
+    @Autowired
+    UserService userService;
 
     /**
      * 来登录页
@@ -51,11 +61,27 @@ public class IndexController {
     }
 
     @GetMapping("main.html")
-    public String mainPage(){
+    public String mainPage(Model model){
+
+        String main = redisTemplate.opsForValue().get("/main.html");
+        String sql = redisTemplate.opsForValue().get("/sql");
+        model.addAttribute("mainCount",main);
+        model.addAttribute("sqlCount",sql);
 
 
         return "main";
     }
+
+    @ResponseBody
+    @GetMapping("/sql")
+    public  String sql(){
+
+        int count = userService.count();
+        log.info("数量:{}", count);
+
+        return "数量："+count;
+    }
+
 
 
 }
