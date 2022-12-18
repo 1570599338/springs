@@ -5,6 +5,7 @@ import com.lquan.boot.mapper.CityMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @program: springs
@@ -21,6 +22,7 @@ public class CityService {
     CityMapper cityMapper;
 
 
+    @Transactional
     public City findById(long id){
 
         log.info("执行接口：findById");
