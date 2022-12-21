@@ -1,0 +1,11 @@
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+  com.lquan.listener.MyApplicationContextInitializer
+  
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+  com.lquan.listener.MyApplicationListener
+
+
+org.springframework.context.SpringApplicationRunListener=\
+  com.lquan.listener.MySpringApplicationRunListener
