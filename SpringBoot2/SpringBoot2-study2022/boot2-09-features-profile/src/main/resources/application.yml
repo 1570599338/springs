@@ -1,0 +1,15 @@
+
+userx:
+  name: 张三
+spring:
+  profiles:
+    active: mypro
+
+    group:
+      dev[0]: dev
+      test[0]: test
+      mypro[0]: mypro
+      mypro[1]: pdd
+
+
+
