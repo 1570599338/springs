@@ -11,6 +11,11 @@
     <module>cloud-03-provider-payment8001</module>
     <module>cloud-03-consumer-order80</module>
     <module>cloud-03-api-commons</module>
+    <module>cloud-04-eureka-server7001</module>
+    <module>cloud-04-provider-payment8001</module>
+    <module>cloud-04-consumer-order80</module>
+    <module>cloud-04-eureka-cluster-server7001</module>
+    <module>cloud-04-eureka-cluster-server7002</module>
   </modules>
   <packaging>pom</packaging>
 
