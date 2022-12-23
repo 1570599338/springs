@@ -1,6 +1,7 @@
-package com.lquan.domain;
+package com.lquan.bean;
 
 import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -16,7 +17,7 @@ public class Payment implements Serializable {
      * id
      */
     private Long id;
-    
+
     private String serial;
 
 
@@ -37,4 +38,3 @@ public class Payment implements Serializable {
     }
 
 }
-

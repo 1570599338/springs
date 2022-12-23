@@ -5,13 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @program: springcould
- * @description:
+ * @description: order
  * @author: lquan
- * @create: 2022-12-22 19:14
+ * @create: 2022-12-23 11:55
  **/
 @SpringBootApplication
-public class PayMent8001App {
+public class Oder80App {
     public static void main(String[] args) {
-        SpringApplication.run(PayMent8001App.class,args);
+        SpringApplication.run(Oder80App.class,args);
     }
 }

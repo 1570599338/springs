@@ -1,8 +1,6 @@
-package com.lquan.bean.resp;
+package com.lquan.bean;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @program: springcould
