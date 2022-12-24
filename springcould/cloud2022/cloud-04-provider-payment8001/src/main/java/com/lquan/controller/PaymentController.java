@@ -5,9 +5,15 @@ import com.lquan.bean.CommonResult;
 import com.lquan.bean.Payment;
 import com.lquan.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Payment)表控制层
@@ -25,6 +31,9 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    @Value("${server.port}")
+    private String port;
+
 
     /**
      * 通过主键查询单条数据
@@ -35,7 +44,7 @@ public class PaymentController {
     @GetMapping("/get/{id}")
     public CommonResult<Payment> queryById(@PathVariable("id") Long id) {
         log.info("queryById->查询参数:{}",id);
-        return new CommonResult<Payment>(200,"成功！",this.paymentService.queryById(id));
+        return new CommonResult<Payment>(200,"成功！"+port,this.paymentService.queryById(id));
     }
 
     /**
@@ -47,7 +56,7 @@ public class PaymentController {
     @PostMapping("/add")
     public CommonResult<Payment> add(@RequestBody Payment payment) {
         Payment insert = this.paymentService.insert(payment);
-        return new CommonResult<Payment>(200,"成功！",insert);
+        return new CommonResult<Payment>(200,"成功！"+port,insert);
     }
 
     /**
@@ -59,7 +68,7 @@ public class PaymentController {
     @PutMapping("/edit")
     public CommonResult<Payment> edit(Payment payment) {
         this.paymentService.update(payment);
-        return new CommonResult<Payment>(200,"修改成功！");
+        return new CommonResult<Payment>(200,"修改成功！"+port);
     }
 
     /**
@@ -71,7 +80,25 @@ public class PaymentController {
     @GetMapping("/del/{id}")
     public CommonResult<Payment> deleteById(Long id) {
         this.paymentService.deleteById(id);
-        return new CommonResult<Payment>(200,"删除成功！");
+        return new CommonResult<Payment>(200,"删除成功！"+port);
+    }
+
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+    @GetMapping("/dis")
+    public Object getDiscovery() {
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            log . info ( "***** element:" + service );
+        }
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("provider-payment04");
+        for (ServiceInstance instance : instances) {
+            log.info("ServiceId:"+instance.getServiceId()+" |instanceId: "+instance.getInstanceId()+" |host: "+instance.getHost()+" |port: "+instance.getPort()+" |uri: "+instance.getUri()+" | ");
+        }
+
+        return discoveryClient;
     }
 
 }

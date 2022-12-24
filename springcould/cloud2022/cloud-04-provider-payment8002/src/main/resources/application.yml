@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 
 
 spring:
@@ -18,9 +18,9 @@ spring:
 
 eureka:
   instance:
-  #  hostname: provider04-payment8001
-    instance-id: provider04-payment8001  #主机名
-    prefer-ip-address: false # true：显示ip  false：不显示
+ #   hostname: provider04-payment8002
+    instance-id: provider04-payment8002  #微服务的主机名
+    prefer-ip-address: true
 
   client:
     register-with-eureka: true  #表示向注册中心注册自己

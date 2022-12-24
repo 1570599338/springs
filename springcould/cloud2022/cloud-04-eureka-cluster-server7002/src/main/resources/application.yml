@@ -19,4 +19,5 @@ eureka:
 
 spring:
   application:
-    name: cluster-eureka-7002
+    #name: cluster-eureka-7002
+    name: cluster-eureka

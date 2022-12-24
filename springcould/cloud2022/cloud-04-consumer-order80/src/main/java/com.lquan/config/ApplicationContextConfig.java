@@ -2,6 +2,7 @@ package com.lquan.config;
 
 
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -21,6 +22,7 @@ import java.util.List;
 public class ApplicationContextConfig {
 
     @Bean
+    @LoadBalanced
     public RestTemplate restTemplate(){
 
         RestTemplate restTemplate = new RestTemplate();

@@ -21,7 +21,8 @@ public class OrderController {
 
     @Autowired
     private RestTemplate restTemplate;
-    String urlStr="http://127.0.0.1:8001/";
+    //String urlStr="http://127.0.0.1:8001/";
+    String urlStr="http://PROVIDER-PAYMENT04/";
     
     @GetMapping("/")
     public  void  getStr(){
