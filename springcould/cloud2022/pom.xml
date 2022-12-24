@@ -16,6 +16,7 @@
     <module>cloud-04-consumer-order80</module>
     <module>cloud-04-eureka-cluster-server7001</module>
     <module>cloud-04-eureka-cluster-server7002</module>
+    <module>cloud-04-eureka-cluster-server7003</module>
   </modules>
   <packaging>pom</packaging>
 
