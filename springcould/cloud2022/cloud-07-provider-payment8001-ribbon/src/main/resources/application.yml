@@ -19,7 +19,7 @@ spring:
 eureka:
   instance:
  #   hostname: provider04-payment8002
-    instance-id: provider07-payment8002  #微服务的主机名
+    instance-id: provider07-payment8001  #微服务的主机名
     prefer-ip-address: true
 
   client:
