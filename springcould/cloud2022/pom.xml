@@ -23,6 +23,10 @@
     <module>cloud-06-provider-payment8006-consul</module>
 
     <module>cloud-06-consumer-order80-consul</module>
+      <module>cloud-07-consumer-order80-ribbon</module>
+    <module>cloud-07-provider-payment8001-ribbon</module>
+    <module>cloud-07-provider-payment8002-ribbon</module>
+    <module>cloud-07-eureka-server7001</module>
 
 
   </modules>

@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: cusumer-order04
+
+eureka:
+  instance:
+    hostname: cusumer04-order
+    instance-id: cusumer04-order80
+
+  client:
+    register-with-eureka: true  #表示向注册中心注册自己
+    fetch-registry: true   #表示可以在注册中心被检索到
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+
