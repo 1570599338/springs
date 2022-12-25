@@ -1,19 +1,20 @@
-package com.lquan;
+package com.lquan.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 /**
  * @program: springcould
- * @description:
+ * @description: order
  * @author: lquan
- * @create: 2022-12-22 19:14
+ * @create: 2022-12-23 11:55
  **/
 @EnableEurekaClient
 @SpringBootApplication
-public class PayMent8001App06 {
+public class Oder82App07 {
     public static void main(String[] args) {
-        SpringApplication.run(PayMent8001App06.class,args);
+        SpringApplication.run(Oder82App07.class,args);
     }
 }

@@ -34,9 +34,10 @@ public class PaymentController {
     @Value("${server.port}")
     private String port;
 
-    @GetMapping(value = "/consule")
-    public String paymentzk(){
-        return "springcloud with consule:"+port+"\t"+ UUID.randomUUID().toString();
+
+    @GetMapping(value = "/irule")
+    public String paymentIRule(){
+        return "springcloud with irule:"+port+"\t"+ UUID.randomUUID().toString();
     }
 
     /**
@@ -88,7 +89,8 @@ public class PaymentController {
     }
 
 
-    @Autowired
+
+   @Autowired
     private DiscoveryClient discoveryClient;
     @GetMapping("/dis")
     public Object getDiscovery() {

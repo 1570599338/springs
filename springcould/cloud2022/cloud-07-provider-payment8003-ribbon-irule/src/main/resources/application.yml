@@ -1,10 +1,10 @@
 server:
-  port: 8002
+  port: 8003
 
 
 spring:
   application:
-    name: provider-payment07
+    name: provider-payment07-irule
 
 
   datasource:
@@ -19,7 +19,7 @@ spring:
 eureka:
   instance:
  #   hostname: provider04-payment8002
-    instance-id: provider07-payment8002  #微服务的主机名
+    instance-id: provider07-payment8003  #微服务的主机名
     prefer-ip-address: true
 
     lease-renewal-interval-in-seconds: 30  #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)

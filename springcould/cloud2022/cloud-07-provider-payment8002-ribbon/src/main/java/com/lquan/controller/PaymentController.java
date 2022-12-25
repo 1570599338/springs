@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * (Payment)表控制层
@@ -33,6 +34,10 @@ public class PaymentController {
     @Value("${server.port}")
     private String port;
 
+    @GetMapping(value = "/irule")
+    public String paymentIRule(){
+        return "springcloud with irule:"+port+"\t"+ UUID.randomUUID().toString();
+    }
 
     /**
      * 通过主键查询单条数据

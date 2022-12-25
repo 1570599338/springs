@@ -26,12 +26,20 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
     //String urlStr="http://127.0.0.1:8001/";
-    String urlStr="http://PROVIDER-PAYMENT07/";
-
+    String urlStr="http://provider-payment07/";
+    String urlStr_irule="http://provider-payment07-irule/";
 
     @GetMapping("/irule")
     public  String  getStrs(){
+
         String str = restTemplate.getForObject(urlStr+"payment/irule", String.class);
+        log.info("返回值：{}",str);
+        return  str;
+    }
+    @GetMapping("/irulei")
+    public  String  getStrsrule(){
+
+        String str = restTemplate.getForObject(urlStr_irule+"payment/irule", String.class);
         log.info("返回值：{}",str);
         return  str;
     }
@@ -42,7 +50,6 @@ public class OrderController {
         String str = restTemplate.getForObject(urlStr+"payment/get/4", String.class);
         log.info("返回值：{}",str);
     }
-
 
 
     /**

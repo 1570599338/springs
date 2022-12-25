@@ -1,26 +1,15 @@
 server:
-  port: 8002
+  port: 81
 
 
 spring:
   application:
-    name: provider-payment07
-
-
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource      #当前数据源操作类型
-    driver-class-name: org.gjt.mm.mysql.Driver      #mysql驱动包
-    url: jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: root
-
-
+    name: cusumer-order07-irule
 
 eureka:
   instance:
- #   hostname: provider04-payment8002
-    instance-id: provider07-payment8002  #微服务的主机名
-    prefer-ip-address: true
+    hostname: cusumer07-order-irule
+    instance-id: cusumer07-order81
 
     lease-renewal-interval-in-seconds: 30  #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
     lease-expiration-duration-in-seconds: 90   #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
@@ -34,9 +23,3 @@ eureka:
       #defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
 
 
-
-
-#配置mybatis的xml
-mybatis:
-  mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.lquan.bean

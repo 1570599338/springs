@@ -9,14 +9,21 @@ package com.lquan.cloud.controller;
 
 import com.lquan.bean.CommonResult;
 import com.lquan.bean.Payment;
+import com.lquan.cloud.config.rule.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 @RestController
@@ -26,11 +33,11 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
     //String urlStr="http://127.0.0.1:8001/";
-    String urlStr="http://PROVIDER-PAYMENT07/";
-
+    String urlStr="http://provider-payment07/";
 
     @GetMapping("/irule")
     public  String  getStrs(){
+
         String str = restTemplate.getForObject(urlStr+"payment/irule", String.class);
         log.info("返回值：{}",str);
         return  str;
@@ -42,7 +49,6 @@ public class OrderController {
         String str = restTemplate.getForObject(urlStr+"payment/get/4", String.class);
         log.info("返回值：{}",str);
     }
-
 
 
     /**
@@ -90,5 +96,40 @@ public class OrderController {
         return new CommonResult<>(444,"查询失败");
     }
 
+
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+    @GetMapping("/dis")
+    public Object getDiscovery() {
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            log . info ( "***** element:" + service );
+        }
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("provider-payment07");
+        for (ServiceInstance instance : instances) {
+            log.info("ServiceId:"+instance.getServiceId()+" |instanceId: "+instance.getInstanceId()+" |host: "+instance.getHost()+" |port: "+instance.getPort()+" |uri: "+instance.getUri()+" | ");
+        }
+
+        return discoveryClient;
+    }
+
+    @Autowired
+    LoadBalancer loadBalancer;
+    @GetMapping("/disBalancer")
+    public String getDiscoveryBalancer() {
+
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("provider-payment07");
+        ServiceInstance serviceInstance = loadBalancer.serviceInstance(instances);
+
+        URI uri = serviceInstance.getUri();
+
+        String str = restTemplate.getForObject(uri+"payment/irule", String.class);
+        log.info("返回值：{}",str);
+
+        return str;
+    }
 
 }
