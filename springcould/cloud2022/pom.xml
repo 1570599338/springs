@@ -18,6 +18,13 @@
     <module>cloud-04-eureka-cluster-server7002</module>
     <module>cloud-04-eureka-cluster-server7003</module>
     <module>cloud-04-provider-payment8002</module>
+    <module>cloud-05-consumer-order80-zk</module>
+    <module>cloud-05-provider-payment8004-zk</module>
+    <module>cloud-06-provider-payment8006-consul</module>
+
+    <module>cloud-06-consumer-order80-consul</module>
+
+
   </modules>
   <packaging>pom</packaging>
 
