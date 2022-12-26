@@ -1,0 +1,28 @@
+server:
+  port: 81
+
+
+spring:
+  application:
+    name: cusumer-order08
+
+eureka:
+  instance:
+    hostname: cusumer08-order
+    instance-id: cusumer08-order81
+
+    lease-renewal-interval-in-seconds: 30  #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+    lease-expiration-duration-in-seconds: 90   #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+
+
+  client:
+    register-with-eureka: true  #表示向注册中心注册自己
+    fetch-registry: true   #表示可以在注册中心被检索到
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka
+      #defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+
+#设置fegin客户端超时时间(openfegin默认支持ribbon)
+ribbon:
+  ReadTimeout:  5000 #指建立连接所用的时间，使用与网络状况正常的情况下，两端连接的时间
+  ConnectTimeout: 5000  # 指的是建立连接后服务器读取到可用资源所有的时间

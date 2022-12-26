@@ -31,6 +31,11 @@
     <module>cloud-07-provider-payment8004-ribbon-irule</module>
     <module>cloud-07-consumer-order81-ribbon-irule</module>
       <module>cloud-07-consumer-order82-ribbon-irule</module>
+    <module>cloud-08-provider-payment8001-openfegin</module>
+    <module>cloud-08-provider-payment8002-openfegin</module>
+    <module>cloud-08-consumer-order80-openfegin</module>
+    <module>cloud-08-consumer-order81-openfegin-timeout</module>
+    <module>cloud-08-consumer-order82-log</module>
 
 
   </modules>
