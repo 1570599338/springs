@@ -36,6 +36,9 @@
     <module>cloud-08-consumer-order80-openfegin</module>
     <module>cloud-08-consumer-order81-openfegin-timeout</module>
     <module>cloud-08-consumer-order82-log</module>
+    <module>cloud-09-provider-payment8001-problem</module>
+    <module>cloud-09-consumer-order80-feign-hystrix</module>
+    <module>cloud-09-provider-payment8002-hystrix-fallback</module>
 
 
   </modules>
