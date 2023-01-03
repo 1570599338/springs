@@ -39,6 +39,8 @@
     <module>cloud-09-provider-payment8001-problem</module>
     <module>cloud-09-consumer-order80-feign-hystrix</module>
     <module>cloud-09-provider-payment8002-hystrix-fallback</module>
+      <module>cloud-09-consumer-order81-global-hystrix-controller</module>
+    <module>cloud-09-consumer-order82-hystrix-openfeigin</module>
 
 
   </modules>
