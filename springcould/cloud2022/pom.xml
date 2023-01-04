@@ -42,6 +42,9 @@
       <module>cloud-09-consumer-order81-global-hystrix-controller</module>
     <module>cloud-09-consumer-order82-hystrix-openfeigin</module>
       <module>cloud-09-provider-payment8003-hystrix-breaker</module>
+      <module>cloud-09-consumer-dashboard9001</module>
+      <module>cloud-09-provider-payment8004-hystrix-fallback-dashboard</module>
+    <module>cloud-09-provider-payment8005-hystrix-breaker-dashboard</module>
 
 
   </modules>
