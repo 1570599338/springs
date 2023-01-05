@@ -45,6 +45,10 @@
       <module>cloud-09-consumer-dashboard9001</module>
       <module>cloud-09-provider-payment8004-hystrix-fallback-dashboard</module>
     <module>cloud-09-provider-payment8005-hystrix-breaker-dashboard</module>
+      <module>cloud-11-gateway-gateway9527</module>
+    <module>cloud-11-provider-payment8001</module>
+    <module>cloud-11-gateway-gateway9528-dynamic</module>
+    <module>cloud-11-provider-payment8002</module>
 
 
   </modules>
