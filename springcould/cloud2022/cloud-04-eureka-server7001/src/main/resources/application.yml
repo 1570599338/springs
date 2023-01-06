@@ -1,6 +1,11 @@
 server:
   port: 7001
 
+spring:
+  application:
+    name: single-eureka
+
+
 eureka:
   instance:
     hostname: eureka  #eureka服务端的实例名字
@@ -11,3 +16,7 @@ eureka:
     fetch-registry: false  #表示自己就是注册中心，职责是维护服务实例，并不需要检索服务
     service-url:
         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    #设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+    eviction-interval-timer-in-ms: 4000 #设置清理问题间隔时间

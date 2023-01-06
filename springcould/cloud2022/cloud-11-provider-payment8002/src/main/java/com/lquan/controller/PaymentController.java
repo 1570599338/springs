@@ -50,7 +50,7 @@ public class PaymentController {
      *  查询端口
      * @return
      */
-    @GetMapping("/lb}")
+    @GetMapping("/lb")
     public String getPaymentLb() {
 
         return "端口号："+port;
