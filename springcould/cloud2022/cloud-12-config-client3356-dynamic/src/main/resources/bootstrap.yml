@@ -1,0 +1,42 @@
+server:
+  port: 3356
+
+
+
+
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:  # 读取的是master分支下的config-dev.yml的配置文件，在config3344中的读取路径http://127.0.0.1:3344/master/config-dev.yml
+      label: master  #分支名称
+      name: config  #配置文件名称
+      profile: dev  #读取的后缀名称
+      uri:  http://127.0.0.1:3344  #配置中心地址
+
+
+
+eureka:
+  instance:
+    hostname: config-client3356
+    instance-id: config-client3356
+
+    lease-renewal-interval-in-seconds: 30  #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+    lease-expiration-duration-in-seconds: 90   #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+
+
+  client:
+    register-with-eureka: true  #表示向注册中心注册自己
+    fetch-registry: true   #表示可以在注册中心被检索到
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka
+      #defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
