@@ -60,10 +60,10 @@
     <module>cloud-14-stream-rabbitmq-provider8801</module>
     <module>cloud-14-stream-rabbitmq-consumer8802</module>
     <module>cloud-14-stream-rabbitmq-consumer8803</module>
-    <module>cloud-14-stream-rabbitmq-provider8804-grop-same</module>
-    <module>cloud-14-stream-rabbitmq-provider8805-grop-same</module>
-    <module>cloud-14-stream-rabbitmq-provider8806-grop-diff</module>
-    <module>cloud-14-stream-rabbitmq-provider8807-grop-diff</module>
+    <module>cloud-14-stream-rabbitmq-consumer8804-grop-same</module>
+    <module>cloud-14-stream-rabbitmq-consumer8805-grop-same</module>
+    <module>cloud-14-stream-rabbitmq-consumer8806-grop-diff</module>
+    <module>cloud-14-stream-rabbitmq-consumer8807-grop-diff</module>
 
 
   </modules>

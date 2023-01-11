@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-14-stream-rabbitmq-provider8807-grop-diff</artifactId>
+    <artifactId>cloud-14-stream-rabbitmq-consumer8806-grop-diff</artifactId>
 
 
     <dependencies>
