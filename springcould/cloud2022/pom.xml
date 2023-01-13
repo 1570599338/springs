@@ -67,6 +67,13 @@
     <module>cloud-15-eureka-server7001</module>
     <module>cloud-15-provider-payment8001-zipkin</module>
     <module>cloud-15-consumer-order80-zipkin</module>
+      <module>cloudalibaba-17-provider-payment9001</module>
+      <module>cloudalibaba-17-consumer-nacos-order83</module>
+      <module>cloudalibaba-17-nacos-config3377-default</module>
+      <module>cloudalibaba-17-nacos-config3378-dataId-dev</module>
+      <module>cloudalibaba-17-nacos-config3379-dataId-test</module>
+    <module>cloudalibaba-17-nacos-config3380-group</module>
+    <module>cloudalibaba-17-nacos-config3381-namespace</module>
 
 
   </modules>

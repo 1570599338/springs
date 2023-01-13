@@ -1,0 +1,21 @@
+server:
+  port: 3380
+
+
+spring:
+  application:
+    name: nacos-config3380
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #服务注册中心
+      config:
+        server-addr: 127.0.0.1:8848  #配置中心的地址
+        file-extension: yaml  # 支出配置中心的配置文件的格式为yaml
+        #group: DEV_GROUP   # 配置的分组
+        group: TEST_GROUP   # 配置的分组
+
+
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# nacos-config3379-test.ymal
