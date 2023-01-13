@@ -74,6 +74,7 @@
       <module>cloudalibaba-17-nacos-config3379-dataId-test</module>
     <module>cloudalibaba-17-nacos-config3380-group</module>
     <module>cloudalibaba-17-nacos-config3381-namespace</module>
+      <module>cloudalibaba-17-nacos-config3382-cluster</module>
 
 
   </modules>
