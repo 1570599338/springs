@@ -1,17 +1,18 @@
 package com.lquan.domain;
 
+import java.math.BigDecimal;
 import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * (TOrder)实体类
+ * (Order)实体类
  *
- * @author lquan
- * @since 2023-01-16 21:58:31
+ * @author makejava
+ * @since 2023-01-17 02:29:29
  */
 @ToString
 public class Order implements Serializable {
-    private static final long serialVersionUID = -14338889977310855L;
+    private static final long serialVersionUID = 343280567013270915L;
     
     private Long id;
     /**
@@ -29,7 +30,7 @@ public class Order implements Serializable {
     /**
      * 金额
      */
-    private String money;
+    private BigDecimal money;
     /**
      * 订单状态：0：创建中; 1：已完结
      */
@@ -68,11 +69,11 @@ public class Order implements Serializable {
         this.count = count;
     }
 
-    public String getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 

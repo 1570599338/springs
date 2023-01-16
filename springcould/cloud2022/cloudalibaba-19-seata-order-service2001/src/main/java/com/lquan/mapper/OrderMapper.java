@@ -1,65 +1,86 @@
 package com.lquan.mapper;
 
+
 import com.lquan.domain.Order;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.web.bind.annotation.Mapping;
-
+import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * orderMapper接口
- * 
- * @author lquan
- * @date 2023-01-16 21:58:30
+ * (Order)表数据库访问层
+ *
+ * @author makejava
+ * @since 2023-01-17 02:29:28
  */
-@Mapper
-public interface OrderMapper{
-    /**
-     * 查询Order
-     * 
-     * @param id
-     * @return order
-     */
-    public Order selectOrderById(Long id);
+@Mapper 
+public interface OrderMapper {
 
     /**
-     * 查询Order列表
-     * 
-     * @param order
-     * @return order集合
+     * 通过ID查询单条数据
+     *
+     * @param id 主键
+     * @return 实例对象
      */
-    public List<Order> selectOrderList(Order order);
+    Order queryById(Long id);
+
 
     /**
-     * 新增Order
-     * 
-     * @param order
-     * @return 结果
+     * 统计总行数
+     *
+     * @param order 查询条件
+     * @return 总行数
      */
-    public int insertOrder(Order order);
+    long count(Order order);
 
     /**
-     * 修改Order
-     * 
-     * @param order
-     * @return 结果
+     * 新增数据
+     *
+     * @param order 实例对象
+     * @return 影响行数
      */
-    public int updateOrder(Order order);
+    int insert(Order order);
+    
+        /**
+     * 新增数据
+     *
+     * @param order 实例对象
+     * @return 影响行数
+     */
+    int insertSelective(Order order);
+
 
     /**
-     * 删除Order
-     * 
-     * @param id
-     * @return 结果
+     * 批量新增数据（MyBatis原生foreach方法）
+     *
+     * @param entities List<Order> 实例对象列表
+     * @return 影响行数
      */
-    public int deleteOrderById(Long id);
+    int insertBatch(@Param("entities") List<Order> entities);
 
     /**
-     * 批量删除Order
-     * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * 批量新增或按主键更新数据（MyBatis原生foreach方法）
+     *
+     * @param entities List<Order> 实例对象列表
+     * @return 影响行数
+     * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
      */
-    public int deleteOrderByIds(String[] ids);
+    int insertOrUpdateBatch(@Param("entities") List<Order> entities);
+
+    /**
+     * 修改数据
+     *
+     * @param order 实例对象
+     * @return 影响行数
+     */
+    int update(Order order);
+
+    /**
+     * 通过主键删除数据
+     *
+     * @param id 主键
+     * @return 影响行数
+     */
+    int deleteById(Long id);
+
 }
 
