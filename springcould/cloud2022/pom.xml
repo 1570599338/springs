@@ -75,6 +75,8 @@
     <module>cloudalibaba-17-nacos-config3380-group</module>
     <module>cloudalibaba-17-nacos-config3381-namespace</module>
       <module>cloudalibaba-17-nacos-config3382-cluster</module>
+      <module>cloudalibaba-18-sentinel-service8401</module>
+      <module>cloudalibaba-19-seata-order-service2001</module>
 
 
   </modules>
