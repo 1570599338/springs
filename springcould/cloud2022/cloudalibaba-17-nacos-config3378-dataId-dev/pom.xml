@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloudalibaba-17-nacos-config3378-dateId-dev</artifactId>
+    <artifactId>cloudalibaba-17-nacos-config3378-dataId-dev</artifactId>
 
 
     <dependencies>
