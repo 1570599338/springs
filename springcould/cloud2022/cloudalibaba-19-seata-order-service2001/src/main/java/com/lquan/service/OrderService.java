@@ -12,6 +12,14 @@ import com.lquan.domain.Order;
 public interface OrderService {
 
     /**
+     * 创建订单
+     * @param order
+     */
+    void create(Order order);
+
+
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键

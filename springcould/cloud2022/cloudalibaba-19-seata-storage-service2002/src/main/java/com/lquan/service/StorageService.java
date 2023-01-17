@@ -11,6 +11,9 @@ import com.lquan.domain.Storage;
  */
 public interface StorageService {
 
+    // 扣减库存
+    void decrease(Long productId, Integer count);
+
     /**
      * 通过ID查询单条数据
      *

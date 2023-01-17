@@ -150,6 +150,11 @@
         where id = #{id}
     </update>
 
+    <update id="updateStatus">
+        update t_order set status = 1
+        where user_id=#{userId} and status = #{status};
+    </update>
+
     <!--通过主键删除-->
     <delete id="deleteById">
         delete from t_order where id = #{id}

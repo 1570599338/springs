@@ -10,6 +10,15 @@
         <result property="residue" column="residue" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <update id="decrease">
+        UPDATE t_account
+        SET
+          residue = residue - #{money},used = used + #{money}
+        WHERE
+          user_id = #{userId};
+    </update>
+
+
     <!--查询单个-->
     <select id="queryById" resultMap="AccountMap">
         select

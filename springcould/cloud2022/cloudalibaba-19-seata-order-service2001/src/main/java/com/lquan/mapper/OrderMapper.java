@@ -16,6 +16,13 @@ import java.util.List;
 public interface OrderMapper {
 
     /**
+     * 修改订单状态，从零改为1
+     * @param userId
+     * @param status
+     */
+    void updateStatus(@Param("userId") Long userId,@Param("status") Integer status);
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键

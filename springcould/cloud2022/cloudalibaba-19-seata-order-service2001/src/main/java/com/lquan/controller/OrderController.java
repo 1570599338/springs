@@ -1,7 +1,9 @@
 package com.lquan.controller;
 
+import com.lquan.domain.CommonResult;
 import com.lquan.domain.Order;
 import com.lquan.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,15 +16,21 @@ import javax.annotation.Resource;
  * @since 2023-01-17 02:29:32
  */
 @RestController
-@RequestMapping("order")
+@RequestMapping("/order")
 public class OrderController {
     /**
      * 服务对象
      */
-    @Resource
+    @Autowired(required = false)
     private OrderService orderService;
 
 
+    @GetMapping("/create")
+    public CommonResult create(Order order)
+    {
+        orderService.insertSelective(order);
+        return new CommonResult(200,"订单创建成功");
+    }
 
     /**
      * 通过主键查询单条数据

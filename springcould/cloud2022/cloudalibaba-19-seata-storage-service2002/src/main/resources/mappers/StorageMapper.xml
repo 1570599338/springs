@@ -10,6 +10,16 @@
         <result property="residue" column="residue" jdbcType="INTEGER"/>
     </resultMap>
 
+
+    <update id="decrease">
+        UPDATE
+            t_storage
+        SET
+            used = used + #{count},residue = residue - #{count}
+        WHERE
+            product_id = #{productId}
+    </update>
+
     <!--查询单个-->
     <select id="queryById" resultMap="StorageMap">
         select

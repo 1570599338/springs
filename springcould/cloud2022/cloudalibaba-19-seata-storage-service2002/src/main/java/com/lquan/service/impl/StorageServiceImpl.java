@@ -3,6 +3,7 @@ package com.lquan.service.impl;
 import com.lquan.domain.Storage;
 import com.lquan.mapper.StorageMapper;
 import com.lquan.service.StorageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,10 +14,19 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2023-01-17 02:53:10
  */
+@Slf4j
 @Service
 public class StorageServiceImpl implements StorageService {
     @Resource
     private StorageMapper storageMapper;
+
+    // 扣减库存
+    @Override
+    public void decrease(Long productId, Integer count) {
+        log.info("------->storage-service中扣减库存开始");
+        storageMapper.decrease(productId,count);
+        log.info("------->storage-service中扣减库存结束");
+    }
 
     /**
      * 通过ID查询单条数据

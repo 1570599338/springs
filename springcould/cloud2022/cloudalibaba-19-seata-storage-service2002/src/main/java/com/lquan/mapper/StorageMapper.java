@@ -15,6 +15,10 @@ import java.util.List;
 @Mapper 
 public interface StorageMapper {
 
+    //扣减库存信息
+    void decrease(@Param("productId") Long productId, @Param("count") Integer count);
+
+
     /**
      * 通过ID查询单条数据
      *

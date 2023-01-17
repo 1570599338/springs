@@ -1,5 +1,6 @@
 package com.lquan.controller;
 
+import com.lquan.domain.CommonResult;
 import com.lquan.domain.Storage;
 import com.lquan.service.StorageService;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import javax.annotation.Resource;
  * @since 2023-01-17 02:53:11
  */
 @RestController
-@RequestMapping("storage")
+@RequestMapping("/storage")
 public class StorageController {
     /**
      * 服务对象
@@ -22,6 +23,18 @@ public class StorageController {
     @Resource
     private StorageService storageService;
 
+
+    /**
+     * 扣减库存
+     * @param productId
+     * @param count
+     * @return
+     */
+    @RequestMapping("/decrease")
+    public CommonResult decrease(Long productId, Integer count) {
+        storageService.decrease(productId, count);
+        return new CommonResult(200,"扣减库存成功！");
+    }
 
 
     /**
