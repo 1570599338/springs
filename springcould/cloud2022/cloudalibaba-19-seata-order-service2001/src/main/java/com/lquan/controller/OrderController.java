@@ -2,12 +2,16 @@ package com.lquan.controller;
 
 import com.lquan.domain.CommonResult;
 import com.lquan.domain.Order;
+import com.lquan.service.AccountService;
 import com.lquan.service.OrderService;
+import com.lquan.service.StorageService;
+import io.seata.core.context.RootContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 
 /**
  * (Order)表控制层
@@ -21,14 +25,47 @@ public class OrderController {
     /**
      * 服务对象
      */
-    @Autowired(required = false)
+    @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private AccountService accountService;
+
+
+
+    @Resource
+    private StorageService storageService;
 
 
     @GetMapping("/create")
-    public CommonResult create(Order order)
-    {
-        orderService.insertSelective(order);
+    public CommonResult create(Order order){
+        String xid = RootContext.getXID();
+        System.out.println("account-->xid"+xid);
+        orderService.create(order);
+        return new CommonResult(200,"订单创建成功");
+    }
+
+    @GetMapping("/account")
+    public CommonResult testAccount(Order order){
+
+        try {
+            accountService.decrease(1l,new BigDecimal("10"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new CommonResult(200,"订单创建成功");
+    }
+
+
+    @GetMapping("/storage")
+    public CommonResult testStorage(Order order){
+        try {
+            storageService.decrease(1l,1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return new CommonResult(200,"订单创建成功");
     }
 

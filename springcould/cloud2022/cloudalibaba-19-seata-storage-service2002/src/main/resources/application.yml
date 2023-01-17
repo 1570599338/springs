@@ -26,9 +26,9 @@ spring:
 
 
 
-feign:
-  hystrix:
-    enabled: false
+#feign:
+#  hystrix:
+#    enabled: false
 
 
 

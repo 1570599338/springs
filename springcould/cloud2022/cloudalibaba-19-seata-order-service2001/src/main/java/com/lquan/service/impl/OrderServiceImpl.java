@@ -5,6 +5,7 @@ import com.lquan.mapper.OrderMapper;
 import com.lquan.service.AccountService;
 import com.lquan.service.OrderService;
 import com.lquan.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,10 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderMapper orderMapper;
 
-    @Autowired(required = false)
+    @Resource
     private AccountService accountService;
 
-    @Autowired(required = false)
+    @Resource
     private StorageService storageService;
 
     /**
@@ -35,12 +36,14 @@ public class OrderServiceImpl implements OrderService {
      * @param order
      */
     @Override
+    @GlobalTransactional(name = "fsp_create_group",rollbackFor = Exception.class)
     public void create(Order order) {
      //   创建订单->调用库存服务扣减库存->调用账户服务扣减账户余额->修改订单状态
 
         // 创建订单
         log.info("----->开始新建订单");
         //新建订单
+        order.setStatus(0);
         orderMapper.insertSelective(order);
         //扣减库存
         log.info("----->订单微服务开始调用库存，做扣减Count");
@@ -55,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
         //修改订单状态，从零到1代表已经完成
         log.info("----->修改订单状态开始");
-        orderMapper.updateStatus(order.getUserId(),1);
+        orderMapper.updateStatus(order.getUserId(),0);
        // orderMapper.update()
         log.info("----->修改订单状态结束");
 

@@ -3,6 +3,7 @@ package com.lquan.controller;
 import com.lquan.domain.Account;
 import com.lquan.domain.CommonResult;
 import com.lquan.service.AccountService;
+import io.seata.core.context.RootContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,9 @@ public class AccountController {
      */
     @RequestMapping("/decrease")
     public CommonResult decrease(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money){
+        String xid = RootContext.getXID();
+        System.out.println("account-->xid"+xid);
+
         accountService.decrease(userId,money);
         return new CommonResult(200,"扣减账户余额成功！");
     }

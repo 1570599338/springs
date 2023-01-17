@@ -3,6 +3,7 @@ package com.lquan.controller;
 import com.lquan.domain.CommonResult;
 import com.lquan.domain.Storage;
 import com.lquan.service.StorageService;
+import io.seata.core.context.RootContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,9 @@ public class StorageController {
      */
     @RequestMapping("/decrease")
     public CommonResult decrease(Long productId, Integer count) {
+
+        String xid = RootContext.getXID();
+        System.out.println("account-->xid"+xid);
         storageService.decrease(productId, count);
         return new CommonResult(200,"扣减库存成功！");
     }
