@@ -39,8 +39,6 @@ public class OrderController {
 
     @GetMapping("/create")
     public CommonResult create(Order order){
-        String xid = RootContext.getXID();
-        System.out.println("account-->xid"+xid);
         orderService.create(order);
         return new CommonResult(200,"订单创建成功");
     }

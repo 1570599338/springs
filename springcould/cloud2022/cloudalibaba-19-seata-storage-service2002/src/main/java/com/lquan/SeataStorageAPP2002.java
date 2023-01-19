@@ -15,7 +15,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
-@EnableFeignClients
 public class SeataStorageAPP2002{
 
     public static void main(String[] args){

@@ -35,7 +35,7 @@ public class StorageController {
     public CommonResult decrease(Long productId, Integer count) {
 
         String xid = RootContext.getXID();
-        System.out.println("account-->xid"+xid);
+        System.out.println("**************************storage-->xid"+xid);
         storageService.decrease(productId, count);
         return new CommonResult(200,"扣减库存成功！");
     }

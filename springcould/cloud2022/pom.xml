@@ -79,6 +79,7 @@
       <module>cloudalibaba-19-seata-order-service2001</module>
       <module>cloudalibaba-19-seata-storage-service2002</module>
     <module>cloudalibaba-19-seata-account-service2003</module>
+      <module>SnowflakeWorker</module>
 
 
   </modules>

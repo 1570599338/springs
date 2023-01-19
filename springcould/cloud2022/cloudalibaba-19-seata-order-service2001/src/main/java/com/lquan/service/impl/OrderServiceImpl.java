@@ -5,6 +5,7 @@ import com.lquan.mapper.OrderMapper;
 import com.lquan.service.AccountService;
 import com.lquan.service.OrderService;
 import com.lquan.service.StorageService;
+import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,8 @@ public class OrderServiceImpl implements OrderService {
     @GlobalTransactional(name = "fsp_create_group",rollbackFor = Exception.class)
     public void create(Order order) {
      //   创建订单->调用库存服务扣减库存->调用账户服务扣减账户余额->修改订单状态
-
+        String xid = RootContext.getXID();
+        System.out.println("**************************order-->xid"+xid);
         // 创建订单
         log.info("----->开始新建订单");
         //新建订单
